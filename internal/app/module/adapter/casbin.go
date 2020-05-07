@@ -4,12 +4,14 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/LyricTian/gin-admin/internal/app/model"
-	"github.com/LyricTian/gin-admin/internal/app/schema"
-	"github.com/LyricTian/gin-admin/pkg/logger"
 	casbinModel "github.com/casbin/casbin/v2/model"
 	"github.com/casbin/casbin/v2/persist"
 	"github.com/google/wire"
+	"github.com/sirupsen/logrus"
+
+	"github.com/LyricTian/gin-admin/internal/app/model"
+	"github.com/LyricTian/gin-admin/internal/app/schema"
+	"github.com/LyricTian/gin-admin/pkg/logger"
 )
 
 var _ persist.Adapter = (*CasbinAdapter)(nil)
@@ -86,6 +88,8 @@ func (a *CasbinAdapter) loadRolePolicy(ctx context.Context, m casbinModel.Model)
 		}
 	}
 
+	logrus.Debugf("CasbinAdapter loadRolePolicy casbinModel.Model m=%+v", m)
+
 	return nil
 }
 
@@ -114,6 +118,8 @@ func (a *CasbinAdapter) loadUserPolicy(ctx context.Context, m casbinModel.Model)
 			}
 		}
 	}
+
+	logrus.Debugf("CasbinAdapter loadUserPolicy casbinModel.Model m=%+v", m)
 
 	return nil
 }
