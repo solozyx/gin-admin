@@ -81,6 +81,7 @@ func (a *CasbinAdapter) loadRolePolicy(ctx context.Context, m casbinModel.Model)
 						}
 						mcache[mr.Path+mr.Method] = struct{}{}
 						line := fmt.Sprintf("p,%s,%s,%s", item.RecordID, mr.Path, mr.Method)
+						logrus.Debugf("CasbinAdapter loadRolePolicy line=%+v", line)
 						persist.LoadPolicyLine(line, m)
 					}
 				}
@@ -114,6 +115,7 @@ func (a *CasbinAdapter) loadUserPolicy(ctx context.Context, m casbinModel.Model)
 		if urs, ok := mUserRoles[uitem.RecordID]; ok {
 			for _, ur := range urs {
 				line := fmt.Sprintf("g,%s,%s", ur.UserID, ur.RoleID)
+				logrus.Debugf("CasbinAdapter loadUserPolicy line=%+v", line)
 				persist.LoadPolicyLine(line, m)
 			}
 		}
