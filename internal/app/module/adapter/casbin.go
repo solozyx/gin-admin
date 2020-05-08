@@ -90,6 +90,11 @@ func (a *CasbinAdapter) loadRolePolicy(ctx context.Context, m casbinModel.Model)
 	}
 
 	logrus.Debugf("CasbinAdapter loadRolePolicy casbinModel.Model m=%+v", m)
+	logrus.Debugf("CasbinAdapter loadRolePolicy casbinModel.Model m[e]=%+v", m["e"])
+	logrus.Debugf("CasbinAdapter loadRolePolicy casbinModel.Model m[g]=%+v", m["g"])
+	logrus.Debugf("CasbinAdapter loadRolePolicy casbinModel.Model m[m]=%+v", m["m"])
+	logrus.Debugf("CasbinAdapter loadRolePolicy casbinModel.Model m[p]=%+v", m["p"])
+	logrus.Debugf("CasbinAdapter loadRolePolicy casbinModel.Model m[r]=%+v", m["r"])
 
 	return nil
 }
@@ -122,6 +127,11 @@ func (a *CasbinAdapter) loadUserPolicy(ctx context.Context, m casbinModel.Model)
 	}
 
 	logrus.Debugf("CasbinAdapter loadUserPolicy casbinModel.Model m=%+v", m)
+	logrus.Debugf("CasbinAdapter loadUserPolicy casbinModel.Model m[e]=%+v", m["e"])
+	logrus.Debugf("CasbinAdapter loadUserPolicy casbinModel.Model m[g]=%+v", m["g"])
+	logrus.Debugf("CasbinAdapter loadUserPolicy casbinModel.Model m[m]=%+v", m["m"])
+	logrus.Debugf("CasbinAdapter loadUserPolicy casbinModel.Model m[p]=%+v", m["p"])
+	logrus.Debugf("CasbinAdapter loadUserPolicy casbinModel.Model m[r]=%+v", m["r"])
 
 	return nil
 }
