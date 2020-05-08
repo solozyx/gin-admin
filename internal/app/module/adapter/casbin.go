@@ -30,6 +30,14 @@ type CasbinAdapter struct {
 
 // LoadPolicy loads all policy rules from the storage.
 func (a *CasbinAdapter) LoadPolicy(model casbinModel.Model) error {
+
+	logrus.Debugf("CasbinAdapter LoadPolicy 1 model=%+v", model)
+	logrus.Debugf("CasbinAdapter LoadPolicy 1 model[e][e]=%+v", model["e"]["e"])
+	logrus.Debugf("CasbinAdapter LoadPolicy 1 model[g][g]=%+v", model["g"]["g"])
+	logrus.Debugf("CasbinAdapter LoadPolicy 1 model[m][m]=%+v", model["m"]["m"])
+	logrus.Debugf("CasbinAdapter LoadPolicy 1 model[p][p]=%+v", model["p"]["p"])
+	logrus.Debugf("CasbinAdapter LoadPolicy 1 model[r][r]=%+v", model["r"]["r"])
+
 	ctx := context.Background()
 	err := a.loadRolePolicy(ctx, model)
 	if err != nil {
@@ -42,6 +50,14 @@ func (a *CasbinAdapter) LoadPolicy(model casbinModel.Model) error {
 		logger.Errorf(ctx, "Load casbin user policy error: %s", err.Error())
 		return err
 	}
+
+	logrus.Debugf("CasbinAdapter LoadPolicy 2 model=%+v", model)
+	logrus.Debugf("CasbinAdapter LoadPolicy 2 model[e][e]=%+v", model["e"]["e"])
+	logrus.Debugf("CasbinAdapter LoadPolicy 2 model[g][g]=%+v", model["g"]["g"])
+	logrus.Debugf("CasbinAdapter LoadPolicy 2 model[m][m]=%+v", model["m"]["m"])
+	logrus.Debugf("CasbinAdapter LoadPolicy 2 model[p][p]=%+v", model["p"]["p"])
+	logrus.Debugf("CasbinAdapter LoadPolicy 2 model[r][r]=%+v", model["r"]["r"])
+
 	return nil
 }
 
