@@ -1,0 +1,63 @@
+CasbinAdapter loadRolePolicy
+line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id/enable,PATCH"
+line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id/disable,PATCH"
+line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos,GET"
+line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id,DELETE"
+line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id,GET"
+line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id,PUT"
+line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos,POST"
+
+CasbinAdapter loadRolePolicy casbinModel.Model
+m=map[e:map[e:0xc0003111a0] g:map[g:0xc0003110e0] m:map[m:0xc000310f60] p:map[p:0xc000311080] r:map[r:0xc000311020]]"
+m[e][e]=&{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:<nil>}"
+m[g][g]=&{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:<nil>}"
+m[m][m]=&{Key:m Value:g(r_sub, p_sub) == true && keyMatch2(r_obj, p_obj) == true && regexMatch(r_act, p_act) == true || r_sub == \"root\" Tokens:[] Policy:[] RM:<nil>}"
+m[p][p]=&{
+    Key:p
+    Value:sub, obj, act
+    Tokens:[p_sub p_obj p_act]
+    Policy:[
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/enable PATCH]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/disable PATCH]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos GET]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id DELETE]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id GET]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id PUT]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos POST]
+    ]
+    RM:<nil>
+}"
+m[r][r]=&{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:<nil>}"
+
+CasbinAdapter loadUserPolicy
+line=g,5eaaa09112a12014ac2b6ef9,5eaaa01912a12014ac2b6ef1"
+
+CasbinAdapter loadUserPolicy casbinModel.Model
+m=map[e:map[e:0xc0003111a0] g:map[g:0xc0003110e0] m:map[m:0xc000310f60] p:map[p:0xc000311080] r:map[r:0xc000311020]]"
+m[e][e]=&{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:<nil>}"
+m[g][g]=&{
+    Key:g
+    Value:_, _
+    Tokens:[]
+    Policy:[
+        [5eaaa09112a12014ac2b6ef9 5eaaa01912a12014ac2b6ef1]
+    ]
+    RM:0xc000583a00
+}"
+m[m][m]=&{Key:m Value:g(r_sub, p_sub) == true && keyMatch2(r_obj, p_obj) == true && regexMatch(r_act, p_act) == true || r_sub == \"root\" Tokens:[] Policy:[] RM:<nil>}"
+m[p][p]=&{
+    Key:p
+    Value:sub, obj, act
+    Tokens:[p_sub p_obj p_act]
+    Policy:[
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/enable PATCH]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/disable PATCH]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos GET]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id DELETE]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id GET]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id PUT]
+        [5eaaa01912a12014ac2b6ef1 /api/v1/demos POST]
+    ]
+    RM:<nil>
+}"
+m[r][r]=&{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:<nil>}"
