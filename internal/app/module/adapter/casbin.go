@@ -172,12 +172,29 @@ func (a *CasbinAdapter) loadUserPolicy(ctx context.Context, m casbinModel.Model)
 		return nil
 	}
 
+	// logrus.Debugf("CasbinAdapter loadUserPolicy userResult=%+v",userResult)
+	logrus.Debugf("CasbinAdapter loadUserPolicy userResult.Data=%+v", userResult.Data)
+
 	userRoleResult, err := a.UserRoleModel.Query(ctx, schema.UserRoleQueryParam{})
 	if err != nil {
 		return err
 	}
 
+	// logrus.Debugf("CasbinAdapter loadUserPolicy userRoleResult=%+v",userRoleResult)
+	for sK, sV := range userRoleResult.Data {
+		logrus.Debugf("CasbinAdapter loadUserPolicy userRoleResult.Data sK=%+v sV=%+v", sK, sV)
+	}
+
 	mUserRoles := userRoleResult.Data.ToUserIDMap()
+
+	// logrus.Debugf("CasbinAdapter loadUserPolicy mUserRoles=%+v",mUserRoles)
+	for mK, mV := range mUserRoles {
+		logrus.Debugf("CasbinAdapter loadUserPolicy mUserRoles mK=%+v", mK)
+		for sK, sV := range mV {
+			logrus.Debugf("CasbinAdapter loadUserPolicy mUserRoles mK=%+v sK=%+v sV=%+v", mK, sK, sV)
+		}
+	}
+
 	for _, uitem := range userResult.Data {
 		if urs, ok := mUserRoles[uitem.RecordID]; ok {
 			for _, ur := range urs {
