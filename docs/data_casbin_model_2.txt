@@ -12,8 +12,14 @@ time="2020-05-08T15:12:21+08:00" level=debug msg="CasbinAdapter LoadPolicy 2
 model=map[e:map[e:0xc00051f4a0] g:map[g:0xc00051f3e0] m:map[m:0xc00051f560] p:map[p:0xc00051f380] r:map[r:0xc00051f320]]"
 
  model[e][e]=&{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:<nil>}"
- model[g][g]=&{Key:g Value:_, _ Tokens:[] Policy:[[5eaaa09112a12014ac2b6ef9 5eaaa01912a12014ac2b6ef1]] RM:0xc00053a200}"
+
+ model[g][g]=&{Key:g Value:_, _ Tokens:[] Policy:[
+        [5eaaa09112a12014ac2b6ef9 5eaaa01912a12014ac2b6ef1]
+    ]
+    RM:0xc00053a200}"
+
  model[m][m]=&{Key:m Value:g(r_sub, p_sub) == true && keyMatch2(r_obj, p_obj) == true && regexMatch(r_act, p_act) == true || r_sub == \"root\" Tokens:[] Policy:[] RM:<nil>}"
+
  model[p][p]=&{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[
  [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/enable PATCH]
  [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/disable PATCH]
@@ -23,5 +29,5 @@ model=map[e:map[e:0xc00051f4a0] g:map[g:0xc00051f3e0] m:map[m:0xc00051f560] p:ma
  [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id PUT]
  [5eaaa01912a12014ac2b6ef1 /api/v1/demos POST]
  ] RM:<nil>}"
- model[r][r]=&{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:<nil>}"
 
+ model[r][r]=&{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:<nil>}"
