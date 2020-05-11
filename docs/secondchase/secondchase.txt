@@ -1,0 +1,30 @@
+
+mysql> show columns from mz_idols;
++-----------------+-----------------------+------+-----+---------+-----------------------------+
+| Field           | Type                  | Null | Key | Default | Extra                       |
++-----------------+-----------------------+------+-----+---------+-----------------------------+
+| id              | int(11)               | NO   | PRI | NULL    | auto_increment              |
+| name            | varchar(128)          | NO   |     | NULL    |                             |
+| resources       | varchar(128)          | NO   |     | NULL    |                             |
+| image           | varchar(512)          | NO   |     | NULL    |                             |
+| price           | int(10) unsigned      | NO   |     | 0       |                             |
+| status          | int(11)               | NO   |     | NULL    |                             |
+| update_time     | datetime              | NO   |     | NULL    | on update CURRENT_TIMESTAMP |
+| head_image      | varchar(512)          | NO   |     |         |                             |
+| jobs            | varchar(1024)         | NO   |     |         |                             |
+| mindes          | varchar(512)          | NO   |     | NULL    |                             |
+| description     | varchar(1024)         | NO   |     |         |                             |
+| rowsort         | int(11)               | NO   |     | NULL    |                             |
+| tags            | varchar(4096)         | NO   |     |         |                             |
+| IOS3DUrl        | varchar(1024)         | NO   |     |         |                             |
+| Android3DIUrl   | varchar(1024)         | NO   |     |         |                             |
+| type            | enum('idol','public') | NO   | MUL | idol    |                             |
+| publish_time    | datetime              | YES  |     | NULL    |                             |
+| idol_sn         | varchar(128)          | NO   |     |         |                             |
+| idol_sn_android | varchar(128)          | NO   |     |         |                             |
+| gender          | enum('male','female') | NO   |     | male    |                             |
+| model_image     | varchar(1024)         | NO   |     |         |                             |
++-----------------+-----------------------+------+-----+---------+-----------------------------+
+21 rows in set (0.00 sec)
+mysql>
+

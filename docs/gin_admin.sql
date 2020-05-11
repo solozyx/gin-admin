@@ -88,16 +88,19 @@ CREATE TABLE `g_menu_action_resource` (
 
 CREATE TABLE `g_role` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `record_id` varchar(36) NOT NULL DEFAULT '',
+  `name` varchar(100) NOT NULL DEFAULT '',
+  `sequence` int(11) NOT NULL DEFAULT '0',
+  `status` int(11) NOT NULL DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
-  `name` varchar(100) NOT NULL DEFAULT '',
-  `sequence` int(11) NOT NULL DEFAULT '0',
-  `memo` varchar(1024) DEFAULT NULL,
-  `status` int(11) NOT NULL DEFAULT '0',
   `creator` varchar(36) DEFAULT NULL,
+
+  `record_id` varchar(36) NOT NULL DEFAULT '',
+  `memo` varchar(1024) DEFAULT NULL,
+
   PRIMARY KEY (`id`),
+
   KEY `idx_g_role_deleted_at` (`deleted_at`),
   KEY `idx_g_role_name` (`name`),
   KEY `idx_g_role_sequence` (`sequence`),
@@ -130,18 +133,21 @@ CREATE TABLE `g_role_menu` (
 
 CREATE TABLE `g_user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `record_id` varchar(36) NOT NULL DEFAULT '',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
   `user_name` varchar(64) NOT NULL DEFAULT '',
-  `real_name` varchar(64) NOT NULL DEFAULT '',
   `password` varchar(40) NOT NULL DEFAULT '',
-  `email` varchar(255) DEFAULT NULL,
-  `phone` varchar(20) DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT '0',
   `creator` varchar(36) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(20) DEFAULT NULL,
+  `real_name` varchar(64) NOT NULL DEFAULT '',
+
+  `record_id` varchar(36) NOT NULL DEFAULT '',
+
   PRIMARY KEY (`id`),
+
   KEY `idx_g_user_record_id` (`record_id`),
   KEY `idx_g_user_created_at` (`created_at`),
   KEY `idx_g_user_user_name` (`user_name`),
@@ -156,13 +162,16 @@ CREATE TABLE `g_user` (
 
 CREATE TABLE `g_user_role` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `record_id` varchar(36) NOT NULL DEFAULT '',
+  `user_id` varchar(36) NOT NULL DEFAULT '',
+  `role_id` varchar(36) NOT NULL DEFAULT '',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL,
-  `user_id` varchar(36) NOT NULL DEFAULT '',
-  `role_id` varchar(36) NOT NULL DEFAULT '',
+
+  `record_id` varchar(36) NOT NULL DEFAULT '',
+
   PRIMARY KEY (`id`),
+
   KEY `idx_g_user_role_user_id` (`user_id`),
   KEY `idx_g_user_role_role_id` (`role_id`),
   KEY `idx_g_user_role_record_id` (`record_id`),
