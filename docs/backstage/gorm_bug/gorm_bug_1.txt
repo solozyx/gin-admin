@@ -1,0 +1,104 @@
+
+mysql> SELECT * FROM `bs_role`  WHERE `bs_role`.`deleted_at` IS NULL AND ((role_status=1)) ORDER BY `sort`;
+Empty set (0.00 sec)
+
+mysql>
+mysql> SELECT * FROM `bs_role`  WHERE  ((role_status=1)) ORDER BY `sort`;
++----+-------+------+-------------+------------+---------+---------------------+---------------------+---------------------+
+| id | name  | sort | role_status | creator_id | remark  | created_at          | updated_at          | deleted_at          |
++----+-------+------+-------------+------------+---------+---------------------+---------------------+---------------------+
+|  1 | role1 |    1 |           1 |          1 | 角色1   | 2020-05-12 15:45:15 | 2020-05-12 15:45:15 | 0000-00-00 00:00:00 |
+|  2 | role2 |    2 |           1 |          2 | 角色2   | 2020-05-12 15:45:37 | 2020-05-12 15:45:37 | 0000-00-00 00:00:00 |
++----+-------+------+-------------+------------+---------+---------------------+---------------------+---------------------+
+2 rows in set (0.00 sec)
+
+mysql>
+
+
+mysql> show tables;
++---------------------+
+| Tables_in_backstage |
++---------------------+
+| bs_permission       |
+| bs_role             |
+| bs_role_permission  |
+| bs_user             |
+| bs_user_permission  |
+| bs_user_role        |
++---------------------+
+6 rows in set (0.00 sec)
+mysql>
+
+mysql> ALTER TABLE `bs_permission` MODIFY COLUMN `deleted_at` datetime NULL DEFAULT NULL COMMENT '删除时间';
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE `bs_role` MODIFY COLUMN `deleted_at` datetime NULL DEFAULT NULL COMMENT '删除时间';
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE `bs_role_permission` MODIFY COLUMN `deleted_at` datetime NULL DEFAULT NULL COMMENT '删除时间';
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE `bs_user` MODIFY COLUMN `deleted_at` datetime NULL DEFAULT NULL COMMENT '删除时间';
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE `bs_user_permission` MODIFY COLUMN `deleted_at` datetime NULL DEFAULT NULL COMMENT '删除时间';
+Query OK, 0 rows affected (0.00 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE `bs_user_role` MODIFY COLUMN `deleted_at` datetime NULL DEFAULT NULL COMMENT '删除时间';
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql>
+
+mysql> UPDATE `bs_permission` SET `deleted_at`=NULL;
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> UPDATE `bs_role` SET `deleted_at`=NULL;
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> UPDATE `bs_role_permission` SET `deleted_at`=NULL;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE `bs_user` SET `deleted_at`=NULL;
+Query OK, 2 rows affected (0.00 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> UPDATE `bs_user_permission` SET `deleted_at`=NULL;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> UPDATE `bs_user_role` SET `deleted_at`=NULL;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql>
+
+
+mysql> show columns from `bs_permission`;
++-------------------+--------------+------+-----+-------------------+-----------------------------+
+| Field             | Type         | Null | Key | Default           | Extra                       |
++-------------------+--------------+------+-----+-------------------+-----------------------------+
+| id                | int(11)      | NO   | PRI | NULL              | auto_increment              |
+| name              | varchar(128) | NO   |     |                   |                             |
+| sort              | int(11)      | NO   |     | 0                 |                             |
+| permission_status | int(11)      | NO   |     | 1                 |                             |
+| method            | varchar(128) | NO   |     |                   |                             |
+| path              | varchar(128) | NO   |     |                   |                             |
+| creator_id        | int(11)      | NO   |     | 0                 |                             |
+| remark            | varchar(128) | NO   |     |                   |                             |
+| created_at        | datetime     | NO   |     | CURRENT_TIMESTAMP |                             |
+| updated_at        | datetime     | NO   |     | NULL              | on update CURRENT_TIMESTAMP |
+| deleted_at        | datetime     | YES  |     | NULL              |                             |
++-------------------+--------------+------+-----+-------------------+-----------------------------+
+11 rows in set (0.00 sec)
+mysql>
+
+

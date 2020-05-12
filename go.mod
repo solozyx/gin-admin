@@ -7,7 +7,7 @@ require (
 	github.com/LyricTian/queue v1.2.0
 	github.com/LyricTian/structs v1.1.1
 	github.com/alecthomas/template v0.0.0-20190718012654-fb15b899a751
-	github.com/casbin/casbin/v2 v2.2.2
+	github.com/casbin/casbin/v2 v2.4.1
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/fatih/camelcase v1.0.0 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
