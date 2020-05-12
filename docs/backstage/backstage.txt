@@ -73,6 +73,13 @@ mysql> CREATE TABLE `bs_permission` (
 Query OK, 0 rows affected (0.02 sec)
 mysql>
 
+mysql> ALTER TABLE `bs_permission` ADD `method` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'http method' AFTER `permission_status`;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> ALTER TABLE `bs_permission` ADD `path` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'http path' AFTER `method`;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql>
 
 mysql> CREATE TABLE `bs_role_permission` (
     ->   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
