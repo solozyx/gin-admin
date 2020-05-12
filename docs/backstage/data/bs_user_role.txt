@@ -1,0 +1,19 @@
+
+=== RUN   TestUserRoleRepo_CreateUserRole
+time="2020-05-12T16:34:09+08:00" level=info msg="sqlC:/oben/project/backstage/repository/user_role.go:2471.0334msINSERT INTO `bs_user_role` (`user_id`,`role_id`,`created_at`,`updated_at`,`deleted_at`) VALUES (?,?,?,?,?)[2 1 2020-05-12 16:34:09.6276991 +0800 CST m=+0.106115301 2020-05-12 16:34:09.6371793 +0800 CST m=+0.115595501 0001-01-01 00:00:00 +0000 UTC] 1"
+.
+1 total assertion
+
+--- PASS: TestUserRoleRepo_CreateUserRole (0.16s)
+PASS
+
+Process finished with exit code 0
+
+mysql> select * from bs_user_role;
++----+---------+---------+---------------------+---------------------+---------------------+
+| id | user_id | role_id | created_at          | updated_at          | deleted_at          |
++----+---------+---------+---------------------+---------------------+---------------------+
+|  1 |       2 |       1 | 2020-05-12 16:34:10 | 2020-05-12 16:34:10 | 0000-00-00 00:00:00 |
++----+---------+---------+---------------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>

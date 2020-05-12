@@ -98,3 +98,11 @@ CREATE TABLE `mz_ar_picture` (
   `sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='AR拍照';
+
+-- table mz_user_idol
+CREATE TABLE `mz_user_idol` (
+  `user_id` int(11) NOT NULL,
+  `idol_id` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`,`idol_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
