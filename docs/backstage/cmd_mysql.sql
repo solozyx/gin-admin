@@ -33,3 +33,4 @@ UPDATE `bs_user_permission` SET `deleted_at`=NULL;
 UPDATE `bs_user_role` SET `deleted_at`=NULL;
 
 show columns from `bs_permission`;
+
