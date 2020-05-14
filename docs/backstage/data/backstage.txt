@@ -1,0 +1,13 @@
+
+2020/05/14 18:28:07 Policy:
+2020/05/14 18:28:07 p: sub, obj, act:
+    [
+        [1 /api/v1/permission/list GET]
+        [1 /api/v1/role/create POST]
+        [1 /api/v1/role/bindperm POST]
+        [1 /api/v1/user/bindrole POST]
+    ]
+2020/05/14 18:28:07 g: _, _: [[1 1] [2 2]]
+2020/05/14 18:28:07 Role links for: g
+2020/05/14 18:28:07 1 < 1, 2 < 2
+
