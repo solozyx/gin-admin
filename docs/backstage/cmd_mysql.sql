@@ -38,6 +38,11 @@ update bs_permission set path='/api/v1/permission/list' where id=1;
 update bs_permission set method='GET' where id=1;
 
 update bs_permission set path='/api/v1/permission/create' where id=2;
+update bs_permission set name='权限列表' where id=1;
+update bs_permission set path='/api/v1/role/bindperm' where id=3;
+
+update bs_role set name='系统管理员', creator_id=0,remark='' where id=1;
+update bs_role set name='子管理员1', creator_id=1,remark='' where id=2;
 
 alter table bs_user drop column deleted_at;
 alter table bs_role drop column deleted_at;
