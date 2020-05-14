@@ -34,3 +34,15 @@ UPDATE `bs_user_role` SET `deleted_at`=NULL;
 
 show columns from `bs_permission`;
 
+update bs_permission set path='/api/v1/permission/list' where id=1;
+update bs_permission set method='GET' where id=1;
+
+update bs_permission set path='/api/v1/permission/create' where id=2;
+
+alter table bs_user drop column deleted_at;
+alter table bs_role drop column deleted_at;
+alter table bs_permission drop column deleted_at;
+alter table bs_user_role drop column deleted_at;
+alter table bs_role_permission drop column deleted_at;
+
+
