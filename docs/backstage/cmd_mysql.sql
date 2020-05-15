@@ -40,9 +40,11 @@ update bs_permission set method='GET' where id=1;
 update bs_permission set path='/api/v1/permission/create' where id=2;
 update bs_permission set name='权限列表' where id=1;
 update bs_permission set path='/api/v1/role/bindperm' where id=3;
+update bs_permission set name='权限1',path='/api/v1/permission/demo1' where id=10;
 
 update bs_role set name='系统管理员', creator_id=0,remark='' where id=1;
 update bs_role set name='子管理员1', creator_id=1,remark='' where id=2;
+update bs_role set name='子管理员6' where id=7;
 
 alter table bs_user drop column deleted_at;
 alter table bs_role drop column deleted_at;
@@ -53,4 +55,7 @@ alter table bs_role_permission drop column deleted_at;
 alter table bs_user change remark `desc` varchar(128) default '' not null comment '备注';
 alter table bs_role change remark `desc` varchar(128) default '' not null comment '备注';
 alter table bs_permission change remark `desc` varchar(128) default '' not null comment '备注';
+
+alter table bs_role drop column sort;
+alter table bs_permission drop column sort;
 

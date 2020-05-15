@@ -1,0 +1,40 @@
+
+POST http://127.0.0.1:3000/api/v1/role/create
+user_id 2
+
+[1 子管理员1创建编辑]
+{
+    "name": "编辑1"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "id": 8,
+        "name": "编辑1",
+        "role_status": 1,
+        "creator_id": 2,
+        "desc": "",
+        "created_at": "2020-05-15T14:39:56.6902474+08:00",
+        "updated_at": "2020-05-15T14:39:56.7043025+08:00"
+    }
+}
+
+[2 子管理员1创建审核]
+{
+    "name": "审核1"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "id": 9,
+        "name": "审核1",
+        "role_status": 1,
+        "creator_id": 2,
+        "desc": "",
+        "created_at": "2020-05-15T14:41:15.164399+08:00",
+        "updated_at": "2020-05-15T14:41:15.1935259+08:00"
+    }
+}
+
