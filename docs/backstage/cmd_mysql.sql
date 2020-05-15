@@ -50,4 +50,7 @@ alter table bs_permission drop column deleted_at;
 alter table bs_user_role drop column deleted_at;
 alter table bs_role_permission drop column deleted_at;
 
+alter table bs_user change remark `desc` varchar(128) default '' not null comment '备注';
+alter table bs_role change remark `desc` varchar(128) default '' not null comment '备注';
+alter table bs_permission change remark `desc` varchar(128) default '' not null comment '备注';
 
