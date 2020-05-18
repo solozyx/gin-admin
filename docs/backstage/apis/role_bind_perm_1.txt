@@ -1,0 +1,22 @@
+
+POST http://127.0.0.1:3000/api/v1/role/bindperm
+user_id 2
+
+{
+    "role_id":8,
+    "permission_ids":[5,6]
+}
+{
+    "code": 0,
+    "msg": "SUCCESS"
+}
+
+
+{
+    "role_id":9,
+    "permission_ids":[7,8]
+}
+{
+    "code": 0,
+    "msg": "SUCCESS"
+}
