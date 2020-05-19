@@ -6,6 +6,10 @@ zhaoyingxin@123
 mysql -h127.0.0.1 -uroot -p
 oben.com@123
 use backstage
+use secondchase
+
+show create table mz_user;
+show columns from bs_department;
 
 update bs_user set creator_id=0 where id=1;
 
@@ -60,3 +64,9 @@ alter table bs_permission change remark `desc` varchar(128) default '' not null 
 alter table bs_role drop column sort;
 alter table bs_permission drop column sort;
 
+ALTER TABLE `bs_user` ADD UNIQUE KEY `index_name` (`name`) USING BTREE;
+
+ALTER TABLE `bs_user` ADD `department_id` int(11) NOT NULL DEFAULT 0 COMMENT '部门id' AFTER `creator_id`;
+
+delete from bs_role_permission where role_id=2 and permission_id=2;
+update bs_user set department_id=1 where id>1;
