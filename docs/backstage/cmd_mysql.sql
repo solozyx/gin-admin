@@ -7,6 +7,7 @@ mysql -h127.0.0.1 -uroot -p
 oben.com@123
 use backstage
 
+update bs_user set creator_id=0 where id=1;
 
 ALTER TABLE `bs_permission` ADD `method` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'http method' AFTER `permission_status`;
 ALTER TABLE `bs_permission` ADD `path` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'http path' AFTER `method`;
