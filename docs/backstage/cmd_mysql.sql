@@ -70,3 +70,4 @@ ALTER TABLE `bs_user` ADD `department_id` int(11) NOT NULL DEFAULT 0 COMMENT 'éƒ
 
 delete from bs_role_permission where role_id=2 and permission_id=2;
 update bs_user set department_id=1 where id>1;
+update bs_user set password='5a4a910a31624095bb7948c6900a64070ac11af2';
