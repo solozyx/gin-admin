@@ -1,0 +1,28 @@
+Mysql:
+  Balance:
+    Host: 172.17.132.190:6033
+    User: proxysql
+    Password: proxysqlmiaozhui@123
+    DataBase: secondchase
+  Master:
+    Host: 172.17.132.192:3306
+    User: proxysql
+    Password: proxysqlmiaozhui@123
+    DataBase: secondchase
+
+
+Redis:
+  Addrs:
+    - 172.17.132.192:7001
+    - 172.17.132.192:7002
+    - 172.17.132.190:7001
+    - 172.17.132.190:7002
+    - 172.17.132.191:7001
+    - 172.17.132.191:7002
+  Password: oben.com
+
+Mongo:
+  Hosts:
+    - 172.17.132.192:27019
+  User: ""
+  Password: ""

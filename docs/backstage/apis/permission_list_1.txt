@@ -1,0 +1,102 @@
+
+GOROOT=/usr/local/go #gosetup
+GOPATH=/Users/zhaoyingxin/go #gosetup
+/usr/local/go/bin/go build -o /private/var/folders/qs/n47ly9554bs70dnpy97w4g4r0000gn/T/___go_build_backstage backstage #gosetup
+/private/var/folders/qs/n47ly9554bs70dnpy97w4g4r0000gn/T/___go_build_backstage #gosetup
+{"level":"debug","msg":"repository Init 初始化仓储","source":"proc.go:5414:runtime.doInit","time":"2020-05-14T20:41:05+08:00"}
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:   export GIN_MODE=release
+ - using code:  gin.SetMode(gin.ReleaseMode)
+
+2020/05/14 20:41:05 Model:
+2020/05/14 20:41:05 m.m: g(r_sub, p_sub) && keyMatch2(r_obj, p_obj) && r_act == p_act
+2020/05/14 20:41:05 r.r: sub, obj, act
+2020/05/14 20:41:05 p.p: sub, obj, act
+2020/05/14 20:41:05 g.g: _, _
+2020/05/14 20:41:05 e.e: some(where (p_eft == allow))
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/role.go:3218.254831msSELECT * FROM `bs_role`  WHERE (role_status=?) ORDER BY `sort`[1] 3","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"roleRepo GetAll role_status=1 from MySQL list=[{ID:1 Name:系统管理员 Sort:1 RoleStatus:1 CreatorId:0 Re CreatedAt:2020-05-12 15:45:15 +0800 CST UpdatedAt:2020-05-14 17:41:55 +0800 CST} {ID:2 Name:子管理员1 Sort:2 RoleStatus:1 Cread:1 Remark: CreatedAt:2020-05-12 15:45:37 +0800 CST UpdatedAt:2020-05-14 17:43:02 +0800 CST} {ID:3 Name:子管理员2 Sort:3 RoleSt:1 CreatorId:1 Remark: CreatedAt:2020-05-14 18:19:46 +0800 CST UpdatedAt:2020-05-14 18:19:46 +0800 CST}]","source":"casbin_adapter.go:39:adapter.(*CasbinAdapter).loadRolePolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/permission.go:3414.781138msSELECT * FROM `bs_permission`  WHERE (permission_status=?) ORDER BY `sort`[1] 4","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"permissionRepo GetAll permission_status=1 from MySQL list=[{ID:1 Name:权限列表 Sort:1 PermissionStatus:thod:GET Path:/api/v1/permission/list CreatorId:1 Remark: CreatedAt:2020-05-14 17:28:03 +0800 CST UpdatedAt:2020-05-14 17:36:15 +0800 CST} {ID:2 Name:创建角色 Sort:2 PermissionStatus:1 Method:POST Path:/api/v1/role/create CreatorId:1 Remark: CreatedAt:205-14 17:29:01 +0800 CST UpdatedAt:2020-05-14 17:34:17 +0800 CST} {ID:3 Name:角色绑定权限 Sort:3 PermissionStatus:1 Method:POST api/v1/role/bindperm CreatorId:1 Remark: CreatedAt:2020-05-14 18:02:24 +0800 CST UpdatedAt:2020-05-14 18:04:21 +0800 CST} {ID:4 Name:用户绑定角色 Sort:4 PermissionStatus:1 Method:POST Path:/api/v1/user/bindrole CreatorId:1 Remark: CreatedAt:2020-05-14 18 +0800 CST UpdatedAt:2020-05-14 18:06:01 +0800 CST}]","source":"casbin_adapter.go:47:adapter.(*CasbinAdapter).loadRolePolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/role_permission.go:336.455855msSELECT * FROM `bs_role_permission`  [] 5","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"rolePermissionRepo GetAll from MySQL list=[{ID:1 RoleId:1 PermissionId:1 CreatedAt:2020-05-12 16:48:04 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST} {ID:2 RoleId:1 PermissionId:2 CreatedAt:2020-05-14 17:57:18 +0800 CST UpdatedAt:2020-05-14 17:57:18 +0800 CST} {ID:3 RoleId:1 PermissionId:3 CreatedAt:2020-05-14 18:08:40 +0800 CST UpdatedAt:2020-05-14 18:08:40 +0800 CST} {ID:4 RoleId:1 PermissionId:4 CreatedAt:2020-05-14 18:09:33 +0800 CST UpdatedAt:2020-05-14 18:09:33 +0800 CST} {ID:5 RoleId:2 PermissionId:1 CreatedAt:2020-05-14 18:23:28 +0800 CST UpdatedAt:2020-05-14 18:23:28 +0800 CST}]","source":"casbin_adapter.go:56:adapter.(*CasbinAdapter).loadRolePolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/permission/list,GET","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/role/create,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/role/bindperm,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/user/bindrole,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/permission/list,GET","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m=map[e:map[e:0xc0000a7620] g:map[g:0xc0000a7860] m:map[m:0xc0000a76e0] p:map[p:0xc0000a7800] r:map[r:0xc0000a77a0]]","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[e][e]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[g][g]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[m][m]=\u0026{Key:m Value:g(r_sub, p_sub) \u0026\u0026 keyMatch2(r_obj, p_obj) \u0026\u0026 r_act == p_act Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[p][p]=\u0026{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[[1 /api/v1/permission/list GET] [1 /api/v1/role/create POST] [1 /api/v1/role/bindperm POST] [1 /api/v1/user/bindrole POST] [2 /api/v1/permission/list GET]] RM:\u003cnil\u003e}","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[r][r]=\u0026{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/user.go:3211.379936msSELECT * FROM `bs_user`  WHERE (user_status=?)[1] 2","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"userRepo GetAll user_status=1 from MySQL list=[{ID:1 Name:root Password:$2a$12$j4U.4slQ/dafETtTAUl0bOg0tMn/4NE1IyMl6Hou7OQr/nNfQ7wVe RealName:超级管理员 Email:root@email.com Phone:18813141001 UserStatus:1 CreatorId:0 Remark:最高权tedAt:2020-05-12 14:58:40 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST} {ID:2 Name:user1 Password:$2a$12$kFYIIrHzJSEMlZEbDe502OhHEX.FcdokBJb6GxaXA9Soiol3Hc3HG RealName:管理员1 Email:user1@email.com Phone:18813141002 UserStatus:1 CreatorId:1 Remark:普用户1 CreatedAt:2020-05-12 15:04:14 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST}]","source":"casbin_adapter.go:98:adapter*CasbinAdapter).loadUserPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/user_role.go:336.81769msSELECT * FROM `bs_user_role`  [] 2","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"userRoleRepo GetAll from MySQL list=[{ID:1 UserId:1 RoleId:1 CreatedAt:2020-05-12 16:34:10 +0800 CST UpdatedAt:2020-05-14 18:24:07 +0800 CST} {ID:2 UserId:2 RoleId:2 CreatedAt:2020-05-14 15:29:22 +0800 CST UpdatedAt:2020-05-14 18:24:37 +0800 CST}]","source":"casbin_adapter.go:106:adapter.(*CasbinAdapter).loadUserPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy line=g,1,1","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy line=g,2,2","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m=map[e:map[e:0xc0000a7620] g:map[g:0xc0000a7860] m:map[m:0xc0000a76e0] p:map[p:0xc0000a7800] r:map[r:0xc0000a77a0]]","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[e][e]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[g][g]=\u0026{Key:g Value:_, _ Tokens:[] Policy:[[1 1] [2 2]] RM:0xc000248ae0}","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[m][m]=\u0026{Key:m Value:g(r_sub, p_sub) \u0026\u0026 keyMatch2(r_obj, p_obj) \u0026\u0026 r_act == p_act Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[p][p]=\u0026{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[[1 /api/v1/permission/list GET] [1 /api/v1/role/create POST] [1 /api/v1/role/bindperm POST] [1 /api/v1/user/bindrole POST] [2 /api/v1/permission/list GET]] RM:\u003cnil\u003e}","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[r][r]=\u0026{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T20:41:05+08:00"}
+2020/05/14 20:41:05 Policy:
+2020/05/14 20:41:05 p: sub, obj, act: [[1 /api/v1/permission/list GET] [1 /api/v1/role/create POST] [1 /api/v1/role/bindperm POST] [1 /api/v1/user/bindrole POST] [2 /api/v1/permission/list GET]]
+2020/05/14 20:41:05 g: _, _: [[1 1] [2 2]]
+2020/05/14 20:41:05 Role links for: g
+2020/05/14 20:41:05 2 < 2, 1 < 1
+[GIN-debug] GET    /api/v1/permission/list   --> backstage/router/handler.(*permissionHandler).List.func1 (6 handlers)
+[GIN-debug] Listening and serving HTTP on :3000
+
+
+
+2020/05/14 20:41:05 Policy:
+2020/05/14 20:41:05 p: sub, obj, act:
+    [
+        [1 /api/v1/permission/list GET]
+        [1 /api/v1/role/create POST]
+        [1 /api/v1/role/bindperm POST]
+        [1 /api/v1/user/bindrole POST]
+        [2 /api/v1/permission/list GET]
+    ]
+2020/05/14 20:41:05 g: _, _: [[1 1] [2 2]]
+2020/05/14 20:41:05 Role links for: g
+2020/05/14 20:41:05 2 < 2, 1 < 1
+
+
+
+
+{"level":"debug","msg":"mock userId=1","source":"context.go:161:gin.(*Context).Next","time":"2020-05-14T20:44:45+08:00"}
+2020/05/14 20:44:45 Request: 1, /api/v1/permission/list, GET ---> true
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/user_role.go:4416.367926msSELECT * FROM `bs_user_role`  WHERE (user_id=?)[1] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:44:45+08:00"}
+{"level":"debug","msg":"userRoleRepo GetByUserId userId=1 from MySQL list=[{ID:1 UserId:1 RoleId:1 CreatedAt:2020-05-12 16:34:10 +0800 CST UpdatedAt:2020-05-14 18:24:07 +0800 CST}]","source":"permission.go:56:repository.(*permissionRepo).GetPermissionByUserId","time":"2020-05-14T20:44:45+08:00"}
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/role_permission.go:4415.082481msSELECT * FROM `bs_role_permission`  WHERE (role_id=?)[1] 4","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:44:45+08:00"}
+{"level":"debug","msg":"rolePermissionRepo GetByRoleId=1 from MySQL list=[{ID:1 RoleId:1 PermissionId:1 CreatedAt:2020-05-12 16:48:04 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST} {ID:2 RoleId:1 PermissionId:2 CreatedAt:2020-05-14 17:57:18 +0800 CST UpdatedAt:2020-05-14 17:57:18 +0800 CST} {ID:3 RoleId:1 PermissionId:3 CreatedAt:2020-05-14 18:08:40 +0800 CST UpdatedAt:2020-05-14 18:08:40 +0800 CST} {ID:4 RoleId:1 PermissionId:4 CreatedAt:2020-05-14 18:09:33 +0800 CST UpdatedAt:2020-05-14 18:09:33 +0800 CST}]","source":"permission.go:65:repository.(*permissionRepo).GetPermissionByUserId","time":"2020-05-14T20:44:45+08:00"}
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/permission.go:4518.357313msSELECT * FROM `bs_permission`  WHERE (permission_status=? AND id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[1 1] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:44:45+08:00"}
+{"level":"debug","msg":"permissionRepo GetById permission_status=1 permissionId=1 from MySQL perm={ID:1 Name:权限列表 Sort:1 PesionStatus:1 Method:GET Path:/api/v1/permission/list CreatorId:1 Remark: CreatedAt:2020-05-14 17:28:03 +0800 CST UpdatedAt:2020-05-14 17:36:15 +0800 CST}","source":"permission.go:71:repository.(*permissionRepo).GetPermissionByUserId","time":"2020-05-14T20:44:45+08:00"}
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/permission.go:4514.09244msSELECT * FROM `bs_permission`  WHERE (permission_status=? AND id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[1 2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:44:45+08:00"}
+{"level":"debug","msg":"permissionRepo GetById permission_status=1 permissionId=2 from MySQL perm={ID:2 Name:创建角色 Sort:2 PesionStatus:1 Method:POST Path:/api/v1/role/create CreatorId:1 Remark: CreatedAt:2020-05-14 17:29:01 +0800 CST UpdatedAt:2020-05-14 17:34:17 +0800 CST}","source":"permission.go:71:repository.(*permissionRepo).GetPermissionByUserId","time":"2020-05-14T20:44:45+08:00"}
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/permission.go:4514.666861msSELECT * FROM `bs_permission`  WHERE (permission_status=? AND id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[1 3] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:44:45+08:00"}
+{"level":"debug","msg":"permissionRepo GetById permission_status=1 permissionId=3 from MySQL perm={ID:3 Name:角色绑定权限 Sort:issionStatus:1 Method:POST Path:/api/v1/role/bindperm CreatorId:1 Remark: CreatedAt:2020-05-14 18:02:24 +0800 CST UpdatedAt:2020-05-14 18:04:21 +0800 CST}","source":"permission.go:71:repository.(*permissionRepo).GetPermissionByUserId","time":"2020-05-14T20:44:45+08:00"}
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/permission.go:4514.728673msSELECT * FROM `bs_permission`  WHERE (permission_status=? AND id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[1 4] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:44:45+08:00"}
+{"level":"debug","msg":"permissionRepo GetById permission_status=1 permissionId=4 from MySQL perm={ID:4 Name:用户绑定角色 Sort:issionStatus:1 Method:POST Path:/api/v1/user/bindrole CreatorId:1 Remark: CreatedAt:2020-05-14 18:06:01 +0800 CST UpdatedAt:2020-05-14 18:06:01 +0800 CST}","source":"permission.go:71:repository.(*permissionRepo).GetPermissionByUserId","time":"2020-05-14T20:44:45+08:00"}
+
+
+
+{"level":"debug","msg":"mock userId=2","source":"context.go:161:gin.(*Context).Next","time":"2020-05-14T20:45:05+08:00"}
+2020/05/14 20:45:05 Request: 2, /api/v1/permission/list, GET ---> true
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/user_role.go:4422.306425msSELECT * FROM `bs_user_role`  WHERE (user_id=?)[2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:45:05+08:00"}
+{"level":"debug","msg":"userRoleRepo GetByUserId userId=2 from MySQL list=[{ID:2 UserId:2 RoleId:2 CreatedAt:2020-05-14 15:29:22 +0800 CST UpdatedAt:2020-05-14 18:24:37 +0800 CST}]","source":"permission.go:56:repository.(*permissionRepo).GetPermissionByUserId","time":"2020-05-14T20:45:05+08:00"}
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/role_permission.go:4423.892982msSELECT * FROM `bs_role_permission`  WHERE (role_id=?)[2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:45:05+08:00"}
+{"level":"debug","msg":"rolePermissionRepo GetByRoleId=2 from MySQL list=[{ID:5 RoleId:2 PermissionId:1 CreatedAt:2020-05-14 18:23:28 +0800 CST UpdatedAt:2020-05-14 18:23:28 +0800 CST}]","source":"permission.go:65:repository.(*permissionRepo).GetPermissionByUserId","time":"2020-05-14T20:45:05+08:00"}
+{"level":"info","msg":"sql/Users/zhaoyingxin/Documents/oben/backstage/repository/permission.go:4515.162083msSELECT * FROM `bs_permission`  WHERE (permission_status=? AND id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[1 1] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T20:45:05+08:00"}
+{"level":"debug","msg":"permissionRepo GetById permission_status=1 permissionId=1 from MySQL perm={ID:1 Name:权限列表 Sort:1 PesionStatus:1 Method:GET Path:/api/v1/permission/list CreatorId:1 Remark: CreatedAt:2020-05-14 17:28:03 +0800 CST UpdatedAt:2020-05-14 17:36:15 +0800 CST}","source":"permission.go:71:repository.(*permissionRepo).GetPermissionByUserId","time":"2020-05-14T20:45:05+08:00"}
+
+
+{"level":"debug","msg":"mock userId=3","source":"context.go:161:gin.(*Context).Next","time":"2020-05-14T20:45:14+08:00"}
+2020/05/14 20:45:14 Request: 3, /api/v1/permission/list, GET ---> false
+{"level":"info","msg":"用户无此权限 userId=3 path=/api/v1/permission/list method=GET","source":"context.go:161:gin.(*Context).Ntime":"2020-05-14T20:45:14+08:00"}
+
