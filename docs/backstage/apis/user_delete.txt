@@ -1,0 +1,43 @@
+
+mysql> select * from bs_user where id=9;
++----+-------+------------------------------------------+------------+-----------------+-------------+-------------+------------+---------------+---------------------+---------------------+---------------------+
+| id | name  | password                                 | real_name  | email           | phone       | user_status | creator_id | department_id | desc                | created_at          | updated_at          |
++----+-------+------------------------------------------+------------+-----------------+-------------+-------------+------------+---------------+---------------------+---------------------+---------------------+
+|  9 | user8 | d6cf393ff29f1b223052a63891ef52bca7697e85 | 管理员8    | user8@email.com | 18813141009 |           1 |          1 |             1 | 普通权限用户8       | 2020-05-20 13:36:46 | 2020-05-20 16:05:08 |
++----+-------+------------------------------------------+------------+-----------------+-------------+-------------+------------+---------------+---------------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+user1 删除 user8
+b0a0ee96e7b16561bdcb819d0b773210
+{
+    "user_id":9
+}
+{
+    "code": 0,
+    "msg": "SUCCESS"
+}
+
+mysql> select * from bs_user where id=9;
++----+-------+------------------------------------------+------------+-----------------+-------------+-------------+------------+---------------+---------------------+---------------------+---------------------+
+| id | name  | password                                 | real_name  | email           | phone       | user_status | creator_id | department_id | desc                | created_at          | updated_at          |
++----+-------+------------------------------------------+------------+-----------------+-------------+-------------+------------+---------------+---------------------+---------------------+---------------------+
+|  9 | user8 | d6cf393ff29f1b223052a63891ef52bca7697e85 | 管理员8    | user8@email.com | 18813141009 |           2 |          1 |             1 | 普通权限用户8       | 2020-05-20 13:36:46 | 2020-05-21 14:14:09 |
++----+-------+------------------------------------------+------------+-----------------+-------------+-------------+------------+---------------+---------------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/user/delete{\"user_id\":9}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-05-21T14:14:08+08:00"}
+{"level":"debug","msg":"server sign: b0a0ee96e7b16561bdcb819d0b773210, \tuser sign: b0a0ee96e7b16561bdcb819d0b773210","source":"context.go:161:gin.(*Context).Next","time":"2020-05-21T14:14:08+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/delete JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-05-21T14:14:08+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkwMTI3NzUwLCJuYmYiOjE1OTAwNDEwNTAsImlhdCI6MTU5MDA0MTM1MCwianRpIjoiNGVhMjRkOGUtMDFkMS00NzA0LWIzNzYtMDQ4ZDgxMmI0Mzk2IiwidXNlcl9pZCI6Mn0.Xjc2Q9_JtQzLOjU7eB1bjgi_od98EjmGbHR3-ixcxZY","source":"context.go:161:gin.(*Context).Next","time":"2020-05-21T14:14:08+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/delete middleware Casbin 验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-05-21T14:14:08+08:00"}
+{"level":"debug","msg":"userService Delete req={UserId:9}","source":"user.go:179:handler.(*userHandler).Delete.func1","time":"2020-05-21T14:14:08+08:00"}
+2020/05/21 14:14:08 Request: 2, /api/v1/user/delete, POST ---> true
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:11224.9702ms
+
+UPDATE `bs_user` SET `updated_at` = ?, `user_status` = ?  WHERE (id = ?)
+[2020-05-21 14:14:08.8796555 +0800 CST m=+430.843629301 2 9] 1",
+
+"source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-21T14:14:08+08:00"}

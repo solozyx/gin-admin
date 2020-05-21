@@ -45,7 +45,9 @@ update bs_permission set method='GET' where id=1;
 update bs_permission set path='/api/v1/permission/create' where id=2;
 update bs_permission set name='权限列表' where id=1;
 update bs_permission set path='/api/v1/role/bindperm' where id=3;
-update bs_permission set name='创建用户',path='/api/v1/user/create' where id=10;
+update bs_permission set name='创建部门',path='/api/v1/department/create' where id=10;
+update bs_permission set name='创建用户',path='/api/v1/user/create' where id=11;
+update bs_permission set name='删除用户',path='/api/v1/user/delete' where id=12;
 
 update bs_role set name='系统管理员', creator_id=0,remark='' where id=1;
 update bs_role set name='子管理员1', creator_id=1,remark='' where id=2;
@@ -73,3 +75,5 @@ update bs_user set department_id=1 where id>1;
 update bs_user set password='d6cf393ff29f1b223052a63891ef52bca7697e85';
 
 select * from bs_role_permission where permission_id=10;
+
+delete from bs_role_permission where role_id=2 and permission_id=10;
