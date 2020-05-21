@@ -1,0 +1,164 @@
+
+1 root
+f7bb1121e2f2f2048ccc83d8a6b37643
+
+{
+	"name":"root",
+	"password":"123456"
+}
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "access_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkwMDQ2MDE4LCJuYmYiOjE1ODk5NTkzMTgsImlhdCI6MTU4OTk1OTYxOCwianRpIjoiM2UxNTEzMmItM2ZkMC00ZDQ0LWFhMmEtMmY4ZWIwZDk1Yzg5IiwidXNlcl9pZCI6MX0.k-jV15a2kBUmxKIWB73lEXgtAJODgngzXSix40ORauA",
+        "refresh_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrc3RhZ2UuZ2F0ZXdheSIsInN1YiI6IlJlZnJlc2hUb2tlbiIsImF1ZCI6Imh0dHBzOi8vYmFja3N0YWdlLm9iZW5jbi5jb20iLCJleHAiOjE1OTI1NTE2MTgsIm5iZiI6MTU4OTk1OTMxOCwiaWF0IjoxNTg5OTU5NjE4LCJqdGkiOiJkYmUwOGFiNy01MzhlLTRhYWQtOTVjNC0xYzZlZjg1YzNjNTYiLCJ1c2VyX2lkIjoxfQ.y9QlhTiP_aByWghR2VNHqOuzDZDZoGFJm45EcpOVjQw",
+        "user_info": {
+            "id": 1,
+            "name": "root",
+            "real_name": "超级管理员",
+            "email": "root@email.com",
+            "phone": "18813141001",
+            "user_status": 1,
+            "creator_id": 0,
+            "desc": "最高权限用户",
+            "created_at": "2020-05-12T14:58:40+08:00",
+            "updated_at": "2020-05-20T13:37:36+08:00"
+        }
+    }
+}
+
+2 user1
+eae75fa0dc577d141738438137dac6a0
+
+{
+	"name":"user1",
+	"password":"123456"
+}
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "access_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkwMDQ2NTEyLCJuYmYiOjE1ODk5NTk4MTIsImlhdCI6MTU4OTk2MDExMiwianRpIjoiODc1MGE1MTgtYTMyMi00MWNkLWI3NmItYzk3NjI4Zjk1ZWVlIiwidXNlcl9pZCI6Mn0.cYUFuIOadsRLodAerveBgmh7kgvBs4Ui5sW9Z663zBc",
+        "refresh_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrc3RhZ2UuZ2F0ZXdheSIsInN1YiI6IlJlZnJlc2hUb2tlbiIsImF1ZCI6Imh0dHBzOi8vYmFja3N0YWdlLm9iZW5jbi5jb20iLCJleHAiOjE1OTI1NTIxMTIsIm5iZiI6MTU4OTk1OTgxMiwiaWF0IjoxNTg5OTYwMTEyLCJqdGkiOiI1ZTE5NmRlNC1kODNkLTRmYjAtODU4Yi0zZmNkMzg3ZGJkNGUiLCJ1c2VyX2lkIjoyfQ.0XMp_Ah9QzWIen7BFbLjpGYsfJxfqbxSRmp4gbyMmgY",
+        "user_info": {
+            "id": 2,
+            "name": "user1",
+            "real_name": "管理员1",
+            "email": "user1@email.com",
+            "phone": "18813141002",
+            "user_status": 1,
+            "creator_id": 1,
+            "desc": "普通权限用户1",
+            "created_at": "2020-05-12T15:04:14+08:00",
+            "updated_at": "2020-05-20T13:37:36+08:00"
+        }
+    }
+}
+
+
+
+mysql> select * from bs_user where name='user9';
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+| id | name  | password                                 | real_name | email           | phone       | user_status | creator_id | department_id | desc          | created_at          | updated_at          |
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+| 10 | user9 | 2ceaf92638986db196e4973e718b58c19bda80df | 姓名9     | user9@email.com | 18800000009 |           1 |          2 |             1 | 备注描述9     | 2020-05-20 16:57:16 | 2020-05-21 11:23:59 |
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+
+4d690d1d29263187e826f1b2d7b82ddf
+{
+	"name":"user9",
+	"password":"user9"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "access_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkwMTE4ODc1LCJuYmYiOjE1OTAwMzIxNzUsImlhdCI6MTU5MDAzMjQ3NSwianRpIjoiZDMxM2UzZDUtNDQwMi00ZWExLTgwOWMtODcxZmZhMGU1OTkxIiwidXNlcl9pZCI6MTB9.gYe_WnXi16ohTODS7X1oBuM7ArsJlvJlHcG-bjAXLFU",
+        "refresh_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrc3RhZ2UuZ2F0ZXdheSIsInN1YiI6IlJlZnJlc2hUb2tlbiIsImF1ZCI6Imh0dHBzOi8vYmFja3N0YWdlLm9iZW5jbi5jb20iLCJleHAiOjE1OTI2MjQ0NzUsIm5iZiI6MTU5MDAzMjE3NSwiaWF0IjoxNTkwMDMyNDc1LCJqdGkiOiIxYzA5YjllMi1mODA5LTQ3YzQtODhiNi1iZmY2YWI1NmMzOWEiLCJ1c2VyX2lkIjoxMH0.tgOz74f7vgVK5tzGFI4a4bzpmYBhEGJ2r8kf0eS-XHM",
+        "user_info": {
+            "id": 10,
+            "name": "user9",
+            "real_name": "姓名9",
+            "email": "user9@email.com",
+            "phone": "18800000009",
+            "user_status": 1,
+            "creator_id": 2,
+            "desc": "备注描述9",
+            "created_at": "2020-05-20T16:57:16+08:00",
+            "updated_at": "2020-05-21T11:23:59+08:00"
+        }
+    }
+}
+
+
+mysql> select * from bs_user where name='user9';
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+| id | name  | password                                 | real_name | email           | phone       | user_status | creator_id | department_id | desc          | created_at          | updated_at          |
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+| 10 | user9 | 2ceaf92638986db196e4973e718b58c19bda80df | 姓名9     | user9@email.com | 18800000009 |           0 |          2 |             1 | 备注描述9     | 2020-05-20 16:57:16 | 2020-05-21 11:42:35 |
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "access_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkwMTE4OTczLCJuYmYiOjE1OTAwMzIyNzMsImlhdCI6MTU5MDAzMjU3MywianRpIjoiN2MxNGJkZDQtMmEwNy00NjRkLWEwMDMtYWMzYzMxOGY1MmM0IiwidXNlcl9pZCI6MTB9.jxId5LP1NlPdj1k1zsOc0IaADdbkmbnNZ9-QOJq8nb4",
+        "refresh_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrc3RhZ2UuZ2F0ZXdheSIsInN1YiI6IlJlZnJlc2hUb2tlbiIsImF1ZCI6Imh0dHBzOi8vYmFja3N0YWdlLm9iZW5jbi5jb20iLCJleHAiOjE1OTI2MjQ1NzMsIm5iZiI6MTU5MDAzMjI3MywiaWF0IjoxNTkwMDMyNTczLCJqdGkiOiIzNjZjNDVjYS0yMjkzLTRkZDktOWYwZi1iYTQyOGMwOGQzYzkiLCJ1c2VyX2lkIjoxMH0.L1O0VeWJzX2SpCjMVXq_JCX2VOfbxjKIWcXKNPkRleE",
+        "user_info": {
+            "id": 10,
+            "name": "user9",
+            "real_name": "姓名9",
+            "email": "user9@email.com",
+            "phone": "18800000009",
+            "user_status": 0,
+            "creator_id": 2,
+            "desc": "备注描述9",
+            "created_at": "2020-05-20T16:57:16+08:00",
+            "updated_at": "2020-05-21T11:42:35+08:00"
+        }
+    }
+}
+
+
+mysql> select * from bs_user where name='user9';
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+| id | name  | password                                 | real_name | email           | phone       | user_status | creator_id | department_id | desc          | created_at          | updated_at          |
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+| 10 | user9 | 2ceaf92638986db196e4973e718b58c19bda80df | 姓名9     | user9@email.com | 18800000009 |           2 |          2 |             1 | 备注描述9     | 2020-05-20 16:57:16 | 2020-05-21 11:43:09 |
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+{
+    "code": 20002,
+    "msg": "Database error.; 用户 user9 已被删除"
+}
+
+
+mysql> select * from bs_user where name='user9';
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+| id | name  | password                                 | real_name | email           | phone       | user_status | creator_id | department_id | desc          | created_at          | updated_at          |
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+| 10 | user9 | 2ceaf92638986db196e4973e718b58c19bda80df | 姓名9     | user9@email.com | 18800000009 |           1 |          2 |             1 | 备注描述9     | 2020-05-20 16:57:16 | 2020-05-21 11:44:56 |
++----+-------+------------------------------------------+-----------+-----------------+-------------+-------------+------------+---------------+---------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+
+d6e24b4c6a716ee792ac99b4e46f8673
+{
+	"name":"user9",
+	"password":"user9error"
+}
+
+{
+    "code": 20117,
+    "msg": "用户登录失败; 用户名或密码错误"
+}

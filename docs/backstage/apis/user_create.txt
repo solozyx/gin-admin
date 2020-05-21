@@ -1,0 +1,30 @@
+
+user1
+a27b07007756b572e47652f066de419f
+
+{
+    "name": "user9",
+    "department_id":1,
+    "real_name":"姓名9",
+    "email":"user9@email.com",
+    "phone":"18800000009",
+    "desc":"备注描述9"
+}
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "id": 10,
+        "department_id": 1,
+        "name": "user9",
+        "real_name": "姓名9",
+        "email": "user9@email.com",
+        "phone": "18800000009",
+        "user_status": 1,
+        "creator_id": 2,
+        "desc": "备注描述9",
+        "created_at": "2020-05-20T16:57:15.9063252+08:00",
+        "updated_at": "2020-05-20T16:57:15.9172981+08:00"
+    }
+}

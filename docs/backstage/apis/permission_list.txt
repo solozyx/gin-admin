@@ -1,116 +1,322 @@
 
-=== RUN   TestPermissionService_GetByUserId
-time="2020-05-13T16:32:47+08:00" level=info msg="sqlC:/oben/project/backstage/repository/permission.go:3281.7773msSELECT * FROM `bs_permission`  WHERE `bs_permission`.`deleted_at` IS NULL AND ((permission_status=?)) ORDER BY `sort`[1] 2"
-.time="2020-05-13T16:32:47+08:00" level=info msg="user permission perm={ID:1 Name:perm1 Sort:1 PermissionStatus:1 Method:GET Path:/permission/list CreatorId:1 Remark:权限1 CreatedAt:2020-05-12 15:26:44 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}"
-time="2020-05-13T16:32:47+08:00" level=info msg="user permission perm={ID:2 Name:perm2 Sort:2 PermissionStatus:1 Method:POST Path:/permission/create CreatorId:2 Remark:权限2 CreatedAt:2020-05-12 15:27:08 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}"
-
-1 total assertion
-
---- PASS: TestPermissionService_GetByUserId (0.15s)
-PASS
-
-Process finished with exit code 0
-
-
------------------------------------------
-
-=== RUN   TestPermissionService_GetByUserId
-time="2020-05-13T16:35:16+08:00" level=info msg="sqlC:/oben/project/backstage/repository/user_role.go:43100.6104msSELECT * FROM `bs_user_role`  WHERE `bs_user_role`.`deleted_at` IS NULL AND ((user_id=?))[2] 1"
-time="2020-05-13T16:35:16+08:00" level=info msg="sqlC:/oben/project/backstage/repository/role_permission.go:4355.1718msSELECT * FROM `bs_role_permission`  WHERE `bs_role_permission`.`deleted_at` IS NULL AND ((role_id=?))[1] 1"
-time="2020-05-13T16:35:16+08:00" level=info msg="sqlC:/oben/project/backstage/repository/permission.go:4364.0316msSELECT * FROM `bs_permission`  WHERE `bs_permission`.`deleted_at` IS NULL AND ((permission_status=? AND id=?)) ORDER BY `bs_permission`.`id` ASC LIMIT 1[1 1] 1"
-.time="2020-05-13T16:35:16+08:00" level=info msg="user permission perm={ID:1 Name:perm1 Sort:1 PermissionStatus:1 Method:GET Path:/permission/list CreatorId:1 Remark:权限1 CreatedAt:2020-05-12 15:26:44 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}"
-
-1 total assertion
-
---- PASS: TestPermissionService_GetByUserId (0.36s)
-PASS
-
-Process finished with exit code 0
-
+1 root
+b1a7ea1f4014c544178c25437a493568
 
 {
-    "Code": 0,
-    "Msg": "SUCCESS",
-    "Data": [
-        {
-            "id": 1,
-            "name": "perm1",
-            "sort": 1,
-            "permission_status": 1,
-            "method": "GET",
-            "path": "/permission/list",
-            "creator_id": 1,
-            "remark": "权限1",
-            "created_at": "2020-05-12T15:26:44+08:00",
-            "updated_at": "2020-05-12T22:55:25+08:00",
-            "deleted_at": "0001-01-01T00:00:00Z"
-        },
-        {
-            "id": 2,
-            "name": "perm2",
-            "sort": 2,
-            "permission_status": 1,
-            "method": "POST",
-            "path": "/permission/create",
-            "creator_id": 2,
-            "remark": "权限2",
-            "created_at": "2020-05-12T15:27:08+08:00",
-            "updated_at": "2020-05-12T22:55:25+08:00",
-            "deleted_at": "0001-01-01T00:00:00Z"
-        }
-    ]
+	"user_id":1
 }
 
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "name": "权限列表",
+                "method": "GET",
+                "path": "/api/v1/permission/list",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T17:28:03+08:00",
+                "updated_at": "2020-05-14T17:36:15+08:00"
+            },
+            {
+                "id": 2,
+                "name": "创建角色",
+                "method": "POST",
+                "path": "/api/v1/role/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T17:29:01+08:00",
+                "updated_at": "2020-05-14T17:34:17+08:00"
+            },
+            {
+                "id": 3,
+                "name": "角色绑定权限",
+                "method": "POST",
+                "path": "/api/v1/role/bindperm",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T18:02:24+08:00",
+                "updated_at": "2020-05-14T18:04:21+08:00"
+            },
+            {
+                "id": 4,
+                "name": "用户绑定角色",
+                "method": "POST",
+                "path": "/api/v1/user/bindrole",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T18:06:01+08:00",
+                "updated_at": "2020-05-14T18:06:01+08:00"
+            },
+            {
+                "id": 5,
+                "name": "内容创建",
+                "method": "POST",
+                "path": "/api/v1/content/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:50:46+08:00",
+                "updated_at": "2020-05-15T14:50:46+08:00"
+            },
+            {
+                "id": 6,
+                "name": "内容编辑",
+                "method": "POST",
+                "path": "/api/v1/content/edit",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:51:59+08:00",
+                "updated_at": "2020-05-15T14:51:59+08:00"
+            },
+            {
+                "id": 7,
+                "name": "内容审核",
+                "method": "POST",
+                "path": "/api/v1/content/audit",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:53:53+08:00",
+                "updated_at": "2020-05-15T14:53:53+08:00"
+            },
+            {
+                "id": 8,
+                "name": "内容发布",
+                "method": "POST",
+                "path": "/api/v1/content/publish",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:55:04+08:00",
+                "updated_at": "2020-05-15T14:55:04+08:00"
+            },
+            {
+                "id": 9,
+                "name": "创建权限",
+                "method": "POST",
+                "path": "/api/v1/permission/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T15:06:14+08:00",
+                "updated_at": "2020-05-15T15:06:14+08:00"
+            },
+            {
+                "id": 10,
+                "name": "权限1",
+                "method": "POST",
+                "path": "/api/v1/permission/demo1",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T15:06:56+08:00",
+                "updated_at": "2020-05-15T15:09:58+08:00"
+            },
+            {
+                "id": 11,
+                "name": "创建部门",
+                "method": "POST",
+                "path": "/api/v1/department/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-19T15:51:52+08:00",
+                "updated_at": "2020-05-19T15:51:52+08:00"
+            }
+        ]
+    }
+}
 
-{"level":"debug","msg":"repository Init 初始化仓储","source":"proc.go:5414:runtime.doInit","time":"2020-05-14T15:30:47+08:00"}
-[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
- - using env:	export GIN_MODE=release
- - using code:	gin.SetMode(gin.ReleaseMode)
+2 user1
+dff09acfe3670fe33d5cb15904067f6e
 
-2020/05/14 15:30:47 Model:
-2020/05/14 15:30:47 m.m: g(r_sub, p_sub) && keyMatch2(r_obj, p_obj) && r_act == p_act
-2020/05/14 15:30:47 r.r: sub, obj, act
-2020/05/14 15:30:47 p.p: sub, obj, act
-2020/05/14 15:30:47 g.g: _, _
-2020/05/14 15:30:47 e.e: some(where (p_eft == allow))
-{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role.go:3225.5844msSELECT * FROM `bs_role`  WHERE `bs_role`.`deleted_at` IS NULL AND ((role_status=?)) ORDER BY `sort`[1] 2","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"roleRepo GetAll role_status=1 from MySQL list=[{ID:1 Name:role1 Sort:1 RoleStatus:1 CreatorId:1 Remark:角色1 CreatedAt:2020-05-12 15:45:15 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC} {ID:2 Name:role2 Sort:2 RoleStatus:1 CreatorId:2 Remark:角色2 CreatedAt:2020-05-12 15:45:37 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}]","source":"casbin_adapter.go:39:adapter.(*CasbinAdapter).loadRolePolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3424.9592msSELECT * FROM `bs_permission`  WHERE `bs_permission`.`deleted_at` IS NULL AND ((permission_status=?)) ORDER BY `sort`[1] 2","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"permissionRepo GetAll permission_status=1 from MySQL list=[{ID:1 Name:perm1 Sort:1 PermissionStatus:1 Method:POST Path:/api/v1/permission/list CreatorId:1 Remark:权限1 CreatedAt:2020-05-12 15:26:44 +0800 CST UpdatedAt:2020-05-14 14:59:15 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC} {ID:2 Name:perm2 Sort:2 PermissionStatus:1 Method:POST Path:/api/v1/permission/create CreatorId:2 Remark:权限2 CreatedAt:2020-05-12 15:27:08 +0800 CST UpdatedAt:2020-05-14 14:59:26 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}]","source":"casbin_adapter.go:47:adapter.(*CasbinAdapter).loadRolePolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role_permission.go:3313.1038msSELECT * FROM `bs_role_permission`  WHERE `bs_role_permission`.`deleted_at` IS NULL[] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"rolePermissionRepo GetAll from MySQL list=[{ID:1 RoleId:1 PermissionId:1 CreatedAt:2020-05-12 16:48:04 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}]","source":"casbin_adapter.go:56:adapter.(*CasbinAdapter).loadRolePolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/permission/list,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m=map[e:map[e:0xc00004f620] g:map[g:0xc00004f560] m:map[m:0xc00004f6e0] p:map[p:0xc00004f800] r:map[r:0xc00004f7a0]]","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[e][e]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[g][g]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[m][m]=\u0026{Key:m Value:g(r_sub, p_sub) \u0026\u0026 keyMatch2(r_obj, p_obj) \u0026\u0026 r_act == p_act Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[p][p]=\u0026{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[[1 /api/v1/permission/list POST]] RM:\u003cnil\u003e}","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"info","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[r][r]=\u0026{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
+{
+	"user_id":2
+}
 
-
-
-{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:3224.9607msSELECT * FROM `bs_user`  WHERE `bs_user`.`deleted_at` IS NULL AND ((user_status=?))[1] 2","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"userRepo GetAll user_status=1 from MySQL list=
-    [
-        {ID:1 Name:root Password:$2a$12$j4U.4slQ/dafETtTAUl0bOg0tMn/4NE1IyMl6Hou7OQr/nNfQ7wVe RealName:超级管理员 Email:root@email.com Phone:18813141001 UserStatus:1 CreatorId:0 Remark:最高权限用户 CreatedAt:2020-05-12 14:58:40 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}
-        {ID:2 Name:user1 Password:$2a$12$kFYIIrHzJSEMlZEbDe502OhHEX.FcdokBJb6GxaXA9Soiol3Hc3HG RealName:管理员1 Email:user1@email.com Phone:18813141002 UserStatus:1 CreatorId:1 Remark:普通权限用户1 CreatedAt:2020-05-12 15:04:14 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}
-    ]","source":"casbin_adapter.go:98:adapter.(*CasbinAdapter).loadUserPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user_role.go:3314.3525msSELECT * FROM `bs_user_role`  WHERE `bs_user_role`.`deleted_at` IS NULL[] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"userRoleRepo GetAll from MySQL list=
-    [
-        {ID:1 UserId:2 RoleId:1 CreatedAt:2020-05-12 16:34:10 +0800 CST UpdatedAt:2020-05-12 22:55:26 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}
-    ]","source":"casbin_adapter.go:106:adapter.(*CasbinAdapter).loadUserPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"CasbinAdapter loadUserPolicy line=g,2,1","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m=map[e:map[e:0xc00004f620] g:map[g:0xc00004f560] m:map[m:0xc00004f6e0] p:map[p:0xc00004f800] r:map[r:0xc00004f7a0]]","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[e][e]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[g][g]=\u0026{Key:g Value:_, _ Tokens:[] Policy:[[2 1]] RM:0xc0001f4ea0}","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[m][m]=\u0026{Key:m Value:g(r_sub, p_sub) \u0026\u0026 keyMatch2(r_obj, p_obj) \u0026\u0026 r_act == p_act Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[p][p]=\u0026{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[[1 /api/v1/permission/list POST]] RM:\u003cnil\u003e}","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[r][r]=\u0026{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:\u003cnil\u003e}","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-05-14T15:30:48+08:00"}
-[GIN-debug] POST   /api/v1/permission/list   --> backstage/router/handler.(*permissionHandler).List.func1 (6 handlers)
-[GIN-debug] Listening and serving HTTP on :3000
-2020/05/14 15:30:48 Policy:
-2020/05/14 15:30:48 p: sub, obj, act: [[1 /api/v1/permission/list POST]]
-2020/05/14 15:30:48 g: _, _: [[2 1]]
-2020/05/14 15:30:48 Role links for: g
-2020/05/14 15:30:48 2 < 1
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "name": "权限列表",
+                "method": "GET",
+                "path": "/api/v1/permission/list",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T17:28:03+08:00",
+                "updated_at": "2020-05-14T17:36:15+08:00"
+            },
+            {
+                "id": 3,
+                "name": "角色绑定权限",
+                "method": "POST",
+                "path": "/api/v1/role/bindperm",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T18:02:24+08:00",
+                "updated_at": "2020-05-14T18:04:21+08:00"
+            },
+            {
+                "id": 4,
+                "name": "用户绑定角色",
+                "method": "POST",
+                "path": "/api/v1/user/bindrole",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T18:06:01+08:00",
+                "updated_at": "2020-05-14T18:06:01+08:00"
+            },
+            {
+                "id": 5,
+                "name": "内容创建",
+                "method": "POST",
+                "path": "/api/v1/content/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:50:46+08:00",
+                "updated_at": "2020-05-15T14:50:46+08:00"
+            },
+            {
+                "id": 6,
+                "name": "内容编辑",
+                "method": "POST",
+                "path": "/api/v1/content/edit",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:51:59+08:00",
+                "updated_at": "2020-05-15T14:51:59+08:00"
+            },
+            {
+                "id": 7,
+                "name": "内容审核",
+                "method": "POST",
+                "path": "/api/v1/content/audit",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:53:53+08:00",
+                "updated_at": "2020-05-15T14:53:53+08:00"
+            },
+            {
+                "id": 8,
+                "name": "内容发布",
+                "method": "POST",
+                "path": "/api/v1/content/publish",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:55:04+08:00",
+                "updated_at": "2020-05-15T14:55:04+08:00"
+            },
+            {
+                "id": 5,
+                "name": "内容创建",
+                "method": "POST",
+                "path": "/api/v1/content/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:50:46+08:00",
+                "updated_at": "2020-05-15T14:50:46+08:00"
+            },
+            {
+                "id": 6,
+                "name": "内容编辑",
+                "method": "POST",
+                "path": "/api/v1/content/edit",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:51:59+08:00",
+                "updated_at": "2020-05-15T14:51:59+08:00"
+            },
+            {
+                "id": 7,
+                "name": "内容审核",
+                "method": "POST",
+                "path": "/api/v1/content/audit",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:53:53+08:00",
+                "updated_at": "2020-05-15T14:53:53+08:00"
+            },
+            {
+                "id": 8,
+                "name": "内容发布",
+                "method": "POST",
+                "path": "/api/v1/content/publish",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:55:04+08:00",
+                "updated_at": "2020-05-15T14:55:04+08:00"
+            },
+            {
+                "id": 5,
+                "name": "内容创建",
+                "method": "POST",
+                "path": "/api/v1/content/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:50:46+08:00",
+                "updated_at": "2020-05-15T14:50:46+08:00"
+            },
+            {
+                "id": 6,
+                "name": "内容编辑",
+                "method": "POST",
+                "path": "/api/v1/content/edit",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:51:59+08:00",
+                "updated_at": "2020-05-15T14:51:59+08:00"
+            },
+            {
+                "id": 7,
+                "name": "内容审核",
+                "method": "POST",
+                "path": "/api/v1/content/audit",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:53:53+08:00",
+                "updated_at": "2020-05-15T14:53:53+08:00"
+            },
+            {
+                "id": 8,
+                "name": "内容发布",
+                "method": "POST",
+                "path": "/api/v1/content/publish",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:55:04+08:00",
+                "updated_at": "2020-05-15T14:55:04+08:00"
+            },
+            {
+                "id": 1,
+                "name": "权限列表",
+                "method": "GET",
+                "path": "/api/v1/permission/list",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T17:28:03+08:00",
+                "updated_at": "2020-05-14T17:36:15+08:00"
+            },
+            {
+                "id": 5,
+                "name": "内容创建",
+                "method": "POST",
+                "path": "/api/v1/content/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:50:46+08:00",
+                "updated_at": "2020-05-15T14:50:46+08:00"
+            },
+            {
+                "id": 6,
+                "name": "内容编辑",
+                "method": "POST",
+                "path": "/api/v1/content/edit",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:51:59+08:00",
+                "updated_at": "2020-05-15T14:51:59+08:00"
+            }
+        ]
+    }
+}

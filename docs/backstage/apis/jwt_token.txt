@@ -1,29 +1,4 @@
 
-{
- "name":"root",
- "password":"123456"
-}
-
-{
-    "code": 0,
-    "msg": "SUCCESS",
-    "data": {
-        "access_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL216LnRlc3Qub2JlbmNuLmNvbSIsImV4cCI6MTU4OTk4NjcwNSwibmJmIjoxNTg5OTAwMDA1LCJpYXQiOjE1ODk5MDAzMDUsImp0aSI6IjkzZjQ1YTUyLTY5YjItNDliMS05YWZhLWU0NDdiZTcyY2Q4MyIsInVzZXJfaWQiOjF9.YaEdFZsqEF58Sonj2s8S-2pCITqksKBMME5KkSBubk8",
-        "refresh_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiUmVmcmVzaFRva2VuIiwiYXVkIjoiaHR0cHM6Ly9tei50ZXN0Lm9iZW5jbi5jb20iLCJleHAiOjE1OTI0OTIzMDUsIm5iZiI6MTU4OTkwMDAwNSwiaWF0IjoxNTg5OTAwMzA1LCJqdGkiOiIzZjM5NTFmYi1jZmZhLTRlMjEtODJkMS03OWI2NzUzZTYyMzciLCJ1c2VyX2lkIjoxfQ.SpwEun5JN5GxwfV1uO_vMWV5zqg8_5_Rukl3aMXZ0FY",
-        "user_info": {
-            "id": 1,
-            "name": "root",
-            "real_name": "超级管理员",
-            "email": "root@email.com",
-            "phone": "18813141001",
-            "user_status": 1,
-            "creator_id": 0,
-            "desc": "最高权限用户",
-            "created_at": "2020-05-12T14:58:40+08:00",
-            "updated_at": "2020-05-19T17:12:12+08:00"
-        }
-    }
-}
 
 {
  "name":"user1",
