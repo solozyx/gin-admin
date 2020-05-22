@@ -1,0 +1,64 @@
+
+2 user1
+55e601485fb79ae37e9a48304a6b695b
+{
+    "user_id":11,
+    "role_ids":[9]
+}
+
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/user/roleadd{\"role_ids\":[9],\"user_id\":11}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-05-22T17:21:34+08:00"}
+{"level":"debug","msg":"server sign: 55e601485fb79ae37e9a48304a6b695b, \tuser sign: 55e601485fb79ae37e9a48304a6b695b","source":"context.go:161:gin.(*Context).Next","time":"2020-05-22T17:21:34+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/roleadd JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-05-22T17:21:34+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkwMjE4OTE0LCJuYmYiOjE1OTAxMzIyMTQsImlhdCI6MTU5MDEzMjUxNCwianRpIjoiNGY0NjQ5NDItODFmNS00YTJmLTk5ZTItOTEzNzA4NGVjZjhjIiwidXNlcl9pZCI6Mn0.lF-h7TKs4PVoIz6h9cWJ2id_tpUdqDicvmr91c47O9E","source":"context.go:161:gin.(*Context).Next","time":"2020-05-22T17:21:34+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/roleadd middleware Casbin 验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-05-22T17:21:34+08:00"}
+{"level":"debug","msg":"userService BindRole req={UserId:11 RoleIds:[9]}","source":"user.go:290:handler.(*userHandler).RoleAdd.func1","time":"2020-05-22T17:21:34+08:00"}
+2020/05/22 17:21:34 Request: 2, /api/v1/user/roleadd, POST ---> true
+
+
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user_role.go:4421.9414ms
+
+SELECT * FROM `bs_user_role`  WHERE (user_id=?)[2] 6",
+
+"source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-22T17:21:34+08:00"}
+
+{"level":"debug","msg":"userRoleRepo GetByUserId userId=2 list=[
+    {ID:2 UserId:2 RoleId:2 CreatedAt:2020-05-14 15:29:22 +0800 CST UpdatedAt:2020-05-14 18:24:37 +0800 CST}
+    {ID:3 UserId:2 RoleId:10 CreatedAt:2020-05-18 14:02:41 +0800 CST UpdatedAt:2020-05-18 14:02:41 +0800 CST}
+    {ID:5 UserId:2 RoleId:11 CreatedAt:2020-05-18 14:20:24 +0800 CST UpdatedAt:2020-05-18 14:20:24 +0800 CST}
+    {ID:7 UserId:2 RoleId:12 CreatedAt:2020-05-18 16:16:05 +0800 CST UpdatedAt:2020-05-18 16:16:05 +0800 CST}
+    {ID:8 UserId:2 RoleId:13 CreatedAt:2020-05-18 17:24:04 +0800 CST UpdatedAt:2020-05-18 17:24:04 +0800 CST}
+    {ID:11 UserId:2 RoleId:14 CreatedAt:2020-05-18 18:31:28 +0800 CST UpdatedAt:2020-05-18 18:31:28 +0800 CST}
+]",
+
+"source":"user.go:264:service.(*userService).RoleAdd","time":"2020-05-22T17:21:34+08:00"}
+
+{"level":"debug","msg":"userService BindRole 当前操作[用户绑定角色]的用户 s.UserId=2 可用角色列表
+mUserRoles=map[
+    2:{}
+    10:{}
+    11:{}
+    12:{}
+    13:{}
+    14:{}
+]","source":"user.go:290:handler.(*userHandler).RoleAdd.func1","time":"2020-05-22T17:21:34+08:00"}
+
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user_role.go:4421.9421ms
+
+SELECT * FROM `bs_user_role`  WHERE (user_id=?)[11] 0",
+
+"source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-05-22T17:21:34+08:00"}
+
+{"level":"debug","msg":"userRoleRepo GetByUserId userId=11 list=[]",
+"source":"user.go:287:service.(*userService).RoleAdd","time":"2020-05-22T17:21:34+08:00"}
+
+{"level":"debug","msg":"userService BindRole 待绑定角色的用户 userId=11 已绑定角色列表 userAlreadyBindRoles=[]",
+"source":"user.go:290:handler.(*userHandler).RoleAdd.func1","time":"2020-05-22T17:21:34+08:00"}
+
+{"level":"debug","msg":"userService BindRole 待绑定角色的用户 userId=11 最终可绑定角色列表 mCanBindRoleIds=map[]",
+"source":"user.go:290:handler.(*userHandler).RoleAdd.func1","time":"2020-05-22T17:21:34+08:00"}
+
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role.go:5920.0819ms
+
+
+
