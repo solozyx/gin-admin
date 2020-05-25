@@ -19,6 +19,11 @@ ALTER TABLE `bs_permission` ADD `path` varchar(128) COLLATE utf8mb4_unicode_ci N
 ALTER TABLE `bs_user_role` ADD `status`int(11) NOT NULL DEFAULT 1 COMMENT '状态 0不可用 1可用' AFTER `role_id`;
 ALTER TABLE `bs_user_role` ADD `creator_id` int(11) NOT NULL DEFAULT 0 COMMENT '操作者用户id' AFTER `status`;
 
+ALTER TABLE `bs_role_permission` ADD `status`int(11) NOT NULL DEFAULT 1 COMMENT '状态 0不可用 1可用' AFTER `permission_id`;
+ALTER TABLE `bs_role_permission` ADD `creator_id` int(11) NOT NULL DEFAULT 0 COMMENT '操作者用户id' AFTER `status`;
+
+select * from bs_role_permission;
+
 UPDATE `bs_permission` SET `method`='GET',path='/permission/list' WHERE `id`=1;
 UPDATE `bs_permission` SET `method`='POST',path='/permission/create' WHERE `id`=2;
 
