@@ -54,6 +54,11 @@ update bs_permission set name='删除用户',path='/api/v1/user/delete' where id
 
 update bs_permission set name='用户角色添加',path='/api/v1/user/roleadd' where id=4;
 
+update bs_permission set name='角色权限添加',path='/api/v1/role/permadd' where id=3;
+update bs_permission set name='角色权限减少',path='/api/v1/role/permreduce' where id=4;
+update bs_permission set name='用户角色添加',path='/api/v1/user/roleadd' where id=5;
+update bs_permission set name='用户角色减少',path='/api/v1/user/rolereduce' where id=6;
+
 update bs_role set name='系统管理员', creator_id=0,remark='' where id=1;
 update bs_role set name='子管理员1', creator_id=1,remark='' where id=2;
 update bs_role set name='子管理员6' where id=7;
