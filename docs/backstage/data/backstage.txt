@@ -31,6 +31,7 @@ mysql>
 
 
 
+
 mysql> select * from bs_permission;
 +----+--------------------+-------------------+--------+---------------------------+------------+------+---------------------+---------------------+
 | id | name               | permission_status | method | path                      | creator_id | desc | created_at          | updated_at          |

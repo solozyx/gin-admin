@@ -16,6 +16,9 @@ update bs_user set creator_id=0 where id=1;
 ALTER TABLE `bs_permission` ADD `method` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'http method' AFTER `permission_status`;
 ALTER TABLE `bs_permission` ADD `path` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'http path' AFTER `method`;
 
+ALTER TABLE `bs_user_role` ADD `status`int(11) NOT NULL DEFAULT 1 COMMENT '状态 0不可用 1可用' AFTER `role_id`;
+ALTER TABLE `bs_user_role` ADD `creator_id` int(11) NOT NULL DEFAULT 0 COMMENT '操作者用户id' AFTER `status`;
+
 UPDATE `bs_permission` SET `method`='GET',path='/permission/list' WHERE `id`=1;
 UPDATE `bs_permission` SET `method`='POST',path='/permission/create' WHERE `id`=2;
 
