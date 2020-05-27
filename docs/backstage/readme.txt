@@ -4,10 +4,14 @@
 [V] 2.角色权限添加 判断了权限表 permission_status   [数据正确]
 
 3.service/user
-err = adapter.CasbinSyncedEnforcer.LoadPolicy()
+    3.1 RoleAdd
+    3.2 RoleReduce
+        adapter.CasbinSyncedEnforcer.LoadPolicy()
 
 4.service/role
-adapter.CasbinSyncedEnforcer.LoadPolicy()
+    4.1 PermAdd
+    4.2 PermReduce
+        adapter.CasbinSyncedEnforcer.LoadPolicy()
 
 
 func InitTestRepo() {

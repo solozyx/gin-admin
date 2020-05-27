@@ -1,4 +1,18 @@
 
+mysql> show tables;
++---------------------+
+| Tables_in_backstage |
++---------------------+
+| bs_department       |
+| bs_permission       |
+| bs_role             |
+| bs_role_permission  |
+| bs_user             |
+| bs_user_role        |
++---------------------+
+6 rows in set (0.00 sec)
+mysql>
+
 mysql> select * from bs_department;
 +----+---------+----------------+-------------+-------------------+------------+---------------+---------------------+---------------------+
 | id | name    | email          | phone       | department_status | creator_id | desc          | created_at          | updated_at          |
