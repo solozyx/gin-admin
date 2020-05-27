@@ -94,3 +94,5 @@ update bs_user set password='d6cf393ff29f1b223052a63891ef52bca7697e85';
 select * from bs_role_permission where permission_id=10;
 
 delete from bs_role_permission where role_id=2 and permission_id=10;
+
+show create table bs_user;
