@@ -57,6 +57,8 @@ update bs_permission set name='创建部门',path='/api/v1/department/create' wh
 update bs_permission set name='创建用户',path='/api/v1/user/create' where id=11;
 update bs_permission set name='删除用户',path='/api/v1/user/delete' where id=12;
 
+update bs_permission set name='角色列表',path='/api/v1/role/list' where id=7;
+
 update bs_permission set name='用户角色添加',path='/api/v1/user/roleadd' where id=4;
 
 update bs_permission set name='角色权限添加',path='/api/v1/role/permadd' where id=3;
