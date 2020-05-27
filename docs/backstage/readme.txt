@@ -13,6 +13,9 @@
     4.2 PermReduce
         adapter.CasbinSyncedEnforcer.LoadPolicy()
 
+5.service/user
+    5.1 rolelist 下级用户看到了上级用户的角色列表
+    5.2 permlist 下级用户看到了上级用户的权限列表
 
 func InitTestRepo() {
 	cfg := &common.Config{}
