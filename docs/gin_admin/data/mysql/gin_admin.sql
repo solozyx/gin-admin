@@ -1,4 +1,10 @@
 
+mysql -h127.0.0.1 -uroot -p
+root
+use `gin-admin`
+show tables;
+
+
 CREATE DATABASE `gin-admin` DEFAULT CHARACTER SET utf8;
 
 CREATE TABLE `g_demo` (

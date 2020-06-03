@@ -2,6 +2,7 @@ package bll
 
 import (
 	"context"
+	"github.com/sirupsen/logrus"
 	"net/http"
 	"sort"
 
@@ -165,7 +166,10 @@ func (a *Login) GetLoginInfo(ctx context.Context, userID string) (*schema.UserLo
 
 // QueryUserMenuTree 查询当前用户的权限菜单树
 func (a *Login) QueryUserMenuTree(ctx context.Context, userID string) (schema.MenuTrees, error) {
+	logrus.Infof("QueryUserMenuTree userId=%d", userID)
+
 	isRoot := CheckIsRootUser(ctx, userID)
+
 	// 如果是root用户，则查询所有显示的菜单树
 	if isRoot {
 		result, err := a.MenuModel.Query(ctx, schema.MenuQueryParam{
@@ -176,12 +180,18 @@ func (a *Login) QueryUserMenuTree(ctx context.Context, userID string) (schema.Me
 		if err != nil {
 			return nil, err
 		}
+		logrus.Infof("QueryUserMenuTree isRoot menu result=%+v", result)
 
 		menuActionResult, err := a.MenuActionModel.Query(ctx, schema.MenuActionQueryParam{})
 		if err != nil {
 			return nil, err
 		}
-		return result.Data.FillMenuAction(menuActionResult.Data.ToMenuIDMap()).ToTree(), nil
+		logrus.Infof("QueryUserMenuTree isRoot menuActionResult result=%+v", menuActionResult)
+
+		tree := result.Data.FillMenuAction(menuActionResult.Data.ToMenuIDMap()).ToTree()
+		logrus.Infof("QueryUserMenuTree isRoot tree=%+v", tree)
+
+		return tree, nil
 	}
 
 	userRoleResult, err := a.UserRoleModel.Query(ctx, schema.UserRoleQueryParam{
