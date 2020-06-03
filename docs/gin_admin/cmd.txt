@@ -6,3 +6,5 @@ root
 
 use `gin-admin`;
 show tables;
+
+http://127.0.0.1:10088/api/v1/pub/current/menutree

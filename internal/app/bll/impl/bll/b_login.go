@@ -181,12 +181,22 @@ func (a *Login) QueryUserMenuTree(ctx context.Context, userID string) (schema.Me
 			return nil, err
 		}
 		logrus.Infof("QueryUserMenuTree isRoot menu result=%+v", result)
+		for sK, menu := range result.Data {
+			logrus.Infof("QueryUserMenuTree isRoot sK=%+v menu=%+v", sK, *menu)
+		}
 
 		menuActionResult, err := a.MenuActionModel.Query(ctx, schema.MenuActionQueryParam{})
 		if err != nil {
 			return nil, err
 		}
 		logrus.Infof("QueryUserMenuTree isRoot menuActionResult result=%+v", menuActionResult)
+		for sK, menuAction := range menuActionResult.Data {
+			logrus.Infof("QueryUserMenuTree isRoot sK=%+v", sK)
+			logrus.Infof("QueryUserMenuTree isRoot menuAction=%+v", *menuAction)
+			for subSK, resource := range menuAction.Resources {
+				logrus.Infof("QueryUserMenuTree isRoot subSK=%+v resource=%+v", subSK, resource)
+			}
+		}
 
 		tree := result.Data.FillMenuAction(menuActionResult.Data.ToMenuIDMap()).ToTree()
 		logrus.Infof("QueryUserMenuTree isRoot tree=%+v", tree)
