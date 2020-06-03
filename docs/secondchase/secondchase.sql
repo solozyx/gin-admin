@@ -106,3 +106,39 @@ CREATE TABLE `mz_user_idol` (
   PRIMARY KEY (`user_id`,`idol_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- table mz_ai_list
+CREATE TABLE `mz_ai_list` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `original_price` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '花费金额',
+  `ai_value` int(11) unsigned NOT NULL DEFAULT '0' COMMENT 'ai值',
+  `present_price` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '现价',
+  `discount` float unsigned NOT NULL DEFAULT '0',
+  `ai_status` int(11) NOT NULL DEFAULT '0' COMMENT '状态',
+  `sort` int(11) NOT NULL DEFAULT '0',
+  `ios_product_id` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'Applestore 商品ID',
+  `top_up_bonus` int(11) NOT NULL DEFAULT '0' COMMENT '充值赠送ai值',
+  PRIMARY KEY (`id`),
+  KEY `mz_ai_list_ai_status_index` (`ai_status`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- table mz_goods
+CREATE TABLE `mz_goods` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '商品ID',
+  `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '商品名称',
+  `original_price` int(11) unsigned NOT NULL DEFAULT 0 COMMENT '商品原价,单位分',
+  `present_price` int(11) unsigned NOT NULL DEFAULT 0 COMMENT '商品现价,单位分',
+  `sort` int(11) NOT NULL DEFAULT 0 COMMENT '排序',
+  `thumb_image_url` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '商品缩略图地址',
+  `image_url` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '商品主图地址',
+  `type` int(11) NOT NULL DEFAULT 1 COMMENT '商品状态 0虚拟商品 1真实商品',
+  `goods_status` int(11) NOT NULL DEFAULT 1 COMMENT '商品状态 0下架 1上架',
+  `ship_address` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '发货地址',
+  `sale_support` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '售后保障',
+  `description` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '描述备注',
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+  `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='商品表';
+
+-- 运费要根据地址算
