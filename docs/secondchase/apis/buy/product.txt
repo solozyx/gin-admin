@@ -1,0 +1,29 @@
+
+
+
+{
+	"PayType":"wechat",
+	"ProductId":1,
+	"Quantity":1,
+	"Name":"张三",
+	"Phone":"18899990000",
+	"Area":"北京市朝阳区",
+	"Address":"西大望路佳兆业广场1107"
+}
+
+
+{
+    "Code": 0,
+    "Msg": "SUCCESS",
+    "Data": {
+        "orderid": "SN1591340239077536922lPyaczRIMq",
+        "prepayid": "wx051457192643961119c4934a1664996600",
+        "sign": "898FA3ACBA3A0959CC78BA0338C35F66",
+        "partnerid": "1559155551",
+        "package": "Sign=WXPay",
+        "noncestr": "gtO6L5nyEu6LvA8f",
+        "timestamp": "1591340239",
+        "appid": "wx157fc3b46587851d"
+    }
+}
+

@@ -122,23 +122,47 @@ CREATE TABLE `mz_ai_list` (
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
--- table mz_goods
-CREATE TABLE `mz_goods` (
+-- table mz_product
+-- ALTER TABLE `mz_product` ADD `banner_urls` text COMMENT 'banner图' AFTER `image_url`;
+-- ALTER TABLE `mz_product` ADD `freight` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '运费,单位分' AFTER `present_price`;
+
+CREATE TABLE `mz_product` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '商品ID',
   `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '商品名称',
-  `original_price` int(11) unsigned NOT NULL DEFAULT 0 COMMENT '商品原价,单位分',
-  `present_price` int(11) unsigned NOT NULL DEFAULT 0 COMMENT '商品现价,单位分',
-  `sort` int(11) NOT NULL DEFAULT 0 COMMENT '排序',
+  `quantity` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品初始数量',
+  `original_price` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品原价,单位分',
+  `present_price` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品现价,单位分',
+  `freight` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '运费,单位分',
+  `sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `thumb_image_url` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '商品缩略图地址',
   `image_url` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '商品主图地址',
-  `type` int(11) NOT NULL DEFAULT 1 COMMENT '商品状态 0虚拟商品 1真实商品',
-  `goods_status` int(11) NOT NULL DEFAULT 1 COMMENT '商品状态 0下架 1上架',
+  `banner_urls` text COLLATE utf8mb4_unicode_ci COMMENT 'banner图',
+  `sku` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'sku描述',
+  `type` int(11) NOT NULL DEFAULT '1' COMMENT '商品状态 0虚拟商品 1真实商品',
+  `product_status` int(11) NOT NULL DEFAULT '1' COMMENT '商品状态 0下架 1上架',
   `ship_address` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '发货地址',
   `sale_support` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '售后保障',
   `description` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '描述备注',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='商品表';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='商品表';
+
+
+
+update mz_product set `name`='小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄',
+ `quantity`=100,
+ `original_price`=129900,`present_price`=99900,`freight`=1000,
+ `sort`=1,
+ `thumb_image_url`='https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png',
+ `image_url`='https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png',
+ `banner_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png,https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png',
+ `sku`='小金刚, 4GB+64GB',
+ `type`=1,`product_status`=1,
+ `ship_address`='北京',`sale_support`='官方授权 秒追直发 假一赔四 品质保证'
+ where id=1;
 
 -- 运费要根据地址算
+
+alter table mz_product drop column `sku_desc`;
+ALTER TABLE `mz_product` ADD `sku` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'sku描述' AFTER `banner_urls`;

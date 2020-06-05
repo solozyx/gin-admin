@@ -1,0 +1,56 @@
+
+> show tables
+DefendUsersList
+ar_service
+buy_service
+factories
+gateway
+log_buy_service
+log_gateway
+log_idol_service
+log_monitor_service
+log_order_service
+log_ordernew_service
+log_prop_service
+log_share_service
+log_starnew_service
+log_user_service
+mgo_investigation
+mgo_invite
+mgo_like
+mgo_list
+mgo_lottery_power
+mgo_order
+mgo_product_order
+mgo_receive_prize
+mgo_search
+mgo_user_lottery
+mgo_user_prize
+user_service
+> db.mgo_product_order.find()
+{
+    "_id" : ObjectId("5ed9eccf6738850001ce9c0f"),
+    "order_id" : "SN1591340239077536922lPyaczRIMq",
+    "order_type" : 5,
+    "payment" : "wechat",
+    "user_id" : 272,
+    "prepay_id" : "wx051457192643961119c4934a1664996600",
+    "transaction_id" : "",
+    "receipt_data" : "",
+    "fee_cents" : 100900,
+    "product_id" : 1,
+    "product_name" : "小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄",
+    "present_price" : 99900,
+    "original_price" : 129900,
+    "quantity" : 1,
+    "freight" : 1000,
+    "status" : 0,
+    "name" : "张三",
+    "phone" : "18899990000",
+    "area" : "北京市朝阳区",
+    "address" : "西大望路佳兆业广场1107",
+    "create_at" : "2020-06-05T14:57:19+08:00",
+    "update_at" : "2020-06-05T14:57:19+08:00"
+}
+>
+

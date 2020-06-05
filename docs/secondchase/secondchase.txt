@@ -59,6 +59,49 @@ mysql> show tables;
 52 rows in set (0.00 sec)
 mysql>
 
+mysql> show columns from mz_product;
++-----------------+------------------+------+-----+-------------------+-----------------------------+
+| Field           | Type             | Null | Key | Default           | Extra                       |
++-----------------+------------------+------+-----+-------------------+-----------------------------+
+| id              | int(11)          | NO   | PRI | NULL              | auto_increment              |
+| name            | varchar(128)     | NO   |     |                   |                             |
+| quantity        | int(11) unsigned | NO   |     | 0                 |                             |
+| original_price  | int(11) unsigned | NO   |     | 0                 |                             |
+| present_price   | int(11) unsigned | NO   |     | 0                 |                             |
+| sort            | int(11)          | NO   |     | 0                 |                             |
+| thumb_image_url | varchar(512)     | NO   |     |                   |                             |
+| image_url       | varchar(512)     | NO   |     |                   |                             |
+| type            | int(11)          | NO   |     | 1                 |                             |
+| product_status  | int(11)          | NO   |     | 1                 |                             |
+| ship_address    | varchar(128)     | NO   |     |                   |                             |
+| sale_support    | varchar(128)     | NO   |     |                   |                             |
+| description     | varchar(128)     | NO   |     |                   |                             |
+| created_at      | datetime         | NO   |     | CURRENT_TIMESTAMP |                             |
+| updated_at      | datetime         | NO   |     | NULL              | on update CURRENT_TIMESTAMP |
++-----------------+------------------+------+-----+-------------------+-----------------------------+
+15 rows in set (0.00 sec)
+mysql>
+
+insert `mz_product`(`name`,`updated_at`) VALUES('xm','2020-06-04 15:21:56');
+
+mysql> select * from mz_product;
++----+------+----------+----------------+---------------+---------+------+-----------------+-----------+-------------+------+----------------+--------------+--------------+-------------+---------------------+---------------------+
+| id | name | quantity | original_price | present_price | freight | sort | thumb_image_url | image_url | banner_urls | type | product_status | ship_address | sale_support | description | created_at          | updated_at          |
++----+------+----------+----------------+---------------+---------+------+-----------------+-----------+-------------+------+----------------+--------------+--------------+-------------+---------------------+---------------------+
+|  1 | xm   |        0 |              0 |             0 |       0 |    0 |                 |           | NULL        |    1 |              1 |              |              |             | 2020-06-04 15:11:12 | 2020-06-04 15:21:56 |
++----+------+----------+----------------+---------------+---------+------+-----------------+-----------+-------------+------+----------------+--------------+--------------+-------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+mysql> select * from mz_product;
++----+---------------------------------------------------------------------------------+----------+----------------+---------------+---------+------+-------------------------+-------------------------+-------------------------------------------------+------+----------------+--------------+-----------------------------------------------------+-------------+---------------------+---------------------+
+| id | name                                                                            | quantity | original_price | present_price | freight | sort | thumb_image_url         | image_url               | banner_urls                                     | type | product_status | ship_address | sale_support                                        | description | created_at          | updated_at          |
++----+---------------------------------------------------------------------------------+----------+----------------+---------------+---------+------+-------------------------+-------------------------+-------------------------------------------------+------+----------------+--------------+-----------------------------------------------------+-------------+---------------------+---------------------+
+|  1 | 小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄                    |      100 |         129900 |         99900 |    1000 |    1 | https://www.obencn.com/ | https://www.obencn.com/ | https://www.obencn.com/,https://www.obencn.com/ |    1 |              1 | 北京         | 官方授权 秒追直发 假一赔四 品质保证                 |             | 2020-06-04 15:11:12 | 2020-06-04 15:19:57 |
++----+---------------------------------------------------------------------------------+----------+----------------+---------------+---------+------+-------------------------+-------------------------+-------------------------------------------------+------+----------------+--------------+-----------------------------------------------------+-------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
 mysql> select * from mz_prize;
 +----+--------------------+--------------------------------------------------------------------------+--------------+-------+------+----------+
 | id | name               | image_url                                                                | prize_status | level | sort | quantity |
@@ -146,4 +189,122 @@ mysql> select * from mz_idols;
 +----+--------------+-----------------------------------------------------------------------------------------+-----------------------------------------------------------------------------------------+-------+--------+---------------------+-----------------------------------------------------------------------------------------+-----------------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------+-------------+---------+--------------------------------------------------------------+------------------------------------------------------------------------------+----------------------------------------------------------------------------------+--------+---------------------+------------+-----------------+--------+-----------------------------------------------------------------------------------------+
 30 rows in set (0.00 sec)
 mysql>
+
+
+mysql> select * from mz_product\G
+*************************** 1. row ***************************
+             id: 1
+           name: 小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄
+       quantity: 100
+ original_price: 129900
+  present_price: 99900
+        freight: 1000
+           sort: 1
+thumb_image_url: https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png
+      image_url: https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png
+    banner_urls: https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png,https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png
+            sku: 小金刚, 4GB+64GB
+           type: 1
+ product_status: 1
+   ship_address: 北京
+   sale_support: 官方授权 秒追直发 假一赔四 品质保证
+    description:
+     created_at: 2020-06-04 15:11:12
+     updated_at: 2020-06-05 16:38:22
+1 row in set (0.00 sec)
+mysql>
+
+
+
+2020/6/5 下午4:43:35{"level":"debug","msg":"ProductDetail 收到注册请求消息. buyservice.buyproductdetail _INBOX.JcPtg0scbCfxhjNTdG1o1c.HVOlLfDm {1 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-05T16:43:35+08:00"}
+2020/6/5 下午4:43:35{"level":"info","msg":"sql/app/repository/product_repo.go:171.144919msSELECT * FROM `mz_product`  WHERE (id=? AND product_status=?) ORDER BY `mz_product`.`id` ASC LIMIT 1[1 1] 1","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-06-05T16:43:35+08:00"}
+2020/6/5 下午4:43:35{"level":"debug","msg":"fen2yuan yuan=1299.00","source":"online_mall.go:47:service.ProductDetail","time":"2020-06-05T16:43:35+08:00"}
+2020/6/5 下午4:43:35{"level":"debug","msg":"fen2yuan yuan=999.00","source":"online_mall.go:48:service.ProductDetail","time":"2020-06-05T16:43:35+08:00"}
+2020/6/5 下午4:43:35{"level":"debug","msg":"fen2yuan yuan=10.00","source":"online_mall.go:49:service.ProductDetail","time":"2020-06-05T16:43:35+08:00"}
+2020/6/5 下午4:43:35{"level":"debug","msg":"ProductDetail 消息处理完成. buyservice.buyproductdetail _INBOX.JcPtg0scbCfxhjNTdG1o1c.HVOlLfDm {0 SUCCESS
+ProductId:1
+Name:\"\\345\\260\\217\\347\\261\\263 Redmi Note8\\276\\231665 4800\\3\\346\\221\\204\"
+OriginalPrice:\"1299.00\"
+PresentPrice:\"999.00\"
+Freight:\"10.00\"
+ThumbImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png\"
+ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png\"
+BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png\"
+BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png\"
+Type:1
+ShipAddress:\"\\345\\214\\227\\344\\272\\254\"
+SaleSupport:\"\\345\\256\\230\\250\\344\\277\\235\\350\\257\\201\"
+SoldCount:100
+Sku:\"\\345\\260\\217\\351\\207\\221\\345\\210\\232, 4GB+64GB\"  {} [] 483}","source":"online_mall.go:60:service.ProductDetail","time":"2020-06-05T16:43:35+08:00"}
+
+
+
+
+2020/6/5 下午6:17:25{"level":"debug","msg":"BuyAICheckBalance 注册请求消息. buyservice.checkbalance _INBOX.lMFIKW71wNzaF8wcWXDKOi.ENsbuQCV {182 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-05T18:17:25+08:00"}
+2020/6/5 下午6:17:25{"level":"debug","msg":"get user_182 balance=1530 from Redis","source":"cash_voucher.go:76:service.BuyAICheckBalance","time":"2020-06-05T18:17:25+08:00"}
+2020/6/5 下午6:17:25{"level":"debug","msg":"BuyAICheckBalance 消息处理完成. buyservice.checkbalance _INBOX.lMFIKW71wNzaF8wcWXDKOi.ENsbuQCV {0 SUCCESS Balance:1530  {} [] 14}","source":"cash_voucher.go:89:service.BuyAICheckBalance","time":"2020-06-05T18:17:25+08:00"}
+2020/6/5 下午6:17:38{"level":"debug","msg":"ProductDetail 收到注册请求消息. buyservice.buyproductdetail _INBOX.lMFIKW71wNzaF8wcWXDKOi.j97MTxSs {1 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-05T18:17:38+08:00"}
+2020/6/5 下午6:17:38{"level":"info","msg":"sql/app/repository/product_repo.go:171.448031msSELECT * FROM `mz_product`  WHERE (id=? AND product_status=?) ORDER BY `mz_product`.`id` ASC LIMIT 1[1 1] 1","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-06-05T18:17:38+08:00"}
+2020/6/5 下午6:17:38{"level":"debug","msg":"fen2yuan yuan=1299.00","source":"online_mall.go:47:service.ProductDetail","time":"2020-06-05T18:17:38+08:00"}
+2020/6/5 下午6:17:38{"level":"debug","msg":"fen2yuan yuan=999.00","source":"online_mall.go:48:service.ProductDetail","time":"2020-06-05T18:17:38+08:00"}
+2020/6/5 下午6:17:38{"level":"debug","msg":"fen2yuan yuan=10.00","source":"online_mall.go:49:service.ProductDetail","time":"2020-06-05T18:17:38+08:00"}
+2020/6/5 下午6:17:38{"level":"debug","msg":"ProductDetail 消息处理完成. buyservice.buyproductdetail _INBOX.lMFIKW71wNzaF8wcWXDKOi.j97MTxSs {0 SUCCESS ProductId:1 Name:\"\\345\\260\\217\\347\\261\\263 Redmi Note8 \\345\\260\\217\\351\\207\\221\\345\\210\\232\\345\\223\\201\\350\\264\\250\\344\\277\\235\\350\\257\\201 \\351\\253\\230\\351\\200\\232\\351\\252\\201\\351\\276\\231665 4800\\344\\270\\207\\345\\205\\250\\345\\234\\272\\346\\231\\257\\345\\233\\233\\346\\221\\204\" OriginalPrice:\"1299.00\" PresentPrice:\"999.00\" Freight:\"10.00\" ThumbImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png\" Type:1 ShipAddress:\"\\345\\214\\227\\344\\272\\254\" SaleSupport:\"\\345\\256\\230\\346\\226\\271\\346\\216\\210\\346\\235\\203 \\347\\247\\222\\350\\277\\275\\347\\233\\264\\345\\217\\221 \\345\\201\\207\\344\\270\\200\\350\\265\\224\\345\\233\\233 \\345\\223\\201\\350\\264\\250\\344\\277\\235\\350\\257\\201\" SoldCount:100 Sku:\"\\345\\260\\217\\351\\207\\221\\345\\210\\232, 4GB+64GB\"  {} [] 483}","source":"online_mall.go:60:service.ProductDetail","time":"2020-06-05T18:17:38+08:00"}
+2020/6/5 下午6:18:07{"level":"debug","msg":"BuyProduct 收到注册请求消息. buyservice.buyproduct _INBOX.lMFIKW71wNzaF8wcWXDKOi.2RQEbRe1 {182 WeChat 1 1 默默哦 182 5466 6666 辽宁省 鞍山市 铁西区 我也是我婆婆 121.69.132.42 https://mz.test.obencn.com/api/v2/buy/wechat/callback  {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"debug","msg":"SetLockBuyProductUser 设置redis分布式锁key=buy:product:lock:user:182 success","source":"online_mall.go:86:service.BuyProduct","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"debug","msg":"wechatPayProduct userId=182 productId=1 quantity=1 name=默默哦 phone=182 5466 6666 area=辽宁省 鞍山市 铁西区 address=我也是我婆婆 clientIP=121.69.132.42 callbackUrl=https://mz.test.obencn.com/api/v2/buy/wechat/callback","source":"online_mall.go:98:service.BuyProduct","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"info","msg":"sql/app/repository/product_repo.go:171.172476msSELECT * FROM `mz_product`  WHERE (id=? AND product_status=?) ORDER BY `mz_product`.`id` ASC LIMIT 1[1 1] 1","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"info","msg":"[OrderID] 即微信方 out_trade_no=SN1591352287488792629kCbjnHlGUo","source":"online_mall.go:98:service.BuyProduct","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"debug","msg":"product=\u0026{ID:1 Name:小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄 Quantity:100 OriginalPrice:129900 PresentPrice:99900 Freight:1000 Sort:1 ThumbImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png BannerUrls:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png,https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png Sku:小金刚, 4GB+64GB Type:1 ProductStatus:1 ShipAddress:北京 SaleSupport:官方授权 秒追直发 假一赔四 品质保证 Description: CreatedAt:2020-06-04 15:11:12 +0800 CST UpdatedAt:2020-06-05 16:38:22 +0800 CST}","source":"online_mall.go:98:service.BuyProduct","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"debug","msg":"productOrder={ID:ObjectIdHex(\"\") OrderId:SN1591352287488792629kCbjnHlGUo OrderType:实物商品 Payment:wechat UserId:182 PrepayId:wx05181807667445b87317f5ed1246434300 TransactionId: ReceiptData: FeeCents:1 ProductId:1 ProductName:小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄 PresentPrice:99900 OriginalPrice:129900 Quantity:1 Freight:1000 Status:waiting Name:默默哦 Phone:182 5466 6666 Area:辽宁省 鞍山市 铁西区 Address:我也是我婆婆 CreateAt: UpdateAt:}","source":"online_mall.go:98:service.BuyProduct","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"debug","msg":"UnLockBuyProductUser 删除redis分布式锁key=buy:product:lock:user:182 success","source":"online_mall.go:100:service.BuyProduct","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"debug","msg":"BuyProduct 消息处理完成. buyservice.buyproduct _INBOX.lMFIKW71wNzaF8wcWXDKOi.2RQEbRe1 {0 SUCCESS OrderID:\"SN1591352287488792629kCbjnHlGUo\" PrepayID:\"wx05181807667445b87317f5ed1246434300\" Sign:\"432CDDB62098929123EFDC59B5570418\" PartnerID:\"1559155551\" Package:\"Sign=WXPay\" NonceStr:\"NZYNBhne7HX8mZfq\" Timestamp:\"1591352287\" AppID:\"wx157fc3b46587851d\"  {} [] 191}","source":"online_mall.go:100:service.BuyProduct","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:17{"level":"debug","msg":"BuyProductWeChatCallBack 收到注册请求消息. buyservice.productwechatcallback _INBOX.lMFIKW71wNzaF8wcWXDKOi.iWO2Ezhe {{\"return_code\":\"SUCCESS\",\"result_code\":\"SUCCESS\",\"appid\":\"wx157fc3b46587851d\",\"mch_id\":\"1559155551\",\"device_info\":\"WEB\",\"nonce_str\":\"3JxlbSbeKkGJJ0gjsRjz5UwY4IMrsE8I\",\"sign\":\"393F6CAAE1E2648FF053ABDE21918939\",\"openid\":\"oFJ9GwedxSAhJ7tVuXFKkn8fBHP8\",\"is_subscribe\":\"N\",\"trade_type\":\"APP\",\"bank_type\":\"OTHERS\",\"total_fee\":1,\"fee_type\":\"CNY\",\"cash_fee\":1,\"transaction_id\":\"4200000610202006053088183069\",\"out_trade_no\":\"SN1591352287488792629kCbjnHlGUo\",\"time_end\":\"20200605181816\"} {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-05T18:18:17+08:00"}
+2020/6/5 下午6:18:17{"level":"debug","msg":"微信支付异步通知回调 wxNotifyRequest={ReturnCode:SUCCESS ReturnMsg: ResultCode:SUCCESS ErrCode: ErrCodeDes: Appid:wx157fc3b46587851d MchId:1559155551 DeviceInfo:WEB NonceStr:3JxlbSbeKkGJJ0gjsRjz5UwY4IMrsE8I Sign:393F6CAAE1E2648FF053ABDE21918939 SignType: Openid:oFJ9GwedxSAhJ7tVuXFKkn8fBHP8 IsSubscribe:N TradeType:APP BankType:OTHERS TotalFee:1 SettlementTotalFee:0 FeeType:CNY CashFee:1 CashFeeType: CouponFee:0 CouponCount:0 CouponType0: CouponType1: CouponId0: CouponId1: CouponFee0:0 CouponFee1:0 TransactionId:4200000610202006053088183069 OutTradeNo:SN1591352287488792629kCbjnHlGUo Attach: TimeEnd:20200605181816}","source":"value.go:460:reflect.Value.call","time":"2020-06-05T18:18:17+08:00"}
+2020/6/5 下午6:18:17{"level":"info","msg":"verify sign: true","source":"value.go:460:reflect.Value.call","time":"2020-06-05T18:18:17+08:00"}
+2020/6/5 下午6:18:17{"level":"debug","msg":"BuyProductWeChatCallBack 消息处理完成. buyservice.productwechatcallback _INBOX.lMFIKW71wNzaF8wcWXDKOi.iWO2Ezhe {0 SUCCESS {} [] 9}","source":"pay_wechat.go:457:service.BuyProductWeChatCallBack","time":"2020-06-05T18:18:17+08:00"}
+2020/6/5 下午6:18:19{"level":"debug","msg":"BuyAICheckOrder 注册请求消息. buyservice.checkorder _INBOX.lMFIKW71wNzaF8wcWXDKOi.i1WDzo9X {SN1591352287488792629kCbjnHlGUo {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-05T18:18:19+08:00"}
+2020/6/5 下午6:18:19{"level":"error","msg":"BuyAICheckOrder GetByOrderID=SN1591352287488792629kCbjnHlGUo, error=not found","source":"value.go:460:reflect.Value.call","time":"2020-06-05T18:18:19+08:00"}
+2020/6/5 下午6:18:19{"level":"debug","msg":"BuyAICheckOrder 消息处理完成. buyservice.checkorder _INBOX.lMFIKW71wNzaF8wcWXDKOi.i1WDzo9X {20002 Database error.; not found \u003cnil\u003e {} [] 32}","source":"cash_voucher.go:109:service.BuyAICheckOrder","time":"2020-06-05T18:18:19+08:00"}
+
+
+> db.mgo_product_order.find()
+{
+    "_id" : ObjectId("5eda1bdff7938500010fca34"),
+    "order_id" : "SN1591352287488792629kCbjnHlGUo",
+    "order_type" : 5,
+    "payment" : "wechat",
+    "user_id" : 182,
+    "prepay_id" : "wx05181807667445b87317f5ed1246434300",
+    "transaction_id" : "4200000610202006053088183069",
+    "receipt_data" : "",
+    "fee_cents" : 1,
+    "product_id" : 1,
+    "product_name" : "小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄",
+    "present_price" : 99900,
+    "original_price" : 129900,
+    "quantity" : 1,
+    "freight" : 1000,
+    "status" : 1,
+    "name" : "默默哦",
+    "phone" : "182 5466 6666",
+    "area" : "辽宁省 鞍山市 铁西区",
+    "address" : "我也是我婆婆",
+    "create_at" : "2020-06-05T18:18:07+08:00",
+    "update_at" : "2020-06-05T18:18:17+08:00"
+}
+>
+
+
+2020/6/5 下午6:18:07{"level":"debug","msg":"sign before: POSTmz.test.obencn.com/api/v2/buy/product{\"Address\":\"我也是我婆婆\",\"Area\":\"辽宁省 鞍山市 铁西区\",\"Name\":\"默默哦\",\"PayType\":\"wechat\",\"Phone\":\"182 5466 6666\",\"ProductId\":1,\"Quantity\":1}1591352283com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:122:middleware.Options","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"debug","msg":"server sign: e35bad509c763ca712f204e5f99e1908, \tuser sign: e35bad509c763ca712f204e5f99e1908","source":"context.go:147:gin.(*Context).Next","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"debug","msg":"request uri: /api/v2/buy/product","source":"context.go:147:gin.(*Context).Next","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"debug","msg":"request token: eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL216LnRlc3Qub2JlbmNuLmNvbSIsImV4cCI6MTU5MTQzODM2NCwibmJmIjoxNTkxMzUxNjY0LCJpYXQiOjE1OTEzNTE5NjQsImp0aSI6IjZiMjcwOTEyLTdlNWYtNGFkZC1iZGRjLTU4MDBkMmM0MWRmMSIsInVzZXJpZCI6MTgyfQ.TRLy8W7FXzj6bXqtjzHx0Zlx_SC3SrwmI6l8dcuKgAg","source":"context.go:147:gin.(*Context).Next","time":"2020-06-05T18:18:07+08:00"}
+2020/6/5 下午6:18:07{"level":"debug","msg":"Product payType=wechat","source":"buy.go:438:handler.(*buyHandler).Product.func1","time":"2020-06-05T18:18:07+08:00"}
+
+
+2020/6/5 下午6:18:17{"level":"debug","msg":"不验证sign","source":"head.go:122:middleware.Options","time":"2020-06-05T18:18:17+08:00"}
+2020/6/5 下午6:18:17{"level":"debug","msg":"request uri: /api/v2/buy/wechat/callback","source":"context.go:147:gin.(*Context).Next","time":"2020-06-05T18:18:17+08:00"}
+2020/6/5 下午6:18:17{"level":"debug","msg":"不验证token","source":"head.go:44:middleware.SignCheck.func1","time":"2020-06-05T18:18:17+08:00"}
+2020/6/5 下午6:18:17{"level":"debug","msg":"[gateway] buy_service topic=buyservice.productwechatcallback respToWeChat: %!(EXTRA model.BuyWechatPayCbV2Response={SUCCESS OK})","source":"buy.go:290:handler.(*buyHandler).WechatPayCbV2.func1","time":"2020-06-05T18:18:17+08:00"}
+2020/6/5 下午6:18:19{"level":"debug","msg":"sign before: POSTmz.test.obencn.com/api/v2/buy/check/order
 
