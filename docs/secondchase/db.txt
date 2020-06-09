@@ -1,4 +1,6 @@
 
+hget lottery:remain:userid_0 272
+
 mysql -h127.0.0.1 -uroot -p
 oben.com@123
 use secondchase

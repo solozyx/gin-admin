@@ -27,3 +27,36 @@
     }
 }
 
+
+mysql> select * from mz_product\G
+*************************** 1. row ***************************
+             id: 1
+           name: 小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄
+       quantity: 100
+ original_price: 129900
+  present_price: 99900
+        freight: 1000
+           sort: 1
+thumb_image_url: https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png
+      image_url: https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png
+    banner_urls: https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png,https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png
+            sku: 小金刚, 4GB+64GB
+           type: 1
+ product_status: 1
+   ship_address: 北京
+   sale_support: 官方授权 秒追直发 假一赔四 品质保证
+    description:
+  lottery_times: 1
+     created_at: 2020-06-04 15:11:12
+     updated_at: 2020-06-08 17:25:22
+1 row in set (0.00 sec)
+mysql>
+
+
+2020/6/8 下午5:34:36{"level":"info","msg":"开启订阅协程 No. 15","source":"proc.go:203:runtime.main","time":"2020-06-08T17:34:36+08:00"}
+2020/6/8 下午5:36:12{"level":"debug","msg":"ProductDetail 收到注册请求消息. buyservice.buyproductdetail _INBOX.67LS45pd6HDFCHCZXUcLHG.zq0blZ0I {1 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-08T17:36:12+08:00"}
+2020/6/8 下午5:36:12[mysql] 2020/06/08 17:36:12 packets.go:36: unexpected EOF
+2020/6/8 下午5:36:12{"level":"info","msg":"log/app/repository/product_repo.go:17invalid connection","source":"main.go:783:gorm.(*DB).AddError","time":"2020-06-08T17:36:12+08:00"}
+2020/6/8 下午5:36:12{"level":"info","msg":"sql/app/repository/product_repo.go:171.487693msSELECT * FROM `mz_product`  WHERE (id=? AND product_status=?) ORDER BY `mz_product`.`id` ASC LIMIT 1[1 1] 0","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-06-08T17:36:12+08:00"}
+2020/6/8 下午5:36:12{"level":"error","msg":"mzProductRepo Get id=1 error=invalid connection","source":"online_mall.go:32:service.ProductDetail","time":"2020-06-08T17:36:12+08:00"}
+2020/6/8 下午5:36:12{"level":"debug","msg":"ProductDetail 消息处理完成. buyservice.buyproductdetail _INBOX.67LS45pd6HDFCHCZXUcLHG.zq0blZ0I {20002 Database error.; invalid connection \u003cnil\u003e {} [] 41}","source":"online_mall.go:37:service.ProductDetail","time":"2020-06-08T17:36:12+08:00"}

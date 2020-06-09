@@ -308,3 +308,4 @@ Sku:\"\\345\\260\\217\\351\\207\\221\\345\\210\\232, 4GB+64GB\"  {} [] 483}","so
 2020/6/5 下午6:18:17{"level":"debug","msg":"[gateway] buy_service topic=buyservice.productwechatcallback respToWeChat: %!(EXTRA model.BuyWechatPayCbV2Response={SUCCESS OK})","source":"buy.go:290:handler.(*buyHandler).WechatPayCbV2.func1","time":"2020-06-05T18:18:17+08:00"}
 2020/6/5 下午6:18:19{"level":"debug","msg":"sign before: POSTmz.test.obencn.com/api/v2/buy/check/order
 
+

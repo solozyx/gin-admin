@@ -54,3 +54,8 @@ user_service
 }
 >
 
+mysql> create index index_pid on `mz_task`(`pid`) using btree;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql>
+
