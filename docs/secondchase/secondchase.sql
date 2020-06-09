@@ -161,10 +161,10 @@ update mz_product set `name`='小米 Redmi Note8 小金刚品质保证 高通骁
  `sku`='小金刚, 4GB+64GB',
  `type`=1,`product_status`=1,
  `ship_address`='北京',`sale_support`='官方授权 秒追直发 假一赔四 品质保证',
- `reward`=1
+ `reward`=5
  where id=1;
 
-update mz_product set `reward`=5 where id=1;
+
 
 -- 运费要根据地址算
 
@@ -204,3 +204,4 @@ CREATE TABLE `mz_task` (
   KEY `index_pid` (`pid`) USING BTREE
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='任务列表';
 
+show columns from `mz_task`;

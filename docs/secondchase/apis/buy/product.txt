@@ -60,3 +60,148 @@ mysql>
 2020/6/8 下午5:36:12{"level":"info","msg":"sql/app/repository/product_repo.go:171.487693msSELECT * FROM `mz_product`  WHERE (id=? AND product_status=?) ORDER BY `mz_product`.`id` ASC LIMIT 1[1 1] 0","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-06-08T17:36:12+08:00"}
 2020/6/8 下午5:36:12{"level":"error","msg":"mzProductRepo Get id=1 error=invalid connection","source":"online_mall.go:32:service.ProductDetail","time":"2020-06-08T17:36:12+08:00"}
 2020/6/8 下午5:36:12{"level":"debug","msg":"ProductDetail 消息处理完成. buyservice.buyproductdetail _INBOX.67LS45pd6HDFCHCZXUcLHG.zq0blZ0I {20002 Database error.; invalid connection \u003cnil\u003e {} [] 41}","source":"online_mall.go:37:service.ProductDetail","time":"2020-06-08T17:36:12+08:00"}
+
+2020/6/9 下午1:34:08{"level":"info","msg":"开启订阅协程 No. 14","source":"proc.go:203:runtime.main","time":"2020-06-09T13:34:08+08:00"}
+2020/6/9 下午1:34:08{"level":"info","msg":"开启订阅协程 No. 15","source":"proc.go:203:runtime.main","time":"2020-06-09T13:34:08+08:00"}
+
+2020/6/9 下午2:23:00{"level":"debug","msg":"BuyProduct 收到注册请求消息. buyservice.buyproduct _INBOX.WGMyMvrYSbOQX6TZZTRG1K.52qJUDpf {449 WeChat 1 1 哦我就问一下 180 8567 9799 内蒙古 乌海市 海南区 微信红米现在 121.69.132.42 https://mz.test.obencn.com/api/v2/buy/wechat/callback  {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-09T14:23:00+08:00"}
+2020/6/9 下午2:23:00{"level":"debug","msg":"SetLockBuyProductUser 设置redis分布式锁key=buy:product:lock:user:449 success","source":"online_mall.go:87:service.BuyProduct","time":"2020-06-09T14:23:00+08:00"}
+2020/6/9 下午2:23:00{"level":"debug","msg":"wechatPayProduct userId=449 productId=1 quantity=1 name=哦我就问一下 phone=180 8567 9799 area=内蒙古 乌海市 海南区 address=微信红米现在 clientIP=121.69.132.42 callbackUrl=https://mz.test.obencn.com/api/v2/buy/wechat/callback","source":"online_mall.go:99:service.BuyProduct","time":"2020-06-09T14:23:00+08:00"}
+2020/6/9 下午2:23:00{"level":"info","msg":"sql/app/repository/product_repo.go:171.114827msSELECT * FROM `mz_product`  WHERE (id=? AND product_status=?) ORDER BY `mz_product`.`id` ASC LIMIT 1[1 1] 1","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-06-09T14:23:00+08:00"}
+2020/6/9 下午2:23:00{"level":"info","msg":"[OrderID] 即微信方 out_trade_no=MZ15916837806UotYd27","source":"online_mall.go:99:service.BuyProduct","time":"2020-06-09T14:23:00+08:00"}
+2020/6/9 下午2:23:00{"level":"debug","msg":"product=\u0026{ID:1 Name:小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄 Quantity:100 OriginalPrice:129900 PresentPrice:99900 Freight:1000 Sort:1 ThumbImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png BannerUrls:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png,https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png Sku:小金刚, 4GB+64GB Type:1 ProductStatus:1 ShipAddress:北京 SaleSupport:官方授权 秒追直发 假一赔四 品质保证 Description: Reward:5 CreatedAt:2020-06-04 15:11:12 +0800 CST UpdatedAt:2020-06-09 11:31:12 +0800 CST}","source":"online_mall.go:99:service.BuyProduct","time":"2020-06-09T14:23:00+08:00"}
+2020/6/9 下午2:23:00{"level":"debug","msg":"productOrder={ID:ObjectIdHex(\"\") OrderId:MZ15916837806UotYd27 OrderType:实物商品 Payment:wechat UserId:449 PrepayId:wx09142300551274b8561808051653590200 TransactionId: ReceiptData: FeeCents:1 ProductId:1 ProductName:小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄 Sku:小金刚, 4GB+64GB ThumbImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png PresentPrice:99900 OriginalPrice:129900 Quantity:1 Freight:1000 Status:waiting Name:哦我就问一下 Phone:180 8567 9799 Area:内蒙古 乌海市 海南区 Address:微信红米现在 LotteryTimes:5 LotteryStatus:0 CreateAt: UpdateAt:}","source":"online_mall.go:99:service.BuyProduct","time":"2020-06-09T14:23:00+08:00"}
+2020/6/9 下午2:23:00{"level":"debug","msg":"UnLockBuyProductUser 删除redis分布式锁key=buy:product:lock:user:449 success","source":"online_mall.go:101:service.BuyProduct","time":"2020-06-09T14:23:00+08:00"}
+2020/6/9 下午2:23:00{"level":"debug","msg":"BuyProduct 消息处理完成. buyservice.buyproduct _INBOX.WGMyMvrYSbOQX6TZZTRG1K.52qJUDpf {0 SUCCESS OrderID:\"MZ15916837806UotYd27\" PrepayID:\"wx09142300551274b8561808051653590200\" Sign:\"87866C4D3D58B70BA6D71F45F5E3186E\" PartnerID:\"1559155551\" Package:\"Sign=WXPay\" NonceStr:\"nOiNrIPyLPl7Gy6T\" Timestamp:\"1591683780\" AppID:\"wx157fc3b46587851d\"  {} [] 180}","source":"online_mall.go:101:service.BuyProduct","time":"2020-06-09T14:23:00+08:00"}
+
+2020/6/9 下午2:23:11{"level":"debug","msg":"BuyProductWeChatCallBack 收到注册请求消息. buyservice.productwechatcallback _INBOX.WGMyMvrYSbOQX6TZZTRG1K.cihOjFOB {{\"return_code\":\"SUCCESS\",\"result_code\":\"SUCCESS\",\"appid\":\"wx157fc3b46587851d\",\"mch_id\":\"1559155551\",\"device_info\":\"WEB\",\"nonce_str\":\"Jqm80cCHjDnGhcPzpZD1sb6WgSfXsOWG\",\"sign\":\"FA107F4A82C80EE8D84276F1A496A81F\",\"openid\":\"oFJ9GwedxSAhJ7tVuXFKkn8fBHP8\",\"is_subscribe\":\"N\",\"trade_type\":\"APP\",\"bank_type\":\"OTHERS\",\"total_fee\":1,\"fee_type\":\"CNY\",\"cash_fee\":1,\"transaction_id\":\"4200000617202006098708690660\",\"out_trade_no\":\"MZ15916837806UotYd27\",\"time_end\":\"20200609142311\"} {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-09T14:23:11+08:00"}
+2020/6/9 下午2:23:11{"level":"debug","msg":"微信支付异步通知回调 wxNotifyRequest={ReturnCode:SUCCESS ReturnMsg: ResultCode:SUCCESS ErrCode: ErrCodeDes: Appid:wx157fc3b46587851d MchId:1559155551 DeviceInfo:WEB NonceStr:Jqm80cCHjDnGhcPzpZD1sb6WgSfXsOWG Sign:FA107F4A82C80EE8D84276F1A496A81F SignType: Openid:oFJ9GwedxSAhJ7tVuXFKkn8fBHP8 IsSubscribe:N TradeType:APP BankType:OTHERS TotalFee:1 SettlementTotalFee:0 FeeType:CNY CashFee:1 CashFeeType: CouponFee:0 CouponCount:0 CouponType0: CouponType1: CouponId0: CouponId1: CouponFee0:0 CouponFee1:0 TransactionId:4200000617202006098708690660 OutTradeNo:MZ15916837806UotYd27 Attach: TimeEnd:20200609142311}","source":"value.go:460:reflect.Value.call","time":"2020-06-09T14:23:11+08:00"}
+2020/6/9 下午2:23:11{"level":"info","msg":"verify sign: true","source":"value.go:460:reflect.Value.call","time":"2020-06-09T14:23:11+08:00"}
+2020/6/9 下午2:23:11{"level":"info","msg":"sql/app/repository/task_repo.go:241.24199msSELECT * FROM `mz_task`  WHERE (pid=?) ORDER BY `mz_task`.`id` ASC LIMIT 1[1] 1","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-06-09T14:23:11+08:00"}
+2020/6/9 下午2:23:11{"level":"debug","msg":"BuyProductWeChatCallBack 消息处理完成. buyservice.productwechatcallback _INBOX.WGMyMvrYSbOQX6TZZTRG1K.cihOjFOB {0 SUCCESS {} [] 9}","source":"pay_wechat.go:493:service.BuyProductWeChatCallBack","time":"2020-06-09T14:23:11+08:00"}
+
+2020/6/9 下午2:23:13{"level":"debug","msg":"BuyProductCheckOrder 收到注册请求消息. buyservice.productcheckorder _INBOX.WGMyMvrYSbOQX6TZZTRG1K.qHd7mMc9 {MZ15916837806UotYd27 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-09T14:23:13+08:00"}
+2020/6/9 下午2:23:13{"level":"debug","msg":"BuyProductCheckOrder 消息处理完成. buyservice.productcheckorder _INBOX.WGMyMvrYSbOQX6TZZTRG1K.qHd7mMc9 {0 SUCCESS OrderId:\"MZ15916837806UotYd27\" Status:1  {} [] 35}","source":"online_mall.go:152:service.BuyProductCheckOrder","time":"2020-06-09T14:23:13+08:00"}
+
+
+> db.mgo_product_order.find({}).pretty()
+{
+	"_id" : ObjectId("5edf02a8bd640500019bb59d"),
+	"order_id" : "MZ15916735122tCYMlKf",
+	"order_type" : 5,
+	"payment" : "wechat",
+	"user_id" : 272,
+	"prepay_id" : "wx09113152345798e89649b8231387844400",
+	"transaction_id" : "",
+	"receipt_data" : "",
+	"fee_cents" : 1,
+	"product_id" : 1,
+	"product_name" : "小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄",
+	"sku" : "小金刚, 4GB+64GB",
+	"thumb_image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png",
+	"present_price" : 99900,
+	"original_price" : 129900,
+	"quantity" : 1,
+	"freight" : 1000,
+	"status" : 0,
+	"name" : "张三",
+	"phone" : "18899990000",
+	"area" : "北京市朝阳区",
+	"address" : "西大望路佳兆业广场1107",
+	"lottery_times" : 5,
+	"lottery_status" : 0,
+	"create_at" : "2020-06-09T11:31:52+08:00",
+	"update_at" : "2020-06-09T11:31:52+08:00"
+}
+{
+	"_id" : ObjectId("5edf2ac4ab17c30001927cd2"),
+	"order_id" : "MZ15916837806UotYd27",
+	"order_type" : 5,
+	"payment" : "wechat",
+	"user_id" : 449,
+	"prepay_id" : "wx09142300551274b8561808051653590200",
+	"transaction_id" : "4200000617202006098708690660",
+	"receipt_data" : "",
+	"fee_cents" : 1,
+	"product_id" : 1,
+	"product_name" : "小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄",
+	"sku" : "小金刚, 4GB+64GB",
+	"thumb_image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png",
+	"present_price" : 99900,
+	"original_price" : 129900,
+	"quantity" : 1,
+	"freight" : 1000,
+	"status" : 1,
+	"name" : "哦我就问一下",
+	"phone" : "180 8567 9799",
+	"area" : "内蒙古 乌海市 海南区",
+	"address" : "微信红米现在",
+	"lottery_times" : 5,
+	"lottery_status" : 1,
+	"create_at" : "2020-06-09T14:23:00+08:00",
+	"update_at" : "2020-06-09T14:23:11+08:00"
+}
+>
+
+mysql> select * from mz_task;
++----+------------------------+--------+------+--------+-------+-------------------------------------+---------------------+-----+
+| id | task_name              | reward | type | status | flags | details                             | update_time         | pid |
++----+------------------------+--------+------+--------+-------+-------------------------------------+---------------------+-----+
+|  1 | 成功注册               |      3 |    1 |      1 |     0 | 首次注册登录获赠3次                 | 2020-04-03 14:39:24 |   0 |
+|  2 | 每日登录               |      1 |    3 |      1 |     0 | 每天获赠1次                         | 2020-04-03 14:39:24 |   0 |
+|  3 | 邀请好友               |      1 |    2 |      1 |     0 | 每邀请1人注册成功获赠1次            | 2020-04-03 14:39:24 |   0 |
+|  4 | 话费充值               |      1 |    2 |      1 |     0 | 每充值1次获赠1次                    | 2020-04-03 14:39:24 |   0 |
+|  5 | 购买小米(MI)手机       |      5 |    2 |      1 |     0 | 成功购买获赠5次                     | 2020-04-03 14:39:24 |   1 |
+|  6 | 完成问卷调查           |      1 |    2 |      1 |     0 | 首次完成调查问卷获赠1次             | 2020-04-03 14:39:24 |   0 |
++----+------------------------+--------+------+--------+-------+-------------------------------------+---------------------+-----+
+6 rows in set (0.00 sec)
+mysql>
+
+> db.mgo_lottery_power.find({task_id:5}).pretty()
+{
+	"_id" : ObjectId("5edf2acfab17c30001927cd3"),
+	"user_id" : 449,
+	"task_id" : 5,
+	"task_name" : "购买小米(MI)手机",
+	"status" : 0,
+	"create_at" : "2020-06-09T14:23:11+08:00",
+	"update_at" : ""
+}
+{
+	"_id" : ObjectId("5edf2acfab17c30001927cd4"),
+	"user_id" : 449,
+	"task_id" : 5,
+	"task_name" : "购买小米(MI)手机",
+	"status" : 0,
+	"create_at" : "2020-06-09T14:23:11+08:00",
+	"update_at" : ""
+}
+{
+	"_id" : ObjectId("5edf2acfab17c30001927cd5"),
+	"user_id" : 449,
+	"task_id" : 5,
+	"task_name" : "购买小米(MI)手机",
+	"status" : 0,
+	"create_at" : "2020-06-09T14:23:11+08:00",
+	"update_at" : ""
+}
+{
+	"_id" : ObjectId("5edf2acfab17c30001927cd6"),
+	"user_id" : 449,
+	"task_id" : 5,
+	"task_name" : "购买小米(MI)手机",
+	"status" : 0,
+	"create_at" : "2020-06-09T14:23:11+08:00",
+	"update_at" : ""
+}
+{
+	"_id" : ObjectId("5edf2acfab17c30001927cd7"),
+	"user_id" : 449,
+	"task_id" : 5,
+	"task_name" : "购买小米(MI)手机",
+	"status" : 0,
+	"create_at" : "2020-06-09T14:23:11+08:00",
+	"update_at" : ""
+}
+>
+

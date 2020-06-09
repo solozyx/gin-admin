@@ -1,0 +1,38 @@
+
+mysql> select * from mz_ar_picture;
++----+------------+-----------+--------------------------------------------------------------------------+-----------+------+
+| id | picture_id | title     | picture_url                                                              | ar_status | sort |
++----+------------+-----------+--------------------------------------------------------------------------+-----------+------+
+|  1 | 0311000000 | 比心      | https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/bixin.jpg      |         1 |    1 |
+|  2 | 0311000002 | 打哈欠    | https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/dahaqian.jpg   |         1 |    2 |
+|  3 | 0311000003 | 打招呼    | https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/dazhaohu.jpg   |         1 |    3 |
+|  4 | 0311000006 | 加油      | https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/jiayou.jpg     |         1 |    4 |
+|  5 | 0311000007 | 伸懒腰    | https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/shenlanyao.jpg |         1 |    5 |
+|  6 | 0311000008 | 思考      | https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/sikao.jpg      |         1 |    6 |
++----+------------+-----------+--------------------------------------------------------------------------+-----------+------+
+6 rows in set (0.00 sec)
+mysql>
+
+
+172.17.132.192:7001> get ar:pictures
+-> Redirected to slot [13222] located at 172.17.132.191:7001
+(nil)
+172.17.132.191:7001>
+172.17.132.191:7001> get ar:pictures
+"[
+    {
+        \"id\":1,
+        \"ar_status\":1,
+        \"sort\":1,
+        \"title\":\"\xe6\xaf\x94\xe5\xbf\x83\",
+        \"picture_id\":\"0311000000\",
+        \"picture_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/bixin.jpg\"
+    },
+    {\"id\":2,\"ar_status\":1,\"sort\":2,\"title\":\"\xe6\x89\x93\xe5\x93\x88\xe6\xac\xa0\",\"picture_id\":\"0311000002\",\"picture_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/dahaqian.jpg\"},
+    {\"id\":3,\"ar_status\":1,\"sort\":3,\"title\":\"\xe6\x89\x93\xe6\x8b\x9b\xe5\x91\xbc\",\"picture_id\":\"0311000003\",\"picture_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/dazhaohu.jpg\"},
+    {\"id\":4,\"ar_status\":1,\"sort\":4,\"title\":\"\xe5\x8a\xa0\xe6\xb2\xb9\",\"picture_id\":\"0311000006\",\"picture_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/jiayou.jpg\"},
+    {\"id\":5,\"ar_status\":1,\"sort\":5,\"title\":\"\xe4\xbc\xb8\xe6\x87\x92\xe8\x85\xb0\",\"picture_id\":\"0311000007\",\"picture_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/shenlanyao.jpg\"},
+    {\"id\":6,\"ar_status\":1,\"sort\":6,\"title\":\"\xe6\x80\x9d\xe8\x80\x83\",\"picture_id\":\"0311000008\",\"picture_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/ar_icon/sikao.jpg\"}
+]"
+172.17.132.191:7001>
+
