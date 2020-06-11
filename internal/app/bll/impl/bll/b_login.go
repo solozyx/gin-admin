@@ -230,6 +230,7 @@ func (a *Login) QueryUserMenuTree(ctx context.Context, userID string) (schema.Me
 		return menuTrees, nil
 	}
 
+	// 普通管理员用户
 	userRoleResult, err := a.UserRoleModel.Query(ctx, schema.UserRoleQueryParam{
 		UserID: userID,
 	})
@@ -237,6 +238,10 @@ func (a *Login) QueryUserMenuTree(ctx context.Context, userID string) (schema.Me
 		return nil, err
 	} else if len(userRoleResult.Data) == 0 {
 		return nil, errors.ErrNoPerm
+	}
+	logrus.Infof("userRoleResult=%+v", userRoleResult)
+	for sK, userRole := range userRoleResult.Data {
+		logrus.Infof("sK=%+v userRole=%+v", sK, *userRole)
 	}
 
 	roleMenuResult, err := a.RoleMenuModel.Query(ctx, schema.RoleMenuQueryParam{
@@ -246,6 +251,10 @@ func (a *Login) QueryUserMenuTree(ctx context.Context, userID string) (schema.Me
 		return nil, err
 	} else if len(roleMenuResult.Data) == 0 {
 		return nil, errors.ErrNoPerm
+	}
+	logrus.Infof("roleMenuResult=%+v", roleMenuResult)
+	for sK, roleMenu := range roleMenuResult.Data {
+		logrus.Infof("sK=%+v roleMenu=%+v", sK, *roleMenu)
 	}
 
 	menuResult, err := a.MenuModel.Query(ctx, schema.MenuQueryParam{
@@ -257,8 +266,18 @@ func (a *Login) QueryUserMenuTree(ctx context.Context, userID string) (schema.Me
 	} else if len(menuResult.Data) == 0 {
 		return nil, errors.ErrNoPerm
 	}
+	logrus.Infof("menuResult=%+v", menuResult)
+	for sK, menu := range menuResult.Data {
+		logrus.Infof("sK=%+v menu=%+v", sK, *menu)
+	}
 
 	mData := menuResult.Data.ToMap()
+	logrus.Infof("mData1=%+v", mData)
+	for mK, mV := range mData {
+		logrus.Infof("mK=%+v mV=%+v", mK, mV)
+	}
+
+	// TODO zyx 没看懂
 	var qRecordIDs []string
 	for _, pid := range menuResult.Data.SplitParentRecordIDs() {
 		if _, ok := mData[pid]; !ok {
@@ -277,13 +296,42 @@ func (a *Login) QueryUserMenuTree(ctx context.Context, userID string) (schema.Me
 	}
 
 	sort.Sort(menuResult.Data)
+
+	logrus.Infof("mData2=%+v", mData)
+	for mK, mV := range mData {
+		logrus.Infof("mK=%+v mV=%+v", mK, mV)
+	}
+
 	menuActionResult, err := a.MenuActionModel.Query(ctx, schema.MenuActionQueryParam{
 		RecordIDs: roleMenuResult.Data.ToActionIDs(),
 	})
 	if err != nil {
 		return nil, err
 	}
-	return menuResult.Data.FillMenuAction(menuActionResult.Data.ToMenuIDMap()).ToTree(), nil
+
+	menuTrees := menuResult.Data.FillMenuAction(menuActionResult.Data.ToMenuIDMap()).ToTree()
+
+	logrus.Infof("menuTrees=%+v", menuTrees)
+	for sK, menuTree := range menuTrees {
+		logrus.Infof("sK=%+v menuTree=%+v", sK, *menuTree)
+		// menuTree.Actions = MenuActions = []*MenuAction
+		for menuActionIndex, menuAction := range menuTree.Actions {
+			logrus.Infof("menuActionIndex=%+v menuAction=%+v", menuActionIndex, *menuAction)
+		}
+		// 子级树 menuTree.Children = *MenuTrees = *[]*MenuTree
+		logrus.Infof("menuTree.Children=%+v", menuTree.Children)
+		if menuTree.Children != nil {
+			for childIndex, childMenuTree := range *menuTree.Children {
+				logrus.Infof("childIndex=%+v childMenuTree=%+v", childIndex, *childMenuTree)
+				// childMenuTree.Actions = MenuActions = []*MenuAction
+				for childMenuActionIndex, childMenuAction := range childMenuTree.Actions {
+					logrus.Infof("childMenuActionIndex=%+v childMenuAction=%+v", childMenuActionIndex, *childMenuAction)
+				}
+			}
+		}
+	}
+
+	return menuTrees, nil
 }
 
 // UpdatePassword 更新当前用户登录密码
