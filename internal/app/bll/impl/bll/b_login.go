@@ -164,9 +164,9 @@ func (a *Login) GetLoginInfo(ctx context.Context, userID string) (*schema.UserLo
 	return info, nil
 }
 
-// QueryUserMenuTree 查询当前用户的权限菜单树
+// 查询当前用户的权限菜单树
 func (a *Login) QueryUserMenuTree(ctx context.Context, userID string) (schema.MenuTrees, error) {
-	logrus.Infof("QueryUserMenuTree userId=%d", userID)
+	logrus.Infof("userId=%s", userID)
 
 	isRoot := CheckIsRootUser(ctx, userID)
 
@@ -180,28 +180,54 @@ func (a *Login) QueryUserMenuTree(ctx context.Context, userID string) (schema.Me
 		if err != nil {
 			return nil, err
 		}
-		logrus.Infof("QueryUserMenuTree isRoot menu result=%+v", result)
+
+		// 6个菜单
+		logrus.Infof("isRoot menu result=%+v", result)
 		for sK, menu := range result.Data {
-			logrus.Infof("QueryUserMenuTree isRoot sK=%+v menu=%+v", sK, *menu)
+			logrus.Infof("isRoot sK=%+v menu=%+v", sK, *menu)
 		}
 
 		menuActionResult, err := a.MenuActionModel.Query(ctx, schema.MenuActionQueryParam{})
 		if err != nil {
 			return nil, err
 		}
-		logrus.Infof("QueryUserMenuTree isRoot menuActionResult result=%+v", menuActionResult)
+
+		// 24个菜单操作
+		logrus.Infof("isRoot menuActionResult result=%+v", menuActionResult)
 		for sK, menuAction := range menuActionResult.Data {
-			logrus.Infof("QueryUserMenuTree isRoot sK=%+v", sK)
-			logrus.Infof("QueryUserMenuTree isRoot menuAction=%+v", *menuAction)
+			logrus.Infof("isRoot sK=%+v", sK)
+			logrus.Infof("isRoot menuAction=%+v", *menuAction)
 			for subSK, resource := range menuAction.Resources {
-				logrus.Infof("QueryUserMenuTree isRoot subSK=%+v resource=%+v", subSK, resource)
+				logrus.Infof("isRoot subSK=%+v resource=%+v", subSK, resource)
 			}
 		}
 
-		tree := result.Data.FillMenuAction(menuActionResult.Data.ToMenuIDMap()).ToTree()
-		logrus.Infof("QueryUserMenuTree isRoot tree=%+v", tree)
+		menuTrees := result.Data.FillMenuAction(menuActionResult.Data.ToMenuIDMap()).ToTree()
+		logrus.Infof("isRoot menuTrees=%+v", menuTrees)
+		for sK, menuTree := range menuTrees {
+			logrus.Infof("isRoot sK=%+v", sK)
+			logrus.Infof("isRoot menuTree=%+v", *menuTree)
+			// menuTree.Actions = MenuActions = []*MenuAction
+			for menuActionIndex, menuAction := range menuTree.Actions {
+				logrus.Infof("isRoot menuActionIndex=%+v", menuActionIndex)
+				logrus.Infof("isRoot menuAction=%+v", *menuAction)
+			}
+			// 子级树 menuTree.Children = *MenuTrees = *[]*MenuTree
+			logrus.Infof("isRoot menuTree.Children=%+v", menuTree.Children)
+			if menuTree.Children != nil {
+				for childIndex, childMenuTree := range *menuTree.Children {
+					logrus.Infof("isRoot childIndex=%+v", childIndex)
+					logrus.Infof("isRoot childMenuTree=%+v", *childMenuTree)
+					// childMenuTree.Actions = MenuActions = []*MenuAction
+					for childMenuActionIndex, childMenuAction := range childMenuTree.Actions {
+						logrus.Infof("isRoot childMenuActionIndex=%+v", childMenuActionIndex)
+						logrus.Infof("isRoot childMenuAction=%+v", *childMenuAction)
+					}
+				}
+			}
+		}
 
-		return tree, nil
+		return menuTrees, nil
 	}
 
 	userRoleResult, err := a.UserRoleModel.Query(ctx, schema.UserRoleQueryParam{

@@ -11,8 +11,8 @@
     "Code": 0,
     "Msg": "SUCCESS",
     "Data": {
-        "AccessToken": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL216LnRlc3Qub2JlbmNuLmNvbSIsImV4cCI6MTU5MTc1NjA1MiwibmJmIjoxNTkxNjY5MzUyLCJpYXQiOjE1OTE2Njk2NTIsImp0aSI6IjQyNGY2MmQ2LTY0MGUtNGMzNS1hOGU4LTMzNTE2OWE0NGE2NSIsInVzZXJpZCI6MjcyfQ.XR1SvzyEvD1Ta6f9XsbCsfWz9LNYCrF9nL-LXv_yinw",
-        "RefreshToken": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiUmVmcmVzaFRva2VuIiwiYXVkIjoiaHR0cHM6Ly9tei50ZXN0Lm9iZW5jbi5jb20iLCJleHAiOjE1OTQyNjE2NTIsIm5iZiI6MTU5MTY2OTM1MiwiaWF0IjoxNTkxNjY5NjUyLCJqdGkiOiI2NTM3ZGU4Mi1iY2M3LTQyNTMtOWM3NC0wMjM1YTQxOGM0YTUiLCJ1c2VyaWQiOjI3Mn0.Z40trZQJotekFt2CcXf4SkveN-K2VwMFF15G42fGGyc",
+        "AccessToken": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL216LnRlc3Qub2JlbmNuLmNvbSIsImV4cCI6MTU5MTg1NTc1NywibmJmIjoxNTkxNzY5MDU3LCJpYXQiOjE1OTE3NjkzNTcsImp0aSI6IjExNjg2MzhiLWI5NmMtNGEzOS1iNjgzLTllNjgxNTkzNzZlMiIsInVzZXJpZCI6MjcyfQ.iVkHpwk6tJijynu6lslV0U7AUK_Ni1UgWEtnUyg-1gw",
+        "RefreshToken": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiUmVmcmVzaFRva2VuIiwiYXVkIjoiaHR0cHM6Ly9tei50ZXN0Lm9iZW5jbi5jb20iLCJleHAiOjE1OTQzNjEzNTcsIm5iZiI6MTU5MTc2OTA1NywiaWF0IjoxNTkxNzY5MzU3LCJqdGkiOiJjNTA1MGU4Ni0wZmNiLTRhMzUtYmM4MC1kODVjZWVjMDQ1ZWMiLCJ1c2VyaWQiOjI3Mn0.ByMF5Y5VBFVCpRDxbhuTVf3sMp46UBqAPKMFnFSwJ2g",
         "UserInfo": {
             "HaveLikes": 1,
             "HeadImg": "",
@@ -20,7 +20,7 @@
             "Nickname": "MZ_gkTp",
             "Phone": "18813141886",
             "QQ": "",
-            "Sex": "",
+            "Sex": "secret",
             "Vip": 0,
             "VipExpire": "1970-01-01T00:00:00+08:00",
             "WeChat": ""
