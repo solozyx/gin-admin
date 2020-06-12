@@ -129,13 +129,11 @@ CREATE TABLE `mz_ai_list` (
 CREATE TABLE `mz_product` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '商品ID',
   `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '商品名称',
-  `quantity` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品初始数量',
   `original_price` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品原价,单位分',
   `present_price` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品现价,单位分',
-  `freight` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '运费,单位分',
   `sort` int(11) NOT NULL DEFAULT '0' COMMENT '排序',
   `thumb_image_url` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '商品缩略图地址',
-  `image_url` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '商品主图地址',
+  `image_urls` text COLLATE utf8mb4_unicode_ci COMMENT '详情图',
   `banner_urls` text COLLATE utf8mb4_unicode_ci COMMENT 'banner图',
   `sku` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'sku描述',
   `type` int(11) NOT NULL DEFAULT '1' COMMENT '商品状态 0虚拟商品 1真实商品',
@@ -144,6 +142,9 @@ CREATE TABLE `mz_product` (
   `sale_support` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '售后保障',
   `description` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '描述备注',
   `reward` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '购买单个商品增加的抽奖次数',
+  `sold_count` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '单个商品初始售出数量',
+  `mz_pid` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '秒追商品id',
+  `category` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '品牌分类',
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
   PRIMARY KEY (`id`) USING BTREE
@@ -151,18 +152,22 @@ CREATE TABLE `mz_product` (
 
 
 
-update mz_product set `name`='小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄',
- `quantity`=100,
- `original_price`=129900,`present_price`=99900,`freight`=1000,
+update mz_product set
+ `name`='小米小爱音箱 Pro',
+ `original_price`=29900,`present_price`=100,
  `sort`=1,
- `thumb_image_url`='https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png',
- `image_url`='https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png',
- `banner_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png,https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png',
- `sku`='小金刚, 4GB+64GB',
+ `thumb_image_url`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg',
+ `banner_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/2.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/3.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/4.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/5.jpg',
+ `image_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/2.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/3.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/4.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/5.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/6.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/7.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/8.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/9.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/10.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/11.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/12.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/13.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/14.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/15.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/16.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/17.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/18.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/19.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/20.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/21.jpg',
+ `sku`='"750mL超大音腔容积 / AUX IN 支持有线连接 / 组合立体声 / 专业级DTS音效 / Hi-Fi级音频芯片 / 支持红外遥控传统家电 / 蓝牙Mesh网关"',
  `type`=1,`product_status`=1,
- `ship_address`='北京',`sale_support`='官方授权 秒追直发 假一赔四 品质保证',
- `reward`=5
+ `ship_address`='北京',`sale_support`='官方授权 秒追直发 假一赔四 正品保证',
+ `reward`=2,
+ `sold_count`=1029,
+ `mz_pid`='MZ0101',
+ `category`='小米/音响'
  where id=1;
+
 
 
 
@@ -173,7 +178,18 @@ alter table mz_product drop column `sku_desc`;
 ALTER TABLE `mz_product` ADD `sku` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'sku描述' AFTER `banner_urls`;
 ALTER TABLE `mz_product` DROP `lottery_times`;
 ALTER TABLE `mz_product` ADD `reward` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '购买单个商品增加的抽奖次数' AFTER `description`;
+-- `freight` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '运费,单位分',
+ALTER TABLE `mz_product` DROP `freight`;
+-- `image_url` varchar(512) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '商品主图地址',
+ALTER TABLE `mz_product` DROP `image_url`;
+-- `quantity` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '商品初始数量',
+ALTER TABLE `mz_product` DROP `quantity`;
+-- 商品按[无库存]做
+ALTER TABLE `mz_product` ADD `sold_count` int(11) unsigned NOT NULL DEFAULT '0' COMMENT '单个商品初始售出数量' AFTER `reward`;
+ALTER TABLE `mz_product` ADD `mz_pid` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '秒追商品id' AFTER `sold_count`;
+ALTER TABLE `mz_product` ADD `category` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '品牌分类' AFTER `mz_pid`;
 
+ALTER TABLE `mz_product` ADD `image_urls` text COLLATE utf8mb4_unicode_ci COMMENT '详情图' AFTER `thumb_image_url`;
 
 CREATE TABLE `mz_task` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '任务ID',
