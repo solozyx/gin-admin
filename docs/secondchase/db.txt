@@ -21,6 +21,7 @@ show create table mz_user\G
 
 show create table mz_idols\G
 show columns from mz_idols;
+select * from mz_product\G
 
-
+db.mgo_product_order.find({product_id:1,status:1}).count()
 

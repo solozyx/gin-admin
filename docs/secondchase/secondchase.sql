@@ -159,7 +159,7 @@ update mz_product set
  `thumb_image_url`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg',
  `banner_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/2.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/3.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/4.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/5.jpg',
  `image_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/2.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/3.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/4.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/5.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/6.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/7.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/8.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/9.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/10.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/11.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/12.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/13.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/14.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/15.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/16.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/17.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/18.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/19.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/20.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/21.jpg',
- `sku`='"750mL超大音腔容积 / AUX IN 支持有线连接 / 组合立体声 / 专业级DTS音效 / Hi-Fi级音频芯片 / 支持红外遥控传统家电 / 蓝牙Mesh网关"',
+ `sku`='750mL超大音腔容积 / AUX IN 支持有线连接 / 组合立体声 / 专业级DTS音效 / Hi-Fi级音频芯片 / 支持红外遥控传统家电 / 蓝牙Mesh网关',
  `type`=1,`product_status`=1,
  `ship_address`='北京',`sale_support`='官方授权 秒追直发 假一赔四 正品保证',
  `reward`=2,
@@ -168,6 +168,80 @@ update mz_product set
  `category`='小米/音响'
  where id=1;
 
+
+
+update mz_product set
+ `name`='小米手环4 NFC版',
+ `original_price`=22900,`present_price`=100,
+ `sort`=2,
+ `thumb_image_url`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/main/1.png',
+ `banner_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/main/1.png,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/main/2.png,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/main/3.png,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/main/4.png,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/main/5.png',
+ `image_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/2.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/3.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/4.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/5.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/6.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/7.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/8.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/9.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/10.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/11.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/12.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/13.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/14.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/15.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/16.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/17.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/18.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/19.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/20.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/21.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/22.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/23.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/24.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0102/detail/25.jpg',
+ `sku`='全新 AMOLED 大屏彩显，支持77种个性主题。拥有20天的超长续航，能用支付宝抬手支付。50米防水，支持游泳模式。还能看微信、看来电、测心率、测睡眠。戴上它，你的改变从今天开始。',
+ `type`=1,`product_status`=1,
+ `ship_address`='北京',`sale_support`='官方授权 秒追直发 假一赔四 正品保证',
+ `reward`=2,
+ `sold_count`=2683,
+ `mz_pid`='MZ0102',
+ `category`='小米/手环'
+ where id=2;
+
+
+
+
+update mz_product set
+ `name`='小米移动电源3 10000mAh 银色',
+ `original_price`=12900,`present_price`=100,
+ `sort`=3,
+ `thumb_image_url`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/main/1.jpg',
+ `banner_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/main/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/main/2.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/main/3.jpg',
+ `image_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/2.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/3.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/4.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/5.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/6.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/7.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/8.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/9.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/10.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/11.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/detail/12.jpg',
+ `sku`='USB-C双向快充版/双向18W快充/输入输出双接口/高密度锂聚合物电芯，更安全/可上飞机，更贴心',
+ `type`=1,`product_status`=1,
+ `ship_address`='北京',`sale_support`='官方授权 秒追直发 假一赔四 正品保证',
+ `reward`=1,
+ `sold_count`=3756,
+ `mz_pid`='MZ0103',
+ `category`='小米/移动电源'
+ where id=3;
+
+
+
+
+update mz_product set
+ `name`='I Do BOOM瓷系列 18K金真钻石锁骨项链 黑陶色',
+ `original_price`=199900,`present_price`=100,
+ `sort`=4,
+ `thumb_image_url`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0104/main/1.jpg',
+ `banner_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0104/main/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0104/main/2.jpg',
+ `image_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0104/detail/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0104/detail/2.jpg',
+ `sku`='I DO官方正品/黑陶(皮绳)/42cm短款项链/赠手绳',
+ `type`=1,`product_status`=1,
+ `ship_address`='北京',`sale_support`='官方授权 秒追直发 假一赔四 正品保证',
+ `reward`=5,
+ `sold_count`=652,
+ `mz_pid`='MZ0104',
+ `category`='I DO/项链'
+ where id=4;
+
+
+
+
+update mz_product set
+ `name`='I Do 心扉系列 18K金钻石锁骨项链',
+ `original_price`=279900,`present_price`=100,
+ `sort`=5,
+ `thumb_image_url`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/main/1.jpg',
+ `banner_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/main/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/main/2.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/main/3.jpg',
+ `image_urls`='https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/detail/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/detail/2.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/detail/3.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/detail/4.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/detail/5.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/detail/6.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/detail/7.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/detail/8.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/detail/9.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0105/detail/10.jpg',
+ `sku`='I DO官方正品/群镶钻石共约5分/18K金',
+ `type`=1,`product_status`=1,
+ `ship_address`='北京',`sale_support`='官方授权 秒追直发 假一赔四 正品保证',
+ `reward`=5,
+ `sold_count`=356,
+ `mz_pid`='MZ0105',
+ `category`='I DO/项链'
+ where id=5;
 
 
 
@@ -190,6 +264,26 @@ ALTER TABLE `mz_product` ADD `mz_pid` varchar(128) COLLATE utf8mb4_unicode_ci NO
 ALTER TABLE `mz_product` ADD `category` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '品牌分类' AFTER `mz_pid`;
 
 ALTER TABLE `mz_product` ADD `image_urls` text COLLATE utf8mb4_unicode_ci COMMENT '详情图' AFTER `thumb_image_url`;
+
+INSERT INTO `mz_product`(`updated_at`) VALUES('2020-06-12 11:22:03');
+
+insert into `mz_task` (`task_name`,`reward`,`type`,`status`,`flags`,`details`,`update_time`,`pid`) values ('小米手环4 NFC版',2,2,1,0,'成功购买获赠2次','2020-06-12 15:00:02',2);
+insert into `mz_task` (`task_name`,`reward`,`type`,`status`,`flags`,`details`,`update_time`,`pid`) values ('小米移动电源3 10000mAh 银色',2,2,1,0,'成功购买获赠1次','2020-06-12 15:00:03',3);
+insert into `mz_task` (`task_name`,`reward`,`type`,`status`,`flags`,`details`,`update_time`,`pid`) values ('I Do BOOM瓷系列 18K金真钻石锁骨项链 黑陶色',2,2,1,0,'成功购买获赠5次','2020-06-12 15:00:04',4);
+insert into `mz_task` (`task_name`,`reward`,`type`,`status`,`flags`,`details`,`update_time`,`pid`) values ('I Do 心扉系列 18K金钻石锁骨项链',2,2,1,0,'成功购买获赠5次','2020-06-12 15:00:05',5);
+
+update mz_task set
+ `task_name`='小米小爱音箱 Pro',
+ `reward`=2,
+ `type`=2,
+ `status`=1,
+ `flags`=0,
+ `details`='成功购买获赠2次',
+ `update_time`='2020-06-12 15:00:01',
+ `pid`=1
+ where id=5;
+
+select * from mz_task;
 
 CREATE TABLE `mz_task` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '任务ID',
