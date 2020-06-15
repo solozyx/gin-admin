@@ -1,0 +1,67 @@
+
+mysql> select * from bs_user;
++----+----------+------------------------------------------+------------+------------------+-------------+-------------+------------+-----------------+---------------+---------------------+---------------------+---------------------+
+| id | name     | password                                 | real_name  | email            | phone       | user_status | creator_id | organization_id | department_id | desc                | created_at          | updated_at          |
++----+----------+------------------------------------------+------------+------------------+-------------+-------------+------------+-----------------+---------------+---------------------+---------------------+---------------------+
+|  1 | root     | d6cf393ff29f1b223052a63891ef52bca7697e85 | 姓名1      | root@email.com   | 18813141001 |           1 |          0 |               0 |             0 | 系统管理员          | 2020-05-12 14:58:40 | 2020-05-29 13:38:35 |
+|  2 | admin1   | f3b9198891f5a6a875feb0f5fdc85adefd187fbf | 姓名2      | user1@email.com  | 18813141002 |           1 |          1 |               0 |             1 | 部门1管理员1        | 2020-05-12 15:04:14 | 2020-05-29 13:53:36 |
+|  3 | user2    | d6cf393ff29f1b223052a63891ef52bca7697e85 | 管理员2    | user2@email.com  | 18813141003 |           0 |          1 |               0 |             1 | 普通权限用户2       | 2020-05-18 11:28:29 | 2020-05-29 11:50:11 |
+|  4 | user3    | d6cf393ff29f1b223052a63891ef52bca7697e85 | 管理员3    | user3@email.com  | 18813141004 |           0 |          1 |               0 |             1 | 普通权限用户3       | 2020-05-18 14:17:39 | 2020-05-29 11:50:11 |
+|  5 | user4    | d6cf393ff29f1b223052a63891ef52bca7697e85 | 管理员4    | user4@email.com  | 18813141005 |           0 |          1 |               0 |             1 | 普通权限用户4       | 2020-05-18 17:22:38 | 2020-05-29 11:50:11 |
+|  6 | user5    | d6cf393ff29f1b223052a63891ef52bca7697e85 | 管理员5    | user5@email.com  | 18813141006 |           0 |          1 |               0 |             1 | 普通权限用户5       | 2020-05-18 18:28:59 | 2020-05-29 11:50:11 |
+|  7 | user6    | d6cf393ff29f1b223052a63891ef52bca7697e85 | 管理员6    | user6@email.com  | 18813141007 |           0 |          1 |               0 |             1 | 普通权限用户6       | 2020-05-19 17:10:16 | 2020-05-29 11:50:11 |
+|  8 | user7    | d6cf393ff29f1b223052a63891ef52bca7697e85 | 管理员7    | user7@email.com  | 18813141008 |           0 |          1 |               0 |             1 | 普通权限用户7       | 2020-05-19 17:11:07 | 2020-05-29 11:50:11 |
+|  9 | user8    | d6cf393ff29f1b223052a63891ef52bca7697e85 | 管理员8    | user8@email.com  | 18813141009 |           0 |          1 |               0 |             1 | 普通权限用户8       | 2020-05-20 13:36:46 | 2020-05-29 11:50:11 |
+| 10 | user9new | 2ceaf92638986db196e4973e718b58c19bda80df | 姓名9new   | user9@email.com  | 18800000009 |           0 |          1 |               0 |             1 | 备注描述9           | 2020-05-20 16:57:16 | 2020-05-29 11:50:11 |
+| 11 | user10   | d6cf393ff29f1b223052a63891ef52bca7697e85 | 姓名10     | user10@email.com | 18800000010 |           0 |          1 |               0 |             1 | 备注描述10          | 2020-05-22 17:03:35 | 2020-05-29 11:50:11 |
++----+----------+------------------------------------------+------------+------------------+-------------+-------------+------------+-----------------+---------------+---------------------+---------------------+---------------------+
+11 rows in set (0.00 sec)
+mysql>
+
+
+{
+    "name": "user11",
+    "real_name":"姓名11",
+    "email":"user11@email.com",
+    "phone":"18800000010",
+    "organization_id":1,
+    "department_id":1,
+    "desc":"备注描述11"
+}
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "id": 12,
+        "name": "user11",
+        "real_name": "姓名11",
+        "email": "user11@email.com",
+        "phone": "18800000010",
+        "user_status": 1,
+        "creator_id": 1,
+        "organization_id": 1,
+        "department_id": 1,
+        "desc": "备注描述11",
+        "created_at": "2020-06-15T17:44:49.2987669+08:00",
+        "updated_at": "2020-06-15T17:44:49.3109704+08:00"
+    }
+}
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/user/create{\"department_id\":1,\"desc\":\"备注描述11\",\"email\":\"user11@email.com\",\"name\":\"user11\",\"organization_id\":1,\"phone\":\"18800000010\",\"real_name\":\"姓名11\"}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-06-15T17:44:49+08:00"}
+{"level":"debug","msg":"server sign: 76718aae2e6b60dbb1c9a2c450121bd6, \tuser sign: 76718aae2e6b60dbb1c9a2c450121bd6","source":"context.go:161:gin.(*Context).Next","time":"2020-06-15T17:44:49+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/create JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-06-15T17:44:49+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkyMzAwNDEzLCJuYmYiOjE1OTIyMTM3MTMsImlhdCI6MTU5MjIxNDAxMywianRpIjoiYjNhYmNkNTgtZDMwNC00N2QyLTgwM2EtNWVmN2Y3YjAzMmU3IiwidXNlcl9pZCI6MX0.Gla2bSx8Mk1Wwp8MUpdDPcLYT1i1iS0KCPDH3pdfkfw","source":"context.go:161:gin.(*Context).Next","time":"2020-06-15T17:44:49+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/create middleware Casbin 验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-06-15T17:44:49+08:00"}
+{"level":"debug","msg":"userService Create req={Name:user11 RealName:姓名11 Email:user11@email.com Phone:18800000010 OrganizationId:1 DepartmentId:1 Desc:备注描述11}","source":"user.go:31:handler.(*userHandler).Create.func1","time":"2020-06-15T17:44:49+08:00"}
+2020/06/15 17:44:49 Request: 1, /api/v1/user/create, POST ---> true
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:3723.3234msINSERT INTO `bs_user` (`name`,`password`,`real_name`,`email`,`phone`,`user_status`,`creator_id`,`organization_id`,`department_id`,`desc`,`created_at`,`updated_at`) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)[user11 d6cf393ff29f1b223052a63891ef52bca7697e85 姓名11 user11@email.com 18800000010 1 1 1 1 备注描述11 2020-06-15 17:44:49.2987669 +0800 CST m=+1353.522884201 2020-06-15 17:44:49.3109704 +0800 CST m=+1353.535087701] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-15T17:44:49+08:00"}
+
+mysql> select * from bs_user where name='user11';
++----+--------+------------------------------------------+-----------+------------------+-------------+-------------+------------+-----------------+---------------+----------------+---------------------+---------------------+
+| id | name   | password                                 | real_name | email            | phone       | user_status | creator_id | organization_id | department_id | desc           | created_at          | updated_at          |
++----+--------+------------------------------------------+-----------+------------------+-------------+-------------+------------+-----------------+---------------+----------------+---------------------+---------------------+
+| 12 | user11 | d6cf393ff29f1b223052a63891ef52bca7697e85 | 姓名11    | user11@email.com | 18800000010 |           1 |          1 |               1 |             1 | 备注描述11     | 2020-06-15 17:44:49 | 2020-06-15 17:44:49 |
++----+--------+------------------------------------------+-----------+------------------+-------------+-------------+------------+-----------------+---------------+----------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>

@@ -2,12 +2,6 @@
 ssh -L 3309:localhost:3306 zyx@39.107.248.183 -p50010
 zhaoyingxin@123
 
-
-mysql -h127.0.0.1 -uroot -p
-oben.com@123
-use backstage
-use secondchase
-
 show create table mz_user;
 show columns from bs_department;
 
@@ -97,3 +91,6 @@ select * from bs_role_permission where permission_id=10;
 delete from bs_role_permission where role_id=2 and permission_id=10;
 
 show create table bs_user;
+
+ALTER TABLE `bs_user` ADD `organization_id` int(11) NOT NULL DEFAULT '0' COMMENT '组织id' AFTER `creator_id`;
+
