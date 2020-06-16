@@ -66,6 +66,7 @@ update bs_role set name='子管理员1', creator_id=1,remark='' where id=2;
 update bs_role set name='子管理员6' where id=7;
 
 alter table bs_user drop column deleted_at;
+alter table bs_user drop column `name`;
 alter table bs_role drop column deleted_at;
 alter table bs_permission drop column deleted_at;
 alter table bs_user_role drop column deleted_at;
@@ -79,6 +80,9 @@ alter table bs_role drop column sort;
 alter table bs_permission drop column sort;
 
 ALTER TABLE `bs_user` ADD UNIQUE KEY `index_name` (`name`) USING BTREE;
+
+ALTER TABLE `bs_user` ADD UNIQUE KEY `index_email` (`email`) USING BTREE;
+ALTER TABLE `bs_user` ADD UNIQUE KEY `index_phone` (`phone`) USING BTREE;
 
 ALTER TABLE `bs_user` ADD `department_id` int(11) NOT NULL DEFAULT 0 COMMENT '部门id' AFTER `creator_id`;
 

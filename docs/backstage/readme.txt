@@ -17,14 +17,7 @@
     5.1 rolelist 下级用户看到了上级用户的角色列表
     5.2 permlist 下级用户看到了上级用户的权限列表
 
-func InitTestRepo() {
-	cfg := &common.Config{}
-	cfg.MySql.Balance.User = "root"
-	cfg.MySql.Balance.Password = "oben.com@123"
-	cfg.MySql.Balance.Host = "127.0.0.1:3309"
-	cfg.MySql.Balance.DataBase = "backstage"
-	Init(cfg)
-}
+
 
 
 Mysql:
