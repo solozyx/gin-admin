@@ -1,6 +1,0 @@
-
-cd front_projects/gin-admin-react/
-npm start
-
-cd /C/blockchainenv/githubProj/gin-admin
-go run cmd/gin-admin/main.go web -c ./configs/config.toml -m ./configs/model.conf --menu ./configs/menu.yaml
