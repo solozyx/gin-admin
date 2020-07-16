@@ -1,0 +1,57 @@
+
+// 初始化 casbin 会自动调用1次 LoadPolicy
+syncedEnforcer, _, err := InitCasbin(casbinAdapter,true)
+So(err, ShouldBeNil)
+// 手动 Load Policy
+err = casbinAdapter.LoadPolicy(syncedEnforcer.GetModel())
+So(err, ShouldBeNil)
+
+
+
+=== RUN   TestCasbinAdapter_LoadPolicy
+2020/05/13 11:19:04 Model:
+2020/05/13 11:19:04 m.m: g(r_sub, p_sub) == true && keyMatch2(r_obj, p_obj) == true && regexMatch(r_act, p_act) == true || r_sub == "root"
+2020/05/13 11:19:04 r.r: sub, obj, act
+2020/05/13 11:19:04 p.p: sub, obj, act
+2020/05/13 11:19:04 g.g: _, _
+2020/05/13 11:19:04 e.e: some(where (p_eft == allow))
+time="2020-05-13T11:19:04+08:00" level=info msg="sqlC:/oben/project/backstage/repository/role.go:3124.2161msSELECT * FROM `bs_role`  WHERE `bs_role`.`deleted_at` IS NULL AND ((role_status=?)) ORDER BY `sort`[1] 2"
+time="2020-05-13T11:19:04+08:00" level=error msg="roleRepo GetAll role_status=1 from MySQL list=[{ID:1 Name:role1 Sort:1 RoleStatus:1 CreatorId:1 Remark:角色1 CreatedAt:2020-05-12 15:45:15 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC} {ID:2 Name:role2 Sort:2 RoleStatus:1 CreatorId:2 Remark:角色2 CreatedAt:2020-05-12 15:45:37 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}]"
+time="2020-05-13T11:19:04+08:00" level=info msg="sqlC:/oben/project/backstage/repository/permission.go:3123.9366msSELECT * FROM `bs_permission`  WHERE `bs_permission`.`deleted_at` IS NULL AND ((permission_status=?)) ORDER BY `sort`[1] 2"
+time="2020-05-13T11:19:04+08:00" level=error msg="permissionRepo GetAll permission_status=1 from MySQL list=[{ID:1 Name:perm1 Sort:1 PermissionStatus:1 Method:GET Path:/permission/list CreatorId:1 Remark:权限1 CreatedAt:2020-05-12 15:26:44 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC} {ID:2 Name:perm2 Sort:2 PermissionStatus:1 Method:POST Path:/permission/create CreatorId:2 Remark:权限2 CreatedAt:2020-05-12 15:27:08 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}]"
+time="2020-05-13T11:19:04+08:00" level=info msg="sqlC:/oben/project/backstage/repository/role_permission.go:3113.9513msSELECT * FROM `bs_role_permission`  WHERE `bs_role_permission`.`deleted_at` IS NULL[] 1"
+time="2020-05-13T11:19:04+08:00" level=error msg="rolePermissionRepo GetAll from MySQL list=[{ID:1 RoleId:1 PermissionId:1 CreatedAt:2020-05-12 16:48:04 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}]"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy line=p,1,/permission/list,GET"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m=map[e:map[e:0xc000088240] g:map[g:0xc000088180] m:map[m:0xc000088300] p:map[p:0xc000088420] r:map[r:0xc0000883c0]]"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m[e][e]=&{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:<nil>}"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m[g][g]=&{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:<nil>}"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m[m][m]=&{Key:m Value:g(r_sub, p_sub) == true && keyMatch2(r_obj, p_obj) == true && regexMatch(r_act, p_act) == true || r_sub == \"root\" Tokens:[] Policy:[] RM:<nil>}"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m[p][p]=&{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[[1 /permission/list GET]] RM:<nil>}"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m[r][r]=&{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:<nil>}"
+2020/05/13 11:19:04 Policy:
+2020/05/13 11:19:04 p: sub, obj, act: [[1 /permission/list GET]]
+2020/05/13 11:19:04 g: _, _: []
+2020/05/13 11:19:04 Role links for: g
+2020/05/13 11:19:04
+.2020/05/13 11:19:04 Start automatically load policy
+time="2020-05-13T11:19:04+08:00" level=info msg="sqlC:/oben/project/backstage/repository/role.go:3122.9296msSELECT * FROM `bs_role`  WHERE `bs_role`.`deleted_at` IS NULL AND ((role_status=?)) ORDER BY `sort`[1] 2"
+time="2020-05-13T11:19:04+08:00" level=error msg="roleRepo GetAll role_status=1 from MySQL list=[{ID:1 Name:role1 Sort:1 RoleStatus:1 CreatorId:1 Remark:角色1 CreatedAt:2020-05-12 15:45:15 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC} {ID:2 Name:role2 Sort:2 RoleStatus:1 CreatorId:2 Remark:角色2 CreatedAt:2020-05-12 15:45:37 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}]"
+time="2020-05-13T11:19:04+08:00" level=info msg="sqlC:/oben/project/backstage/repository/permission.go:3121.9412msSELECT * FROM `bs_permission`  WHERE `bs_permission`.`deleted_at` IS NULL AND ((permission_status=?)) ORDER BY `sort`[1] 2"
+time="2020-05-13T11:19:04+08:00" level=error msg="permissionRepo GetAll permission_status=1 from MySQL list=[{ID:1 Name:perm1 Sort:1 PermissionStatus:1 Method:GET Path:/permission/list CreatorId:1 Remark:权限1 CreatedAt:2020-05-12 15:26:44 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC} {ID:2 Name:perm2 Sort:2 PermissionStatus:1 Method:POST Path:/permission/create CreatorId:2 Remark:权限2 CreatedAt:2020-05-12 15:27:08 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}]"
+time="2020-05-13T11:19:04+08:00" level=info msg="sqlC:/oben/project/backstage/repository/role_permission.go:3110.9719msSELECT * FROM `bs_role_permission`  WHERE `bs_role_permission`.`deleted_at` IS NULL[] 1"
+time="2020-05-13T11:19:04+08:00" level=error msg="rolePermissionRepo GetAll from MySQL list=[{ID:1 RoleId:1 PermissionId:1 CreatedAt:2020-05-12 16:48:04 +0800 CST UpdatedAt:2020-05-12 22:55:25 +0800 CST DeletedAt:0001-01-01 00:00:00 +0000 UTC}]"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy line=p,1,/permission/list,GET"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m=map[e:map[e:0xc000088240] g:map[g:0xc000088180] m:map[m:0xc000088300] p:map[p:0xc000088420] r:map[r:0xc0000883c0]]"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m[e][e]=&{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:<nil>}"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m[g][g]=&{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:<nil>}"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m[m][m]=&{Key:m Value:g(r_sub, p_sub) == true && keyMatch2(r_obj, p_obj) == true && regexMatch(r_act, p_act) == true || r_sub == \"root\" Tokens:[] Policy:[] RM:<nil>}"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m[p][p]=&{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[[1 /permission/list GET] [1 /permission/list GET]] RM:<nil>}"
+time="2020-05-13T11:19:04+08:00" level=info msg="CasbinAdapter loadRolePolicy casbinModel.Model m[r][r]=&{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:<nil>}"
+.time="2020-05-13T11:19:04+08:00" level=info msg="casbin model LoadPolicy 成功"
+
+2 total assertions
+
+--- PASS: TestCasbinAdapter_LoadPolicy (0.23s)
+PASS
+
+Process finished with exit code 0

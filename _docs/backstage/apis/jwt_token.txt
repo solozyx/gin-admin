@@ -1,0 +1,27 @@
+
+
+{
+ "name":"user1",
+ "password":"123456"
+}
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "access_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL216LnRlc3Qub2JlbmNuLmNvbSIsImV4cCI6MTU4OTk4Njc5NywibmJmIjoxNTg5OTAwMDk3LCJpYXQiOjE1ODk5MDAzOTcsImp0aSI6IjBlZjUzNTcyLTNhZDQtNDJmNy04ODIxLWJiMjA4NjAwNGU1ZiIsInVzZXJfaWQiOjJ9.my7XynhwZkX65RMd732dyQH0mFf-TX1kO6i1hjfF9k4",
+        "refresh_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiUmVmcmVzaFRva2VuIiwiYXVkIjoiaHR0cHM6Ly9tei50ZXN0Lm9iZW5jbi5jb20iLCJleHAiOjE1OTI0OTIzOTcsIm5iZiI6MTU4OTkwMDA5NywiaWF0IjoxNTg5OTAwMzk3LCJqdGkiOiI2YzlhMWRkYS1hOTRhLTRkYzYtYWIxMS1hMzk4ODliYTFhMGIiLCJ1c2VyX2lkIjoyfQ.F4MqOMYlf6rjlPw6w3HWHXKjb_IePa_d2lLmkdwYNAA",
+        "user_info": {
+            "id": 2,
+            "name": "user1",
+            "real_name": "管理员1",
+            "email": "user1@email.com",
+            "phone": "18813141002",
+            "user_status": 1,
+            "creator_id": 1,
+            "desc": "普通权限用户1",
+            "created_at": "2020-05-12T15:04:14+08:00",
+            "updated_at": "2020-05-19T17:12:12+08:00"
+        }
+    }
+}

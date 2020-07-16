@@ -1,0 +1,45 @@
+
+
+
+{
+    "body":{
+        "user_name":"user1",
+        "captcha_code":"5163",
+        "captcha_id":"TM7VQRupZ11RMGJyH3Hj",
+        "password":"24c9e15e52afc47c225b757e7bee1f9d"
+    },
+    "content_length":125,
+    "header":{
+        "Accept":["application/json, text/plain, */*"],
+        "Accept-Encoding":["gzip, deflate"],
+        "Accept-Language":["zh-CN,zh;q=0.9,en;q=0.8"],
+        "Connection":["close"],
+        "Content-Length":["125"],
+        "Content-Type":["application/json"],
+        "Origin":["http://192.168.174.148:8000"],
+        "Referer":["http://192.168.174.148:8000/user/login?redirect=http%3A%2F%2F192.168.174.148%3A8000%2Fexample%2Fdemo"],
+        "User-Agent":["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"]
+    },
+    "ip":"192.168.174.148",
+    "level":"info",
+    "method":"POST",
+    "msg":"[http] /api/v1/pub/login-POST-192.168.174.148-200(22ms)",
+    "proto":"HTTP/1.1",
+    "res_body":{
+        "access_token":"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1ODkxOTI1MzcsImlhdCI6MTU4OTE4NTMzNywibmJmIjoxNTg5MTg1MzM3LCJzdWIiOiI1ZWFhYTA5MTEyYTEyMDE0YWMyYjZlZjkifQ.K6Gf7KwH-Yr2H4mV415RI5QUYfvs0poUReyIEHbOHJk0ENPfZQ3tIj5t_rsgP53P5dvIWjXG0gZ3LbEsYcepGA",
+        "token_type":"Bearer",
+        "expires_at":1589192537
+    },
+    "res_length":303,
+    "res_status":200,
+    "span_function":"POST/api/v1/pub/login",
+    "span_title":"访问日志",
+    "time":"2020-05-11T16:22:17+08:00",
+    "trace_id":"trace-id-13380-2020.05.11.16.22.17.202314",
+    "url":"/api/v1/pub/login",
+    "user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36",
+    "user_id":"5eaaa09112a12014ac2b6ef9",
+    "version":"6.0.0"
+}
+
+

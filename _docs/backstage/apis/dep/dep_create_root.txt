@@ -1,0 +1,134 @@
+
+mysql> show tables;
++---------------------+
+| Tables_in_backstage |
++---------------------+
+| bs_department       |
+| bs_organization     |
+| bs_permission       |
+| bs_role             |
+| bs_role_permission  |
+| bs_user             |
+| bs_user_role        |
++---------------------+
+7 rows in set (0.00 sec)
+mysql>
+
+select * from bs_permission where id=3;
+
+mysql> select * from bs_permission where id=3;
++----+--------------+-------------+--------+----------------------------+------------+------+---------------------+---------------------+
+| id | name         | perm_status | method | path                       | creator_id | desc | created_at          | updated_at          |
++----+--------------+-------------+--------+----------------------------+------------+------+---------------------+---------------------+
+|  3 | 部门冻结     |           0 | POST   | /api/v1/department/disable |          1 |      | 2020-05-14 18:02:24 | 2020-05-29 11:12:09 |
++----+--------------+-------------+--------+----------------------------+------------+------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+update bs_permission set name='创建组织',perm_status=1,path='/api/v1/org/create' where id=1;
+update bs_permission set name='删除组织',perm_status=1,path='/api/v1/org/delete' where id=2;
+update bs_permission set name='创建部门',perm_status=1,path='/api/v1/dep/create' where id=3;
+update bs_permission set name='删除部门',perm_status=1,path='/api/v1/dep/delete' where id=4;
+
+
+update bs_permission set path=`created_at` where id>4;
+
+select * from bs_permission where id<=4;
+
+mysql> select * from bs_permission where id<=4;
++----+--------------+-------------+--------+--------------------+------------+------+---------------------+---------------------+
+| id | name         | perm_status | method | path               | creator_id | desc | created_at          | updated_at          |
++----+--------------+-------------+--------+--------------------+------------+------+---------------------+---------------------+
+|  1 | 创建组织     |           1 | POST   | /api/v1/org/create |          1 |      | 2020-05-14 17:28:03 | 2020-07-03 17:18:47 |
+|  2 | 删除组织     |           1 | POST   | /api/v1/org/delete |          1 |      | 2020-05-14 17:29:01 | 2020-07-03 17:18:47 |
+|  3 | 创建部门     |           1 | POST   | /api/v1/dep/create |          1 |      | 2020-05-14 18:02:24 | 2020-07-03 17:17:22 |
+|  4 | 删除部门     |           1 | POST   | /api/v1/dep/delete |          1 |      | 2020-05-14 18:06:01 | 2020-07-03 18:34:31 |
++----+--------------+-------------+--------+--------------------+------------+------+---------------------+---------------------+
+4 rows in set (0.00 sec)
+mysql>
+
+
+select * from bs_role_permission where role_id=1;
+
+
+mysql> select * from bs_role_permission where role_id=1;
++----+---------+---------------+--------+------------+---------------------+---------------------+
+| id | role_id | permission_id | status | creator_id | created_at          | updated_at          |
++----+---------+---------------+--------+------------+---------------------+---------------------+
+|  1 |       1 |             1 |      1 |          1 | 2020-05-12 16:48:04 | 2020-05-29 11:45:21 |
+|  2 |       1 |             2 |      1 |          1 | 2020-05-14 17:57:18 | 2020-05-29 11:45:21 |
+|  3 |       1 |             3 |      1 |          1 | 2020-05-14 18:08:40 | 2020-05-29 11:45:21 |
+|  4 |       1 |             4 |      1 |          1 | 2020-05-14 18:09:33 | 2020-05-29 11:45:21 |
++----+---------+---------------+--------+------------+---------------------+---------------------+
+13 rows in set (0.00 sec)
+mysql>
+
+select * from bs_department;
+select * from bs_organization;
+
+
+mysql> select * from bs_organization;
++----+--------------+-------+--------------------+-------------+------------+------------+------+---------------------+---------------------+
+| id | name         | level | email              | phone       | org_status | creator_id | desc | created_at          | updated_at          |
++----+--------------+-------+--------------------+-------------+------------+------------+------+---------------------+---------------------+
+|  1 | 总行         |     1 | zonghang@email.com | 18800000000 |          1 |          1 |      | 2020-06-19 13:46:13 | 2020-07-03 11:38:33 |
+|  2 | 北京分行     |     2 | bjfh@email.com     | 18800000001 |          1 |          1 |      | 2020-06-19 13:52:39 | 2020-07-02 16:10:39 |
+|  3 | 上海分行     |     2 |                    |             |          2 |          1 |      | 2020-07-02 18:15:12 | 2020-07-03 13:43:40 |
++----+--------------+-------+--------------------+-------------+------------+------------+------+---------------------+---------------------+
+3 rows in set (0.00 sec)
+mysql>
+
+
+mysql> select * from bs_department;
++----+--------------+-----------------+--------------------+-------------+------------+------------+------+---------------------+---------------------+
+| id | name         | organization_id | email              | phone       | dep_status | creator_id | desc | created_at          | updated_at          |
++----+--------------+-----------------+--------------------+-------------+------------+------------+------+---------------------+---------------------+
+|  1 | 信用卡部     |               0 | bjfhxykb@email.com | 18800000002 |          1 |          1 |      | 2020-06-19 13:57:43 | 2020-06-16 16:12:49 |
++----+--------------+-----------------+--------------------+-------------+------------+------------+------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+
+{
+	"name":"信贷部",
+	"org_id":2
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "id": 2,
+        "name": "信贷部",
+        "organization_id": 2,
+        "email": "",
+        "phone": "",
+        "dep_status": 1,
+        "creator_id": 1,
+        "desc": "",
+        "created_at": "2020-07-03T17:25:54.6417405+08:00",
+        "updated_at": "2020-07-03T17:25:54.6507152+08:00"
+    }
+}
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:9001/api/v1/dep/create{\"name\":\"信贷部\",\"org_id\":2}1234567890com.obencn.backstage.c27d32c5-c878-470a-8a6f-107f7d3700dd","source":"head.go:116:middleware.Options","time":"2020-07-03T17:25:54+08:00"}
+{"level":"debug","msg":"server sign: 88277cc2ba8bcff5b51a2c0370866ab1, \tuser sign: 88277cc2ba8bcff5b51a2c0370866ab1","source":"context.go:161:gin.(*Context).Next","time":"2020-07-03T17:25:54+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/dep/create JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-07-03T17:25:54+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkzODMzNDQ5LCJuYmYiOjE1OTM3NDY3NDksImlhdCI6MTU5Mzc0NzA0OSwianRpIjoiYmZlZmNhN2EtZmFhNy00NzAyLTg4NmQtNDAyNmFjNTJlYWU3IiwidXNlcl9pZCI6MX0.0lUSKjY8ybj0cpvOIYQx91lK_ri-yZRu-Aw-BdkY-ls","source":"context.go:161:gin.(*Context).Next","time":"2020-07-03T17:25:54+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/dep/create middleware Casbin 验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-07-03T17:25:54+08:00"}
+2020/07/03 17:25:54 Request: 1, /api/v1/dep/create, POST ---> true
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/organization.go:6519.9471msSELECT * FROM `bs_organization`  WHERE (id=?) ORDER BY `bs_organization`.`id` ASC LIMIT 1[2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-03T17:25:54+08:00"}
+{"level":"debug","msg":"orgRepo GetById orgId=2 org=\u0026{ID:2 Name:北京分行 Level:2 Email:bjfh@email.com Phone:18800000001 OrgStatus:1 CreatorId:1 Desc: CreatedAt:2020-06-19 13:52:39 +0800 CST UpdatedAt:2020-07-02 16:10:39 +0800 CST}","source":"dep.go:45:service.(*depService).Create","time":"2020-07-03T17:25:54+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/department.go:3020.9451msINSERT INTO `bs_department` (`name`,`organization_id`,`email`,`phone`,`dep_status`,`creator_id`,`desc`,`created_at`,`updated_at`) VALUES (?,?,?,?,?,?,?,?,?)[信贷部 2   1 1  2020-07-03 17:25:54.6417405 +0800 CST m=+264.277358601 2020-07-03 17:25:54.6507152 +0800 CST m=+264.286333301] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-03T17:25:54+08:00"}
+
+
+mysql> select * from bs_department;
++----+--------------+-----------------+--------------------+-------------+------------+------------+------+---------------------+---------------------+
+| id | name         | organization_id | email              | phone       | dep_status | creator_id | desc | created_at          | updated_at          |
++----+--------------+-----------------+--------------------+-------------+------------+------------+------+---------------------+---------------------+
+|  1 | 信用卡部     |               0 | bjfhxykb@email.com | 18800000002 |          1 |          1 |      | 2020-06-19 13:57:43 | 2020-06-16 16:12:49 |
+|  2 | 信贷部       |               2 |                    |             |          1 |          1 |      | 2020-07-03 17:25:55 | 2020-07-03 17:25:55 |
++----+--------------+-----------------+--------------------+-------------+------------+------------+------+---------------------+---------------------+
+2 rows in set (0.00 sec)
+mysql>
+
+

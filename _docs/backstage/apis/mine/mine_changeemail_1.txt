@@ -1,0 +1,189 @@
+
+mysql> select * from bs_user where id=13;
++----+------------------------------------------+-----------+------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| id | password                                 | real_name | email            | phone       | user_status | creator_id | organization_id | department_id | desc     | created_at          | updated_at          |
++----+------------------------------------------+-----------+------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| 13 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 姓名12    | user12@email.com | 18813141012 |           1 |          1 |               0 |             0 | 用户12   | 2020-06-16 16:12:01 | 2020-06-17 16:44:15 |
++----+------------------------------------------+-----------+------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+[发送验证码到邮箱]
+{
+    "email":"18813141886@163.com"
+}
+{
+    "code": 20103,
+    "msg": "验证码还在有效期内; "
+}
+
+127.0.0.1:6379> keys *
+1) "backstage:verify:code:13"
+127.0.0.1:6379> get backstage:verify:code:13
+"{\"code\":\"532434\",\"account_no\":\"18813141886@163.com\"}"
+127.0.0.1:6379>
+
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/mine/emailcode{\"email\":\"18813141886@163.com\"}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-06-18T14:38:58+08:00"}
+{"level":"debug","msg":"server sign: 4d9d8fd9027959163d70f4d6f26cae91, \tuser sign: 4d9d8fd9027959163d70f4d6f26cae91","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:38:58+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/emailcode JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:38:58+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkyNTMzODgzLCJuYmYiOjE1OTI0NDcxODMsImlhdCI6MTU5MjQ0NzQ4MywianRpIjoiNjEyNjAxZGQtNmUzNS00Y2VlLTkyOGUtNmE3Y2NiNjAzNGRlIiwidXNlcl9pZCI6MTN9.DjjFb2OqEkzd3HH1z3dxpx-sQ4x0TNTQXJNfLeEsEZo","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:38:58+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/emailcode middleware Casbin 不验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:38:58+08:00"}
+{"level":"debug","msg":"mineService EmailCode req={Email:18813141886@163.com}","source":"mine.go:179:handler.(*mineHandler).EmailCode.func1","time":"2020-06-18T14:38:58+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:12829.6962msSELECT * FROM `bs_user`  WHERE (email=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[18813141886@163.com] 0","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-18T14:38:58+08:00"}
+{"level":"error","msg":"userRepo VerifyEmail email=18813141886@163.com error=record not found","source":"mine.go:169:service.(*mineService).EmailCode","time":"2020-06-18T14:38:58+08:00"}
+{"level":"debug","msg":"userRepo VerifyEmail email=18813141886@163.com 可以使用","source":"mine.go:169:service.(*mineService).EmailCode","time":"2020-06-18T14:38:58+08:00"}
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/mine/emailcode{\"email\":\"18813141886@163.com\"}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-06-18T14:39:02+08:00"}
+{"level":"debug","msg":"server sign: 4d9d8fd9027959163d70f4d6f26cae91, \tuser sign: 4d9d8fd9027959163d70f4d6f26cae91","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:39:02+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/emailcode JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:39:02+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkyNTMzODgzLCJuYmYiOjE1OTI0NDcxODMsImlhdCI6MTU5MjQ0NzQ4MywianRpIjoiNjEyNjAxZGQtNmUzNS00Y2VlLTkyOGUtNmE3Y2NiNjAzNGRlIiwidXNlcl9pZCI6MTN9.DjjFb2OqEkzd3HH1z3dxpx-sQ4x0TNTQXJNfLeEsEZo","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:39:02+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/emailcode middleware Casbin 不验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:39:02+08:00"}
+{"level":"debug","msg":"mineService EmailCode req={Email:18813141886@163.com}","source":"mine.go:179:handler.(*mineHandler).EmailCode.func1","time":"2020-06-18T14:39:02+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:12822.7841msSELECT * FROM `bs_user`  WHERE (email=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[18813141886@163.com] 0","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-18T14:39:02+08:00"}
+{"level":"error","msg":"userRepo VerifyEmail email=18813141886@163.com error=record not found","source":"mine.go:169:service.(*mineService).EmailCode","time":"2020-06-18T14:39:02+08:00"}
+{"level":"debug","msg":"userRepo VerifyEmail email=18813141886@163.com 可以使用","source":"mine.go:169:service.(*mineService).EmailCode","time":"2020-06-18T14:39:02+08:00"}
+{"level":"debug","msg":"userRepo SetVerifyCode userId=13 验证码还在有效期内","source":"mine.go:175:service.(*mineService).EmailCode","time":"2020-06-18T14:39:02+08:00"}
+{"level":"error","msg":"验证码还在有效期内; ","source":"casbin.go:38:middleware.CasbinVerifyUserPermission.func1","time":"2020-06-18T14:39:02+08:00"}
+
+[修改邮箱]
+{
+    "email":"18813141886@163.com",
+    "verify_code":"123456"
+}
+{
+    "code": 20108,
+    "msg": "验证码错误,请重新输入; 123456"
+}
+
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/mine/changeemail{\"email\":\"18813141886@163.com\",\"verify_code\":\"123456\"}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-06-18T14:41:31+08:00"}
+{"level":"debug","msg":"server sign: d9a71bcade8009098990520cf9f1fa6e, \tuser sign: d9a71bcade8009098990520cf9f1fa6e","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:41:31+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/changeemail JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:41:31+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkyNTMzODgzLCJuYmYiOjE1OTI0NDcxODMsImlhdCI6MTU5MjQ0NzQ4MywianRpIjoiNjEyNjAxZGQtNmUzNS00Y2VlLTkyOGUtNmE3Y2NiNjAzNGRlIiwidXNlcl9pZCI6MTN9.DjjFb2OqEkzd3HH1z3dxpx-sQ4x0TNTQXJNfLeEsEZo","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:41:31+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/changeemail middleware Casbin 不验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:41:31+08:00"}
+{"level":"debug","msg":"mineService ChangeEmail req={Email:18813141886@163.com VerifyCode:123456}","source":"mine.go:216:handler.(*mineHandler).ChangeEmail.func1","time":"2020-06-18T14:41:31+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:12822.0266msSELECT * FROM `bs_user`  WHERE (email=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[18813141886@163.com] 0","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-18T14:41:31+08:00"}
+{"level":"error","msg":"userRepo VerifyEmail email=18813141886@163.com error=record not found","source":"mine.go:203:service.(*mineService).ChangeEmail","time":"2020-06-18T14:41:31+08:00"}
+{"level":"debug","msg":"userRepo VerifyEmail email=18813141886@163.com 可以使用","source":"mine.go:203:service.(*mineService).ChangeEmail","time":"2020-06-18T14:41:31+08:00"}
+{"level":"debug","msg":"userRepo GetVerifyCode userId=13 vc={Code:532434 AccountNo:18813141886@163.com} from Redis","source":"mine.go:208:service.(*mineService).ChangeEmail","time":"2020-06-18T14:41:31+08:00"}
+{"level":"error","msg":"验证码错误,请重新输入; 123456","source":"casbin.go:38:middleware.CasbinVerifyUserPermission.func1","time":"2020-06-18T14:41:31+08:00"}
+
+
+
+{
+    "email":"18813141886@164.com",
+    "verify_code":"532434"
+}
+{
+    "code": 20109,
+    "msg": "填写的邮箱地址,与获取验证码的邮箱不一致; 18813141886@164.com"
+}
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/mine/changeemail{\"email\":\"18813141886@164.com\",\"verify_code\":\"532434\"}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-06-18T14:43:01+08:00"}
+{"level":"debug","msg":"server sign: c9e28db130b815c550b83d94c1e65e7d, \tuser sign: c9e28db130b815c550b83d94c1e65e7d","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:43:01+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/changeemail JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:43:01+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkyNTMzODgzLCJuYmYiOjE1OTI0NDcxODMsImlhdCI6MTU5MjQ0NzQ4MywianRpIjoiNjEyNjAxZGQtNmUzNS00Y2VlLTkyOGUtNmE3Y2NiNjAzNGRlIiwidXNlcl9pZCI6MTN9.DjjFb2OqEkzd3HH1z3dxpx-sQ4x0TNTQXJNfLeEsEZo","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:43:01+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/changeemail middleware Casbin 不验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:43:01+08:00"}
+{"level":"debug","msg":"mineService ChangeEmail req={Email:18813141886@164.com VerifyCode:532434}","source":"mine.go:216:handler.(*mineHandler).ChangeEmail.func1","time":"2020-06-18T14:43:01+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:12832.5058msSELECT * FROM `bs_user`  WHERE (email=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[18813141886@164.com] 0","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-18T14:43:01+08:00"}
+{"level":"error","msg":"userRepo VerifyEmail email=18813141886@164.com error=record not found","source":"mine.go:203:service.(*mineService).ChangeEmail","time":"2020-06-18T14:43:01+08:00"}
+{"level":"debug","msg":"userRepo VerifyEmail email=18813141886@164.com 可以使用","source":"mine.go:203:service.(*mineService).ChangeEmail","time":"2020-06-18T14:43:01+08:00"}
+{"level":"debug","msg":"userRepo GetVerifyCode userId=13 vc={Code:532434 AccountNo:18813141886@163.com} from Redis","source":"mine.go:208:service.(*mineService).ChangeEmail","time":"2020-06-18T14:43:01+08:00"}
+{"level":"error","msg":"填写的邮箱地址,与获取验证码的邮箱不一致; 18813141886@164.com","source":"casbin.go:38:middleware.CasbinVerifyUserPermission.func1","time":"2020-06-18T14:43:01+08:00"}
+
+
+{
+    "email":"18813141886@163.com",
+    "verify_code":"532434"
+}
+{
+    "code": 20104,
+    "msg": "验证码已过期; 用户id=13"
+}
+127.0.0.1:6379> get backstage:verify:code:13
+(nil)
+127.0.0.1:6379>
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/mine/changeemail{\"email\":\"18813141886@163.com\",\"verify_code\":\"532434\"}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-06-18T14:44:00+08:00"}
+{"level":"debug","msg":"server sign: 577152c48fe95a36e203173c2606ca4f, \tuser sign: 577152c48fe95a36e203173c2606ca4f","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:44:00+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/changeemail JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:44:00+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkyNTMzODgzLCJuYmYiOjE1OTI0NDcxODMsImlhdCI6MTU5MjQ0NzQ4MywianRpIjoiNjEyNjAxZGQtNmUzNS00Y2VlLTkyOGUtNmE3Y2NiNjAzNGRlIiwidXNlcl9pZCI6MTN9.DjjFb2OqEkzd3HH1z3dxpx-sQ4x0TNTQXJNfLeEsEZo","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:44:00+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/changeemail middleware Casbin 不验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:44:00+08:00"}
+{"level":"debug","msg":"mineService ChangeEmail req={Email:18813141886@163.com VerifyCode:532434}","source":"mine.go:216:handler.(*mineHandler).ChangeEmail.func1","time":"2020-06-18T14:44:00+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:12823.7197msSELECT * FROM `bs_user`  WHERE (email=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[18813141886@163.com] 0","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-18T14:44:00+08:00"}
+{"level":"error","msg":"userRepo VerifyEmail email=18813141886@163.com error=record not found","source":"mine.go:203:service.(*mineService).ChangeEmail","time":"2020-06-18T14:44:00+08:00"}
+{"level":"debug","msg":"userRepo VerifyEmail email=18813141886@163.com 可以使用","source":"mine.go:203:service.(*mineService).ChangeEmail","time":"2020-06-18T14:44:00+08:00"}
+{"level":"error","msg":"userRepo GetVerifyCode userId=13 err=redis: nil","source":"mine.go:208:service.(*mineService).ChangeEmail","time":"2020-06-18T14:44:00+08:00"}
+{"level":"debug","msg":"验证码已过期","source":"mine.go:208:service.(*mineService).ChangeEmail","time":"2020-06-18T14:44:00+08:00"}
+{"level":"error","msg":"验证码已过期; 用户id=13","source":"casbin.go:38:middleware.CasbinVerifyUserPermission.func1","time":"2020-06-18T14:44:00+08:00"}
+
+
+---------------------------
+
+[发送验证码到邮箱]
+{
+    "email":"18813141886@163.com"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS"
+}
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/mine/emailcode{\"email\":\"18813141886@163.com\"}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-06-18T14:45:58+08:00"}
+{"level":"debug","msg":"server sign: 4d9d8fd9027959163d70f4d6f26cae91, \tuser sign: 4d9d8fd9027959163d70f4d6f26cae91","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:45:58+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/emailcode JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:45:58+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkyNTMzODgzLCJuYmYiOjE1OTI0NDcxODMsImlhdCI6MTU5MjQ0NzQ4MywianRpIjoiNjEyNjAxZGQtNmUzNS00Y2VlLTkyOGUtNmE3Y2NiNjAzNGRlIiwidXNlcl9pZCI6MTN9.DjjFb2OqEkzd3HH1z3dxpx-sQ4x0TNTQXJNfLeEsEZo","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:45:58+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/emailcode middleware Casbin 不验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:45:58+08:00"}
+{"level":"debug","msg":"mineService EmailCode req={Email:18813141886@163.com}","source":"mine.go:179:handler.(*mineHandler).EmailCode.func1","time":"2020-06-18T14:45:58+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:12835.8964msSELECT * FROM `bs_user`  WHERE (email=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[18813141886@163.com] 0","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-18T14:45:58+08:00"}
+{"level":"error","msg":"userRepo VerifyEmail email=18813141886@163.com error=record not found","source":"mine.go:169:service.(*mineService).EmailCode","time":"2020-06-18T14:45:58+08:00"}
+{"level":"debug","msg":"userRepo VerifyEmail email=18813141886@163.com 可以使用","source":"mine.go:169:service.(*mineService).EmailCode","time":"2020-06-18T14:45:58+08:00"}
+
+127.0.0.1:6379> get backstage:verify:code:13
+"{\"code\":\"102236\",\"account_no\":\"18813141886@163.com\"}"
+127.0.0.1:6379>
+
+
+{
+    "email":"18813141886@163.com",
+    "verify_code":"102236"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS"
+}
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/mine/changeemail{\"email\":\"18813141886@163.com\",\"verify_code\":\"102236\"}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-06-18T14:47:27+08:00"}
+{"level":"debug","msg":"server sign: 8c2af630fdb518847727ce86e6bc7e76, \tuser sign: 8c2af630fdb518847727ce86e6bc7e76","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:47:27+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/changeemail JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:47:27+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkyNTMzODgzLCJuYmYiOjE1OTI0NDcxODMsImlhdCI6MTU5MjQ0NzQ4MywianRpIjoiNjEyNjAxZGQtNmUzNS00Y2VlLTkyOGUtNmE3Y2NiNjAzNGRlIiwidXNlcl9pZCI6MTN9.DjjFb2OqEkzd3HH1z3dxpx-sQ4x0TNTQXJNfLeEsEZo","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:47:27+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/changeemail middleware Casbin 不验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-06-18T14:47:27+08:00"}
+{"level":"debug","msg":"mineService ChangeEmail req={Email:18813141886@163.com VerifyCode:102236}","source":"mine.go:216:handler.(*mineHandler).ChangeEmail.func1","time":"2020-06-18T14:47:27+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:12828.3724msSELECT * FROM `bs_user`  WHERE (email=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[18813141886@163.com] 0","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-18T14:47:27+08:00"}
+{"level":"error","msg":"userRepo VerifyEmail email=18813141886@163.com error=record not found","source":"mine.go:203:service.(*mineService).ChangeEmail","time":"2020-06-18T14:47:27+08:00"}
+{"level":"debug","msg":"userRepo VerifyEmail email=18813141886@163.com 可以使用","source":"mine.go:203:service.(*mineService).ChangeEmail","time":"2020-06-18T14:47:27+08:00"}
+{"level":"debug","msg":"userRepo GetVerifyCode userId=13 vc={Code:102236 AccountNo:18813141886@163.com} from Redis","source":"mine.go:208:service.(*mineService).ChangeEmail","time":"2020-06-18T14:47:27+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:18722.694msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[13] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-18T14:47:27+08:00"}
+{"level":"debug","msg":"userRepo UpdateEmail user={ID:13 Password:51f22a1d702815e72b593ca36de88a9c9999e57a RealName:姓名12 Email:user12@email.com Phone:18813141012 UserStatus:1 CreatorId:1 OrganizationId:0 DepartmentId:0 Desc:用户12 CreatedAt:2020-06-16 16:12:01 +0800 CST UpdatedAt:2020-06-17 16:44:15 +0800 CST}","source":"mine.go:220:service.(*mineService).ChangeEmail","time":"2020-06-18T14:47:27+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:19419.1508msUPDATE `bs_user` SET `password` = ?, `real_name` = ?, `email` = ?, `phone` = ?, `user_status` = ?, `creator_id` = ?, `organization_id` = ?, `department_id` = ?, `desc` = ?, `created_at` = ?, `updated_at` = ?  WHERE `bs_user`.`id` = ?[51f22a1d702815e72b593ca36de88a9c9999e57a 姓名12 18813141886@163.com 18813141012 1 1 0 0 用户12 2020-06-16 16:12:01 +0800 CST 2020-06-18 14:47:27.5587252 +0800 CST m=+664.274705701 13] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-18T14:47:27+08:00"}
+
+mysql> select * from bs_user where id=13;
++----+------------------------------------------+-----------+------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| id | password                                 | real_name | email            | phone       | user_status | creator_id | organization_id | department_id | desc     | created_at          | updated_at          |
++----+------------------------------------------+-----------+------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| 13 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 姓名12    | user12@email.com | 18813141012 |           1 |          1 |               0 |             0 | 用户12   | 2020-06-16 16:12:01 | 2020-06-17 16:44:15 |
++----+------------------------------------------+-----------+------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql> select * from bs_user where id=13;
++----+------------------------------------------+-----------+---------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| id | password                                 | real_name | email               | phone       | user_status | creator_id | organization_id | department_id | desc     | created_at          | updated_at          |
++----+------------------------------------------+-----------+---------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| 13 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 姓名12    | 18813141886@163.com | 18813141012 |           1 |          1 |               0 |             0 | 用户12   | 2020-06-16 16:12:01 | 2020-06-18 14:47:28 |
++----+------------------------------------------+-----------+---------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+127.0.0.1:6379> get backstage:verify:code:13
+"{\"code\":\"102236\",\"account_no\":\"18813141886@163.com\"}"
+127.0.0.1:6379>
+127.0.0.1:6379> get backstage:verify:code:13
+(nil)
+127.0.0.1:6379>

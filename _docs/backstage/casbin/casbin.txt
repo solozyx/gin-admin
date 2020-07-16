@@ -1,0 +1,9 @@
+
+1        /api/v1/content/list     GET
+角色id
+
+[用户10 角色1] 用户10能访问该接口
+
+用户10 有department_id=3字段
+user表查找10 拿到department_id=3
+content表查找 department_id=3 的内容列表

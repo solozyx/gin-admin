@@ -1,0 +1,210 @@
+{"level":"info","msg":"登入系统","span_function":"Login","span_title":"用户登录","time":"2020-06-11T14:51:55+08:00","trace_id":"trace-id-21656-2020.06.11.14.51.55.002809","user_id":"root","version":"6.0.0"}
+{"body":"{\"user_name\":\"root\",\"captcha_code\":\"4470\",\"captcha_id\":\"Y9xIqfDYEyHWVMBBJlnI\",\"password\":\"6351623c8cef86fefabfa7da046fc619\"}","content_length":124,"header":{"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate"],"Accept-Language":["zh-CN,zh;q=0.9,en;q=0.8"],"Connection":["close"],"Content-Length":["124"],"Content-Type":["application/json"],"Origin":["http://192.168.174.148:8001"],"Referer":["http://192.168.174.148:8001/user/login?redirect=http%3A%2F%2F192.168.174.148%3A8001%2Fdashboard"],"User-Agent":["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"]},"ip":"192.168.174.148","level":"info","method":"POST","msg":"[http] /api/v1/pub/login-POST-192.168.174.148-200(0ms)","proto":"HTTP/1.1","res_body":"{\"access_token\":\"eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTE4NjU1MTUsImlhdCI6MTU5MTg1ODMxNSwibmJmIjoxNTkxODU4MzE1LCJzdWIiOiJyb290In0.VbOSV4RFpglSf6EannXlq62fzJ8xZLF3e9u3Squ6LH16IKh49U6LbRQYgcX_5yA_HWluKHGu2Nulv0t1eK5Pdg\",\"token_type\":\"Bearer\",\"expires_at\":1591865515}","res_length":276,"res_status":200,"span_function":"POST/api/v1/pub/login","span_title":"访问日志","time":"2020-06-11T14:51:55+08:00","trace_id":"trace-id-21656-2020.06.11.14.51.55.002809","url":"/api/v1/pub/login","user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36","user_id":"root","version":"6.0.0"}
+{"header":{"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate"],"Accept-Language":["zh-CN,zh;q=0.9,en;q=0.8"],"Authorization":["Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTE4NjU1MTUsImlhdCI6MTU5MTg1ODMxNSwibmJmIjoxNTkxODU4MzE1LCJzdWIiOiJyb290In0.VbOSV4RFpglSf6EannXlq62fzJ8xZLF3e9u3Squ6LH16IKh49U6LbRQYgcX_5yA_HWluKHGu2Nulv0t1eK5Pdg"],"Connection":["close"],"Referer":["http://192.168.174.148:8001/dashboard"],"User-Agent":["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"]},"ip":"192.168.174.148","level":"info","method":"GET","msg":"[http] /api/v1/pub/current/user-GET-192.168.174.148-200(0ms)","proto":"HTTP/1.1","res_body":"{\"user_id\":\"\",\"user_name\":\"root\",\"real_name\":\"超级管理员\",\"roles\":null}","res_length":76,"res_status":200,"span_function":"GET/api/v1/pub/current/user","span_title":"访问日志","time":"2020-06-11T14:51:56+08:00","trace_id":"trace-id-21656-2020.06.11.14.51.56.440963","url":"/api/v1/pub/current/user","user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36","user_id":"root","version":"6.0.0"}
+{"level":"info","msg":"userId=root","time":"2020-06-11T14:51:56+08:00"}
+
+
+
+mysql> select * from g_menu;
++----+--------------------------+---------------------+---------------------+------------+---------------+----------+-----------+---------------+--------------------------+--------------------------+-------------+--------+------+---------+
+| id | record_id                | created_at          | updated_at          | deleted_at | name          | sequence | icon      | router        | parent_id                | parent_path              | show_status | status | memo | creator |
++----+--------------------------+---------------------+---------------------+------------+---------------+----------+-----------+---------------+--------------------------+--------------------------+-------------+--------+------+---------+
+|  1 | 5eaa744cec65f5408adfa48f | 2020-04-30 14:46:36 | 2020-04-30 14:46:36 | NULL       | Index Home    |  1999999 | dashboard | /dashboard    |                          |                          |           1 |      1 |      |         |
+|  2 | 5eaa744cec65f5408adfa490 | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | DEMO          |  1029999 | tag       | /example/demo |                          |                          |           1 |      1 |      |         |
+|  3 | 5eaa744cec65f5408adfa49e | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | System Manage |  1019999 | setting   |               |                          |                          |           1 |      1 |      |         |
+|  4 | 5eaa744cec65f5408adfa49f | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | Menu Manage   |  1010999 | solution  | /system/menu  | 5eaa744cec65f5408adfa49e | 5eaa744cec65f5408adfa49e |           1 |      1 |      |         |
+|  5 | 5eaa744cec65f5408adfa4ae | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | Role Manage   |  1010899 | audit     | /system/role  | 5eaa744cec65f5408adfa49e | 5eaa744cec65f5408adfa49e |           1 |      1 |      |         |
+|  6 | 5eaa744dec65f5408adfa4be | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | User Manage   |  1010799 | user      | /system/user  | 5eaa744cec65f5408adfa49e | 5eaa744cec65f5408adfa49e |           1 |      1 |      |         |
++----+--------------------------+---------------------+---------------------+------------+---------------+----------+-----------+---------------+--------------------------+--------------------------+-------------+--------+------+---------+
+6 rows in set (0.13 sec)
+mysql>
+{"level":"info","msg":"isRoot menu result=\u0026{Data:[0xc001820380 0xc001820460 0xc001820540 0xc001820620 0xc001820700 0xc0018207e0] PageResult:\u003cnil\u003e}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=0 menu={RecordID:5eaa744cec65f5408adfa48f Name:Index Home Sequence:1999999 Icon:dashboard Router:/dashboard ParentID: ParentPath: ShowStatus:1 Status:1 Memo: Creator: CreatedAt:2020-04-30 14:46:36 +0800 CST UpdatedAt:2020-04-30 14:46:36 +0800 CST Actions:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=1 menu={RecordID:5eaa744cec65f5408adfa490 Name:DEMO Sequence:1029999 Icon:tag Router:/example/demo ParentID: ParentPath: ShowStatus:1 Status:1 Memo: Creator: CreatedAt:2020-04-30 14:46:37 +0800 CST UpdatedAt:2020-04-30 14:46:37 +0800 CST Actions:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=2 menu={RecordID:5eaa744cec65f5408adfa49e Name:System Manage Sequence:1019999 Icon:setting Router: ParentID: ParentPath: ShowStatus:1 Status:1 Memo: Creator: CreatedAt:2020-04-30 14:46:37 +0800 CST UpdatedAt:2020-04-30 14:46:37 +0800 CST Actions:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=3 menu={RecordID:5eaa744cec65f5408adfa49f Name:Menu Manage Sequence:1010999 Icon:solution Router:/system/menu ParentID:5eaa744cec65f5408adfa49e ParentPath:5eaa744cec65f5408adfa49e ShowStatus:1 Status:1 Memo: Creator: CreatedAt:2020-04-30 14:46:37 +0800 CST UpdatedAt:2020-04-30 14:46:37 +0800 CST Actions:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=4 menu={RecordID:5eaa744cec65f5408adfa4ae Name:Role Manage Sequence:1010899 Icon:audit Router:/system/role ParentID:5eaa744cec65f5408adfa49e ParentPath:5eaa744cec65f5408adfa49e ShowStatus:1 Status:1 Memo: Creator: CreatedAt:2020-04-30 14:46:37 +0800 CST UpdatedAt:2020-04-30 14:46:37 +0800 CST Actions:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=5 menu={RecordID:5eaa744dec65f5408adfa4be Name:User Manage Sequence:1010799 Icon:user Router:/system/user ParentID:5eaa744cec65f5408adfa49e ParentPath:5eaa744cec65f5408adfa49e ShowStatus:1 Status:1 Memo: Creator: CreatedAt:2020-04-30 14:46:37 +0800 CST UpdatedAt:2020-04-30 14:46:37 +0800 CST Actions:[]}","time":"2020-06-11T14:51:56+08:00"}
+
+
+
+
+mysql> select * from g_menu_action;
++----+--------------------------+---------------------+---------------------+------------+--------------------------+---------+--------+
+| id | record_id                | created_at          | updated_at          | deleted_at | menu_id                  | code    | name   |
++----+--------------------------+---------------------+---------------------+------------+--------------------------+---------+--------+
+|  1 | 5eaa744cec65f5408adfa491 | 2020-04-30 14:46:36 | 2020-04-30 14:46:36 | NULL       | 5eaa744cec65f5408adfa490 | add     | 新增   |
+|  2 | 5eaa744cec65f5408adfa493 | 2020-04-30 14:46:36 | 2020-04-30 14:46:36 | NULL       | 5eaa744cec65f5408adfa490 | edit    | 编辑   |
+|  3 | 5eaa744cec65f5408adfa496 | 2020-04-30 14:46:36 | 2020-04-30 14:46:36 | NULL       | 5eaa744cec65f5408adfa490 | del     | 删除   |
+|  4 | 5eaa744cec65f5408adfa498 | 2020-04-30 14:46:36 | 2020-04-30 14:46:36 | NULL       | 5eaa744cec65f5408adfa490 | query   | 查询   |
+|  5 | 5eaa744cec65f5408adfa49a | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa490 | disable | 禁用   |
+|  6 | 5eaa744cec65f5408adfa49c | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa490 | enable  | 启用   |
+|  7 | 5eaa744cec65f5408adfa4a0 | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa49f | add     | 新增   |
+|  8 | 5eaa744cec65f5408adfa4a2 | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa49f | edit    | 编辑   |
+|  9 | 5eaa744cec65f5408adfa4a5 | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa49f | del     | 删除   |
+| 10 | 5eaa744cec65f5408adfa4a7 | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa49f | query   | 查询   |
+| 11 | 5eaa744cec65f5408adfa4aa | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa49f | disable | 禁用   |
+| 12 | 5eaa744cec65f5408adfa4ac | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa49f | enable  | 启用   |
+| 13 | 5eaa744cec65f5408adfa4af | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa4ae | add     | 新增   |
+| 14 | 5eaa744cec65f5408adfa4b2 | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa4ae | edit    | 编辑   |
+| 15 | 5eaa744dec65f5408adfa4b6 | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa4ae | del     | 删除   |
+| 16 | 5eaa744dec65f5408adfa4b8 | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa4ae | query   | 查询   |
+| 17 | 5eaa744dec65f5408adfa4ba | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa4ae | disable | 禁用   |
+| 18 | 5eaa744dec65f5408adfa4bc | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744cec65f5408adfa4ae | enable  | 启用   |
+| 19 | 5eaa744dec65f5408adfa4bf | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744dec65f5408adfa4be | add     | 新增   |
+| 20 | 5eaa744dec65f5408adfa4c2 | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744dec65f5408adfa4be | edit    | 编辑   |
+| 21 | 5eaa744dec65f5408adfa4c6 | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744dec65f5408adfa4be | del     | 删除   |
+| 22 | 5eaa744dec65f5408adfa4c8 | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744dec65f5408adfa4be | query   | 查询   |
+| 23 | 5eaa744dec65f5408adfa4ca | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744dec65f5408adfa4be | disable | 禁用   |
+| 24 | 5eaa744dec65f5408adfa4cc | 2020-04-30 14:46:37 | 2020-04-30 14:46:37 | NULL       | 5eaa744dec65f5408adfa4be | enable  | 启用   |
++----+--------------------------+---------------------+---------------------+------------+--------------------------+---------+--------+
+24 rows in set (0.08 sec)
+mysql>
+{"level":"info","msg":"isRoot menuActionResult result=\u0026{Data:[0xc0019960c0 0xc001996120 0xc001996180 0xc0019961e0 0xc001996240 0xc0019962a0 0xc001996300 0xc001996360 0xc0019963c0 0xc001996420 0xc001996480 0xc0019964e0 0xc001996540 0xc0019965a0 0xc001996600 0xc001996660 0xc0019966c0 0xc001996720 0xc001996780 0xc0019967e0 0xc001996840 0xc0019968a0 0xc001996900 0xc001996960] PageResult:\u003cnil\u003e}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=0","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa491 MenuID:5eaa744cec65f5408adfa490 Code:add Name:新增 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=1","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa493 MenuID:5eaa744cec65f5408adfa490 Code:edit Name:编辑 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=2","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa496 MenuID:5eaa744cec65f5408adfa490 Code:del Name:删除 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=3","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa498 MenuID:5eaa744cec65f5408adfa490 Code:query Name:查询 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=4","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa49a MenuID:5eaa744cec65f5408adfa490 Code:disable Name:禁用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=5","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa49c MenuID:5eaa744cec65f5408adfa490 Code:enable Name:启用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=6","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa4a0 MenuID:5eaa744cec65f5408adfa49f Code:add Name:新增 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=7","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa4a2 MenuID:5eaa744cec65f5408adfa49f Code:edit Name:编辑 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=8","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa4a5 MenuID:5eaa744cec65f5408adfa49f Code:del Name:删除 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=9","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa4a7 MenuID:5eaa744cec65f5408adfa49f Code:query Name:查询 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=10","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa4aa MenuID:5eaa744cec65f5408adfa49f Code:disable Name:禁用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=11","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa4ac MenuID:5eaa744cec65f5408adfa49f Code:enable Name:启用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=12","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa4af MenuID:5eaa744cec65f5408adfa4ae Code:add Name:新增 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=13","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa4b2 MenuID:5eaa744cec65f5408adfa4ae Code:edit Name:编辑 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=14","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744dec65f5408adfa4b6 MenuID:5eaa744cec65f5408adfa4ae Code:del Name:删除 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=15","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744dec65f5408adfa4b8 MenuID:5eaa744cec65f5408adfa4ae Code:query Name:查询 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=16","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744dec65f5408adfa4ba MenuID:5eaa744cec65f5408adfa4ae Code:disable Name:禁用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=17","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744dec65f5408adfa4bc MenuID:5eaa744cec65f5408adfa4ae Code:enable Name:启用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=18","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744dec65f5408adfa4bf MenuID:5eaa744dec65f5408adfa4be Code:add Name:新增 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=19","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744dec65f5408adfa4c2 MenuID:5eaa744dec65f5408adfa4be Code:edit Name:编辑 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=20","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744dec65f5408adfa4c6 MenuID:5eaa744dec65f5408adfa4be Code:del Name:删除 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=21","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744dec65f5408adfa4c8 MenuID:5eaa744dec65f5408adfa4be Code:query Name:查询 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=22","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744dec65f5408adfa4ca MenuID:5eaa744dec65f5408adfa4be Code:disable Name:禁用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot sK=23","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744dec65f5408adfa4cc MenuID:5eaa744dec65f5408adfa4be Code:enable Name:启用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+
+
+
+
+
+mysql> select id,record_id,name,parent_id from g_menu;
++----+--------------------------+---------------+--------------------------+
+| id | record_id                | name          | parent_id                |
++----+--------------------------+---------------+--------------------------+
+|  1 | 5eaa744cec65f5408adfa48f | Index Home    |                          |
+|  2 | 5eaa744cec65f5408adfa490 | DEMO          |                          |
+|  3 | 5eaa744cec65f5408adfa49e | System Manage |                          |
+|  4 | 5eaa744cec65f5408adfa49f | Menu Manage   | 5eaa744cec65f5408adfa49e |
+|  5 | 5eaa744cec65f5408adfa4ae | Role Manage   | 5eaa744cec65f5408adfa49e |
+|  6 | 5eaa744dec65f5408adfa4be | User Manage   | 5eaa744cec65f5408adfa49e |
++----+--------------------------+---------------+--------------------------+
+6 rows in set (0.01 sec)
+mysql>
+
+
+{"level":"info","msg":"isRoot menuTrees=[0xc00017c6e0 0xc00017c820 0xc00017c960]","time":"2020-06-11T14:51:56+08:00"}
+
+
+{"level":"info","msg":"isRoot sK=0","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuTree={RecordID:5eaa744cec65f5408adfa48f Name:Index Home Icon:dashboard Router:/dashboard ParentID: ParentPath: Sequence:1999999 ShowStatus:1 Status:1 Actions:[] Children:\u003cnil\u003e}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuTree.Children=\u003cnil\u003e","time":"2020-06-11T14:51:56+08:00"}
+
+{"level":"info","msg":"isRoot sK=1","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuTree={RecordID:5eaa744cec65f5408adfa490 Name:DEMO Icon:tag Router:/example/demo ParentID: ParentPath: Sequence:1029999 ShowStatus:1 Status:1 Actions:[0xc0019960c0 0xc001996120 0xc001996180 0xc0019961e0 0xc001996240 0xc0019962a0] Children:\u003cnil\u003e}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuActionIndex=0","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa491 MenuID:5eaa744cec65f5408adfa490 Code:add Name:新增 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuActionIndex=1","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa493 MenuID:5eaa744cec65f5408adfa490 Code:edit Name:编辑 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuActionIndex=2","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa496 MenuID:5eaa744cec65f5408adfa490 Code:del Name:删除 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuActionIndex=3","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa498 MenuID:5eaa744cec65f5408adfa490 Code:query Name:查询 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuActionIndex=4","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa49a MenuID:5eaa744cec65f5408adfa490 Code:disable Name:禁用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuActionIndex=5","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuAction={RecordID:5eaa744cec65f5408adfa49c MenuID:5eaa744cec65f5408adfa490 Code:enable Name:启用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuTree.Children=\u003cnil\u003e","time":"2020-06-11T14:51:56+08:00"}
+
+
+
+
+
+{"level":"info","msg":"isRoot sK=2","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuTree={RecordID:5eaa744cec65f5408adfa49e Name:System Manage Icon:setting Router: ParentID: ParentPath: Sequence:1019999 ShowStatus:1 Status:1 Actions:[] Children:0xc0019995a0}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot menuTree.Children=\u0026[0xc00017caa0 0xc00017cbe0 0xc00017cd20]","time":"2020-06-11T14:51:56+08:00"}
+
+{"level":"info","msg":"isRoot childIndex=0","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuTree={RecordID:5eaa744cec65f5408adfa49f Name:Menu Manage Icon:solution Router:/system/menu ParentID:5eaa744cec65f5408adfa49e ParentPath:5eaa744cec65f5408adfa49e Sequence:1010999 ShowStatus:1 Status:1 Actions:[0xc001996300 0xc001996360 0xc0019963c0 0xc001996420 0xc001996480 0xc0019964e0] Children:\u003cnil\u003e}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=0","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744cec65f5408adfa4a0 MenuID:5eaa744cec65f5408adfa49f Code:add Name:新增 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=1","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744cec65f5408adfa4a2 MenuID:5eaa744cec65f5408adfa49f Code:edit Name:编辑 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=2","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744cec65f5408adfa4a5 MenuID:5eaa744cec65f5408adfa49f Code:del Name:删除 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=3","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744cec65f5408adfa4a7 MenuID:5eaa744cec65f5408adfa49f Code:query Name:查询 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=4","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744cec65f5408adfa4aa MenuID:5eaa744cec65f5408adfa49f Code:disable Name:禁用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=5","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744cec65f5408adfa4ac MenuID:5eaa744cec65f5408adfa49f Code:enable Name:启用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+
+{"level":"info","msg":"isRoot childIndex=1","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuTree={RecordID:5eaa744cec65f5408adfa4ae Name:Role Manage Icon:audit Router:/system/role ParentID:5eaa744cec65f5408adfa49e ParentPath:5eaa744cec65f5408adfa49e Sequence:1010899 ShowStatus:1 Status:1 Actions:[0xc001996540 0xc0019965a0 0xc001996600 0xc001996660 0xc0019966c0 0xc001996720] Children:\u003cnil\u003e}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=0","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744cec65f5408adfa4af MenuID:5eaa744cec65f5408adfa4ae Code:add Name:新增 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=1","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744cec65f5408adfa4b2 MenuID:5eaa744cec65f5408adfa4ae Code:edit Name:编辑 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=2","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744dec65f5408adfa4b6 MenuID:5eaa744cec65f5408adfa4ae Code:del Name:删除 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=3","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744dec65f5408adfa4b8 MenuID:5eaa744cec65f5408adfa4ae Code:query Name:查询 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=4","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744dec65f5408adfa4ba MenuID:5eaa744cec65f5408adfa4ae Code:disable Name:禁用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=5","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744dec65f5408adfa4bc MenuID:5eaa744cec65f5408adfa4ae Code:enable Name:启用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+
+{"level":"info","msg":"isRoot childIndex=2","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuTree={RecordID:5eaa744dec65f5408adfa4be Name:User Manage Icon:user Router:/system/user ParentID:5eaa744cec65f5408adfa49e ParentPath:5eaa744cec65f5408adfa49e Sequence:1010799 ShowStatus:1 Status:1 Actions:[0xc001996780 0xc0019967e0 0xc001996840 0xc0019968a0 0xc001996900 0xc001996960] Children:\u003cnil\u003e}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=0","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744dec65f5408adfa4bf MenuID:5eaa744dec65f5408adfa4be Code:add Name:新增 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=1","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744dec65f5408adfa4c2 MenuID:5eaa744dec65f5408adfa4be Code:edit Name:编辑 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=2","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744dec65f5408adfa4c6 MenuID:5eaa744dec65f5408adfa4be Code:del Name:删除 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=3","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744dec65f5408adfa4c8 MenuID:5eaa744dec65f5408adfa4be Code:query Name:查询 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=4","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744dec65f5408adfa4ca MenuID:5eaa744dec65f5408adfa4be Code:disable Name:禁用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuActionIndex=5","time":"2020-06-11T14:51:56+08:00"}
+{"level":"info","msg":"isRoot childMenuAction={RecordID:5eaa744dec65f5408adfa4cc MenuID:5eaa744dec65f5408adfa4be Code:enable Name:启用 Resources:[]}","time":"2020-06-11T14:51:56+08:00"}
+
+
+{"header":{"Accept":["application/json, text/plain, */*"],"Accept-Encoding":["gzip, deflate"],"Accept-Language":["zh-CN,zh;q=0.9,en;q=0.8"],"Authorization":["Bearer eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTE4NjU1MTUsImlhdCI6MTU5MTg1ODMxNSwibmJmIjoxNTkxODU4MzE1LCJzdWIiOiJyb290In0.VbOSV4RFpglSf6EannXlq62fzJ8xZLF3e9u3Squ6LH16IKh49U6LbRQYgcX_5yA_HWluKHGu2Nulv0t1eK5Pdg"],"Connection":["close"],"Referer":["http://192.168.174.148:8001/dashboard"],"User-Agent":["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"]},"ip":"192.168.174.148","level":"info","method":"GET","msg":"[http] /api/v1/pub/current/menutree-GET-192.168.174.148-200(112ms)","proto":"HTTP/1.1","res_body":"{\"list\":[{\"record_id\":\"5eaa744cec65f5408adfa48f\",\"name\":\"Index Home\",\"icon\":\"dashboard\",\"router\":\"/dashboard\",\"parent_id\":\"\",\"parent_path\":\"\",\"sequence\":1999999,\"show_status\":1,\"status\":1,\"actions\":null},{\"record_id\":\"5eaa744cec65f5408adfa490\",\"name\":\"DEMO\",\"icon\":\"tag\",\"router\":\"/example/demo\",\"parent_id\":\"\",\"parent_path\":\"\",\"sequence\":1029999,\"show_status\":1,\"status\":1,\"actions\":[{\"record_id\":\"5eaa744cec65f5408adfa491\",\"menu_id\":\"5eaa744cec65f5408adfa490\",\"code\":\"add\",\"name\":\"新增\",\"resources\":null},{\"record_id\":\"5eaa744cec65f5408adfa493\",\"menu_id\":\"5eaa744cec65f5408adfa490\",\"code\":\"edit\",\"name\":\"编辑\",\"resources\":null},{\"record_id\":\"5eaa744cec65f5408adfa496\",\"menu_id\":\"5eaa744cec65f5408adfa490\",\"code\":\"del\",\"name\":\"删除\",\"resources\":null},{\"record_id\":\"5eaa744cec65f5408adfa498\",\"menu_id\":\"5eaa744cec65f5408adfa490\",\"code\":\"query\",\"name\":\"查询\",\"resources\":null},{\"record_id\":\"5eaa744cec65f5408adfa49a\",\"menu_id\":\"5eaa744cec65f5408adfa490\",\"code\":\"disable\",\"name\":\"禁用\",\"resources\":null},{\"record_id\":\"5eaa744cec65f5408adfa49c\",\"menu_id\":\"5eaa744cec65f5408adfa490\",\"code\":\"enable\",\"name\":\"启用\",\"resources\":null}]},{\"record_id\":\"5eaa744cec65f5408adfa49e\",\"name\":\"System Manage\",\"icon\":\"setting\",\"router\":\"\",\"parent_id\":\"\",\"parent_path\":\"\",\"sequence\":1019999,\"show_status\":1,\"status\":1,\"actions\":null,\"children\":[{\"record_id\":\"5eaa744cec65f5408adfa49f\",\"name\":\"Menu Manage\",\"icon\":\"solution\",\"router\":\"/system/menu\",\"parent_id\":\"5eaa744cec65f5408adfa49e\",\"parent_path\":\"5eaa744cec65f5408adfa49e\",\"sequence\":1010999,\"show_status\":1,\"status\":1,\"actions\":[{\"record_id\":\"5eaa744cec65f5408adfa4a0\",\"menu_id\":\"5eaa744cec65f5408adfa49f\",\"code\":\"add\",\"name\":\"新增\",\"resources\":null},{\"record_id\":\"5eaa744cec65f5408adfa4a2\",\"menu_id\":\"5eaa744cec65f5408adfa49f\",\"code\":\"edit\",\"name\":\"编辑\",\"resources\":null},{\"record_id\":\"5eaa744cec65f5408adfa4a5\",\"menu_id\":\"5eaa744cec65f5408adfa49f\",\"code\":\"del\",\"name\":\"删除\",\"resources\":null},{\"record_id\":\"5eaa744cec65f5408adfa4a7\",\"menu_id\":\"5eaa744cec65f5408adfa49f\",\"code\":\"query\",\"name\":\"查询\",\"resources\":null},{\"record_id\":\"5eaa744cec65f5408adfa4aa\",\"menu_id\":\"5eaa744cec65f5408adfa49f\",\"code\":\"disable\",\"name\":\"禁用\",\"resources\":null},{\"record_id\":\"5eaa744cec65f5408adfa4ac\",\"menu_id\":\"5eaa744cec65f5408adfa49f\",\"code\":\"enable\",\"name\":\"启用\",\"resources\":null}]},{\"record_id\":\"5eaa744cec65f5408adfa4ae\",\"name\":\"Role Manage\",\"icon\":\"audit\",\"router\":\"/system/role\",\"parent_id\":\"5eaa744cec65f5408adfa49e\",\"parent_path\":\"5eaa744cec65f5408adfa49e\",\"sequence\":1010899,\"show_status\":1,\"status\":1,\"actions\":[{\"record_id\":\"5eaa744cec65f5408adfa4af\",\"menu_id\":\"5eaa744cec65f5408adfa4ae\",\"code\":\"add\",\"name\":\"新增\",\"resources\":null},{\"record_id\":\"5eaa744cec65f5408adfa4b2\",\"menu_id\":\"5eaa744cec65f5408adfa4ae\",\"code\":\"edit\",\"name\":\"编辑\",\"resources\":null},{\"record_id\":\"5eaa744dec65f5408adfa4b6\",\"menu_id\":\"5eaa744cec65f5408adfa4ae\",\"code\":\"del\",\"name\":\"删除\",\"resources\":null},{\"record_id\":\"5eaa744dec65f5408adfa4b8\",\"menu_id\":\"5eaa744cec65f5408adfa4ae\",\"code\":\"query\",\"name\":\"查询\",\"resources\":null},{\"record_id\":\"5eaa744dec65f5408adfa4ba\",\"menu_id\":\"5eaa744cec65f5408adfa4ae\",\"code\":\"disable\",\"name\":\"禁用\",\"resources\":null},{\"record_id\":\"5eaa744dec65f5408adfa4bc\",\"menu_id\":\"5eaa744cec65f5408adfa4ae\",\"code\":\"enable\",\"name\":\"启用\",\"resources\":null}]},{\"record_id\":\"5eaa744dec65f5408adfa4be\",\"name\":\"User Manage\",\"icon\":\"user\",\"router\":\"/system/user\",\"parent_id\":\"5eaa744cec65f5408adfa49e\",\"parent_path\":\"5eaa744cec65f5408adfa49e\",\"sequence\":1010799,\"show_status\":1,\"status\":1,\"actions\":[{\"record_id\":\"5eaa744dec65f5408adfa4bf\",\"menu_id\":\"5eaa744dec65f5408adfa4be\",\"code\":\"add\",\"name\":\"新增\",\"resources\":null},{\"record_id\":\"5eaa744dec65f5408adfa4c2\",\"menu_id\":\"5eaa744dec65f5408adfa4be\",\"code\":\"edit\",\"name\":\"编辑\",\"resources\":null},{\"record_id\":\"5eaa744dec65f5408adfa4c6\",\"menu_id\":\"5eaa744dec65f5408adfa4be\",\"code\":\"del\",\"name\":\"删除\",\"resources\":null},{\"record_id\":\"5eaa744dec65f5408adfa4c8\",\"menu_id\":\"5eaa744dec65f5408adfa4be\",\"code\":\"query\",\"name\":\"查询\",\"resources\":null},{\"record_id\":\"5eaa744dec65f5408adfa4ca\",\"menu_id\":\"5eaa744dec65f5408adfa4be\",\"code\":\"disable\",\"name\":\"禁用\",\"resources\":null},{\"record_id\":\"5eaa744dec65f5408adfa4cc\",\"menu_id\":\"5eaa744dec65f5408adfa4be\",\"code\":\"enable\",\"name\":\"启用\",\"resources\":null}]}]}]}","res_length":4322,"res_status":200,"span_function":"GET/api/v1/pub/current/menutree","span_title":"访问日志","time":"2020-06-11T14:51:56+08:00","trace_id":"trace-id-21656-2020.06.11.14.51.56.442867","url":"/api/v1/pub/current/menutree","user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36","user_id":"root","version":"6.0.0"}
+

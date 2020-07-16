@@ -1,0 +1,50 @@
+
+admin1
+84aa117f819b49d9247c1e3718465de7
+{
+	"role_id":15,
+	"perm_ids":[1]
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": []
+}
+
+
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:9001/api/v1/role/permadd{\"perm_ids\":[1],\"role_id\":15}1234567890com.obencn.backstage.c27d32c5-c878-470a-8a6f-107f7d3700dd","source":"head.go:116:middleware.Options","time":"2020-07-09T18:14:35+08:00"}
+{"level":"debug","msg":"server sign: 84aa117f819b49d9247c1e3718465de7, \tuser sign: 84aa117f819b49d9247c1e3718465de7","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T18:14:35+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/role/permadd JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T18:14:35+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTk0MzQ3OTA2LCJuYmYiOjE1OTQyNjEyMDYsImlhdCI6MTU5NDI2MTUwNiwianRpIjoiMTI5Nzk4YjYtOTI4ZS00MWY5LWFhYzgtNWU0ODRiODQ1MDZjIiwidXNlcl9pZCI6Mn0.a1h-A2yDckfPDjMDwpHcJFPiTn2z9D6wHUHKRSKuxow","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T18:14:35+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/role/permadd middleware Casbin 验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T18:14:35+08:00"}
+{"level":"debug","msg":"roleService PermAdd req={HttpModel:{Path:/api/v1/role/permadd Method:POST IP:127.0.0.1} RoleId:15 PermIds:[1]}","source":"role.go:78:handler.(*roleHandler).PermAdd.func1","time":"2020-07-09T18:14:35+08:00"}
+2020/07/09 18:14:35 Request: 2, /api/v1/role/permadd, POST ---> true
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:24816.9538msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:35+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/org.go:6716.9552msSELECT * FROM `bs_organization`  WHERE (id=?) ORDER BY `bs_organization`.`id` ASC LIMIT 1[2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:35+08:00"}
+{"level":"debug","msg":"orgRepo GetById orgId=2 org=\u0026{ID:2 Name:北京分行 Level:2 Email:bjfh@email.com Phone:18800000001 OrgStatus:1 CreatorId:1 Desc: CreatedAt:2020-06-19 13:52:39 +0800 CST UpdatedAt:2020-07-02 16:10:39 +0800 CST}","source":"role.go:129:service.(*roleService).PermAdd","time":"2020-07-09T18:14:35+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role.go:5020.9483msSELECT * FROM `bs_role`  WHERE (role_status=? AND (organization_id=? OR organization_id=?))[1 0 2] 5","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:35+08:00"}
+{"level":"debug","msg":"roleService PermAdd admin s.UserId=2 可用角色列表 mRoleIds=map[3:{} 4:{} 5:{} 6:{} 15:{}]","source":"role.go:78:handler.(*roleHandler).PermAdd.func1","time":"2020-07-09T18:14:35+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user_role.go:35233.5895msSELECT * FROM `bs_user_role`  WHERE (status=? AND user_id=?)[1 2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role.go:10719.9462msSELECT * FROM `bs_role`  WHERE (id=?) ORDER BY `bs_role`.`id` ASC LIMIT 1[2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role_permission.go:3516.9549msSELECT * FROM `bs_role_permission`  WHERE (status=? AND role_id=?)[1 2] 11","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3316.9564msSELECT * FROM `bs_permission`  WHERE (id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[3] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3325.4288msSELECT * FROM `bs_permission`  WHERE (id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[4] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3318.5455msSELECT * FROM `bs_permission`  WHERE (id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[5] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3316.9585msSELECT * FROM `bs_permission`  WHERE (id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[6] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3317.9471msSELECT * FROM `bs_permission`  WHERE (id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[7] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3316.9568msSELECT * FROM `bs_permission`  WHERE (id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[8] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3316.9552msSELECT * FROM `bs_permission`  WHERE (id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[9] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3317.9532msSELECT * FROM `bs_permission`  WHERE (id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[10] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3321.9396msSELECT * FROM `bs_permission`  WHERE (id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[11] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3316.9497msSELECT * FROM `bs_permission`  WHERE (id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[12] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:3321.9484msSELECT * FROM `bs_permission`  WHERE (id=?) ORDER BY `bs_permission`.`id` ASC LIMIT 1[13] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"debug","msg":"roleService PermAdd admin s.UserId=2 可用权限列表 mPerms=map[3:{} 4:{} 5:{} 6:{} 7:{} 8:{} 9:{} 10:{} 11:{} 12:{} 13:{}]","source":"role.go:78:handler.(*roleHandler).PermAdd.func1","time":"2020-07-09T18:14:36+08:00"}
+{"level":"debug","msg":"roleService PermAdd roleId=15 可添加权限列表 mRoleCanAddPermIds=map[]","source":"role.go:78:handler.(*roleHandler).PermAdd.func1","time":"2020-07-09T18:14:36+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role_permission.go:4519.9343msSELECT * FROM `bs_role_permission`  WHERE (role_id=?)[15] 0","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T18:14:36+08:00"}
+{"level":"debug","msg":"roleService PermAdd roleId=15 已有权限列表(可用+禁用) rolePerms=[]","source":"role.go:78:handler.(*roleHandler).PermAdd.func1","time":"2020-07-09T18:14:36+08:00"}
+{"level":"debug","msg":"roleService PermAdd roleId=15 可用权限列表 userNormalRoles=[]","source":"role.go:78:handler.(*roleHandler).PermAdd.func1","time":"2020-07-09T18:14:36+08:00"}
+{"level":"debug","msg":"roleService PermAdd roleId=15 禁用权限列表 userDisabledRoles=[]","source":"role.go:78:handler.(*roleHandler).PermAdd.func1","time":"2020-07-09T18:14:36+08:00"}
+{"level":"debug","msg":"roleService PermAdd roleId=15 最终可添加权限列表 mRoleCanAddPermIds=map[]","source":"role.go:78:handler.(*roleHandler).PermAdd.func1","time":"2020-07-09T18:14:36+08:00"}
+{"level":"debug","msg":"roleService PermAdd roleId=15 最终可添加权限列表为空,无需添加","source":"role.go:78:handler.(*roleHandler).PermAdd.func1","time":"2020-07-09T18:14:36+08:00"}
+

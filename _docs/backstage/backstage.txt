@@ -1,0 +1,125 @@
+
+mysql> CREATE DATABASE `backstage` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+Query OK, 1 row affected (0.00 sec)
+mysql>
+
+mysql> use `backstage`;
+Database changed
+mysql>
+
+mysql> show tables;
+Empty set (0.00 sec)
+mysql>
+
+mysql> CREATE TABLE `bs_user` (
+    ->   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '用户ID',
+    ->   `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '用户名称',
+    ->   `password` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '密码',
+    ->   `real_name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '真实姓名',
+    ->   `email` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '邮箱',
+    ->   `phone` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '手机号',
+    ->   `user_status` int(11) NOT NULL DEFAULT 1 COMMENT '状态 0不可用 1可用 2删除',
+    ->   `creator` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '创建者',
+    ->   `remark` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注',
+    ->   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    ->   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    ->   `deleted_at` datetime DEFAULT NULL COMMENT '删除时间',
+    ->   PRIMARY KEY (`id`)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户表';
+Query OK, 0 rows affected (0.02 sec)
+mysql>
+
+mysql> CREATE TABLE `bs_role` (
+    ->   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '角色ID',
+    ->   `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '角色名称',
+    ->   `sort` int(11) NOT NULL DEFAULT 0 COMMENT '排序字段',
+    ->   `role_status` int(11) NOT NULL DEFAULT 1 COMMENT '状态 0不可用 1可用 2删除',
+    ->   `creator` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '创建者',
+    ->   `remark` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注',
+    ->   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    ->   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    ->   `deleted_at` datetime DEFAULT NULL COMMENT '删除时间',
+    ->   PRIMARY KEY (`id`)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='角色表';
+Query OK, 0 rows affected (0.01 sec)
+mysql>
+
+mysql> CREATE TABLE `bs_user_role` (
+    ->   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    ->   `user_id` int(11) NOT NULL DEFAULT 0 COMMENT '用户ID',
+    ->   `role_id` int(11) NOT NULL DEFAULT 0 COMMENT '角色ID',
+    ->   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    ->   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    ->   `deleted_at` datetime DEFAULT NULL COMMENT '删除时间',
+    ->   PRIMARY KEY (`id`),
+    ->   KEY `index_userid_roleid` (`user_id`,`role_id`)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户角色表';
+Query OK, 0 rows affected (0.02 sec)
+mysql>
+
+
+mysql> CREATE TABLE `bs_permission` (
+    ->   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '权限ID',
+    ->   `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '权限名称',
+    ->   `sort` int(11) NOT NULL DEFAULT 0 COMMENT '排序字段',
+    ->   `permission_status` int(11) NOT NULL DEFAULT 1 COMMENT '状态 0不可用 1可用 2删除',
+    ->   `creator` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '创建者',
+    ->   `remark` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT '备注',
+    ->   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    ->   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    ->   `deleted_at` datetime DEFAULT NULL COMMENT '删除时间',
+    ->   PRIMARY KEY (`id`)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='权限表';
+Query OK, 0 rows affected (0.02 sec)
+mysql>
+
+mysql> ALTER TABLE `bs_permission` ADD `method` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'http method' AFTER `permission_status`;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql> ALTER TABLE `bs_permission` ADD `path` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'http path' AFTER `method`;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+mysql>
+
+mysql> CREATE TABLE `bs_role_permission` (
+    ->   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    ->   `role_id` int(11) NOT NULL DEFAULT 0 COMMENT '角色ID',
+    ->   `permission_id` int(11) NOT NULL DEFAULT 0 COMMENT '权限ID',
+    ->   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    ->   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    ->   `deleted_at` datetime DEFAULT NULL COMMENT '删除时间',
+    ->   PRIMARY KEY (`id`),
+    ->   KEY `index_permissionid_roleid` (`role_id`,`permission_id`)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='角色权限表';
+Query OK, 0 rows affected (0.02 sec)
+mysql>
+
+
+mysql> CREATE TABLE `bs_user_permission` (
+    ->   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+    ->   `user_id` int(11) NOT NULL DEFAULT 0 COMMENT '用户ID',
+    ->   `permission_id` int(11) NOT NULL DEFAULT 0 COMMENT '权限ID',
+    ->   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    ->   `updated_at` datetime NOT NULL ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+    ->   `deleted_at` datetime DEFAULT NULL COMMENT '删除时间',
+    ->   PRIMARY KEY (`id`),
+    ->   KEY `index_userid_permissionid` (`user_id`,`permission_id`)
+    -> ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='用户权限表';
+Query OK, 0 rows affected (0.02 sec)
+mysql>
+
+
+mysql> show tables;
++---------------------+
+| Tables_in_backstage |
++---------------------+
+| bs_permission       |
+| bs_role             |
+| bs_role_permission  |
+| bs_user             |
+| bs_user_permission  |
+| bs_user_role        |
++---------------------+
+6 rows in set (0.00 sec)
+mysql>
+

@@ -1,0 +1,71 @@
+
+mysql> select * from bs_user;
++----+------------------------------------------+---------------------+---------------------+-------------+-------------+------------+-----------------+---------------+--------------+---------------------+---------------------+
+| id | password                                 | real_name           | email               | phone       | user_status | creator_id | organization_id | department_id | desc         | created_at          | updated_at          |
++----+------------------------------------------+---------------------+---------------------+-------------+-------------+------------+-----------------+---------------+--------------+---------------------+---------------------+
+|  1 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 总行行长            | root@email.com      | 18813141001 |           1 |          0 |               1 |             0 | 用户描述     | 2020-05-12 14:58:40 | 2020-07-10 11:43:33 |
+|  2 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 北京分行行长        | user1@email.com     | 18813141002 |           1 |          1 |               2 |             0 | 用户描述     | 2020-05-12 15:04:14 | 2020-07-10 11:51:33 |
+|  3 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 上海分行行长        | user2@email.com     | 18813141003 |           1 |          1 |               3 |             0 | 用户描述     | 2020-05-18 11:28:29 | 2020-07-10 11:50:11 |
+|  4 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 北京分行成员1       | user3@email.com     | 18813141004 |           1 |          2 |               2 |             0 | 用户描述     | 2020-05-18 14:17:39 | 2020-07-10 11:54:52 |
+|  5 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 上海分行成员1       | user4@email.com     | 18813141005 |           1 |          3 |               3 |             0 | 用户描述     | 2020-05-18 17:22:38 | 2020-07-10 11:54:52 |
+|  6 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 管理员5             | user5@email.com     | 18813141006 |           1 |          0 |               0 |             0 | 用户描述     | 2020-05-18 18:28:59 | 2020-07-10 11:55:55 |
+|  7 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 管理员6             | user6@email.com     | 18813141007 |           1 |          0 |               0 |             0 | 用户描述     | 2020-05-19 17:10:16 | 2020-07-10 11:55:55 |
+|  8 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 管理员7             | user7@email.com     | 18813141008 |           1 |          0 |               0 |             0 | 用户描述     | 2020-05-19 17:11:07 | 2020-07-10 11:55:55 |
+|  9 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 管理员8             | user8@email.com     | 18813141009 |           1 |          0 |               0 |             0 | 用户描述     | 2020-05-20 13:36:46 | 2020-07-10 11:55:55 |
+| 10 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 姓名9new            | user9@email.com     | 18800000009 |           1 |          0 |               0 |             0 | 用户描述     | 2020-05-20 16:57:16 | 2020-07-10 11:55:55 |
+| 11 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 姓名10              | user10@email.com    | 18800000010 |           1 |          0 |               0 |             0 | 用户描述     | 2020-05-22 17:03:35 | 2020-07-10 11:55:55 |
+| 12 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 姓名11              | user11@email.com    | 18800000011 |           1 |          0 |               0 |             0 | 用户描述     | 2020-06-15 17:44:49 | 2020-07-10 11:55:55 |
+| 13 | aa94aec5ade8d2c3a6cf81761ed587736b68c77c | 姓名12              | 18813141886@163.com | 18813141012 |           1 |          0 |               0 |             0 | 用户描述     | 2020-06-16 16:12:01 | 2020-07-10 11:55:55 |
++----+------------------------------------------+---------------------+---------------------+-------------+-------------+------------+-----------------+---------------+--------------+---------------------+---------------------+
+13 rows in set (0.00 sec)
+mysql>
+
+
+mysql> select * from bs_role;
++----+---------------------------+-----------------+-------------+------------+--------------+---------------------+---------------------+
+| id | name                      | organization_id | role_status | creator_id | desc         | created_at          | updated_at          |
++----+---------------------------+-----------------+-------------+------------+--------------+---------------------+---------------------+
+|  1 | 一级管理员                |               1 |           1 |          0 | 角色描述     | 2020-05-12 15:45:15 | 2020-07-10 14:26:14 |
+|  2 | 二级管理员                |               0 |           1 |          0 | 角色描述     | 2020-05-12 15:45:37 | 2020-07-10 14:29:10 |
+|  3 | 一级普通成员              |               1 |           1 |          0 | 角色描述     | 2020-05-14 18:19:46 | 2020-07-10 14:29:10 |
+|  4 | 运营                      |               0 |           1 |          0 | 角色描述     | 2020-05-15 11:32:28 | 2020-07-10 14:26:14 |
+|  5 | 审核                      |               0 |           1 |          0 | 角色描述     | 2020-05-15 11:33:37 | 2020-07-10 14:29:11 |
+|  6 | 北京分行自有角色1         |               2 |           1 |          2 | 角色描述     | 2020-05-15 13:41:58 | 2020-07-10 14:30:18 |
+| 15 | 上海分行自有角色1         |               3 |           1 |          3 | 角色描述     | 2020-07-09 13:52:26 | 2020-07-10 14:30:51 |
++----+---------------------------+-----------------+-------------+------------+--------------+---------------------+---------------------+
+7 rows in set (0.00 sec)
+mysql>
+
+
+mysql> select * from bs_user_role where role_id=4;
+Empty set (0.00 sec)
+mysql> select * from bs_user_role where role_id=5;
+Empty set (0.00 sec)
+mysql>
+
+
+05ded5703b59fa97e7ab75643c6ca2b6
+{
+    "user_id":4,
+    "role_ids":[15]
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": []
+}
+
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:9001/api/v1/user/roleadd{\"role_ids\":[15],\"user_id\":4}1234567890com.obencn.backstage.c27d32c5-c878-470a-8a6f-107f7d3700dd","source":"head.go:116:middleware.Options","time":"2020-07-10T15:15:22+08:00"}
+{"level":"debug","msg":"server sign: 05ded5703b59fa97e7ab75643c6ca2b6, \tuser sign: 05ded5703b59fa97e7ab75643c6ca2b6","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T15:15:22+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/roleadd JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T15:15:22+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTk0NDM4NTk0LCJuYmYiOjE1OTQzNTE4OTQsImlhdCI6MTU5NDM1MjE5NCwianRpIjoiYjk3YWFiYzMtNGZmYy00NDliLWFmMDQtMDExYjZjMGY5MDhkIiwidXNlcl9pZCI6Mn0.mU8AO_q94S0iSsjpYh9m6P2fGs8W124cC7tT4YVAHks","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T15:15:22+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/roleadd middleware Casbin 验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T15:15:22+08:00"}
+{"level":"debug","msg":"userService RoleAdd req={HttpModel:{Path:/api/v1/user/roleadd Method:POST IP:127.0.0.1} UserId:4 RoleIds:[15]}","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T15:15:22+08:00"}
+2020/07/10 15:15:22 Request: 2, /api/v1/user/roleadd, POST ---> true
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:24824.9328msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[4] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T15:15:22+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:24818.958msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T15:15:22+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role.go:5017.9432msSELECT * FROM `bs_role`  WHERE (role_status=? AND (organization_id=? OR organization_id=?))[1 0 2] 4","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T15:15:22+08:00"}
+{"level":"debug","msg":"userService RoleAdd admin s.UserId=2 可用角色列表 mRoleIds=map[2:{} 4:{} 5:{} 6:{}]","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T15:15:22+08:00"}
+{"level":"debug","msg":"userService RoleAdd userId=4 可添加角色列表 mUserCanAddRoleIds=map[]","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T15:15:22+08:00"}
+{"level":"debug","msg":"userService RoleAdd userId=4 最终可添加角色列表为空1,无需添加","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T15:15:22+08:00"}

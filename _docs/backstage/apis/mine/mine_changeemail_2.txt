@@ -1,0 +1,71 @@
+
+mysql> mysql> select * from bs_user where id=13;
++----+------------------------------------------+-----------+--------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| id | password                                 | real_name | email              | phone       | user_status | creator_id | organization_id | department_id | desc     | created_at          | updated_at          |
++----+------------------------------------------+-----------+--------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| 13 | 05f581227d10eac0d6c25d41252c5f1625613bf8 | 姓名12    | 18813141886@163.cn | 18813141012 |           1 |          1 |               0 |             0 | 用户12   | 2020-06-16 16:12:01 | 2020-06-24 14:21:58 |
++----+------------------------------------------+-----------+--------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+[发送验证码到邮箱]
+{
+    "email":"18813141886@163.com"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS"
+}
+
+> db.verify_code.find()
+>
+> db.verify_code.find()
+{ "_id" : ObjectId("5ef2fdb76adcd63a08d66875"), "code" : "638419", "account_no" : "18813141886@163.com", "created_at" : ISODate("2020-06-24T07:16:07.506Z") }
+>
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/mine/changeemail{\"email\":\"18813141886@163.com\",\"verify_code\":\"638419\"}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-06-24T15:17:07+08:00"}
+{"level":"debug","msg":"server sign: eefdac5124821378a7b4ab11b86a3661, \tuser sign: eefdac5124821378a7b4ab11b86a3661","source":"context.go:161:gin.(*Context).Next","time":"2020-06-24T15:17:07+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/changeemail JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-06-24T15:17:07+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkyNTMzODgzLCJuYmYiOjE1OTI0NDcxODMsImlhdCI6MTU5MjQ0NzQ4MywianRpIjoiNjEyNjAxZGQtNmUzNS00Y2VlLTkyOGUtNmE3Y2NiNjAzNGRlIiwidXNlcl9pZCI6MTN9.DjjFb2OqEkzd3HH1z3dxpx-sQ4x0TNTQXJNfLeEsEZo","source":"context.go:161:gin.(*Context).Next","time":"2020-06-24T15:17:07+08:00"}
+{"level":"error","msg":"parse JWT token fail. error: jwt: exp claim is invalid","source":"auth.go:48:middleware.AuthCheck.func1","time":"2020-06-24T15:17:07+08:00"}
+{"level":"warning","msg":"token is expire. error=jwt: exp claim is invalid","source":"context.go:161:gin.(*Context).Next","time":"2020-06-24T15:17:07+08:00"}
+{"level":"debug","msg":"sign before: POST127.0.0.1:3000/api/v1/mine/changeemail{\"email\":\"18813141886@163.com\",\"verify_code\":\"638419\"}1234567890com.obencn.secondchase.3671e28d-e384-49e6-9cea-4d8cb80288d4","source":"head.go:116:middleware.Options","time":"2020-06-24T15:17:21+08:00"}
+{"level":"debug","msg":"server sign: eefdac5124821378a7b4ab11b86a3661, \tuser sign: eefdac5124821378a7b4ab11b86a3661","source":"context.go:161:gin.(*Context).Next","time":"2020-06-24T15:17:21+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/changeemail JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-06-24T15:17:21+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkzMDY1NTQ0LCJuYmYiOjE1OTI5Nzg4NDQsImlhdCI6MTU5Mjk3OTE0NCwianRpIjoiNDhlZGViZWMtMWY5NC00MTZjLWIwY2YtYWE5OTAyNDQ5YzRhIiwidXNlcl9pZCI6MTN9.InsMTB-S99IKyYvxaNG4FZT8p_hjaz6deEaBf6yuPsE","source":"context.go:161:gin.(*Context).Next","time":"2020-06-24T15:17:21+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/changeemail middleware Casbin 不验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-06-24T15:17:21+08:00"}
+{"level":"debug","msg":"mineService ChangeEmail req={Email:18813141886@163.com VerifyCode:638419}","source":"mine.go:216:handler.(*mineHandler).ChangeEmail.func1","time":"2020-06-24T15:17:21+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:12623.9361msSELECT * FROM `bs_user`  WHERE (email=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[18813141886@163.com] 0","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-24T15:17:21+08:00"}
+{"level":"error","msg":"userRepo VerifyEmail email=18813141886@163.com error=record not found","source":"mine.go:203:service.(*mineService).ChangeEmail","time":"2020-06-24T15:17:21+08:00"}
+{"level":"debug","msg":"userRepo VerifyEmail email=18813141886@163.com 可以使用","source":"mine.go:203:service.(*mineService).ChangeEmail","time":"2020-06-24T15:17:21+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:19522.9371msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[13] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-24T15:17:21+08:00"}
+{"level":"debug","msg":"userRepo UpdateEmail user={ID:13 Password:05f581227d10eac0d6c25d41252c5f1625613bf8 RealName:姓名12 Email:18813141886@163.cn Phone:18813141012 UserStatus:1 CreatorId:1 OrganizationId:0 DepartmentId:0 Desc:用户12 CreatedAt:2020-06-16 16:12:01 +0800 CST UpdatedAt:2020-06-24 14:21:58 +0800 CST}","source":"mine.go:220:service.(*mineService).ChangeEmail","time":"2020-06-24T15:17:21+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:20220.9452msUPDATE `bs_user` SET `password` = ?, `real_name` = ?, `email` = ?, `phone` = ?, `user_status` = ?, `creator_id` = ?, `organization_id` = ?, `department_id` = ?, `desc` = ?, `created_at` = ?, `updated_at` = ?  WHERE `bs_user`.`id` = ?[05f581227d10eac0d6c25d41252c5f1625613bf8 姓名12 18813141886@163.com 18813141012 1 1 0 0 用户12 2020-06-16 16:12:01 +0800 CST 2020-06-24 15:17:21.1699546 +0800 CST m=+87.432605501 13] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-06-24T15:17:21+08:00"}
+
+
+
+
+mysql> mysql> select * from bs_user where id=13;
++----+------------------------------------------+-----------+--------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| id | password                                 | real_name | email              | phone       | user_status | creator_id | organization_id | department_id | desc     | created_at          | updated_at          |
++----+------------------------------------------+-----------+--------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| 13 | 05f581227d10eac0d6c25d41252c5f1625613bf8 | 姓名12    | 18813141886@163.cn | 18813141012 |           1 |          1 |               0 |             0 | 用户12   | 2020-06-16 16:12:01 | 2020-06-24 14:21:58 |
++----+------------------------------------------+-----------+--------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+mysql> select * from bs_user where id=13;
++----+------------------------------------------+-----------+---------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| id | password                                 | real_name | email               | phone       | user_status | creator_id | organization_id | department_id | desc     | created_at          | updated_at          |
++----+------------------------------------------+-----------+---------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+| 13 | 05f581227d10eac0d6c25d41252c5f1625613bf8 | 姓名12    | 18813141886@163.com | 18813141012 |           1 |          1 |               0 |             0 | 用户12   | 2020-06-16 16:12:01 | 2020-06-24 15:17:21 |
++----+------------------------------------------+-----------+---------------------+-------------+-------------+------------+-----------------+---------------+----------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+> db.verify_code.find()
+>
+> db.verify_code.find()
+{ "_id" : ObjectId("5ef2fdb76adcd63a08d66875"), "code" : "638419", "account_no" : "18813141886@163.com", "created_at" : ISODate("2020-06-24T07:16:07.506Z") }
+>
+> db.verify_code.find()
+>

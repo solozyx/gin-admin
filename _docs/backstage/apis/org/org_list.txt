@@ -1,0 +1,85 @@
+
+root
+1d954430c3550ef46792155a59d6f335
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "name": "总行",
+                "level": 1,
+                "email": "zonghang@email.com",
+                "phone": "18800000000",
+                "org_status": 1,
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-06-19T13:46:13+08:00",
+                "updated_at": "2020-07-03T11:38:33+08:00"
+            },
+            {
+                "id": 2,
+                "name": "北京分行",
+                "level": 2,
+                "email": "bjfh@email.com",
+                "phone": "18800000001",
+                "org_status": 1,
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-06-19T13:52:39+08:00",
+                "updated_at": "2020-07-02T16:10:39+08:00"
+            },
+            {
+                "id": 3,
+                "name": "上海分行",
+                "level": 2,
+                "email": "",
+                "phone": "",
+                "org_status": 1,
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-07-02T18:15:12+08:00",
+                "updated_at": "2020-07-03T19:01:48+08:00"
+            }
+        ]
+    }
+}
+
+
+admin1
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "list": [
+            {
+                "id": 3,
+                "name": "上海分行",
+                "level": 2,
+                "email": "",
+                "phone": "",
+                "org_status": 1,
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-07-02T18:15:12+08:00",
+                "updated_at": "2020-07-03T19:01:48+08:00"
+            }
+        ]
+    }
+}
+
+
+
+{"level":"debug","msg":"sign before: GET127.0.0.1:9001/api/v1/org/list{}1234567890com.obencn.backstage.c27d32c5-c878-470a-8a6f-107f7d3700dd","source":"head.go:116:middleware.Options","time":"2020-07-08T14:55:44+08:00"}
+{"level":"debug","msg":"server sign: 1d954430c3550ef46792155a59d6f335, \tuser sign: 1d954430c3550ef46792155a59d6f335","source":"context.go:161:gin.(*Context).Next","time":"2020-07-08T14:55:44+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/org/list JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-07-08T14:55:44+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTk0Mjc3MjI5LCJuYmYiOjE1OTQxOTA1MjksImlhdCI6MTU5NDE5MDgyOSwianRpIjoiY2Q1MjdhM2MtOWI5Yy00MDc0LTlhMWUtMzMwZDlmN2Y0MGQxIiwidXNlcl9pZCI6Mn0.GcPnFAi45poteFwKoQj0TPStwywGS06Kzo4A1x3Sjcw","source":"context.go:161:gin.(*Context).Next","time":"2020-07-08T14:55:44+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/org/list middleware Casbin 验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-07-08T14:55:44+08:00"}
+2020/07/08 14:55:44 Request: 2, /api/v1/org/list, GET ---> true
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:24829.9183msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-08T14:55:44+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/org.go:6624.934msSELECT * FROM `bs_organization`  WHERE (id=?) ORDER BY `bs_organization`.`id` ASC LIMIT 1[3] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-08T14:55:44+08:00"}
+{"level":"debug","msg":"orgRepo GetById orgId=3 org=\u0026{ID:3 Name:上海分行 Level:2 Email: Phone: OrgStatus:1 CreatorId:1 Desc: CreatedAt:2020-07-02 18:15:12 +0800 CST UpdatedAt:2020-07-03 19:01:48 +0800 CST}","source":"org.go:118:service.(*orgService).List","time":"2020-07-08T14:55:44+08:00"}
+

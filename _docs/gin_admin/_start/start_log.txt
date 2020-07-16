@@ -1,0 +1,316 @@
+solozyx@LAPTOP-25NGSA17 MINGW64 /C/blockchainenv/githubProj/gin-admin (master)
+$ go run cmd/gin-admin/main.go web -c ./configs/config.toml -m ./configs/model.conf --menu ./configs/menu.yaml
+{
+ "RunMode": "debug",
+ "WWW": "",
+ "Swagger": true,
+ "PrintConfig": true,
+ "HTTP": {
+  "Host": "0.0.0.0",
+  "Port": 10088,
+  "CertFile": "",
+  "KeyFile": "",
+  "ShutdownTimeout": 30
+ },
+ "Menu": {
+  "Enable": true,
+  "Data": "./configs/menu.yaml"
+ },
+ "Casbin": {
+  "Enable": true,
+  "Debug": false,
+  "Model": "./configs/model.conf",
+  "AutoLoad": false,
+  "AutoLoadInternal": 60
+ },
+ "Log": {
+  "Level": 5,
+  "Format": "json",
+  "Output": "stdout",
+  "OutputFile": "data/gin-admin.log",
+  "EnableHook": false,
+  "Hook": "gorm",
+  "HookMaxThread": 1,
+  "HookMaxBuffer": 512
+ },
+ "LogGormHook": {
+  "DBType": "sqlite3",
+  "MaxLifetime": 7200,
+  "MaxOpenConns": 1,
+  "MaxIdleConns": 1,
+  "Table": "g_logger"
+ },
+ "LogMongoHook": {
+  "Collection": "g_logger"
+ },
+ "Root": {
+  "UserName": "root",
+  "Password": "abc-123",
+  "RealName": "超级管理员"
+ },
+ "JWTAuth": {
+  "Enable": true,
+  "SigningMethod": "HS512",
+  "SigningKey": "gin-admin",
+  "Expired": 7200,
+  "Store": "file",
+  "FilePath": "data/jwt_auth.db",
+  "RedisDB": 10,
+  "RedisPrefix": "auth_"
+ },
+ "Monitor": {
+  "Enable": false,
+  "Addr": "192.168.174.148:16060",
+  "ConfigDir": ""
+ },
+ "Captcha": {
+  "Store": "memory",
+  "Length": 4,
+  "Width": 400,
+  "Height": 160,
+  "RedisDB": 10,
+  "RedisPrefix": "captcha_"
+ },
+ "RateLimiter": {
+  "Enable": false,
+  "Count": 300,
+  "RedisDB": 10
+ },
+ "CORS": {
+  "Enable": false,
+  "AllowOrigins": [
+   "*"
+  ],
+  "AllowMethods": [
+   "GET",
+   "POST",
+   "PUT",
+   "DELETE",
+   "PATCH"
+  ],
+  "AllowHeaders": [],
+  "AllowCredentials": true,
+  "MaxAge": 7200
+ },
+ "Redis": {
+  "Addr": "192.168.174.148:6379",
+  "Password": ""
+ },
+ "Gorm": {
+  "Debug": false,
+  "DBType": "mysql",
+  "MaxLifetime": 7200,
+  "MaxOpenConns": 150,
+  "MaxIdleConns": 50,
+  "TablePrefix": "g_",
+  "EnableAutoMigrate": true
+ },
+ "MySQL": {
+  "Host": "192.168.174.148",
+  "Port": 3306,
+  "User": "root",
+  "Password": "root",
+  "DBName": "gin-admin",
+  "Parameters": "charset=utf8mb4\u0026parseTime=True\u0026loc=Local\u0026allowNativePasswords=true"
+ },
+ "Postgres": {
+  "Host": "127.0.0.1",
+  "Port": 5432,
+  "User": "root",
+  "Password": "123456",
+  "DBName": "gin-admin",
+  "SSLMode": "disable"
+ },
+ "Sqlite3": {
+  "Path": "data/gin-admin.db"
+ },
+ "Mongo": {
+  "URI": "mongodb://192.168.174.148:27017/?appName=gin-admin",
+  "Database": "gin-admin",
+  "Timeout": 30,
+  "CollectionPrefix": "g_"
+ }
+}
+time="2020-06-11T11:01:29+08:00" level=info msg="服务启动，运行模式：debug，版本号：6.0.0，进程号：18364" trace_id=trace-id-18364-2020.06.11.11.01.29.230096 version=6.0.0
+
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m=map[e:map[e:0xc0003aa540] g:map[g:0xc0003aa480] m:map[m:0xc0003aa300] p:map[p:0xc0003aa420] r:map[r:0xc0003aa3c0]]","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[e][e]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[g][g]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[m][m]=\u0026{Key:m Value:g(r_sub, p_sub) == true \u0026\u0026 keyMatch2(r_obj, p_obj) == true \u0026\u0026 regexMatch(r_act, p_act) == true || r_sub == \"root\" Tokens:[] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[p][p]=\u0026{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[r][r]=\u0026{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy roleResult.Data sK=0 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef1 Name:admin Sequence:1000000 Memo:admin Status:1 Creator:root CreatedAt:2020-04-30 17:53:30 +0800 CST UpdatedAt:2020-04-30 17:53:30 +0800 CST RoleMenus:[]}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy roleMenuResult.Data sK=0 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef8 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa48f ActionID:}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy roleMenuResult.Data sK=1 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef7 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa49c}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy roleMenuResult.Data sK=2 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef6 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa49a}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy roleMenuResult.Data sK=3 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef5 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa498}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy roleMenuResult.Data sK=4 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef4 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa496}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy roleMenuResult.Data sK=5 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef3 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa493}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy roleMenuResult.Data sK=6 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef2 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa491}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mRoleMenus mK=5eaaa01912a12014ac2b6ef1","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mRoleMenus mK=5eaaa01912a12014ac2b6ef1 sK=0 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef8 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa48f ActionID:}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mRoleMenus mK=5eaaa01912a12014ac2b6ef1 sK=1 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef7 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa49c}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mRoleMenus mK=5eaaa01912a12014ac2b6ef1 sK=2 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef6 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa49a}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mRoleMenus mK=5eaaa01912a12014ac2b6ef1 sK=3 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef5 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa498}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mRoleMenus mK=5eaaa01912a12014ac2b6ef1 sK=4 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef4 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa496}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mRoleMenus mK=5eaaa01912a12014ac2b6ef1 sK=5 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef3 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa493}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mRoleMenus mK=5eaaa01912a12014ac2b6ef1 sK=6 sV=\u0026{RecordID:5eaaa01912a12014ac2b6ef2 RoleID:5eaaa01912a12014ac2b6ef1 MenuID:5eaa744cec65f5408adfa490 ActionID:5eaa744cec65f5408adfa491}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa492 ActionID:5eaa744cec65f5408adfa491 Method:POST Path:/api/v1/demos}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=1 sV=\u0026{RecordID:5eaa744cec65f5408adfa494 ActionID:5eaa744cec65f5408adfa493 Method:GET Path:/api/v1/demos/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=2 sV=\u0026{RecordID:5eaa744cec65f5408adfa495 ActionID:5eaa744cec65f5408adfa493 Method:PUT Path:/api/v1/demos/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=3 sV=\u0026{RecordID:5eaa744cec65f5408adfa497 ActionID:5eaa744cec65f5408adfa496 Method:DELETE Path:/api/v1/demos/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=4 sV=\u0026{RecordID:5eaa744cec65f5408adfa499 ActionID:5eaa744cec65f5408adfa498 Method:GET Path:/api/v1/demos}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=5 sV=\u0026{RecordID:5eaa744cec65f5408adfa49b ActionID:5eaa744cec65f5408adfa49a Method:PATCH Path:/api/v1/demos/:id/disable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=6 sV=\u0026{RecordID:5eaa744cec65f5408adfa49d ActionID:5eaa744cec65f5408adfa49c Method:PATCH Path:/api/v1/demos/:id/enable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=7 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a1 ActionID:5eaa744cec65f5408adfa4a0 Method:POST Path:/api/v1/menus}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=8 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a3 ActionID:5eaa744cec65f5408adfa4a2 Method:GET Path:/api/v1/menus/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=9 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a4 ActionID:5eaa744cec65f5408adfa4a2 Method:PUT Path:/api/v1/menus/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=10 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a6 ActionID:5eaa744cec65f5408adfa4a5 Method:DELETE Path:/api/v1/menus/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=11 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a8 ActionID:5eaa744cec65f5408adfa4a7 Method:GET Path:/api/v1/menus}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=12 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a9 ActionID:5eaa744cec65f5408adfa4a7 Method:GET Path:/api/v1/menus.tree}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=13 sV=\u0026{RecordID:5eaa744cec65f5408adfa4ab ActionID:5eaa744cec65f5408adfa4aa Method:PATCH Path:/api/v1/menus/:id/disable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=14 sV=\u0026{RecordID:5eaa744cec65f5408adfa4ad ActionID:5eaa744cec65f5408adfa4ac Method:PATCH Path:/api/v1/menus/:id/enable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=15 sV=\u0026{RecordID:5eaa744cec65f5408adfa4b0 ActionID:5eaa744cec65f5408adfa4af Method:GET Path:/api/v1/menus.tree}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=16 sV=\u0026{RecordID:5eaa744cec65f5408adfa4b1 ActionID:5eaa744cec65f5408adfa4af Method:POST Path:/api/v1/roles}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=17 sV=\u0026{RecordID:5eaa744cec65f5408adfa4b3 ActionID:5eaa744cec65f5408adfa4b2 Method:GET Path:/api/v1/menus.tree}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=18 sV=\u0026{RecordID:5eaa744cec65f5408adfa4b4 ActionID:5eaa744cec65f5408adfa4b2 Method:GET Path:/api/v1/roles/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=19 sV=\u0026{RecordID:5eaa744dec65f5408adfa4b5 ActionID:5eaa744cec65f5408adfa4b2 Method:PUT Path:/api/v1/roles/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=20 sV=\u0026{RecordID:5eaa744dec65f5408adfa4b7 ActionID:5eaa744dec65f5408adfa4b6 Method:DELETE Path:/api/v1/roles/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=21 sV=\u0026{RecordID:5eaa744dec65f5408adfa4b9 ActionID:5eaa744dec65f5408adfa4b8 Method:GET Path:/api/v1/roles}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=22 sV=\u0026{RecordID:5eaa744dec65f5408adfa4bb ActionID:5eaa744dec65f5408adfa4ba Method:PATCH Path:/api/v1/roles/:id/disable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=23 sV=\u0026{RecordID:5eaa744dec65f5408adfa4bd ActionID:5eaa744dec65f5408adfa4bc Method:PATCH Path:/api/v1/roles/:id/enable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=24 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c0 ActionID:5eaa744dec65f5408adfa4bf Method:GET Path:/api/v1/roles.select}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=25 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c1 ActionID:5eaa744dec65f5408adfa4bf Method:POST Path:/api/v1/users}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=26 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c3 ActionID:5eaa744dec65f5408adfa4c2 Method:GET Path:/api/v1/roles.select}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=27 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c4 ActionID:5eaa744dec65f5408adfa4c2 Method:GET Path:/api/v1/users/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=28 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c5 ActionID:5eaa744dec65f5408adfa4c2 Method:PUT Path:/api/v1/users/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=29 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c7 ActionID:5eaa744dec65f5408adfa4c6 Method:DELETE Path:/api/v1/users/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=30 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c9 ActionID:5eaa744dec65f5408adfa4c8 Method:GET Path:/api/v1/users}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=31 sV=\u0026{RecordID:5eaa744dec65f5408adfa4cb ActionID:5eaa744dec65f5408adfa4ca Method:PATCH Path:/api/v1/users/:id/disable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy menuResourceResult.Data sK=32 sV=\u0026{RecordID:5eaa744dec65f5408adfa4cd ActionID:5eaa744dec65f5408adfa4cc Method:PATCH Path:/api/v1/users/:id/enable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4a7","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4a7 sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a8 ActionID:5eaa744cec65f5408adfa4a7 Method:GET Path:/api/v1/menus}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4a7 sK=1 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a9 ActionID:5eaa744cec65f5408adfa4a7 Method:GET Path:/api/v1/menus.tree}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4bf","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4bf sK=0 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c0 ActionID:5eaa744dec65f5408adfa4bf Method:GET Path:/api/v1/roles.select}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4bf sK=1 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c1 ActionID:5eaa744dec65f5408adfa4bf Method:POST Path:/api/v1/users}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4c2","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4c2 sK=0 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c3 ActionID:5eaa744dec65f5408adfa4c2 Method:GET Path:/api/v1/roles.select}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4c2 sK=1 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c4 ActionID:5eaa744dec65f5408adfa4c2 Method:GET Path:/api/v1/users/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4c2 sK=2 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c5 ActionID:5eaa744dec65f5408adfa4c2 Method:PUT Path:/api/v1/users/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4cc","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4cc sK=0 sV=\u0026{RecordID:5eaa744dec65f5408adfa4cd ActionID:5eaa744dec65f5408adfa4cc Method:PATCH Path:/api/v1/users/:id/enable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa493","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa493 sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa494 ActionID:5eaa744cec65f5408adfa493 Method:GET Path:/api/v1/demos/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa493 sK=1 sV=\u0026{RecordID:5eaa744cec65f5408adfa495 ActionID:5eaa744cec65f5408adfa493 Method:PUT Path:/api/v1/demos/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4a2","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4a2 sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a3 ActionID:5eaa744cec65f5408adfa4a2 Method:GET Path:/api/v1/menus/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4a2 sK=1 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a4 ActionID:5eaa744cec65f5408adfa4a2 Method:PUT Path:/api/v1/menus/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa49a","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa49a sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa49b ActionID:5eaa744cec65f5408adfa49a Method:PATCH Path:/api/v1/demos/:id/disable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4a0","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4a0 sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a1 ActionID:5eaa744cec65f5408adfa4a0 Method:POST Path:/api/v1/menus}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4ac","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4ac sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa4ad ActionID:5eaa744cec65f5408adfa4ac Method:PATCH Path:/api/v1/menus/:id/enable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4b2","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4b2 sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa4b3 ActionID:5eaa744cec65f5408adfa4b2 Method:GET Path:/api/v1/menus.tree}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4b2 sK=1 sV=\u0026{RecordID:5eaa744cec65f5408adfa4b4 ActionID:5eaa744cec65f5408adfa4b2 Method:GET Path:/api/v1/roles/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4b2 sK=2 sV=\u0026{RecordID:5eaa744dec65f5408adfa4b5 ActionID:5eaa744cec65f5408adfa4b2 Method:PUT Path:/api/v1/roles/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4ba","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4ba sK=0 sV=\u0026{RecordID:5eaa744dec65f5408adfa4bb ActionID:5eaa744dec65f5408adfa4ba Method:PATCH Path:/api/v1/roles/:id/disable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4c6","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4c6 sK=0 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c7 ActionID:5eaa744dec65f5408adfa4c6 Method:DELETE Path:/api/v1/users/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa491","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa491 sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa492 ActionID:5eaa744cec65f5408adfa491 Method:POST Path:/api/v1/demos}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa498","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa498 sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa499 ActionID:5eaa744cec65f5408adfa498 Method:GET Path:/api/v1/demos}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4c8","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4c8 sK=0 sV=\u0026{RecordID:5eaa744dec65f5408adfa4c9 ActionID:5eaa744dec65f5408adfa4c8 Method:GET Path:/api/v1/users}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4aa","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4aa sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa4ab ActionID:5eaa744cec65f5408adfa4aa Method:PATCH Path:/api/v1/menus/:id/disable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4af","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4af sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa4b0 ActionID:5eaa744cec65f5408adfa4af Method:GET Path:/api/v1/menus.tree}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4af sK=1 sV=\u0026{RecordID:5eaa744cec65f5408adfa4b1 ActionID:5eaa744cec65f5408adfa4af Method:POST Path:/api/v1/roles}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4b6","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4b6 sK=0 sV=\u0026{RecordID:5eaa744dec65f5408adfa4b7 ActionID:5eaa744dec65f5408adfa4b6 Method:DELETE Path:/api/v1/roles/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4b8","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4b8 sK=0 sV=\u0026{RecordID:5eaa744dec65f5408adfa4b9 ActionID:5eaa744dec65f5408adfa4b8 Method:GET Path:/api/v1/roles}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa496","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa496 sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa497 ActionID:5eaa744cec65f5408adfa496 Method:DELETE Path:/api/v1/demos/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4a5","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa4a5 sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa4a6 ActionID:5eaa744cec65f5408adfa4a5 Method:DELETE Path:/api/v1/menus/:id}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4ca","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4ca sK=0 sV=\u0026{RecordID:5eaa744dec65f5408adfa4cb ActionID:5eaa744dec65f5408adfa4ca Method:PATCH Path:/api/v1/users/:id/disable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa49c","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744cec65f5408adfa49c sK=0 sV=\u0026{RecordID:5eaa744cec65f5408adfa49d ActionID:5eaa744cec65f5408adfa49c Method:PATCH Path:/api/v1/demos/:id/enable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4bc","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy mMenuResources mK=5eaa744dec65f5408adfa4bc sK=0 sV=\u0026{RecordID:5eaa744dec65f5408adfa4bd ActionID:5eaa744dec65f5408adfa4bc Method:PATCH Path:/api/v1/roles/:id/enable}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"rms.ToActionIDs()=[ 5eaa744cec65f5408adfa49c 5eaa744cec65f5408adfa49a 5eaa744cec65f5408adfa498 5eaa744cec65f5408adfa496 5eaa744cec65f5408adfa493 5eaa744cec65f5408adfa491]","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id/enable,PATCH","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id/disable,PATCH","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos,GET","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id,DELETE","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id,GET","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id,PUT","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos,POST","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m=map[e:map[e:0xc0003aa540] g:map[g:0xc0003aa480] m:map[m:0xc0003aa300] p:map[p:0xc0003aa420] r:map[r:0xc0003aa3c0]]","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[e][e]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[g][g]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[m][m]=\u0026{Key:m Value:g(r_sub, p_sub) == true \u0026\u0026 keyMatch2(r_obj, p_obj) == true \u0026\u0026 regexMatch(r_act, p_act) == true || r_sub == \"root\" Tokens:[] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[p][p]=\u0026{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[[5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/enable PATCH] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/disable PATCH] [5eaaa01912a12014ac2b6ef1 /api/v1/demos GET] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id DELETE] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id GET] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id PUT] [5eaaa01912a12014ac2b6ef1 /api/v1/demos POST]] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy casbinModel.Model m[r][r]=\u0026{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy userResult.Data=[{\"record_id\":\"5eaaa09112a12014ac2b6ef9\",\"user_name\":\"user1\",\"real_name\":\"user1\",\"password\":\"91c202258addba1980c83a6da0a2507a68a2d815\",\"phone\":\"\",\"email\":\"\",\"status\":1,\"creator\":\"root\",\"created_at\":\"2020-04-30T17:55:29+08:00\",\"user_roles\":null}]","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy userRoleResult.Data sK=0 sV=\u0026{RecordID:5eaaa09112a12014ac2b6efa UserID:5eaaa09112a12014ac2b6ef9 RoleID:5eaaa01912a12014ac2b6ef1}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy mUserRoles mK=5eaaa09112a12014ac2b6ef9","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy mUserRoles mK=5eaaa09112a12014ac2b6ef9 sK=0 sV=\u0026{RecordID:5eaaa09112a12014ac2b6efa UserID:5eaaa09112a12014ac2b6ef9 RoleID:5eaaa01912a12014ac2b6ef1}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy line=g,5eaaa09112a12014ac2b6ef9,5eaaa01912a12014ac2b6ef1","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m=map[e:map[e:0xc0003aa540] g:map[g:0xc0003aa480] m:map[m:0xc0003aa300] p:map[p:0xc0003aa420] r:map[r:0xc0003aa3c0]]","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[e][e]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[g][g]=\u0026{Key:g Value:_, _ Tokens:[] Policy:[[5eaaa09112a12014ac2b6ef9 5eaaa01912a12014ac2b6ef1]] RM:0xc000833ea0}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[m][m]=\u0026{Key:m Value:g(r_sub, p_sub) == true \u0026\u0026 keyMatch2(r_obj, p_obj) == true \u0026\u0026 regexMatch(r_act, p_act) == true || r_sub == \"root\" Tokens:[] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[p][p]=\u0026{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[[5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/enable PATCH] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/disable PATCH] [5eaaa01912a12014ac2b6ef1 /api/v1/demos GET] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id DELETE] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id GET] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id PUT] [5eaaa01912a12014ac2b6ef1 /api/v1/demos POST]] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy casbinModel.Model m[r][r]=\u0026{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:\u003cnil\u003e}","time":"2020-06-11T11:01:31+08:00"}
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:   export GIN_MODE=release
+ - using code:  gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /api/v1/pub/login/captchaid --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).GetCaptcha-fm (7 handlers)
+[GIN-debug] GET    /api/v1/pub/login/captcha --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).ResCaptcha-fm (7 handlers)
+[GIN-debug] POST   /api/v1/pub/login         --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).Login-fm (7 handlers)
+[GIN-debug] POST   /api/v1/pub/login/exit    --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).Logout-fm (7 handlers)
+[GIN-debug] PUT    /api/v1/pub/current/password --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).UpdatePassword-fm (7 handlers)
+[GIN-debug] GET    /api/v1/pub/current/user  --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).GetUserInfo-fm (7 handlers)
+[GIN-debug] GET    /api/v1/pub/current/menutree --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).QueryUserMenuTree-fm (7 handlers)
+[GIN-debug] POST   /api/v1/pub/refresh-token --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).RefreshToken-fm (7 handlers)
+[GIN-debug] GET    /api/v1/demos             --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Query-fm (7 handlers)
+[GIN-debug] GET    /api/v1/demos/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Get-fm (7 handlers)
+[GIN-debug] POST   /api/v1/demos             --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Create-fm (7 handlers)
+[GIN-debug] PUT    /api/v1/demos/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Update-fm (7 handlers)
+[GIN-debug] DELETE /api/v1/demos/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Delete-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/demos/:id/enable  --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Enable-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/demos/:id/disable --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Disable-fm (7 handlers)
+[GIN-debug] GET    /api/v1/menus             --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Query-fm (7 handlers)
+[GIN-debug] GET    /api/v1/menus/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Get-fm (7 handlers)
+[GIN-debug] POST   /api/v1/menus             --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Create-fm (7 handlers)
+[GIN-debug] PUT    /api/v1/menus/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Update-fm (7 handlers)
+[GIN-debug] DELETE /api/v1/menus/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Delete-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/menus/:id/enable  --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Enable-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/menus/:id/disable --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Disable-fm (7 handlers)
+[GIN-debug] GET    /api/v1/menus.tree        --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).QueryTree-fm (7 handlers)
+[GIN-debug] GET    /api/v1/roles             --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Query-fm (7 handlers)
+[GIN-debug] GET    /api/v1/roles/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Get-fm (7 handlers)
+[GIN-debug] POST   /api/v1/roles             --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Create-fm (7 handlers)
+[GIN-debug] PUT    /api/v1/roles/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Update-fm (7 handlers)
+[GIN-debug] DELETE /api/v1/roles/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Delete-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/roles/:id/enable  --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Enable-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/roles/:id/disable --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Disable-fm (7 handlers)
+[GIN-debug] GET    /api/v1/roles.select      --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).QuerySelect-fm (7 handlers)
+[GIN-debug] GET    /api/v1/users             --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Query-fm (7 handlers)
+[GIN-debug] GET    /api/v1/users/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Get-fm (7 handlers)
+[GIN-debug] POST   /api/v1/users             --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Create-fm (7 handlers)
+[GIN-debug] PUT    /api/v1/users/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Update-fm (7 handlers)
+[GIN-debug] DELETE /api/v1/users/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Delete-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/users/:id/enable  --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Enable-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/users/:id/disable --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Disable-fm (7 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+{"level":"info","msg":"HTTP server is running at 0.0.0.0:10088.","time":"2020-06-11T11:01:31+08:00","trace_id":"trace-id-18364-2020.06.11.11.01.29.230096","version":"6.0.0"}

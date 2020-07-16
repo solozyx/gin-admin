@@ -1,0 +1,213 @@
+
+mysql> select * from bs_user_role where role_id=15;
+Empty set (0.00 sec)
+mysql>
+
+mysql> select * from bs_role where id=15;
++----+---------------------------+-----------------+-------------+------------+--------------+---------------------+---------------------+
+| id | name                      | organization_id | role_status | creator_id | desc         | created_at          | updated_at          |
++----+---------------------------+-----------------+-------------+------------+--------------+---------------------+---------------------+
+| 15 | 上海分行自有角色1         |               3 |           1 |          3 | 角色描述     | 2020-07-09 13:52:26 | 2020-07-10 14:30:51 |
++----+---------------------------+-----------------+-------------+------------+--------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+
+mysql> select * from bs_user where organization_id=3;
++----+------------------------------------------+---------------------+-----------------+-------------+-------------+------------+-----------------+---------------+--------------+---------------------+---------------------+
+| id | password                                 | real_name           | email           | phone       | user_status | creator_id | organization_id | department_id | desc         | created_at          | updated_at          |
++----+------------------------------------------+---------------------+-----------------+-------------+-------------+------------+-----------------+---------------+--------------+---------------------+---------------------+
+|  3 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 上海分行行长        | user2@email.com | 18813141003 |           1 |          1 |               3 |             0 | 用户描述     | 2020-05-18 11:28:29 | 2020-07-10 11:50:11 |
+|  5 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 上海分行成员1       | user4@email.com | 18813141005 |           1 |          3 |               3 |             0 | 用户描述     | 2020-05-18 17:22:38 | 2020-07-10 11:54:52 |
++----+------------------------------------------+---------------------+-----------------+-------------+-------------+------------+-----------------+---------------+--------------+---------------------+---------------------+
+2 rows in set (0.00 sec)
+mysql>
+
+
+
+mysql> select * from bs_user_role where user_id=5;
+Empty set (0.00 sec)
+mysql>
+
+
+mysql> select * from bs_user_role where user_id=3;
+Empty set (0.00 sec)
+mysql>
+
+
+update bs_user_role set creator_id=0;
+
+update bs_user_role set user_id=3,role_id=2,status=1,creator_id=1 where id=4;
+
+mysql> select * from bs_user_role;
++----+---------+---------+--------+------------+---------------------+---------------------+
+| id | user_id | role_id | status | creator_id | created_at          | updated_at          |
++----+---------+---------+--------+------------+---------------------+---------------------+
+|  1 |       1 |       1 |      1 |          0 | 2020-05-12 16:34:10 | 2020-07-10 16:14:40 |
+|  3 |       2 |       2 |      1 |          0 | 2020-05-18 14:02:41 | 2020-07-10 16:14:40 |
+|  4 |       3 |       2 |      1 |          1 | 2020-05-18 14:09:40 | 2020-07-10 16:15:53 |
++----+---------+---------+--------+------------+---------------------+---------------------+
+18 rows in set (0.00 sec)
+mysql>
+
+
+上海管理员给本组织成员配置角色
+d7c92b9aa20b907527ffc5b39ca0854e
+{
+    "user_id":5,
+    "role_ids":[15]
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": [
+        15
+    ]
+}
+
+
+mysql> select * from bs_user_role where user_id=3;
++----+---------+---------+--------+------------+---------------------+---------------------+
+| id | user_id | role_id | status | creator_id | created_at          | updated_at          |
++----+---------+---------+--------+------------+---------------------+---------------------+
+|  4 |       3 |       2 |      1 |          1 | 2020-05-18 14:09:40 | 2020-07-10 16:15:53 |
++----+---------+---------+--------+------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+
+mysql> select * from bs_user_role where user_id=5;
++----+---------+---------+--------+------------+---------------------+---------------------+
+| id | user_id | role_id | status | creator_id | created_at          | updated_at          |
++----+---------+---------+--------+------------+---------------------+---------------------+
+| 20 |       5 |      15 |      1 |          3 | 2020-07-10 16:17:33 | 2020-07-10 16:17:33 |
++----+---------+---------+--------+------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from bs_user_role where role_id=15;
++----+---------+---------+--------+------------+---------------------+---------------------+
+| id | user_id | role_id | status | creator_id | created_at          | updated_at          |
++----+---------+---------+--------+------------+---------------------+---------------------+
+| 20 |       5 |      15 |      1 |          3 | 2020-07-10 16:17:33 | 2020-07-10 16:17:33 |
++----+---------+---------+--------+------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+
+mysql>
+
+
+> db.operate_log.find().sort({_id:-1}).limit(1).pretty()
+{
+	"_id" : ObjectId("5f08241d6adcd683e42631bd"),
+	"user_id" : 3,
+	"real_name" : "上海分行行长",
+	"organization_id" : 3,
+	"department_id" : 0,
+	"operate" : "上海分行成员1配置角色:上海分行自有角色1",
+	"path" : "/api/v1/user/roleadd",
+	"method" : "POST",
+	"ip" : "127.0.0.1",
+	"hazard_level" : 0,
+	"created_at" : "2020-07-10T16:17:33+08:00"
+}
+>
+
+
+
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:9001/api/v1/user/roleadd{\"role_ids\":[15],\"user_id\":5}1234567890com.obencn.backstage.c27d32c5-c878-470a-8a6f-107f7d3700dd","source":"head.go:116:middleware.Options","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"server sign: d7c92b9aa20b907527ffc5b39ca0854e, \tuser sign: d7c92b9aa20b907527ffc5b39ca0854e","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/roleadd JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTk0NDU0ODQwLCJuYmYiOjE1OTQzNjgxNDAsImlhdCI6MTU5NDM2ODQ0MCwianRpIjoiZTJmNTAwNjgtYWM3OS00ZTNiLTk2ZjgtYWIyMTdhZDM3MzU0IiwidXNlcl9pZCI6M30.AxPEtP7N1-oUHB6KoTo7oS61TPtRDVFSzYNL1z5kinY","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/roleadd middleware Casbin 验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"userService RoleAdd req={HttpModel:{Path:/api/v1/user/roleadd Method:POST IP:127.0.0.1} UserId:5 RoleIds:[15]}","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T16:17:33+08:00"}
+2020/07/10 16:17:33 Request: 3, /api/v1/user/roleadd, POST ---> true
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:24827.9263msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[5] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T16:17:33+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:24817.9502msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[3] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T16:17:33+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role.go:5021.9447msSELECT * FROM `bs_role`  WHERE (role_status=? AND (organization_id=? OR organization_id=?))[1 0 3] 4","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"userService RoleAdd admin s.UserId=3 可用角色列表 mRoleIds=map[2:{} 4:{} 5:{} 15:{}]","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"userService RoleAdd userId=5 可添加角色列表 mUserCanAddRoleIds=map[15:{}]","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T16:17:33+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user_role.go:8019.9463msSELECT * FROM `bs_user_role`  WHERE (user_id=?)[5] 0","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"userService RoleAdd userId=5 已有角色列表 userRoles=[]","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"userService RoleAdd userId=5 可用角色列表 userNormalRoles=[]","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"userService RoleAdd userId=5 禁用角色列表 userDisabledRoles=[]","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"userService RoleAdd userId=5 最终可添加角色列表 mUserCanAddRoleIds=map[15:{}]","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T16:17:33+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user_role.go:6127.924msINSERT INTO `bs_user_role` (`user_id`,`role_id`,`status`,`creator_id`,`created_at`,`updated_at`) VALUES (?,?,?,?,?,?)[5 15 1 3 2020-07-10 16:17:33.206736 +0800 CST m=+19.110411201 2020-07-10 16:17:33.219707 +0800 CST m=+19.123382201] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T16:17:33+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role.go:10717.9536msSELECT * FROM `bs_role`  WHERE (id=?) ORDER BY `bs_role`.`id` ASC LIMIT 1[15] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T16:17:33+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role.go:7018.9456msSELECT * FROM `bs_role`  WHERE (role_status=?)[1] 7","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T16:17:33+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/permission.go:8324.9325msSELECT * FROM `bs_permission`  WHERE (perm_status=?)[1] 21","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T16:17:33+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role_permission.go:6323.9343msSELECT * FROM `bs_role_permission`  WHERE (status=?)[1] 27","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/org/create,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/org/delete,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/dep/create,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/dep/delete,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/user/create,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/user/disable,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/org/list,GET","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/org/deplist,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/user/list,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/role/list,GET","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/user/delete,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,1,/api/v1/user/roleadd,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/user/list,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/dep/create,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/user/create,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/user/delete,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/user/disable,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/org/list,GET","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/dep/delete,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/org/deplist,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/role/list,GET","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/role/create,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/role/permadd,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,2,/api/v1/user/roleadd,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,15,/api/v1/dep/create,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,15,/api/v1/user/create,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadRolePolicy line=p,15,/api/v1/dep/delete,POST","source":"casbin_adapter.go:25:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:37319.9449msSELECT * FROM `bs_user`  WHERE (user_status=?)[1] 13","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T16:17:33+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user_role.go:7020.9504msSELECT * FROM `bs_user_role`  WHERE (status=?)[1] 5","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy line=g,1,1","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy line=g,2,2","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy line=g,3,2","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy line=g,4,6","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter loadUserPolicy line=g,5,15","source":"casbin_adapter.go:29:adapter.(*CasbinAdapter).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter LoadPolicy casbinModel.Model m=map[e:map[e:0xc000183680] g:map[g:0xc0001835c0] m:map[m:0xc000183740] p:map[p:0xc000183560] r:map[r:0xc000183800]]","source":"enforcer.go:247:v2.(*Enforcer).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter LoadPolicy casbinModel.Model m[e][e]=\u0026{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"enforcer.go:247:v2.(*Enforcer).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter LoadPolicy casbinModel.Model m[g][g]=\u0026{Key:g Value:_, _ Tokens:[] Policy:[[1 1] [2 2] [3 2] [4 6] [5 15]] RM:0xc000253120}","source":"enforcer.go:247:v2.(*Enforcer).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter LoadPolicy casbinModel.Model m[m][m]=\u0026{Key:m Value:g(r_sub, p_sub) \u0026\u0026 keyMatch2(r_obj, p_obj) \u0026\u0026 r_act == p_act Tokens:[] Policy:[] RM:\u003cnil\u003e}","source":"enforcer.go:247:v2.(*Enforcer).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter LoadPolicy casbinModel.Model m[p][p]=\u0026{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[[1 /api/v1/org/create POST] [1 /api/v1/org/delete POST] [1 /api/v1/dep/create POST] [1 /api/v1/dep/delete POST] [1 /api/v1/user/create POST] [1 /api/v1/user/disable POST] [1 /api/v1/org/list GET] [1 /api/v1/org/deplist POST] [1 /api/v1/user/list POST] [1 /api/v1/role/list GET] [1 /api/v1/user/delete POST] [1 /api/v1/user/roleadd POST] [2 /api/v1/user/list POST] [2 /api/v1/dep/create POST] [2 /api/v1/user/create POST] [2 /api/v1/user/delete POST] [2 /api/v1/user/disable POST] [2 /api/v1/org/list GET] [2 /api/v1/dep/delete POST] [2 /api/v1/org/deplist POST] [2 /api/v1/role/list GET] [2 /api/v1/role/create POST] [2 /api/v1/role/permadd POST] [2 /api/v1/user/roleadd POST] [15 /api/v1/dep/create POST] [15 /api/v1/user/create POST] [15 /api/v1/dep/delete POST]] RM:\u003cnil\u003e}","source":"enforcer.go:247:v2.(*Enforcer).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+{"level":"debug","msg":"CasbinAdapter LoadPolicy casbinModel.Model m[r][r]=\u0026{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:\u003cnil\u003e}","source":"enforcer.go:247:v2.(*Enforcer).LoadPolicy","time":"2020-07-10T16:17:33+08:00"}
+2020/07/10 16:17:33 Policy:
+2020/07/10 16:17:33 p: sub, obj, act: [[1 /api/v1/org/create POST] [1 /api/v1/org/delete POST] [1 /api/v1/dep/create POST] [1 /api/v1/dep/delete POST] [1 /api/v1/user/create POST] [1 /api/v1/user/disable POST] [1 /api/v1/org/list GET] [1 /api/v1/org/deplist POST] [1 /api/v1/user/list POST] [1 /api/v1/role/list GET] [1 /api/v1/user/delete POST] [1 /api/v1/user/roleadd POST] [2 /api/v1/user/list POST] [2 /api/v1/dep/create POST] [2 /api/v1/user/create POST] [2 /api/v1/user/delete POST] [2 /api/v1/user/disable POST] [2 /api/v1/org/list GET] [2 /api/v1/dep/delete POST] [2 /api/v1/org/deplist POST] [2 /api/v1/role/list GET] [2 /api/v1/role/create POST] [2 /api/v1/role/permadd POST] [2 /api/v1/user/roleadd POST] [15 /api/v1/dep/create POST] [15 /api/v1/user/create POST] [15 /api/v1/dep/delete POST]]
+2020/07/10 16:17:33 g: _, _: [[1 1] [2 2] [3 2] [4 6] [5 15]]
+2020/07/10 16:17:33 Role links for: g
+2020/07/10 16:17:33 3 < 2, 4 < 6, 5 < 15, 1 < 1, 2 < 2
+
+
+
+mysql> delete from bs_user_role where user_id=0;
+Query OK, 14 rows affected (0.01 sec)
+
+mysql> select * from bs_user_role;
++----+---------+---------+--------+------------+---------------------+---------------------+
+| id | user_id | role_id | status | creator_id | created_at          | updated_at          |
++----+---------+---------+--------+------------+---------------------+---------------------+
+|  1 |       1 |       1 |      1 |          0 | 2020-05-12 16:34:10 | 2020-07-10 16:14:40 |
+|  3 |       2 |       2 |      1 |          0 | 2020-05-18 14:02:41 | 2020-07-10 16:14:40 |
+|  4 |       3 |       2 |      1 |          1 | 2020-05-18 14:09:40 | 2020-07-10 16:15:53 |
+| 19 |       4 |       6 |      1 |          0 | 2020-07-10 15:21:48 | 2020-07-10 16:14:40 |
+| 20 |       5 |      15 |      1 |          3 | 2020-07-10 16:17:33 | 2020-07-10 16:17:33 |
++----+---------+---------+--------+------------+---------------------+---------------------+
+5 rows in set (0.00 sec)
+mysql>
+
+
+mysql> select * from bs_role_permission where role_id=15;
++----+---------+---------------+--------+------------+---------------------+---------------------+
+| id | role_id | permission_id | status | creator_id | created_at          | updated_at          |
++----+---------+---------------+--------+------------+---------------------+---------------------+
+| 61 |      15 |             3 |      1 |          2 | 2020-07-09 18:28:04 | 2020-07-09 18:28:04 |
+| 63 |      15 |             4 |      1 |          2 | 2020-07-09 18:30:20 | 2020-07-09 18:30:20 |
+| 62 |      15 |             5 |      1 |          2 | 2020-07-09 18:30:20 | 2020-07-09 18:30:20 |
++----+---------+---------------+--------+------------+---------------------+---------------------+
+3 rows in set (0.00 sec)
+mysql>

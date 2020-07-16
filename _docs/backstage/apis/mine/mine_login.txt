@@ -1,0 +1,151 @@
+
+总行行长
+f4f1587c38c50928564f7f53263abd5d
+{
+	"account_no":"root@email.com",
+	"password":"asdf1234"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "access_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTk0NDM4NTUzLCJuYmYiOjE1OTQzNTE4NTMsImlhdCI6MTU5NDM1MjE1MywianRpIjoiZjM5Zjg1NDgtNGUyYi00OGYxLTg2YjQtNmJhNTkwMTEwZGFkIiwidXNlcl9pZCI6MX0.I5xoBfsQJTr0kqHEIvC-9vrf4WN51c7mJl7Y3PeHn6g",
+        "refresh_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrc3RhZ2UuZ2F0ZXdheSIsInN1YiI6IlJlZnJlc2hUb2tlbiIsImF1ZCI6Imh0dHBzOi8vYmFja3N0YWdlLm9iZW5jbi5jb20iLCJleHAiOjE1OTY5NDQxNTMsIm5iZiI6MTU5NDM1MTg1MywiaWF0IjoxNTk0MzUyMTUzLCJqdGkiOiIzNzcxNWMyZS1kYTc1LTQyMmMtOGIwMS03YmU1ZGRmNjY3YTAiLCJ1c2VyX2lkIjoxfQ.s_Gt-WPT7reyiXigamPp6jnxus6WNiNXEeUXYFSrA7E",
+        "user_info": {
+            "id": 1,
+            "real_name": "总行行长",
+            "email": "root@email.com",
+            "phone": "18813141001",
+            "creator_id": 0,
+            "organization_id": 1,
+            "department_id": 0,
+            "org_name": "总行",
+            "dep_name": "",
+            "desc": "系统管理员",
+            "created_at": "2020-05-12T14:58:40+08:00",
+            "updated_at": "2020-07-02T18:07:05+08:00"
+        }
+    }
+}
+
+
+北京分行行长
+2c026528727406623b4cdfc7085d11f3
+{
+	"account_no":"user1@email.com",
+	"password":"asdf1234"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "access_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTk0NDM4NTk0LCJuYmYiOjE1OTQzNTE4OTQsImlhdCI6MTU5NDM1MjE5NCwianRpIjoiYjk3YWFiYzMtNGZmYy00NDliLWFmMDQtMDExYjZjMGY5MDhkIiwidXNlcl9pZCI6Mn0.mU8AO_q94S0iSsjpYh9m6P2fGs8W124cC7tT4YVAHks",
+        "refresh_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrc3RhZ2UuZ2F0ZXdheSIsInN1YiI6IlJlZnJlc2hUb2tlbiIsImF1ZCI6Imh0dHBzOi8vYmFja3N0YWdlLm9iZW5jbi5jb20iLCJleHAiOjE1OTY5NDQxOTQsIm5iZiI6MTU5NDM1MTg5NCwiaWF0IjoxNTk0MzUyMTk0LCJqdGkiOiIyYzFjOWY0ZS00ZTNiLTRlZDQtODQyMy1hOTFjODM3NTQ4YmIiLCJ1c2VyX2lkIjoyfQ.2HHK82353HDpc7bqcnx8_bimt4YnLObkEgQ_vDHkukY",
+        "user_info": {
+            "id": 2,
+            "real_name": "北京分行行长",
+            "email": "user1@email.com",
+            "phone": "18813141002",
+            "creator_id": 1,
+            "organization_id": 2,
+            "department_id": 1,
+            "org_name": "北京分行",
+            "dep_name": "信用卡部",
+            "desc": "部门1管理员1",
+            "created_at": "2020-05-12T15:04:14+08:00",
+            "updated_at": "2020-07-08T16:42:29+08:00"
+        }
+    }
+}
+
+
+上海分行行长
+fd822d350b99186868830a049b0b0ae9
+{
+	"account_no":"user2@email.com",
+	"password":"asdf1234"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "access_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTk0NDU0ODQwLCJuYmYiOjE1OTQzNjgxNDAsImlhdCI6MTU5NDM2ODQ0MCwianRpIjoiZTJmNTAwNjgtYWM3OS00ZTNiLTk2ZjgtYWIyMTdhZDM3MzU0IiwidXNlcl9pZCI6M30.AxPEtP7N1-oUHB6KoTo7oS61TPtRDVFSzYNL1z5kinY",
+        "refresh_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrc3RhZ2UuZ2F0ZXdheSIsInN1YiI6IlJlZnJlc2hUb2tlbiIsImF1ZCI6Imh0dHBzOi8vYmFja3N0YWdlLm9iZW5jbi5jb20iLCJleHAiOjE1OTY5NjA0NDAsIm5iZiI6MTU5NDM2ODE0MCwiaWF0IjoxNTk0MzY4NDQwLCJqdGkiOiJjY2YwYWU1MC05ZGEyLTQ5NzEtYjFmNS1kM2Q0MmNlYTE5NWMiLCJ1c2VyX2lkIjozfQ.4rR85CTN1utRmRg96fQ7riLo6vgNEbNjZOn8h51j1u0",
+        "user_info": {
+            "id": 3,
+            "real_name": "上海分行行长",
+            "email": "user2@email.com",
+            "phone": "18813141003",
+            "creator_id": 1,
+            "organization_id": 3,
+            "department_id": 0,
+            "org_name": "上海分行",
+            "dep_name": "",
+            "desc": "用户描述",
+            "created_at": "2020-05-18T11:28:29+08:00",
+            "updated_at": "2020-07-10T11:50:11+08:00"
+        }
+    }
+}
+
+
+mysql> select * from bs_user where id=5;
++----+------------------------------------------+---------------------+-----------------+-------------+-------------+------------+-----------------+---------------+--------------+---------------------+---------------------+
+| id | password                                 | real_name           | email           | phone       | user_status | creator_id | organization_id | department_id | desc         | created_at          | updated_at          |
++----+------------------------------------------+---------------------+-----------------+-------------+-------------+------------+-----------------+---------------+--------------+---------------------+---------------------+
+|  5 | 51f22a1d702815e72b593ca36de88a9c9999e57a | 上海分行成员1       | user4@email.com | 18813141005 |           1 |          3 |               3 |             0 | 用户描述     | 2020-05-18 17:22:38 | 2020-07-10 11:54:52 |
++----+------------------------------------------+---------------------+-----------------+-------------+-------------+------------+-----------------+---------------+--------------+---------------------+---------------------+
+1 row in set (0.00 sec)
+mysql>
+
+
+
+上海分行成员1
+9add743264f9ccdc3b3b6e0d6597565e
+{
+	"account_no":"user4@email.com",
+	"password":"asdf1234"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "access_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTk0OTc5MTEzLCJuYmYiOjE1OTQ4OTI0MTMsImlhdCI6MTU5NDg5MjcxMywianRpIjoiN2YwZDdhMGUtNDllMC00ZmY5LThmZDAtNDBlMDhmODllMjRkIiwidXNlcl9pZCI6NX0.qjuHdjpIMdZr5bkyHNtUn01Z25hl3VdzuEZ-abO1waQ",
+        "refresh_token": "eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiYWNrc3RhZ2UuZ2F0ZXdheSIsInN1YiI6IlJlZnJlc2hUb2tlbiIsImF1ZCI6Imh0dHBzOi8vYmFja3N0YWdlLm9iZW5jbi5jb20iLCJleHAiOjE1OTc0ODQ3MTMsIm5iZiI6MTU5NDg5MjQxMywiaWF0IjoxNTk0ODkyNzEzLCJqdGkiOiJjNmQ4ZjlhNS00NzY0LTQ1MjEtOTQ5ZC0zNzE2ZWUxNzc5OTIiLCJ1c2VyX2lkIjo1fQ.Tw51VI8YvKeesvxZfIeY4iW80lVhI5aVzLL87F-XODk",
+        "user_info": {
+            "id": 5,
+            "real_name": "上海分行成员1",
+            "email": "user4@email.com",
+            "phone": "18813141005",
+            "creator_id": 3,
+            "organization_id": 3,
+            "department_id": 0,
+            "org_name": "上海分行",
+            "dep_name": "",
+            "desc": "用户描述",
+            "created_at": "2020-05-18T17:22:38+08:00",
+            "updated_at": "2020-07-10T11:54:52+08:00",
+            "perm_list": [
+                {
+                    "id": 22,
+                    "name": "新增单条语料",
+                    "method": "POST",
+                    "path": "/api/v1/corpus/create"
+                },
+                {
+                    "id": 23,
+                    "name": "批量新增语料",
+                    "method": "POST",
+                    "path": "/api/v1/corpus/batchcreate"
+                },
+                {
+                    "id": 24,
+                    "name": "语料列表",
+                    "method": "POST",
+                    "path": "/api/v1/corpus/list"
+                }
+            ]
+        }
+    }
+}
+

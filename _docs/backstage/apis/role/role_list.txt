@@ -1,0 +1,118 @@
+
+root
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "name": "一级管理员",
+                "organization_id": 1,
+                "creator_id": 1,
+                "desc": "角色描述",
+                "created_at": "2020-05-12T15:45:15+08:00",
+                "updated_at": "2020-07-09T11:34:41+08:00"
+            },
+            {
+                "id": 2,
+                "name": "二级管理员",
+                "organization_id": 1,
+                "creator_id": 1,
+                "desc": "角色描述",
+                "created_at": "2020-05-12T15:45:37+08:00",
+                "updated_at": "2020-07-09T11:34:41+08:00"
+            },
+            {
+                "id": 3,
+                "name": "运营",
+                "organization_id": 0,
+                "creator_id": 1,
+                "desc": "角色描述",
+                "created_at": "2020-05-14T18:19:46+08:00",
+                "updated_at": "2020-07-09T11:57:45+08:00"
+            },
+            {
+                "id": 4,
+                "name": "审核",
+                "organization_id": 0,
+                "creator_id": 1,
+                "desc": "角色描述",
+                "created_at": "2020-05-15T11:32:28+08:00",
+                "updated_at": "2020-07-09T11:57:47+08:00"
+            }
+        ]
+    }
+}
+
+
+admin1
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "list": [
+            {
+                "id": 3,
+                "name": "运营",
+                "organization_id": 0,
+                "creator_id": 1,
+                "desc": "角色描述",
+                "created_at": "2020-05-14T18:19:46+08:00",
+                "updated_at": "2020-07-09T11:57:45+08:00"
+            },
+            {
+                "id": 4,
+                "name": "审核",
+                "organization_id": 0,
+                "creator_id": 1,
+                "desc": "角色描述",
+                "created_at": "2020-05-15T11:32:28+08:00",
+                "updated_at": "2020-07-09T11:57:47+08:00"
+            },
+            {
+                "id": 5,
+                "name": "北京分行自有角色1",
+                "organization_id": 2,
+                "creator_id": 2,
+                "desc": "角色描述",
+                "created_at": "2020-05-15T11:33:37+08:00",
+                "updated_at": "2020-07-09T11:23:01+08:00"
+            },
+            {
+                "id": 6,
+                "name": "北京分行自有角色2",
+                "organization_id": 2,
+                "creator_id": 2,
+                "desc": "角色描述",
+                "created_at": "2020-05-15T13:41:58+08:00",
+                "updated_at": "2020-07-09T11:23:01+08:00"
+            }
+        ]
+    }
+}
+
+
+
+{"level":"debug","msg":"sign before: GET127.0.0.1:9001/api/v1/role/list{}1234567890com.obencn.backstage.c27d32c5-c878-470a-8a6f-107f7d3700dd","source":"head.go:116:middleware.Options","time":"2020-07-09T13:35:46+08:00"}
+{"level":"debug","msg":"server sign: 04ef70d56bcb872b20773658edfc0568, \tuser sign: 04ef70d56bcb872b20773658edfc0568","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T13:35:46+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/role/list JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T13:35:46+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTk0MzQ3OTY0LCJuYmYiOjE1OTQyNjEyNjQsImlhdCI6MTU5NDI2MTU2NCwianRpIjoiMzYxNjU3MzUtMTg1Yy00ZWE2LWJmOTEtMDE3NzMyZDdlODhhIiwidXNlcl9pZCI6MX0.jQxMrRP9xgH2Z1omALdPrDDLaW9K6xl84eBDnN3eUAU","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T13:35:46+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/role/list middleware Casbin 验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T13:35:46+08:00"}
+2020/07/09 13:35:46 Request: 1, /api/v1/role/list, GET ---> true
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:24841.887msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[1] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T13:35:46+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role.go:4945.8797msSELECT * FROM `bs_role`  WHERE (role_status=? AND (organization_id=? OR organization_id=?))[1 0 1] 4","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T13:35:46+08:00"}
+
+
+{"level":"debug","msg":"sign before: GET127.0.0.1:9001/api/v1/role/list{}1234567890com.obencn.backstage.c27d32c5-c878-470a-8a6f-107f7d3700dd","source":"head.go:116:middleware.Options","time":"2020-07-09T13:36:35+08:00"}
+{"level":"debug","msg":"server sign: 04ef70d56bcb872b20773658edfc0568, \tuser sign: 04ef70d56bcb872b20773658edfc0568","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T13:36:35+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/role/list JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T13:36:35+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTk0MzQ3OTA2LCJuYmYiOjE1OTQyNjEyMDYsImlhdCI6MTU5NDI2MTUwNiwianRpIjoiMTI5Nzk4YjYtOTI4ZS00MWY5LWFhYzgtNWU0ODRiODQ1MDZjIiwidXNlcl9pZCI6Mn0.a1h-A2yDckfPDjMDwpHcJFPiTn2z9D6wHUHKRSKuxow","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T13:36:35+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/role/list middleware Casbin 验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-07-09T13:36:35+08:00"}
+2020/07/09 13:36:35 Request: 2, /api/v1/role/list, GET ---> true
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:24826.9287msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T13:36:35+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/role.go:4925.9296msSELECT * FROM `bs_role`  WHERE (role_status=? AND (organization_id=? OR organization_id=?))[1 0 2] 4","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-09T13:36:35+08:00"}
+
+

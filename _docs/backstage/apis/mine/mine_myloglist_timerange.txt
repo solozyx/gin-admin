@@ -1,0 +1,66 @@
+
+{
+	"call_flag":"timerange",
+    "page_no":1,
+    "page_size":5,
+    "begin_time":"2020-06-29T14:00:36+08:00",
+    "end_time":"2020-06-29T15:33:16+08:00"
+}
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "total": 3,
+        "page_no": 1,
+        "page_size": 5,
+        "total_page": 1,
+        "list": [
+            {
+                "id": "5ef9993c6adcd666dc5a8b49",
+                "user_id": 13,
+                "real_name": "姓名12",
+                "operate": "登录系统",
+                "ip": "127.0.0.1",
+                "created_at": "2020-06-29T15:33:16+08:00",
+                "hazard_level": 0
+            },
+            {
+                "id": "5ef987384abb700001203152",
+                "user_id": 13,
+                "real_name": "姓名12",
+                "operate": "登录系统",
+                "ip": "121.69.132.42",
+                "created_at": "2020-06-29T14:16:24+08:00",
+                "hazard_level": 0
+            },
+            {
+                "id": "5ef983844e8f7500012b66c8",
+                "user_id": 13,
+                "real_name": "姓名12",
+                "operate": "登录系统",
+                "ip": "121.69.132.42",
+                "created_at": "2020-06-29T14:00:36+08:00",
+                "hazard_level": 0
+            }
+        ]
+    }
+}
+
+> db.operate_log.find()
+{ "_id" : ObjectId("5ef84c8d6adcd619ccc97fc9"), "user_id" : 13, "real_name" : "姓名12", "organization_id" : 2, "department_id" : 1, "operate" : "登录系统", "path" : "/api/v1/mine/login", "method" : "POST", "ip" : "127.0.0.1", "hazard_level" : 0, "created_at" : "2020-06-28T15:53:49+08:00" }
+{ "_id" : ObjectId("5ef84d7f6adcd619ccc97fca"), "user_id" : 13, "real_name" : "姓名12", "organization_id" : 2, "department_id" : 1, "operate" : "修改密码", "path" : "/api/v1/mine/changepassword", "method" : "POST", "ip" : "127.0.0.1", "hazard_level" : 2, "created_at" : "2020-06-28T15:57:51+08:00" }
+{ "_id" : ObjectId("5ef84e2d6adcd619ccc97fcb"), "user_id" : 13, "real_name" : "姓名12", "organization_id" : 2, "department_id" : 1, "operate" : "登录系统", "path" : "/api/v1/mine/login", "method" : "POST", "ip" : "127.0.0.1", "hazard_level" : 0, "created_at" : "2020-06-28T16:00:45+08:00" }
+{ "_id" : ObjectId("5ef8506a6adcd619ccc97fcd"), "user_id" : 13, "real_name" : "姓名12", "organization_id" : 2, "department_id" : 1, "operate" : "修改邮箱", "path" : "/api/v1/mine/changeemail", "method" : "POST", "ip" : "127.0.0.1", "hazard_level" : 2, "created_at" : "2020-06-28T16:10:18+08:00" }
+{ "_id" : ObjectId("5ef983844e8f7500012b66c8"), "user_id" : 13, "real_name" : "姓名12", "organization_id" : 2, "department_id" : 1, "operate" : "登录系统", "path" : "/api/v1/mine/login", "method" : "POST", "ip" : "121.69.132.42", "hazard_level" : 0, "created_at" : "2020-06-29T14:00:36+08:00" }
+{ "_id" : ObjectId("5ef987384abb700001203152"), "user_id" : 13, "real_name" : "姓名12", "organization_id" : 2, "department_id" : 1, "operate" : "登录系统", "path" : "/api/v1/mine/login", "method" : "POST", "ip" : "121.69.132.42", "hazard_level" : 0, "created_at" : "2020-06-29T14:16:24+08:00" }
+{ "_id" : ObjectId("5ef9993c6adcd666dc5a8b49"), "user_id" : 13, "real_name" : "姓名12", "organization_id" : 2, "department_id" : 1, "operate" : "登录系统", "path" : "/api/v1/mine/login", "method" : "POST", "ip" : "127.0.0.1", "hazard_level" : 0, "created_at" : "2020-06-29T15:33:16+08:00" }
+>
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:9001/api/v1/mine/myloglist{\"begin_time\":\"2020-06-29T14:00:36+08:00\",\"call_flag\":\"timerange\",\"end_time\":\"2020-06-29T15:33:16+08:00\",\"page_no\":1,\"page_size\":5}1234567890com.obencn.backstage.c27d32c5-c878-470a-8a6f-107f7d3700dd","source":"head.go:116:middleware.Options","time":"2020-06-29T16:43:00+08:00"}
+{"level":"debug","msg":"server sign: bd43bf926c9bc109c69e54a461657866, \tuser sign: bd43bf926c9bc109c69e54a461657866","source":"context.go:161:gin.(*Context).Next","time":"2020-06-29T16:43:00+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/myloglist JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-06-29T16:43:00+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTkzNTAyMzk2LCJuYmYiOjE1OTM0MTU2OTYsImlhdCI6MTU5MzQxNTk5NiwianRpIjoiY2M0NjI5MGQtNjFmYS00YWNmLWE3NzAtZDMxMzgzZTM2NmMxIiwidXNlcl9pZCI6MTN9.LNPWlhTBvV6uHMxxa7cX_TkyY4EDGJrnNAnfc5PkTps","source":"context.go:161:gin.(*Context).Next","time":"2020-06-29T16:43:00+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/mine/myloglist middleware Casbin 不验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-06-29T16:43:00+08:00"}
+{"level":"debug","msg":"MyLogList 按时间范围搜索","source":"mine.go:434:service.(*mineService).MyLog","time":"2020-06-29T16:43:00+08:00"}
+

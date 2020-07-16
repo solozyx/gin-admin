@@ -1,0 +1,50 @@
+package code
+
+import "github.com/sirupsen/logrus"
+
+func (p *roleRepo) Create(role *model.Role) (*model.Role, error) {
+	tx := p.db.Begin()
+
+	// 创建角色
+	//err := p.db.Create(role).Error
+	//if err != nil {
+	//	logrus.Errorf("roleRepo Create role=%+v error=%v", *role, err.Error())
+	//	tx.Rollback()
+	//	return nil,err
+	//}
+	//logrus.Debugf("roleRepo Create role=%+v", *role)
+
+	// 创建该角色的用户(和上级用户)拥有(绑定)该角色
+	userIds := make([]int,0)
+
+	// 创建角色的本级用户
+	user := &model.User{ID:role.CreatorId}
+	err := tx.Select("id,creator_id").Where("user_status=? AND id=?",model.UserStatusNormal,user.ID).Take(user).Error
+	if err != nil {
+		tx.Rollback()
+		return nil,err
+	}
+	logrus.Debugf("roleRepo Create 创建角色的本级用户 user=%+v",user)
+	userIds = append(userIds,user.ID)
+
+	// 创建角色的本级用户 的上级用户
+	for user.CreatorId > 0 {
+		err = tx.Select("id,creator_id").Where("user_status=? AND id=?",model.UserStatusNormal,user.CreatorId).Take(user).Error
+		if err != nil {
+			tx.Rollback()
+			return nil,err
+		}
+		logrus.Debugf("roleRepo Create 创建角色的上级用户 user=%+v",user)
+		userIds = append(userIds,user.ID)
+	}
+
+	logrus.Debugf("roleRepo Create 创建角色的本级用户和上级用户 userIds=%+v",userIds)
+
+
+
+
+
+	tx.Commit()
+
+	return role, err
+}

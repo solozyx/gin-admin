@@ -1,0 +1,47 @@
+
+上海分行成员1
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "organization_id": 3,
+                "department_id": 0,
+                "type": 0,
+                "intention": "",
+                "corpus_text": "语料1",
+                "audio_url": "",
+                "action": "",
+                "face": "",
+                "audit_status": 0,
+                "file": "",
+                "creator_id": 5,
+                "auditor_id": 0,
+                "created_at": "2020-07-14T14:53:15+08:00",
+                "updated_at": "2020-07-14T14:53:15+08:00",
+                "published_at": "0001-01-01T00:00:00Z"
+            },
+            {
+                "id": 2,
+                "organization_id": 3,
+                "department_id": 0,
+                "type": 0,
+                "intention": "",
+                "corpus_text": "语料2",
+                "audio_url": "",
+                "action": "",
+                "face": "",
+                "audit_status": 0,
+                "file": "",
+                "creator_id": 5,
+                "auditor_id": 0,
+                "created_at": "2020-07-14T14:53:15+08:00",
+                "updated_at": "2020-07-14T14:53:15+08:00",
+                "published_at": "0001-01-01T00:00:00Z"
+            }
+        ]
+    }
+}

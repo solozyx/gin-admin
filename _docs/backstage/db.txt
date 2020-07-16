@@ -1,0 +1,20 @@
+
+
+mysql -h127.0.0.1 -uroot -p
+oben.com@123
+use backstage
+use secondchase
+
+ssh -L 3309:localhost:3306 zyx@39.107.248.183 -p50010
+ssh -L 27019:localhost:27019 zyx@39.107.248.183 -p50010
+zhaoyingxin@123
+
+
+mysqldump -u root -p oben.com@123 mz_product > mz_product.sql
+
+RENAME TABLE `mz_ar_picture` TO `mz_ar_picture_v2`;
+
+mysql> RENAME TABLE `mz_ar_picture` TO `mz_ar_picture_v2`;
+Query OK, 0 rows affected (0.01 sec)
+mysql>
+

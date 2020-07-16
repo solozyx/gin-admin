@@ -1,0 +1,204 @@
+
+Microsoft Windows [版本 10.0.18362.778]
+(c) 2019 Microsoft Corporation。保留所有权利。
+
+C:\blockchainenv\githubProj\gin-admin>go run cmd/gin-admin/main.go web -c ./configs/config.toml -m ./configs/model.conf --menu ./configs/menu.yaml
+{
+ "RunMode": "debug",
+ "WWW": "",
+ "Swagger": true,
+ "PrintConfig": true,
+ "HTTP": {
+  "Host": "0.0.0.0",
+  "Port": 10088,
+  "CertFile": "",
+  "KeyFile": "",
+  "ShutdownTimeout": 30
+ },
+ "Menu": {
+  "Enable": true,
+  "Data": "./configs/menu.yaml"
+ },
+ "Casbin": {
+  "Enable": true,
+  "Debug": false,
+  "Model": "./configs/model.conf",
+  "AutoLoad": false,
+  "AutoLoadInternal": 60
+ },
+ "Log": {
+  "Level": 5,
+  "Format": "text",
+  "Output": "stdout",
+  "OutputFile": "data/gin-admin.log",
+  "EnableHook": false,
+  "Hook": "gorm",
+  "HookMaxThread": 1,
+  "HookMaxBuffer": 512
+ },
+ "LogGormHook": {
+  "DBType": "sqlite3",
+  "MaxLifetime": 7200,
+  "MaxOpenConns": 1,
+  "MaxIdleConns": 1,
+  "Table": "g_logger"
+ },
+ "LogMongoHook": {
+  "Collection": "g_logger"
+ },
+ "Root": {
+  "UserName": "root",
+  "Password": "abc-123",
+  "RealName": "超级管理员"
+ },
+ "JWTAuth": {
+  "Enable": true,
+  "SigningMethod": "HS512",
+  "SigningKey": "gin-admin",
+  "Expired": 7200,
+  "Store": "file",
+  "FilePath": "data/jwt_auth.db",
+  "RedisDB": 10,
+  "RedisPrefix": "auth_"
+ },
+ "Monitor": {
+  "Enable": false,
+  "Addr": "192.168.174.148:16060",
+  "ConfigDir": ""
+ },
+ "Captcha": {
+  "Store": "memory",
+  "Length": 4,
+  "Width": 400,
+  "Height": 160,
+  "RedisDB": 10,
+  "RedisPrefix": "captcha_"
+ },
+ "RateLimiter": {
+  "Enable": false,
+  "Count": 300,
+  "RedisDB": 10
+ },
+ "CORS": {
+  "Enable": false,
+  "AllowOrigins": [
+   "*"
+  ],
+  "AllowMethods": [
+   "GET",
+   "POST",
+   "PUT",
+   "DELETE",
+   "PATCH"
+  ],
+  "AllowHeaders": [],
+  "AllowCredentials": true,
+  "MaxAge": 7200
+ },
+ "Redis": {
+  "Addr": "192.168.174.148:6379",
+  "Password": ""
+ },
+ "Gorm": {
+  "Debug": false,
+  "DBType": "mysql",
+  "MaxLifetime": 7200,
+  "MaxOpenConns": 150,
+  "MaxIdleConns": 50,
+  "TablePrefix": "g_",
+  "EnableAutoMigrate": true
+ },
+ "MySQL": {
+  "Host": "192.168.174.148",
+  "Port": 3306,
+  "User": "root",
+  "Password": "root",
+  "DBName": "gin-admin",
+  "Parameters": "charset=utf8mb4\u0026parseTime=True\u0026loc=Local\u0026allowNativePasswords=true"
+ },
+ "Postgres": {
+  "Host": "127.0.0.1",
+  "Port": 5432,
+  "User": "root",
+  "Password": "123456",
+  "DBName": "gin-admin",
+  "SSLMode": "disable"
+ },
+ "Sqlite3": {
+  "Path": "data/gin-admin.db"
+ },
+ "Mongo": {
+  "URI": "mongodb://192.168.174.148:27017/?appName=gin-admin",
+  "Database": "gin-admin",
+  "Timeout": 30,
+  "CollectionPrefix": "g_"
+ }
+}
+time="2020-05-08T14:30:38+08:00" level=info msg="服务启动，运行模式：debug，版本号：6.0.0，进程号：16232" trace_id=trace-id-16232-2020.05.08.14.30.38.91
+4351 version=6.0.0
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id/enable,PATCH"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id/disable,PATCH"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos,GET"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id,DELETE"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id,GET"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos/:id,PUT"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy line=p,5eaaa01912a12014ac2b6ef1,/api/v1/demos,POST"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy casbinModel.Model m=map[e:map[e:0xc0003111a0] g:map[g:0xc0003110e0] m:map[m:0xc000310f60] p:map[p:0xc000311080] r:map[r:0xc000311020]]"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy casbinModel.Model m[e][e]=&{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:<nil>}"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy casbinModel.Model m[g][g]=&{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:<nil>}"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy casbinModel.Model m[m][m]=&{Key:m Value:g(r_sub, p_sub) == true && keyMatch2(r_obj, p_obj) == true && regexMatch(r_act, p_act) == true || r_sub == \"root\" Tokens:[] Policy:[] RM:<nil>}"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy casbinModel.Model m[p][p]=&{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[[5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/enable PATCH] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/disable PATCH] [5eaaa01912a12014ac2b6ef1 /api/v1/demos GET] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id DELETE] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id GET] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id PUT] [5eaaa01912a12014ac2b6ef1 /api/v1/demos POST]] RM:<nil>}"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadRolePolicy casbinModel.Model m[r][r]=&{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:<nil>}"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadUserPolicy line=g,5eaaa09112a12014ac2b6ef9,5eaaa01912a12014ac2b6ef1"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadUserPolicy casbinModel.Model m=map[e:map[e:0xc0003111a0] g:map[g:0xc0003110e0] m:map[m:0xc000310f60] p:map[p:0xc000311080] r:map[r:0xc000311020]]"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadUserPolicy casbinModel.Model m[e][e]=&{Key:e Value:some(where (p_eft == allow)) Tokens:[] Policy:[] RM:<nil>}"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadUserPolicy casbinModel.Model m[g][g]=&{Key:g Value:_, _ Tokens:[] Policy:[[5eaaa09112a12014ac2b6ef9 5eaaa01912a12014ac2b6ef1]] RM:0xc000583a00}"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadUserPolicy casbinModel.Model m[m][m]=&{Key:m Value:g(r_sub, p_sub) == true && keyMatch2(r_obj, p_obj) == true && regexMatch(r_act, p_act) == true || r_sub == \"root\" Tokens:[] Policy:[] RM:<nil>}"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadUserPolicy casbinModel.Model m[p][p]=&{Key:p Value:sub, obj, act Tokens:[p_sub p_obj p_act] Policy:[[5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/enable PATCH] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id/disable PATCH] [5eaaa01912a12014ac
+2b6ef1 /api/v1/demos GET] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id DELETE] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id GET] [5eaaa01912a12014ac2b6ef1 /api/v1/demos/:id PUT] [5eaaa01912a12014ac2b6ef1 /api/v1/demos POST]] RM:<nil>}"
+time="2020-05-08T14:30:39+08:00" level=debug msg="CasbinAdapter loadUserPolicy casbinModel.Model m[r][r]=&{Key:r Value:sub, obj, act Tokens:[r_sub r_obj r_act] Policy:[] RM:<nil>}"
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:   export GIN_MODE=release
+ - using code:  gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /api/v1/pub/login/captchaid --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).GetCaptcha-fm (7 handlers)
+[GIN-debug] GET    /api/v1/pub/login/captcha --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).ResCaptcha-fm (7 handlers)
+[GIN-debug] POST   /api/v1/pub/login         --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).Login-fm (7 handlers)
+[GIN-debug] POST   /api/v1/pub/login/exit    --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).Logout-fm (7 handlers)
+[GIN-debug] PUT    /api/v1/pub/current/password --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).UpdatePassword-fm (7 handlers)
+[GIN-debug] GET    /api/v1/pub/current/user  --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).GetUserInfo-fm (7 handlers)
+[GIN-debug] GET    /api/v1/pub/current/menutree --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).QueryUserMenuTree-fm (7 handlers)
+[GIN-debug] POST   /api/v1/pub/refresh-token --> github.com/LyricTian/gin-admin/internal/app/api.(*Login).RefreshToken-fm (7 handlers)
+[GIN-debug] GET    /api/v1/demos             --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Query-fm (7 handlers)
+[GIN-debug] GET    /api/v1/demos/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Get-fm (7 handlers)
+[GIN-debug] POST   /api/v1/demos             --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Create-fm (7 handlers)
+[GIN-debug] PUT    /api/v1/demos/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Update-fm (7 handlers)
+[GIN-debug] DELETE /api/v1/demos/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Delete-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/demos/:id/enable  --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Enable-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/demos/:id/disable --> github.com/LyricTian/gin-admin/internal/app/api.(*Demo).Disable-fm (7 handlers)
+[GIN-debug] GET    /api/v1/menus             --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Query-fm (7 handlers)
+[GIN-debug] GET    /api/v1/menus/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Get-fm (7 handlers)
+[GIN-debug] POST   /api/v1/menus             --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Create-fm (7 handlers)
+[GIN-debug] PUT    /api/v1/menus/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Update-fm (7 handlers)
+[GIN-debug] DELETE /api/v1/menus/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Delete-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/menus/:id/enable  --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Enable-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/menus/:id/disable --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).Disable-fm (7 handlers)
+[GIN-debug] GET    /api/v1/menus.tree        --> github.com/LyricTian/gin-admin/internal/app/api.(*Menu).QueryTree-fm (7 handlers)
+[GIN-debug] GET    /api/v1/roles             --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Query-fm (7 handlers)
+[GIN-debug] GET    /api/v1/roles/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Get-fm (7 handlers)
+[GIN-debug] POST   /api/v1/roles             --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Create-fm (7 handlers)
+[GIN-debug] PUT    /api/v1/roles/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Update-fm (7 handlers)
+[GIN-debug] DELETE /api/v1/roles/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Delete-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/roles/:id/enable  --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Enable-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/roles/:id/disable --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).Disable-fm (7 handlers)
+[GIN-debug] GET    /api/v1/roles.select      --> github.com/LyricTian/gin-admin/internal/app/api.(*Role).QuerySelect-fm (7 handlers)
+[GIN-debug] GET    /api/v1/users             --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Query-fm (7 handlers)
+[GIN-debug] GET    /api/v1/users/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Get-fm (7 handlers)
+[GIN-debug] POST   /api/v1/users             --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Create-fm (7 handlers)
+[GIN-debug] PUT    /api/v1/users/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Update-fm (7 handlers)
+[GIN-debug] DELETE /api/v1/users/:id         --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Delete-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/users/:id/enable  --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Enable-fm (7 handlers)
+[GIN-debug] PATCH  /api/v1/users/:id/disable --> github.com/LyricTian/gin-admin/internal/app/api.(*User).Disable-fm (7 handlers)
+[GIN-debug] GET    /swagger/*any             --> github.com/swaggo/gin-swagger.CustomWrapHandler.func1 (4 handlers)
+time="2020-05-08T14:30:39+08:00" level=info msg="HTTP server is running at 0.0.0.0:10088." trace_id=trace-id-16232-2020.05.08.14.30.38.914351 version=6.0.0
+

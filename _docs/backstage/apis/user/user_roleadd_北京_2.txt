@@ -1,0 +1,21 @@
+
+d7c92b9aa20b907527ffc5b39ca0854e
+{
+    "user_id":5,
+    "role_ids":[15]
+}
+{
+    "code": 20203,
+    "msg": "用户角色添加,仅限于操作本组织成员; "
+}
+
+{"level":"debug","msg":"sign before: POST127.0.0.1:9001/api/v1/user/roleadd{\"role_ids\":[15],\"user_id\":5}1234567890com.obencn.backstage.c27d32c5-c878-470a-8a6f-107f7d3700dd","source":"head.go:116:middleware.Options","time":"2020-07-10T15:17:31+08:00"}
+{"level":"debug","msg":"server sign: d7c92b9aa20b907527ffc5b39ca0854e, \tuser sign: d7c92b9aa20b907527ffc5b39ca0854e","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T15:17:31+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/roleadd JWT 验证token","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T15:17:31+08:00"}
+{"level":"debug","msg":"request token=eyJhbGciOiJIUzI1NiIsImN0eSI6IkpXVCIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzZWNvbmRjaGFzZS5nYXRld2F5Iiwic3ViIjoiQWNjZXNzVG9rZW4iLCJhdWQiOiJodHRwczovL2JhY2tzdGFnZS5vYmVuY24uY29tIiwiZXhwIjoxNTk0NDM4NTk0LCJuYmYiOjE1OTQzNTE4OTQsImlhdCI6MTU5NDM1MjE5NCwianRpIjoiYjk3YWFiYzMtNGZmYy00NDliLWFmMDQtMDExYjZjMGY5MDhkIiwidXNlcl9pZCI6Mn0.mU8AO_q94S0iSsjpYh9m6P2fGs8W124cC7tT4YVAHks","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T15:17:31+08:00"}
+{"level":"debug","msg":"request uri=/api/v1/user/roleadd middleware Casbin 验证权限","source":"context.go:161:gin.(*Context).Next","time":"2020-07-10T15:17:31+08:00"}
+{"level":"debug","msg":"userService RoleAdd req={HttpModel:{Path:/api/v1/user/roleadd Method:POST IP:127.0.0.1} UserId:5 RoleIds:[15]}","source":"user.go:204:handler.(*userHandler).RoleAdd.func1","time":"2020-07-10T15:17:31+08:00"}
+2020/07/10 15:17:31 Request: 2, /api/v1/user/roleadd, POST ---> true
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:24818.9496msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[5] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T15:17:31+08:00"}
+{"level":"info","msg":"sqlC:/oben/project/backstage/repository/user.go:24818.9485msSELECT * FROM `bs_user`  WHERE (id=?) ORDER BY `bs_user`.`id` ASC LIMIT 1[2] 1","source":"scope.go:1047:gorm.(*Scope).trace","time":"2020-07-10T15:17:31+08:00"}
+{"level":"error","msg":"用户角色添加,仅限于操作本组织成员; ","source":"casbin.go:61:middleware.CasbinVerifyUserPermission.func1","time":"2020-07-10T15:17:31+08:00"}

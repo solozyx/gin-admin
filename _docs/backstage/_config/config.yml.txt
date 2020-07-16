@@ -1,0 +1,73 @@
+
+logrus.Infof("config.yml = %+v",common.Cfg)
+logrus.Infof("config.yml = %+v",common.Cfg.MySql.Balance.User)
+
+
+{"level":"debug","msg":"repository Init 初始化仓储","source":"proc.go:5414:runtime.doInit","time":"2020-06-17T11:56:09+08:00"}
+{"level":"info","msg":"config.yml = \u0026{MySql:{Balance:{Host:127.0.0.1:3309 User:root Password:oben.com@123 DataBase:backstage} Master:{Host: User: Password: DataBase:}} Mongo:{Hosts:[172.17.132.192:27019] User: Password:} Redis:{Addrs:[172.17.132.192:7001 172.17.132.192:7002 172.17.132.190:7001 172.17.132.190:7002 172.17.132.191:7001 172.17.132.191:7002] Password:oben.com} Mail:{Username:329024143@qq.com Password:mymyjfkgoeflbged Host:smtp.qq.com Port:587} Nats:{Addrs:[] User: Password:} Cos:{SecretId: SecretKey: BucketName: AppId: Region:} Obs:{AccessKey: SecretKey: EndPoint: BucketName:} Oss:{AccessKeyID: AccessKeySecret: EndPoint: BucketName:}}","source":"proc.go:5414:runtime.doInit","time":"2020-06-17T13:38:28+08:00"}
+
+{"level":"info","msg":"config.yml = \u0026
+
+{
+    MySql:{
+        Balance:{
+            Host:127.0.0.1:3309
+            User:root
+            Password:oben.com@123
+            DataBase:backstage
+        }
+        Master:{
+            Host:
+            User:
+            Password:
+            DataBase:
+        }
+    }
+    Mongo:{
+        Hosts:[172.17.132.192:27019]
+        User:
+        Password:
+    }
+    Redis:{
+        Addrs:[172.17.132.192:7001 172.17.132.192:7002 172.17.132.190:7001 172.17.132.190:7002 172.17.132.191:7001 172.17.132.191:7002]
+        Password:oben.com
+    }
+    Mail:{
+        Username:329024143@qq.com
+        Password:mymyjfkgoeflbged
+        Host:smtp.qq.com
+        Port:587
+    }
+    Nats:{
+        Addrs:[]
+        User:
+        Password:
+    }
+    Cos:{
+        SecretId:
+        SecretKey:
+        BucketName:
+        AppId:
+        Region:
+    }
+    Obs:{
+        AccessKey:
+        SecretKey:
+        EndPoint:
+        BucketName:
+    }
+    Oss:{
+        AccessKeyID:
+        AccessKeySecret:
+        EndPoint:
+        BucketName:
+    }
+}
+
+","source":"proc.go:5414:runtime.doInit","time":"2020-06-17T11:51:44+08:00"}
+
+{"level":"info","msg":"config.yml = root","source":"proc.go:5414:runtime.doInit","time":"2020-06-17T11:56:09+08:00"}
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)

@@ -1,0 +1,269 @@
+
+root
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "name": "权限列表",
+                "permission_status": 1,
+                "method": "GET",
+                "path": "/api/v1/permission/list",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T17:28:03+08:00",
+                "updated_at": "2020-05-14T17:36:15+08:00"
+            },
+            {
+                "id": 2,
+                "name": "创建角色",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/role/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T17:29:01+08:00",
+                "updated_at": "2020-05-14T17:34:17+08:00"
+            },
+            {
+                "id": 3,
+                "name": "角色权限添加",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/role/permadd",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T18:02:24+08:00",
+                "updated_at": "2020-05-25T16:48:18+08:00"
+            },
+            {
+                "id": 4,
+                "name": "角色权限减少",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/role/permreduce",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T18:06:01+08:00",
+                "updated_at": "2020-05-25T16:48:09+08:00"
+            },
+            {
+                "id": 5,
+                "name": "用户角色添加",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/user/roleadd",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:50:46+08:00",
+                "updated_at": "2020-05-25T16:47:49+08:00"
+            },
+            {
+                "id": 6,
+                "name": "用户角色减少",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/user/rolereduce",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:51:59+08:00",
+                "updated_at": "2020-05-25T16:47:30+08:00"
+            },
+            {
+                "id": 7,
+                "name": "角色列表",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/role/list",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:53:53+08:00",
+                "updated_at": "2020-05-27T15:04:41+08:00"
+            },
+            {
+                "id": 8,
+                "name": "内容发布",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/content/publish",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:55:04+08:00",
+                "updated_at": "2020-05-15T14:55:04+08:00"
+            },
+            {
+                "id": 9,
+                "name": "创建权限",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/permission/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T15:06:14+08:00",
+                "updated_at": "2020-05-15T15:06:14+08:00"
+            },
+            {
+                "id": 10,
+                "name": "创建部门",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/department/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T15:06:56+08:00",
+                "updated_at": "2020-05-21T13:54:13+08:00"
+            },
+            {
+                "id": 11,
+                "name": "创建用户",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/user/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-19T15:51:52+08:00",
+                "updated_at": "2020-05-21T13:54:23+08:00"
+            },
+            {
+                "id": 12,
+                "name": "删除用户",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/user/delete",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-19T17:22:07+08:00",
+                "updated_at": "2020-05-21T13:46:32+08:00"
+            },
+            {
+                "id": 13,
+                "name": "冻结用户",
+                "permission_status": 1,
+                "method": "POST",
+                "path": "/api/v1/user/disable",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-21T14:35:14+08:00",
+                "updated_at": "2020-05-21T14:35:14+08:00"
+            }
+        ]
+    }
+}
+
+--------------------------------------------------------------------------
+
+
+admin1
+abcb27e2e6c54855e9a5a5210c7ed3d9
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "list": [
+            {
+                "id": 1,
+                "name": "权限列表",
+                "method": "GET",
+                "path": "/api/v1/permission/list",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T17:28:03+08:00",
+                "updated_at": "2020-05-14T17:36:15+08:00"
+            },
+            {
+                "id": 3,
+                "name": "角色权限添加",
+                "method": "POST",
+                "path": "/api/v1/role/permadd",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T18:02:24+08:00",
+                "updated_at": "2020-05-25T16:48:18+08:00"
+            },
+            {
+                "id": 4,
+                "name": "角色权限减少",
+                "method": "POST",
+                "path": "/api/v1/role/permreduce",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-14T18:06:01+08:00",
+                "updated_at": "2020-05-25T16:48:09+08:00"
+            },
+            {
+                "id": 5,
+                "name": "用户角色添加",
+                "method": "POST",
+                "path": "/api/v1/user/roleadd",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:50:46+08:00",
+                "updated_at": "2020-05-25T16:47:49+08:00"
+            },
+            {
+                "id": 6,
+                "name": "用户角色减少",
+                "method": "POST",
+                "path": "/api/v1/user/rolereduce",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:51:59+08:00",
+                "updated_at": "2020-05-25T16:47:30+08:00"
+            },
+            {
+                "id": 7,
+                "name": "角色列表",
+                "method": "POST",
+                "path": "/api/v1/role/list",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:53:53+08:00",
+                "updated_at": "2020-05-27T15:04:41+08:00"
+            },
+            {
+                "id": 8,
+                "name": "内容发布",
+                "method": "POST",
+                "path": "/api/v1/content/publish",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-15T14:55:04+08:00",
+                "updated_at": "2020-05-15T14:55:04+08:00"
+            },
+            {
+                "id": 11,
+                "name": "创建用户",
+                "method": "POST",
+                "path": "/api/v1/user/create",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-19T15:51:52+08:00",
+                "updated_at": "2020-05-21T13:54:23+08:00"
+            },
+            {
+                "id": 12,
+                "name": "删除用户",
+                "method": "POST",
+                "path": "/api/v1/user/delete",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-19T17:22:07+08:00",
+                "updated_at": "2020-05-21T13:46:32+08:00"
+            },
+            {
+                "id": 13,
+                "name": "冻结用户",
+                "method": "POST",
+                "path": "/api/v1/user/disable",
+                "creator_id": 1,
+                "desc": "",
+                "created_at": "2020-05-21T14:35:14+08:00",
+                "updated_at": "2020-05-21T14:35:14+08:00"
+            }
+        ]
+    }
+}
