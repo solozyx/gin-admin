@@ -1,0 +1,206 @@
+
+172.17.132.192:7001> del lottery:prizes
+(integer) 1
+172.17.132.192:7001> get lottery:prizes
+(nil)
+172.17.132.192:7001> get lottery:prizes
+"[{\"id\":1,\"name\":\"\xe7\x89\xb9\xe6\x96\xaf\xe6\x8b\x89 Model3\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png\",\"image_url2\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png\",\"image_prize_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png\",\"prize_status\":1,\"quantity\":5,\"level\":1,\"sort\":1},{\"id\":5,\"name\":\"\xe4\xb8\x80\xe5\xa5\x97\xe5\x8c\xbb\xe7\x94\xa8\xe5\x8f\xa3\xe7\xbd\xa9\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png\",\"image_url2\":\"\",\"image_prize_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png\",\"prize_status\":1,\"quantity\":0,\"level\":5,\"sort\":2},{\"id\":2,\"name\":\"iPhone 11 Pro\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png\",\"image_url2\":\"\",\"image_prize_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png\",\"prize_status\":1,\"quantity\":20,\"level\":2,\"sort\":3},{\"id\":7,\"name\":\"\xe8\xb0\xa2\xe8\xb0\xa2\xe5\x8f\x82\xe4\xb8\x8e\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png\",\"image_url2\":\"\",\"image_prize_url\":\"\",\"prize_status\":1,\"quantity\":0,\"level\":7,\"sort\":4},{\"id\":6,\"name\":\"\xe5\x86\x8d\xe6\x9d\xa5\xe4\xb8\x80\xe6\xac\xa1\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png\",\"image_url2\":\"\",\"image_prize_url\":\"\",\"prize_status\":1,\"quantity\":0,\"level\":6,\"sort\":5},{\"id\":3,\"name\":\"\xe5\xb0\x8f\xe7\xb1\xb3\xe6\x89\x8b\xe7\x8e\xaf4\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png\",\"image_url2\":\"\",\"image_prize_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/xiaomiprize.png\",\"prize_status\":1,\"quantity\":5,\"level\":3,\"sort\":6},{\"id\":4,\"name\":\"\xe7\xa7\x92\xe8\xbf\xbd\xe5\xae\x9a\xe5\x88\xb6\xe7\xa4\xbc\xe7\x9b\x92\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png\",\"image_url2\":\"\",\"image_prize_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/liheprize.png\",\"prize_status\":1,\"quantity\":0,\"level\":4,\"sort\":7}]"
+
+mysql> select id,name,sort from mz_prize;
++----+--------------------+------+
+| id | name               | sort |
++----+--------------------+------+
+|  1 | 特斯拉 Model3      |    1 |
+|  2 | iPhone 11 Pro      |    3 |
+|  3 | 小米手环4          |    6 |
+|  4 | 秒追定制礼盒       |    7 |
+|  5 | 一套医用口罩       |    2 |
+|  6 | 再来一次           |    5 |
+|  7 | 谢谢参与           |    4 |
++----+--------------------+------+
+7 rows in set (0.00 sec)
+mysql>
+
+"[
+    {\"id\":1,\"name\":\"\xe7\x89\xb9\xe6\x96\xaf\xe6\x8b\x89 Model3\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png\",\"image_url2\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png\",\"image_prize_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png\",\"prize_status\":1,\"quantity\":5,\"level\":1,\"sort\":1},
+    {\"id\":5,\"name\":\"\xe4\xb8\x80\xe5\xa5\x97\xe5\x8c\xbb\xe7\x94\xa8\xe5\x8f\xa3\xe7\xbd\xa9\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png\",\"image_url2\":\"\",\"image_prize_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png\",\"prize_status\":1,\"quantity\":0,\"level\":5,\"sort\":2},
+    {\"id\":2,\"name\":\"iPhone 11 Pro\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png\",\"image_url2\":\"\",\"image_prize_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png\",\"prize_status\":1,\"quantity\":20,\"level\":2,\"sort\":3},
+    {\"id\":7,\"name\":\"\xe8\xb0\xa2\xe8\xb0\xa2\xe5\x8f\x82\xe4\xb8\x8e\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png\",\"image_url2\":\"\",\"image_prize_url\":\"\",\"prize_status\":1,\"quantity\":0,\"level\":7,\"sort\":4},
+    {\"id\":6,\"name\":\"\xe5\x86\x8d\xe6\x9d\xa5\xe4\xb8\x80\xe6\xac\xa1\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png\",\"image_url2\":\"\",\"image_prize_url\":\"\",\"prize_status\":1,\"quantity\":0,\"level\":6,\"sort\":5},
+    {\"id\":3,\"name\":\"\xe5\xb0\x8f\xe7\xb1\xb3\xe6\x89\x8b\xe7\x8e\xaf4\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png\",\"image_url2\":\"\",\"image_prize_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/xiaomiprize.png\",\"prize_status\":1,\"quantity\":5,\"level\":3,\"sort\":6},
+    {\"id\":4,\"name\":\"\xe7\xa7\x92\xe8\xbf\xbd\xe5\xae\x9a\xe5\x88\xb6\xe7\xa4\xbc\xe7\x9b\x92\",\"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png\",\"image_url2\":\"\",\"image_prize_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/liheprize.png\",\"prize_status\":1,\"quantity\":0,\"level\":4,\"sort\":7}
+]"
+172.17.132.192:7001>
+
+{
+    "Code": 0,
+    "Msg": "SUCCESS",
+    "Data": {
+        "prizeDate": [
+            {
+                "PrizeId": 1,
+                "Name": "特斯拉 Model3",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png",
+                "ImageUrl2": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png"
+            },
+            {
+                "PrizeId": 5,
+                "Name": "一套医用口罩",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png",
+                "ImageUrl2": ""
+            },
+            {
+                "PrizeId": 2,
+                "Name": "iPhone 11 Pro",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png",
+                "ImageUrl2": ""
+            },
+            {
+                "PrizeId": 7,
+                "Name": "谢谢参与",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png",
+                "ImageUrl2": ""
+            },
+            {
+                "PrizeId": 6,
+                "Name": "再来一次",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png",
+                "ImageUrl2": ""
+            },
+            {
+                "PrizeId": 3,
+                "Name": "小米手环4",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png",
+                "ImageUrl2": ""
+            },
+            {
+                "PrizeId": 4,
+                "Name": "秒追定制礼盒",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png",
+                "ImageUrl2": ""
+            }
+        ],
+        "hotUser": [
+            {
+                "user_name": "MZ***MA",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "MZ***yt",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "秒追***sr",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "MZ***Tp",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "秒追***别人",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "测试***用户",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "枫",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "测试***号*",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "测试***60",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "测试***21",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "MZ***VN",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "宝贝***抱改",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "💋",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "MZ***xe",
+                "prizename": "特斯拉 Model3"
+            },
+            {
+                "user_name": "MZ***Bo",
+                "prizename": "特斯拉 Model3"
+            },
+            {
+                "user_name": "测试***50",
+                "prizename": "特斯拉 Model3"
+            }
+        ],
+        "LeftNum": 0,
+        "emptyPrize": ""
+    }
+}
+
+
+
+2020/6/18 下午6:10:07{"level":"debug","msg":"LuckyHome 收到请求消息. lotteryservice.luckyhome _INBOX.JRq1vv4hb8lvO6u3ze1krT.GH7RKKkE {272 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-18T18:10:07+08:00"}
+2020/6/18 下午6:10:07{"level":"debug","msg":"prizes Redis cache not exist","source":"luckyhome.go:28:service.LuckyHome","time":"2020-06-18T18:10:07+08:00"}
+2020/6/18 下午6:10:07{"level":"info","msg":"sql/app/repository/prize_repo.go:351.133512msSELECT * FROM `mz_prize`  WHERE (prize_status=?) ORDER BY `sort`[1] 7","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-06-18T18:10:07+08:00"}
+2020/6/18 下午6:10:07{"level":"debug","msg":"get prizes from MySQL list=[{ID:1 Name:特斯拉 Model3 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png ImageUrl2:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png PrizeStatus:1 Quantity:5 Level:1 Sort:1} {ID:5 Name:一套医用口罩 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png PrizeStatus:1 Quantity:0 Level:5 Sort:2} {ID:2 Name:iPhone 11 Pro ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png PrizeStatus:1 Quantity:20 Level:2 Sort:3} {ID:7 Name:谢谢参与 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:7 Sort:4} {ID:6 Name:再来一次 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:6 Sort:5} {ID:3 Name:小米手环4 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/xiaomiprize.png PrizeStatus:1 Quantity:5 Level:3 Sort:6} {ID:4 Name:秒追定制礼盒 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/liheprize.png PrizeStatus:1 Quantity:0 Level:4 Sort:7}]","source":"luckyhome.go:28:service.LuckyHome","time":"2020-06-18T18:10:07+08:00"}
+2020/6/18 下午6:10:07{"level":"debug","msg":"LuckyHome 消息处理完成. lotteryservice.luckyhome _INBOX.JRq1vv4hb8lvO6u3ze1krT.GH7RKKkE {0 SUCCESS prizeDate:\u003cPrizeId:1 Name:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png\" ImageUrl2:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png\" \u003e prizeDate:\u003cPrizeId:5 Name:\"\\344\\270\\200\\345\\245\\227\\345\\214\\273\\347\\224\\250\\345\\217\\243\\347\\275\\251\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png\" \u003e prizeDate:\u003cPrizeId:2 Name:\"iPhone 11 Pro\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png\" \u003e prizeDate:\u003cPrizeId:7 Name:\"\\350\\260\\242\\350\\260\\242\\345\\217\\202\\344\\270\\216\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png\" \u003e prizeDate:\u003cPrizeId:6 Name:\"\\345\\206\\215\\346\\235\\245\\344\\270\\200\\346\\254\\241\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png\" \u003e prizeDate:\u003cPrizeId:3 Name:\"\\345\\260\\217\\347\\261\\263\\346\\211\\213\\347\\216\\2574\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png\" \u003e prizeDate:\u003cPrizeId:4 Name:\"\\347\\247\\222\\350\\277\\275\\345\\256\\232\\345\\210\\266\\347\\244\\274\\347\\233\\222\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png\" \u003e hotUser:\u003cuser_name:\"MZ***MA\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"MZ***yt\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\347\\247\\222\\350\\277\\275***sr\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"MZ***Tp\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\347\\247\\222\\350\\277\\275***\\345\\210\\253\\344\\272\\272\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\346\\265\\213\\350\\257\\225***\\347\\224\\250\\346\\210\\267\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\346\\236\\253\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\346\\265\\213\\350\\257\\225***\\345\\217\\267*\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\346\\265\\213\\350\\257\\225***60\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\346\\265\\213\\350\\257\\225***21\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"MZ***VN\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\345\\256\\235\\350\\264\\235***\\346\\212\\261\\346\\224\\271\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\360\\237\\222\\213\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"MZ***xe\" prizename:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" \u003e hotUser:\u003cuser_name:\"MZ***Bo\" prizename:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" \u003e hotUser:\u003cuser_name:\"\\346\\265\\213\\350\\257\\225***50\" prizename:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" \u003e  {} [] 1190}","source":"luckyhome.go:87:service.LuckyHome","time":"2020-06-18T18:10:07+08:00"}
+
+
+
+
+
+
+
+2020/6/18 下午6:15:31{"level":"debug","msg":"LuckyHome 收到请求消息. lotteryservice.luckyhome _INBOX.JRq1vv4hb8lvO6u3ze1krT.hOK2dkL3 {272 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get prizes from Redis list=[{ID:1 Name:特斯拉 Model3 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png ImageUrl2:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png PrizeStatus:1 Quantity:5 Level:1 Sort:1} {ID:5 Name:一套医用口罩 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png PrizeStatus:1 Quantity:0 Level:5 Sort:2} {ID:2 Name:iPhone 11 Pro ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png PrizeStatus:1 Quantity:20 Level:2 Sort:3} {ID:7 Name:谢谢参与 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:7 Sort:4} {ID:6 Name:再来一次 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:6 Sort:5} {ID:3 Name:小米手环4 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/xiaomiprize.png PrizeStatus:1 Quantity:5 Level:3 Sort:6} {ID:4 Name:秒追定制礼盒 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/liheprize.png PrizeStatus:1 Quantity:0 Level:4 Sort:7}]","source":"luckyhome.go:28:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"LargePrizes prizeNum=100 list=[{ObjectIdHex(\"\") 492 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 491 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 490 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 11 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 272 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 487 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 16 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 182 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 457 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 458 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 378 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 485 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 50 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 483 0  0    iPhone 11 Pro 0  0} {ObjectIdHex(\"\") 484 0  0    特斯拉 Model3 0  0} {ObjectIdHex(\"\") 449 0  0    特斯拉 Model3 0  0} {ObjectIdHex(\"\") 456 0  0    特斯拉 Model3 0  0}]","source":"lottery_repo.go:188:repository.(*mzLotteryRepo).LargePrizes","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:495:492]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:494:491]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:493:490]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:14:11]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:275:272]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:490:487]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:19:16]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:185:182]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:460:457]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:461:458]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:381:378]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:488:485]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:53:50]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:486:483]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:487:484]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:452:449]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"[redis get function] keys: [UserInfo:459:456]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:52:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"GetUserRemain from Redis userId=272 remain=0","source":"luckyhome.go:75:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}
+2020/6/18 下午6:15:31{"level":"debug","msg":"LuckyHome 消息处理完成. lotteryservice.luckyhome _INBOX.JRq1vv4hb8lvO6u3ze1krT.hOK2dkL3 {0 SUCCESS prizeDate:\u003cPrizeId:1 Name:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png\" ImageUrl2:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png\" \u003e prizeDate:\u003cPrizeId:5 Name:\"\\344\\270\\200\\345\\245\\227\\345\\214\\273\\347\\224\\250\\345\\217\\243\\347\\275\\251\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png\" \u003e prizeDate:\u003cPrizeId:2 Name:\"iPhone 11 Pro\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png\" \u003e prizeDate:\u003cPrizeId:7 Name:\"\\350\\260\\242\\350\\260\\242\\345\\217\\202\\344\\270\\216\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png\" \u003e prizeDate:\u003cPrizeId:6 Name:\"\\345\\206\\215\\346\\235\\245\\344\\270\\200\\346\\254\\241\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png\" \u003e prizeDate:\u003cPrizeId:3 Name:\"\\345\\260\\217\\347\\261\\263\\346\\211\\213\\347\\216\\2574\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png\" \u003e prizeDate:\u003cPrizeId:4 Name:\"\\347\\247\\222\\350\\277\\275\\345\\256\\232\\345\\210\\266\\347\\244\\274\\347\\233\\222\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png\" \u003e hotUser:\u003cuser_name:\"MZ***HJ\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"MZ***MA\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"MZ***yt\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\347\\247\\222\\350\\277\\275***sr\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"MZ***Tp\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\347\\247\\222\\350\\277\\275***\\345\\210\\253\\344\\272\\272\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\346\\265\\213\\350\\257\\225***\\347\\224\\250\\346\\210\\267\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\346\\236\\253\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\346\\265\\213\\350\\257\\225***\\345\\217\\267*\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\346\\265\\213\\350\\257\\225***60\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\346\\265\\213\\350\\257\\225***21\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"MZ***VN\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\345\\256\\235\\350\\264\\235***\\346\\212\\261\\346\\224\\271\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"\\360\\237\\222\\213\" prizename:\"iPhone 11 Pro\" \u003e hotUser:\u003cuser_name:\"MZ***xe\" prizename:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" \u003e hotUser:\u003cuser_name:\"MZ***Bo\" prizename:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" \u003e hotUser:\u003cuser_name:\"\\346\\265\\213\\350\\257\\225***50\" prizename:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" \u003e  {} [] 1216}","source":"luckyhome.go:87:service.LuckyHome","time":"2020-06-18T18:15:31+08:00"}

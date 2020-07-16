@@ -1,0 +1,80 @@
+
+
+db.mgo_user_prize.find({prize_id:1},{_id:0,prize_id:1,image_url:1,expire_at:1})
+
+> db.mgo_user_prize.find({prize_id:1},{_id:0,prize_id:1,image_url:1,expire_at:1}).limit(1)
+{ "prize_id" : 1, "expire_at" : "2020-10-07T23:59:59+08:00", "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png" }
+>
+
+
+# 参数1 筛选条件
+# 参数2 更新字段
+# 参数3 如果没有筛选到符合条件的记录,是否需要将参数2插入到集合中,默认false不插入
+# 参数4 默认false一次更新一条 true一次更新多条,此时参数2需要使用$set操作
+db.mgo_user_prize.update({prize_id:1},{$set:{image_url:"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png"}},false,true)
+db.mgo_user_prize.update({prize_id:2},{$set:{image_url:"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png"}},false,true)
+db.mgo_user_prize.update({prize_id:3},{$set:{image_url:"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/xiaomiprize.png"}},false,true)
+db.mgo_user_prize.update({prize_id:4},{$set:{image_url:"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/liheprize.png"}},false,true)
+db.mgo_user_prize.update({prize_id:5},{$set:{image_url:"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png"}},false,true)
+
+db.mgo_user_prize.update({},{$set:{expire_at:"2020-09-30T23:59:59+08:00"}},false,true)
+
+> db.mgo_user_prize.update({},{$set:{expire_at:"2020-09-30T23:59:59+08:00"}},false,true)
+WriteResult({ "nMatched" : 15, "nUpserted" : 0, "nModified" : 12 })
+>
+
+db.mgo_user_lottery.count({user_id:272})
+db.mgo_user_prize.count({user_id:272})
+db.mgo_user_lottery.find({user_id:272})
+db.mgo_user_prize.find({user_id:272})
+
+db.mgo_lottery_power.remove({user_id:272})
+db.mgo_user_prize.remove({user_id:272,prize_id:6})
+
+db.mgo_lottery_power.count({user_id:272})
+db.mgo_lottery_power.find({user_id:272},{user_id:1,task_id:1,status:1,create_at:1,_id:0}).sort({create_at:-1}).limit(1)
+
+db.mgo_user_prize.count({user_id:272,prize_id:6})
+db.mgo_user_prize.find({user_id:272,prize_id:6},{user_id:1,prize_id:1,status:1,create_at:1,receive_at:1,again_use_status:1,_id:0}).sort({create_at:-1}).limit(1)
+
+db.mgo_user_prize.remove({user_id:272})
+
+
+db.mgo_user_lottery.distinct("user_id")
+
+> db.mgo_user_prize.find().skip(1).limit(1).pretty()
+{
+	"_id" : ObjectId("5ea6af3c775f2600013738ec"),
+	"user_id" : 449,
+	"prize_id" : 1,
+	"receive_id" : "SN1587982140170462450pnMFck",
+	"status" : 0,
+	"create_at" : "2020-04-27T18:09:00+08:00",
+	"receive_at" : "",
+	"expire_at" : "2020-09-30T23:59:59+08:00",
+	"prize_name" : "特斯拉 Model3",
+	"prize_level" : 1,
+	"image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png",
+	"again_use_status" : 0
+}
+>
+
+
+
+
+
+db.mgo_user_prize.insert({
+	"user_id" : 10,
+	"prize_id" : 5,
+	"receive_id" : "SN1587982140170462450pnMF10",
+	"status" : 0,
+	"create_at" : "2020-04-27T18:09:00+08:10",
+	"receive_at" : "",
+	"expire_at" : "2020-09-30T23:59:59+08:00",
+	"prize_name" : "一套医用口罩",
+	"prize_level" : 1,
+	"image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png",
+	"again_use_status" : 0
+})
+
+db.mgo_user_prize.find({prize_id:6}).count()

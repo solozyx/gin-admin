@@ -1,0 +1,26 @@
+
+2020/7/2 下午3:11:40{"level":"debug","msg":"Lucky 收到请求消息. lotteryservice.lucky _INBOX.f1wgDVkWCFgq7xMZZpPo6p.OacoQU6s {572 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"GetUserRemain from Redis userId=572 remain=1","source":"lucky.go:135:service.Lucky","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"SetLockLotteryUser 设置redis分布式锁key=lottery:lock:user:572 success","source":"lucky.go:153:service.Lucky","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"CountDistinctUser len(userIds)=100000","source":"lottery_repo.go:77:repository.(*mzLotteryRepo).GetLotteryTotalUsers","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"CountUserJoinTimesByUserId userId=572 count=2","source":"lottery_repo.go:148:repository.(*mzLotteryRepo).GetUserJoin","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"CountWinPrizeByPrizeId prizeId=1 count=2","source":"lottery_repo.go:158:repository.(*mzLotteryRepo).CountWinPrize","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"CountWinPrizeByPrizeId prizeId=2 count=16","source":"lottery_repo.go:158:repository.(*mzLotteryRepo).CountWinPrize","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"CountUserGainTimesByUserId userId=572 count=0","source":"lottery_repo.go:153:repository.(*mzLotteryRepo).GetUserGain","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"Lucky 进入抽奖流程 userJoinTimes=2","source":"value.go:460:reflect.Value.call","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"Lucky 进入抽奖流程 userGainTimes=0","source":"value.go:460:reflect.Value.call","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"Lucky lucky branch userJoinTimes 小于 20 lucky","source":"value.go:460:reflect.Value.call","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"Lucky lucky tslCount=2 iphoneCount=16 totalUsers=100000 userId=572","source":"lucky.go:287:service.Lucky","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"GetPrizeStep from Redis key=lottery:step:tsl num=2","source":"lottery_repo.go:345:repository.(*mzLotteryRepo).LockTslOrIphone","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"IncrPrizeStep 成功 key=lottery:step:tsl num=1","source":"lottery_repo.go:368:repository.(*mzLotteryRepo).LockTslOrIphone","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"Lucky lucky branch3 prizeId=1","source":"lucky.go:287:service.Lucky","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"IsUserWinTslOrIphone 用户未中特斯拉或iPhone","source":"lucky.go:585:service.lucky","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"Lucky lucky prizeId=1","source":"lucky.go:287:service.Lucky","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"IsUserWinTslOrIphone 用户未中特斯拉或iPhone","source":"lucky.go:303:service.Lucky","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"Lucky 发奖 tslId 或 iphoneId 或 miBandId resp.Data.PrizeId=1","source":"value.go:460:reflect.Value.call","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"SetLockLotteryServerPrize 设置redis分布式锁key=lottery:lock:server:prize:1 success","source":"lucky.go:414:service.Lucky","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"CountWinPrizeByPrizeId prizeId=1 count=2","source":"lottery_repo.go:158:repository.(*mzLotteryRepo).CountWinPrize","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"Lucky 获取 特斯拉 iPhone 小米手环 写入用户奖品表成功","source":"value.go:460:reflect.Value.call","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"UnLockLotteryServerPrize 删除redis分布式锁key=lottery:lock:server:prize:1 success","source":"lucky.go:457:service.Lucky","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"UnLockLotteryUser 删除redis分布式锁key=lottery:lock:user:572 success","source":"lucky.go:457:service.Lucky","time":"2020-07-02T15:11:40+08:00"}
+2020/7/2 下午3:11:40{"level":"debug","msg":"Lucky 消息处理完成. lotteryservice.lucky _INBOX.f1wgDVkWCFgq7xMZZpPo6p.OacoQU6s {0 SUCCESS PrizeId:1 PrizeName:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png\" ReceiveId:\"SN1593673900416453160q9OrNq\" PrizeLevel:1  {} [] 144}","source":"lucky.go:457:service.Lucky","time":"2020-07-02T15:11:40+08:00"}

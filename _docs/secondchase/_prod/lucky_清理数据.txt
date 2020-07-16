@@ -1,0 +1,100 @@
+
+[zyx@iZ2ze09hymnzdkgokgaru0Z ~]$ redis-cli -p 7001 -h 127.0.0.1 -a oben.com -c
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+127.0.0.1:7001>
+127.0.0.1:7001> get lottery:step:tsl
+"2"
+127.0.0.1:7001> get lottery:step:iphone
+-> Redirected to slot [14340] located at 172.17.132.191:7001
+"16"
+172.17.132.191:7001>
+172.17.132.191:7001>
+
+
+> db.mgo_user_prize.find({prize_id:1})
+{ "_id" : ObjectId("5f0536f28fb6d40001640426"), "user_id" : 182, "prize_id" : 1, "receive_id" : "SN1594177266397537503T7K5us", "status" : 0, "create_at" : "2020-07-08T11:01:06+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "特斯拉 Model3", "prize_level" : 1, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f053737185a1b0001624d31"), "user_id" : 449, "prize_id" : 1, "receive_id" : "SN1594177335971663738FhiJT7", "status" : 0, "create_at" : "2020-07-08T11:02:15+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "特斯拉 Model3", "prize_level" : 1, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png", "again_use_status" : 0 }
+>
+
+
+> db.mgo_user_prize.find({prize_id:2})
+{ "_id" : ObjectId("5f0537778fb6d4000164042a"), "user_id" : 450, "prize_id" : 2, "receive_id" : "SN1594177399169979203yc5FAz", "status" : 0, "create_at" : "2020-07-08T11:03:19+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f055d35185a1b0001624d34"), "user_id" : 594, "prize_id" : 2, "receive_id" : "SN1594187061021383688BMVsGF", "status" : 0, "create_at" : "2020-07-08T13:44:21+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f058925fc5100000174cdf0"), "user_id" : 605, "prize_id" : 2, "receive_id" : "SN1594198309405721124VoxjW7", "status" : 1, "create_at" : "2020-07-08T16:51:49+08:00", "receive_at" : "2020-07-08T16:52:39+08:00", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f05899996a5a20001e2c3bc"), "user_id" : 606, "prize_id" : 2, "receive_id" : "SN15941984257227252389nE8dH", "status" : 0, "create_at" : "2020-07-08T16:53:45+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f0593c036edf000012a4188"), "user_id" : 576, "prize_id" : 2, "receive_id" : "SN1594201024859872076o8wxd4", "status" : 0, "create_at" : "2020-07-08T17:37:04+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f05940bfc5100000174cdf3"), "user_id" : 50, "prize_id" : 2, "receive_id" : "SN1594201099998725141yLKRfA", "status" : 1, "create_at" : "2020-07-08T17:38:19+08:00", "receive_at" : "2020-07-09T19:33:20+08:00", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f0680b136edf000012a418b"), "user_id" : 607, "prize_id" : 2, "receive_id" : "SN1594261681433826490RzCxMV", "status" : 0, "create_at" : "2020-07-09T10:28:01+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f0688d096a5a20001e2c3c4"), "user_id" : 413, "prize_id" : 2, "receive_id" : "SN1594263760088937285YCr5tG", "status" : 0, "create_at" : "2020-07-09T11:02:40+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f06ae53fc5100000174cdfd"), "user_id" : 582, "prize_id" : 2, "receive_id" : "SN1594273363435010259sDofOX", "status" : 0, "create_at" : "2020-07-09T13:42:43+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f07bfd4fdc00a00016a04e3"), "user_id" : 614, "prize_id" : 2, "receive_id" : "SN1594343380930979783EUMiBL", "status" : 0, "create_at" : "2020-07-10T09:09:40+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f07c03afdc00a00016a04e5"), "user_id" : 615, "prize_id" : 2, "receive_id" : "SN1594343482001931143pMBP6P", "status" : 0, "create_at" : "2020-07-10T09:11:22+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f07c1f1985f1f00011611aa"), "user_id" : 616, "prize_id" : 2, "receive_id" : "SN1594343921865826296pQeqFR", "status" : 0, "create_at" : "2020-07-10T09:18:41+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f07c546985f1f00011611af"), "user_id" : 617, "prize_id" : 2, "receive_id" : "SN1594344774046629022KI7Saf", "status" : 0, "create_at" : "2020-07-10T09:32:54+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f07c633fdc00a00016a04ed"), "user_id" : 618, "prize_id" : 2, "receive_id" : "SN1594345011087586252kgvN5p", "status" : 0, "create_at" : "2020-07-10T09:36:51+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f07ca4bfdc00a00016a04ef"), "user_id" : 613, "prize_id" : 2, "receive_id" : "SN159434605918491631070SRIh", "status" : 0, "create_at" : "2020-07-10T09:54:19+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f07cd69985f1f00011611b6"), "user_id" : 619, "prize_id" : 2, "receive_id" : "SN1594346857846916930PVNK2y", "status" : 0, "create_at" : "2020-07-10T10:07:37+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+>
+
+
+
+172.17.132.191:7001> del lottery:step:tsl
+-> Redirected to slot [4537] located at 172.17.132.192:7001
+(integer) 1
+172.17.132.192:7001> del lottery:step:iphone
+-> Redirected to slot [14340] located at 172.17.132.191:7001
+(integer) 1
+172.17.132.191:7001>
+172.17.132.191:7001>
+172.17.132.191:7001> get lottery:step:tsl
+-> Redirected to slot [4537] located at 172.17.132.192:7001
+(nil)
+172.17.132.192:7001> get lottery:step:iphone
+-> Redirected to slot [14340] located at 172.17.132.191:7001
+(nil)
+172.17.132.191:7001>
+
+
+
+> db.mgo_user_prize.remove({prize_id:1})
+WriteResult({ "nRemoved" : 2 })
+> db.mgo_user_prize.remove({prize_id:2})
+WriteResult({ "nRemoved" : 16 })
+>
+> db.mgo_user_prize.find({prize_id:1})
+>
+> db.mgo_user_prize.find({prize_id:2})
+>
+>
+
+
+-----------------------------------------------------------------------------
+
+
+172.17.132.191:7001> get lottery:step:tsl
+-> Redirected to slot [4537] located at 172.17.132.192:7001
+"1"
+172.17.132.192:7001> get lottery:step:tsl
+"2"
+172.17.132.192:7001> get lottery:step:iphone
+-> Redirected to slot [14340] located at 172.17.132.191:7001
+"1"
+172.17.132.191:7001> get lottery:step:iphone
+"1"
+172.17.132.191:7001>
+
+
+> db.mgo_user_prize.find({prize_id:1})
+{ "_id" : ObjectId("5f07d6f997a8ca00010388c7"), "user_id" : 625, "prize_id" : 1, "receive_id" : "SN1594349305145925205xKNb83", "status" : 0, "create_at" : "2020-07-10T10:48:25+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "特斯拉 Model3", "prize_level" : 1, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png", "again_use_status" : 0 }
+{ "_id" : ObjectId("5f07d7d3fdc00a00016a050f"), "user_id" : 626, "prize_id" : 1, "receive_id" : "SN1594349523169287837u7ipog", "status" : 0, "create_at" : "2020-07-10T10:52:03+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "特斯拉 Model3", "prize_level" : 1, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png", "again_use_status" : 0 }
+>
+>
+>
+> db.mgo_user_prize.find({prize_id:2})
+{ "_id" : ObjectId("5f07d7dd97a8ca00010388c9"), "user_id" : 627, "prize_id" : 2, "receive_id" : "SN1594349533113985649KcmnAD", "status" : 0, "create_at" : "2020-07-10T10:52:13+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+>
+> db.mgo_user_prize.find({prize_id:2})
+{ "_id" : ObjectId("5f07d7dd97a8ca00010388c9"), "user_id" : 627, "prize_id" : 2, "receive_id" : "SN1594349533113985649KcmnAD", "status" : 0, "create_at" : "2020-07-10T10:52:13+08:00", "receive_at" : "", "expire_at" : "2020-09-30T23:59:59+08:00", "prize_name" : "iPhone 11 Pro", "prize_level" : 2, "image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png", "again_use_status" : 0 }
+>
+
+

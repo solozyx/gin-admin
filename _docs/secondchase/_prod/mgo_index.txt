@@ -1,0 +1,14 @@
+
+db.mgo_lottery_power.createIndex({user_id:1})
+
+db.mgo_user_lottery.createIndex({user_id:1})
+
+db.mgo_user_prize.createIndex({user_id:1})
+db.mgo_user_prize.createIndex({prize_id:1})
+db.mgo_user_prize.createIndex({user_id:1,prize_id:1,receive_id:1})
+db.mgo_user_prize.createIndex({"create_at":-1})
+
+db.mgo_product_order.createIndex({order_id:1})
+db.mgo_product_order.createIndex({user_id:1})
+db.mgo_product_order.createIndex({status:1,send_status:1})
+db.mgo_product_order.createIndex({product_id:1,status:1})

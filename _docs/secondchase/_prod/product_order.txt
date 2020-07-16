@@ -1,0 +1,73 @@
+
+> db.mgo_product_order.find({"order_id" : "MZ1592897896mF3wgSOX"}).pretty()
+{
+	"_id" : ObjectId("5ef1b169992cab0001e9e0c8"),
+	"order_id" : "MZ1592897896mF3wgSOX",
+	"order_type" : 5,
+	"payment" : "wechat",
+	"user_id" : 281,
+	"prepay_id" : "wx231538171913551592385ddc1238690600",
+	"transaction_id" : "",
+	"receipt_data" : "",
+	"fee_cents" : 1,
+	"product_id" : 3,
+	"product_name" : "小米移动电源3 10000mAh 银色",
+	"sku" : "USB-C双向快充版/双向18W快充/输入输出双接口/高密度锂聚合物电芯，更安全/可上飞机，更贴心",
+	"thumb_image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/main/1.jpg",
+	"present_price" : 100,
+	"original_price" : 12900,
+	"quantity" : 1,
+	"status" : 0,
+	"name" : "信用卡的",
+	"phone" : "137 4147 4114",
+	"area" : "北京 北京市 东城区",
+	"address" : "信用卡💳、在",
+	"lottery_times" : 1,
+	"lottery_status" : 0,
+	"send_status" : 0,
+	"operator" : "",
+	"express" : "",
+	"express_no" : "",
+	"create_at" : "2020-06-23T15:38:17+08:00",
+	"pay_at" : "",
+	"update_at" : "2020-06-23T15:38:17+08:00"
+}
+>
+
+
+
+> db.mgo_product_order.find({"order_id" : "MZ1592897896mF3wgSOX"}).pretty()
+{
+	"_id" : ObjectId("5ef1b169992cab0001e9e0c8"),
+	"order_id" : "MZ1592897896mF3wgSOX",
+	"order_type" : 5,
+	"payment" : "wechat",
+	"user_id" : 281,
+	"prepay_id" : "wx231538171913551592385ddc1238690600",
+	"transaction_id" : "",
+	"receipt_data" : "",
+	"fee_cents" : 1,
+	"product_id" : 3,
+	"product_name" : "小米移动电源3 10000mAh 银色",
+	"sku" : "USB-C双向快充版/双向18W快充/输入输出双接口/高密度锂聚合物电芯，更安全/可上飞机，更贴心",
+	"thumb_image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0103/main/1.jpg",
+	"present_price" : 100,
+	"original_price" : 12900,
+	"quantity" : 1,
+	"status" : 0,
+	"name" : "信用卡的",
+	"phone" : "137 4147 4114",
+	"area" : "北京 北京市 东城区",
+	"address" : "信用卡💳、在",
+	"lottery_times" : 1,
+	"lottery_status" : 0,
+	"send_status" : 1,
+	"operator" : "赵迎新",
+	"express" : "顺丰",
+	"express_no" : "SF12345678901234567890",
+	"create_at" : "2020-06-23T15:38:17+08:00",
+	"pay_at" : "",
+	"update_at" : "2020-07-02T15:50:19+08:00"
+}
+>
+

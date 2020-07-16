@@ -1,0 +1,27 @@
+
+172.17.132.191:7001> hget IdolDetailMap 1
+-> Redirected to slot [1079] located at 172.17.132.192:7001
+"{
+    \"Android3DIUrl\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/model/1801000000.unity\",
+    \"IOS3DUrl\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/model/0801000000.unity\",
+    \"description\":\"\",
+    \"head_image\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/AboutStarInfomation/zhuyilong3.jpg\",
+    \"ID\":1,
+    \"image\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/AboutStarInfomation/zhuyilong1.jpg\",
+    \"jobs\":\"\xe6\xbc\x94\xe5\x91\x98\",
+    \"Gender\":\"male\",
+    \"mindes\":\"\xe6\x83\xb3\xe8\xa6\x81\xe6\x88\x91\xe4\xb8\x8e\xe4\xbd\xa0\",
+    \"name\":\"\xe6\x9c\xb1\xe4\xb8\x80\xe9\xbe\x99\",
+    \"price\":196,
+    \"publish_time\":\"0001-01-01T00:00:00Z\",
+    \"resources\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/AboutStarInfomation/zhuyilong2.jpg\",
+    \"rowsort\":28,
+    \"status\":0,
+    \"tags\":\"zhuyilong;\xe6\x9c\xb1\xe4\xb8\x80\xe9\xbe\x99;\",
+    \"type\":\"idol\",
+    \"update_time\":\"2020-03-27T10:10:30+08:00\",
+    \"idol_sn\":\"\",
+    \"idol_sn_android\":\"\",
+    \"model_image\":\"\"
+}"
+172.17.132.192:7001>

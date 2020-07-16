@@ -1,0 +1,10 @@
+
+
+db.mgo_user_prize.remove({})
+
+db.mgo_user_lottery.distinct("user_id").length
+
+del lottery:remain:userid_0
+del lottery:step:tsl
+del lottery:step:iphone
+

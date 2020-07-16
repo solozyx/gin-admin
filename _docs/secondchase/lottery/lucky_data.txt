@@ -1,0 +1,111 @@
+
+> db.mgo_user_prize.remove({})
+WriteResult({ "nRemoved" : 59 })
+>
+> db.mgo_user_prize.count({})
+0
+>
+
+
+
+hget lottery:remain:userid_0 用户id
+
+hset lottery:remain:userid_0 182 1000
+
+
+
+127.0.0.1:7001> hget lottery:remain:userid_0 272
+-> Redirected to slot [14182] located at 172.17.132.191:7001
+"0"
+172.17.132.191:7001>
+
+
+
+172.17.132.191:7001> del lottery:remain:userid_0
+(integer) 1
+172.17.132.191:7001>
+
+
+172.17.132.191:7001> get lottery:step:tsl
+-> Redirected to slot [4537] located at 172.17.132.192:7001
+"3"
+172.17.132.192:7001> del lottery:step:tsl
+(integer) 1
+172.17.132.192:7001> get lottery:step:tsl
+(nil)
+172.17.132.192:7001>
+
+
+172.17.132.192:7001> get lottery:step:iphone
+-> Redirected to slot [14340] located at 172.17.132.191:7001
+"16"
+172.17.132.191:7001> del lottery:step:iphone
+(integer) 1
+172.17.132.191:7001> get lottery:step:iphone
+(nil)
+172.17.132.191:7001>
+
+
+> db.mgo_user_lottery.distinct("user_id").length
+100000
+>
+
+
+[抽奖流程]
+---------------------------------------
+
+172.17.132.192:7001> hget lottery:remain:userid_0 557
+-> Redirected to slot [14182] located at 172.17.132.191:7001
+"0"
+172.17.132.191:7001> hget lottery:remain:userid_0 558
+"5"
+172.17.132.191:7001>
+
+
+
+172.17.132.191:7001> get lottery:step:tsl
+-> Redirected to slot [4537] located at 172.17.132.192:7001
+"2"
+172.17.132.192:7001> get lottery:step:iphone
+-> Redirected to slot [14340] located at 172.17.132.191:7001
+(nil)
+172.17.132.191:7001>
+
+
+
+> db.mgo_user_prize.find().count()
+2
+>
+
+> db.mgo_user_prize.find().pretty()
+{
+	"_id" : ObjectId("5efd4f7e4118db0001fbbb79"),
+	"user_id" : 557,
+	"prize_id" : 1,
+	"receive_id" : "SN1593659262465867459aSG6Zd",
+	"status" : 1,
+	"create_at" : "2020-07-02T11:07:42+08:00",
+	"receive_at" : "2020-07-02T11:10:26+08:00",
+	"expire_at" : "2020-09-30T23:59:59+08:00",
+	"prize_name" : "特斯拉 Model3",
+	"prize_level" : 1,
+	"image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png",
+	"again_use_status" : 0
+}
+{
+	"_id" : ObjectId("5efd50934118db0001fbbb7d"),
+	"user_id" : 558,
+	"prize_id" : 1,
+	"receive_id" : "SN1593659539729713461ZTasJ9",
+	"status" : 0,
+	"create_at" : "2020-07-02T11:12:19+08:00",
+	"receive_at" : "",
+	"expire_at" : "2020-09-30T23:59:59+08:00",
+	"prize_name" : "特斯拉 Model3",
+	"prize_level" : 1,
+	"image_url" : "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png",
+	"again_use_status" : 0
+}
+>
+
+

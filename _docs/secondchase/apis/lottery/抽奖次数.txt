@@ -1,0 +1,29 @@
+
+mysql> use secondchase
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql>
+mysql>
+mysql> select id from mz_user where mzid='MZ1576564511tM23';
++-----+
+| id  |
++-----+
+| 182 |
++-----+
+1 row in set (0.00 sec)
+mysql> exit
+Bye
+[zyx@iZ2ze09hymnzdkgokgaru0Z ~]$ redis-cli -p 7001 -h 127.0.0.1 -a oben.com -c
+Warning: Using a password with '-a' or '-u' option on the command line interface may not be safe.
+127.0.0.1:7001> keys lottery:*
+1) "lottery:prizes"
+2) "lottery:step:tsl"
+127.0.0.1:7001>
+127.0.0.1:7001> hset lottery:remain:userid_0 182 1000
+-> Redirected to slot [14182] located at 172.17.132.191:7001
+(integer) 0
+172.17.132.191:7001> hget lottery:remain:userid_0 182
+"1000"
+172.17.132.191:7001>

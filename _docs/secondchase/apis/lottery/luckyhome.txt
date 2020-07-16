@@ -1,0 +1,124 @@
+
+
+
+{
+    "Code": 0,
+    "Msg": "SUCCESS",
+    "Data": {
+        "prizeDate": [
+            {
+                "PrizeId": 1,
+                "Name": "特斯拉 Model3",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png"
+            },
+            {
+                "PrizeId": 5,
+                "Name": "一套医用口罩",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png"
+            },
+            {
+                "PrizeId": 2,
+                "Name": "iPhone 11 Pro",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png"
+            },
+            {
+                "PrizeId": 7,
+                "Name": "谢谢参与",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png"
+            },
+            {
+                "PrizeId": 6,
+                "Name": "再来一次",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png"
+            },
+            {
+                "PrizeId": 3,
+                "Name": "小米手环4",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png"
+            },
+            {
+                "PrizeId": 4,
+                "Name": "秒追定制礼盒",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png"
+            },
+            {
+                "PrizeId": 1,
+                "Name": "特斯拉 Model3",
+                "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png"
+            }
+        ],
+        "hotUser": [
+            {
+                "user_name": "MZ***HJ",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "MZ***MA",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "MZ***yt",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "秒追***sr",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "MZ***Tp",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "秒追***别人",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "测试***用户",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "枫",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "测试***号*",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "测试***60",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "测试***21",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "MZ***VN",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "宝贝***抱改",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "💋",
+                "prizename": "iPhone 11 Pro"
+            },
+            {
+                "user_name": "MZ***xe",
+                "prizename": "特斯拉 Model3"
+            },
+            {
+                "user_name": "MZ***Bo",
+                "prizename": "特斯拉 Model3"
+            },
+            {
+                "user_name": "测试***50",
+                "prizename": "特斯拉 Model3"
+            }
+        ],
+        "LeftNum": 0,
+        "emptyPrize": ""
+    }
+}
+

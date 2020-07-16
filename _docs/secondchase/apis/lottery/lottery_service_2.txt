@@ -1,0 +1,263 @@
+日志: miaozhui-nginx-miaozhui-lottery-2
+注意: 此容器运行时带有TTY(-t)参数，仅有合并的标准输出和标准错误日志可见
+
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.GetResultReq is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.GetResultRsp is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.Task is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.GetTasksRequest is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.GetTasksResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.GetTasksResponse.DataStruct is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.TaskDoneRequest is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.TaskDoneResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.TaskDoneResponse.DataStruct is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.LuckyRequest is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.LuckyResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.LuckyResponse.DataStruct is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.ReceiveRequest is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.ReceiveResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.ReceiveData is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.InvestigationRequest is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.InvestigationResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.InvestigationData is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.ActivityResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.ActivityResponse.DataStruct is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.LuckyHomeRequest is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.LuckyHomeResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.LuckyHomeResponse.DataStruct is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.PrizeStruct is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.HotStruct is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.PrizeInfo is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.UserPrizesRequest is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.UserPrizesResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.UserPrizesResponse.DataStruct is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.PrizeListRequest is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.PrizeListResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.PrizeListResponse.DataStruct is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.MyPrizeInfo is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.MyPrizesRequest is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.MyPrizesResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.MyPrizesResponse.DataStruct is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.MyTimesRequest is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.MyTimesResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.MyTimesResponse.DataStruct is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.GetLotteryTimesRequest is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.GetLotteryTimesResponse is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: message proto.GetLotteryTimesData is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:172020/07/08 10:52:17 WARNING: proto: file "lottery/lottery.proto" is already registered
+2020/7/8 上午10:52:17A future release will panic on registration conflicts. See:
+2020/7/8 上午10:52:17https://developers.google.com/protocol-buffers/docs/reference/go/faq#namespace-conflict
+2020/7/8 上午10:52:17
+2020/7/8 上午10:52:17{"level":"info","msg":"开启抽奖服务应用","source":"asm_amd64.s:1357:runtime.goexit","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 0","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 1","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 2","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 3","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 4","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 5","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 6","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 7","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 8","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 9","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 10","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 11","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 12","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 13","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 14","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"info","msg":"开启订阅协程 No. 15","source":"proc.go:203:runtime.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"get prizes from Redis list=[{ID:1 Name:特斯拉 Model3 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png ImageUrl2:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png PrizeStatus:1 Quantity:10 Level:1 Sort:1} {ID:5 Name:一套医用口罩 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png PrizeStatus:1 Quantity:0 Level:5 Sort:2} {ID:2 Name:iPhone 11 Pro ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png PrizeStatus:1 Quantity:200 Level:2 Sort:3} {ID:7 Name:谢谢参与 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:7 Sort:4} {ID:6 Name:再来一次 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:6 Sort:5} {ID:3 Name:小米手环4 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/xiaomiprize.png PrizeStatus:1 Quantity:1000 Level:3 Sort:6} {ID:4 Name:秒追定制礼盒 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/liheprize.png PrizeStatus:1 Quantity:0 Level:4 Sort:7}]","source":"lucky.go:45:service.InitPrizeList","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"Lucky InitPrizeList 获取奖品list=[{ID:1 Name:特斯拉 Model3 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png ImageUrl2:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png PrizeStatus:1 Quantity:10 Level:1 Sort:1} {ID:5 Name:一套医用口罩 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png PrizeStatus:1 Quantity:0 Level:5 Sort:2} {ID:2 Name:iPhone 11 Pro ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png PrizeStatus:1 Quantity:200 Level:2 Sort:3} {ID:7 Name:谢谢参与 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:7 Sort:4} {ID:6 Name:再来一次 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:6 Sort:5} {ID:3 Name:小米手环4 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/xiaomiprize.png PrizeStatus:1 Quantity:1000 Level:3 Sort:6} {ID:4 Name:秒追定制礼盒 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/liheprize.png PrizeStatus:1 Quantity:0 Level:4 Sort:7}]","source":"main.go:46:main.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"Lucky InitPrizeList 获取奖品prizeInitList=map[1:{1 特斯拉 Model3 https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png 1 10 1 1} 2:{2 iPhone 11 Pro https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png  https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png 1 200 2 3} 3:{3 小米手环4 https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png  https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/xiaomiprize.png 1 1000 3 6} 4:{4 秒追定制礼盒 https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png  https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/liheprize.png 1 0 4 7} 5:{5 一套医用口罩 https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png  https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png 1 0 5 2} 6:{6 再来一次 https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png   1 0 6 5} 7:{7 谢谢参与 https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png   1 0 7 4}]","source":"main.go:46:main.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"Lucky InitPrizeList ------------------","source":"main.go:46:main.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"tsl={ID:1 Name:特斯拉 Model3 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png ImageUrl2:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png PrizeStatus:1 Quantity:10 Level:1 Sort:1}","source":"main.go:46:main.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"iphone={ID:2 Name:iPhone 11 Pro ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png PrizeStatus:1 Quantity:200 Level:2 Sort:3}","source":"main.go:46:main.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"miBand={ID:3 Name:小米手环4 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/xiaomiprize.png PrizeStatus:1 Quantity:1000 Level:3 Sort:6}","source":"main.go:46:main.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"little={ID:4 Name:秒追定制礼盒 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/liheprize.png PrizeStatus:1 Quantity:0 Level:4 Sort:7}","source":"main.go:46:main.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"mask={ID:5 Name:一套医用口罩 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png PrizeStatus:1 Quantity:0 Level:5 Sort:2}","source":"main.go:46:main.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"again={ID:6 Name:再来一次 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:6 Sort:5}","source":"main.go:46:main.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"thank={ID:7 Name:谢谢参与 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:7 Sort:4}","source":"main.go:46:main.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"Lucky InitPrizeList ------------------","source":"main.go:46:main.main","time":"2020-07-08T10:52:17+08:00"}
+2020/7/8 上午10:52:17{"level":"debug","msg":"HowMuch:1","source":"main.go:48:main.main","time":"2020-07-08T10:52:17+08:00"}
+
+
+
+
+日志: miaozhui-nginx-miaozhui-lottery-2
+注意: 此容器运行时带有TTY(-t)参数，仅有合并的标准输出和标准错误日志可见
+2020/7/8 上午11:01:23{"level":"debug","msg":"LuckyHome 收到请求消息. lotteryservice.luckyhome _INBOX.DPXOYMe55qtdPls0x5tgiU.oThjOLAH {182 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:23+08:00"}
+2020/7/8 上午11:01:23{"level":"debug","msg":"get prizes from Redis list=[{ID:1 Name:特斯拉 Model3 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png ImageUrl2:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png PrizeStatus:1 Quantity:10 Level:1 Sort:1} {ID:5 Name:一套医用口罩 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png PrizeStatus:1 Quantity:0 Level:5 Sort:2} {ID:2 Name:iPhone 11 Pro ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png PrizeStatus:1 Quantity:200 Level:2 Sort:3} {ID:7 Name:谢谢参与 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:7 Sort:4} {ID:6 Name:再来一次 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:6 Sort:5} {ID:3 Name:小米手环4 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/xiaomiprize.png PrizeStatus:1 Quantity:1000 Level:3 Sort:6} {ID:4 Name:秒追定制礼盒 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/liheprize.png PrizeStatus:1 Quantity:0 Level:4 Sort:7}]","source":"luckyhome.go:28:service.LuckyHome","time":"2020-07-08T11:01:23+08:00"}
+2020/7/8 上午11:01:23{"level":"debug","msg":"LargePrizes prizeNum=100 list=[{ObjectIdHex(\"\") 182 0  0    特斯拉 Model3 0  0}]","source":"lottery_repo.go:242:repository.(*mzLotteryRepo).LargePrizes","time":"2020-07-08T11:01:23+08:00"}
+2020/7/8 上午11:01:23{"level":"debug","msg":"[redis get function] keys: [UserInfo:185:182]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-07-08T11:01:23+08:00"}
+2020/7/8 上午11:01:23{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:57:service.LuckyHome","time":"2020-07-08T11:01:23+08:00"}
+2020/7/8 上午11:01:23{"level":"debug","msg":"GetUserRemain from Redis userId=182 remain=999","source":"luckyhome.go:80:service.LuckyHome","time":"2020-07-08T11:01:23+08:00"}
+2020/7/8 上午11:01:23{"level":"debug","msg":"LuckyHome 消息处理完成. lotteryservice.luckyhome _INBOX.DPXOYMe55qtdPls0x5tgiU.oThjOLAH {0 SUCCESS prizeDate:\u003cPrizeId:1 Name:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png\" \u003e prizeDate:\u003cPrizeId:5 Name:\"\\344\\270\\200\\345\\245\\227\\345\\214\\273\\347\\224\\250\\345\\217\\243\\347\\275\\251\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png\" \u003e prizeDate:\u003cPrizeId:2 Name:\"iPhone 11 Pro\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png\" \u003e prizeDate:\u003cPrizeId:7 Name:\"\\350\\260\\242\\350\\260\\242\\345\\217\\202\\344\\270\\216\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png\" \u003e prizeDate:\u003cPrizeId:6 Name:\"\\345\\206\\215\\346\\235\\245\\344\\270\\200\\346\\254\\241\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png\" \u003e prizeDate:\u003cPrizeId:3 Name:\"\\345\\260\\217\\347\\261\\263\\346\\211\\213\\347\\216\\2574\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png\" \u003e prizeDate:\u003cPrizeId:4 Name:\"\\347\\247\\222\\350\\277\\275\\345\\256\\232\\345\\210\\266\\347\\244\\274\\347\\233\\222\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png\" \u003e prizeDate:\u003cPrizeId:1 Name:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png\" \u003e hotUser:\u003cuser_name:\"\\346\\236\\253\" prizename:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" \u003e LeftNum:999  {} [] 775}","source":"luckyhome.go:92:service.LuckyHome","time":"2020-07-08T11:01:23+08:00"}
+2020/7/8 上午11:01:24{"level":"debug","msg":"Lucky 收到请求消息. lotteryservice.lucky _INBOX.DPXOYMe55qtdPls0x5tgiU.aiUhYmhl {182 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:24+08:00"}
+2020/7/8 上午11:01:24{"level":"debug","msg":"GetUserRemain from Redis userId=182 remain=999","source":"lucky.go:135:service.Lucky","time":"2020-07-08T11:01:24+08:00"}
+2020/7/8 上午11:01:24{"level":"debug","msg":"SetLockLotteryUser 设置redis分布式锁key=lottery:lock:user:182 success","source":"lucky.go:153:service.Lucky","time":"2020-07-08T11:01:24+08:00"}
+2020/7/8 上午11:01:24{"level":"error","msg":"updatePowerAgainRemain 用户剩余抽奖次数不足","source":"asm_amd64.s:1357:runtime.goexit","time":"2020-07-08T11:01:24+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"CountDistinctUser len(userIds)=100000","source":"lottery_repo.go:77:repository.(*mzLotteryRepo).GetLotteryTotalUsers","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"CountUserJoinTimesByUserId userId=182 count=95","source":"lottery_repo.go:202:repository.(*mzLotteryRepo).GetUserJoin","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"CountWinPrizeByPrizeId prizeId=1 count=1","source":"lottery_repo.go:212:repository.(*mzLotteryRepo).CountWinPrize","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"CountWinPrizeByPrizeId prizeId=2 count=0","source":"lottery_repo.go:212:repository.(*mzLotteryRepo).CountWinPrize","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"CountUserGainTimesByUserId userId=182 count=1","source":"lottery_repo.go:207:repository.(*mzLotteryRepo).GetUserGain","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"Lucky 进入抽奖流程 userJoinTimes=95","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"Lucky 进入抽奖流程 userGainTimes=1","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"Lucky lucky branch userJoinTimes 大于 50 lucky","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"Lucky lucky tslCount=1 iphoneCount=0 totalUsers=100000 userId=182","source":"lucky.go:239:service.Lucky","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"GetPrizeStep from Redis key=lottery:step:tsl num=1","source":"lottery_repo.go:399:repository.(*mzLotteryRepo).LockTslOrIphone","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"IncrPrizeStep 成功 key=lottery:step:tsl num=1","source":"lottery_repo.go:422:repository.(*mzLotteryRepo).LockTslOrIphone","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"Lucky lucky branch3 prizeId=1","source":"lucky.go:239:service.Lucky","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"IsUserWinTslOrIphone 用户中过特斯拉或iPhone count=1","source":"lucky.go:581:service.lucky","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"IncrPrizeStep 成功 key=lottery:step:tsl num=-1","source":"lottery_repo.go:426:repository.(*mzLotteryRepo).UnLockTslOrIphone","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"Lucky lucky prizeId=7","source":"lucky.go:239:service.Lucky","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"Lucky 发奖 thankId resp.Data.PrizeId=7","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"UnLockLotteryUser 删除redis分布式锁key=lottery:lock:user:182 success","source":"lucky.go:354:service.Lucky","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"Lucky 消息处理完成. lotteryservice.lucky _INBOX.DPXOYMe55qtdPls0x5tgiU.aiUhYmhl {0 SUCCESS PrizeId:7 PrizeName:\"\\350\\260\\242\\350\\260\\242\\345\\217\\202\\344\\270\\216\" LeftNum:998 ReceiveId:\"SN15941772850378059832xyP5j\" PrizeLevel:7  {} [] 61}","source":"lucky.go:354:service.Lucky","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"收到请求消息. lotteryservice.lotterytimes _INBOX.DPXOYMe55qtdPls0x5tgiU.7AUaHqeH {182 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"GetUserRemain from Redis userId=182 remain=998","source":"lottery_times.go:21:service.LotteryTimes","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:25{"level":"debug","msg":"消息处理完成. lotteryservice.lotterytimes_INBOX.DPXOYMe55qtdPls0x5tgiU.7AUaHqeH{0 SUCCESS Times:998  {} [] 14}","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:25+08:00"}
+2020/7/8 上午11:01:47{"level":"debug","msg":"收到请求消息. lotteryservice.taskdone _INBOX.DPXOYMe55qtdPls0x5tgiU.pWOdtxel {580 2 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:47+08:00"}
+2020/7/8 上午11:01:47{"level":"info","msg":"sql/app/repository/task_repo.go:18676.344µsSELECT * FROM `mz_task`  WHERE (`mz_task`.`id` = 2) ORDER BY `mz_task`.`id` ASC LIMIT 1[] 1","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-07-08T11:01:47+08:00"}
+2020/7/8 上午11:01:47{"level":"info","msg":"sql/app/repository/task_repo.go:73900.174µsSELECT * FROM `mz_task_user`  WHERE (update_time \u003e ?) AND (`mz_task_user`.`task_id` = ?) AND (`mz_task_user`.`user_id` = ?) ORDER BY `mz_task_user`.`id` ASC LIMIT 1[2020-07-08 2 580] 1","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-07-08T11:01:47+08:00"}
+2020/7/8 上午11:01:47{"level":"warning","msg":"task completed","source":"value.go:321:reflect.Value.Call","time":"2020-07-08T11:01:47+08:00"}
+2020/7/8 上午11:01:47{"level":"debug","msg":"消息处理完成. lotteryservice.taskdone_INBOX.DPXOYMe55qtdPls0x5tgiU.pWOdtxel{50102 internal err ; task completed \u003cnil\u003e {} [] 35}","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:47+08:00"}
+2020/7/8 上午11:01:55{"level":"debug","msg":"收到请求消息. lotteryservice.lotterytimes _INBOX.DPXOYMe55qtdPls0x5tgiU.WeIuNHIs {281 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:55+08:00"}
+2020/7/8 上午11:01:55{"level":"debug","msg":"GetUserRemain from Redis userId=281 remain=0","source":"lottery_times.go:21:service.LotteryTimes","time":"2020-07-08T11:01:55+08:00"}
+2020/7/8 上午11:01:55{"level":"debug","msg":"消息处理完成. lotteryservice.lotterytimes_INBOX.DPXOYMe55qtdPls0x5tgiU.WeIuNHIs{0 SUCCESS  {} [] 11}","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:01:55+08:00"}
+2020/7/8 上午11:02:00{"level":"error","msg":"修改抽奖凭据状态失败. error: 'ids' can not empty","source":"cron.go:67:service.(*cronHandler).Run","time":"2020-07-08T11:02:00+08:00"}
+2020/7/8 上午11:02:00{"level":"error","msg":"[cron] setLotteryPowerStatus fail. error: 'ids' can not empty","source":"cron.go:307:v3.(*Cron).startJob.func1","time":"2020-07-08T11:02:00+08:00"}
+2020/7/8 上午11:02:14{"level":"debug","msg":"LuckyHome 收到请求消息. lotteryservice.luckyhome _INBOX.DPXOYMe55qtdPls0x5tgiU.z9cqmWba {449 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-07-08T11:02:14+08:00"}
+2020/7/8 上午11:02:14{"level":"debug","msg":"get prizes from Redis list=[{ID:1 Name:特斯拉 Model3 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png ImageUrl2:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/model3prize.png PrizeStatus:1 Quantity:10 Level:1 Sort:1} {ID:5 Name:一套医用口罩 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/kouzhaoprize.png PrizeStatus:1 Quantity:0 Level:5 Sort:2} {ID:2 Name:iPhone 11 Pro ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/iphoneprize.png PrizeStatus:1 Quantity:200 Level:2 Sort:3} {ID:7 Name:谢谢参与 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:7 Sort:4} {ID:6 Name:再来一次 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png ImageUrl2: ImagePrizeUrl: PrizeStatus:1 Quantity:0 Level:6 Sort:5} {ID:3 Name:小米手环4 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/xiaomiprize.png PrizeStatus:1 Quantity:1000 Level:3 Sort:6} {ID:4 Name:秒追定制礼盒 ImageUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png ImageUrl2: ImagePrizeUrl:https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/prize/liheprize.png PrizeStatus:1 Quantity:0 Level:4 Sort:7}]","source":"luckyhome.go:28:service.LuckyHome","time":"2020-07-08T11:02:14+08:00"}
+2020/7/8 上午11:02:14{"level":"debug","msg":"LargePrizes prizeNum=100 list=[{ObjectIdHex(\"\") 182 0  0    特斯拉 Model3 0  0}]","source":"lottery_repo.go:242:repository.(*mzLotteryRepo).LargePrizes","time":"2020-07-08T11:02:14+08:00"}
+2020/7/8 上午11:02:14{"level":"debug","msg":"[redis get function] keys: [UserInfo:185:182]","source":"user_repo.go:456:repository.(*mzUserInfoRepo).GetByUserId","time":"2020-07-08T11:02:14+08:00"}
+2020/7/8 上午11:02:14{"level":"debug","msg":"get user info from redis","source":"luckyhome.go:57:service.LuckyHome","time":"2020-07-08T11:02:14+08:00"}
+2020/7/8 上午11:02:14{"level":"debug","msg":"GetUserRemain from Redis userId=449 remain=3","source":"luckyhome.go:80:service.LuckyHome","time":"2020-07-08T11:02:14+08:00"}
+2020/7/8 上午11:02:14{"level":"debug","msg":"LuckyHome 消息处理完成. lotteryservice.luckyhome _INBOX.DPXOYMe55qtdPls0x5tgiU.z9cqmWba {0 SUCCESS prizeDate:\u003cPrizeId:1 Name:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png\" \u003e prizeDate:\u003cPrizeId:5 Name:\"\\344\\270\\200\\345\\245\\227\\345\\214\\273\\347\\224\\250\\345\\217\\243\\347\\275\\251\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/kouzhao.png\" \u003e prizeDate:\u003cPrizeId:2 Name:\"iPhone 11 Pro\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png\" \u003e prizeDate:\u003cPrizeId:7 Name:\"\\350\\260\\242\\350\\260\\242\\345\\217\\202\\344\\270\\216\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/henyihan.png\" \u003e prizeDate:\u003cPrizeId:6 Name:\"\\345\\206\\215\\346\\235\\245\\344\\270\\200\\346\\254\\241\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/zailaiyici.png\" \u003e prizeDate:\u003cPrizeId:3 Name:\"\\345\\260\\217\\347\\261\\263\\346\\211\\213\\347\\216\\2574\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png\" \u003e prizeDate:\u003cPrizeId:4 Name:\"\\347\\247\\222\\350\\277\\275\\345\\256\\232\\345\\210\\266\\347\\244\\274\\347\\233\\222\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png\" \u003e prizeDate:\u003cPrizeId:1 Name:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3blue.png\" \u003e hotUser:\u003cuser_name:\"\\346\\236\\253\" prizename:\"\\347\\211\\271\\346\\226\\257\\346\\213\\211 Model3\" \u003e LeftNum:3  {} [] 774}","source":"luckyhome.go:92:service.LuckyHome","time":"2020-07-08T11:02:14+08:00"}
+已连接
+
+

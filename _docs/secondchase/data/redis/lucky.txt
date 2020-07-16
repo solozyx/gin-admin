@@ -1,0 +1,26 @@
+
+db.mgo_user_lottery.remove({})
+db.mgo_user_prize.remove({})
+
+db.mgo_user_lottery.validate(true)
+db.mgo_user_prize.validate(true)
+
+get lottery:step:tsl
+get lottery:step:iphone
+
+hget lottery:remain:userid_0 272
+hset lottery:remain:userid_0 272 1
+
+del lottery:step:tsl
+del lottery:step:iphone
+
+172.17.132.191:7001> hset lottery:remain:userid_0 272 1
+(integer) 1
+172.17.132.191:7001> hget lottery:remain:userid_0 272
+"1"
+172.17.132.191:7001> hget lottery:remain:userid_0 272
+"0"
+172.17.132.191:7001>
+
+db.mgo_user_lottery.distinct("user_id")
+db.mgo_user_lottery.distinct("user_id").length

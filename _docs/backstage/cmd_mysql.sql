@@ -131,3 +131,5 @@ alter table `bs_role` add UNIQUE KEY unique_index_name_orgid(`name`,`organizatio
 
 alter table `bs_user_role` drop KEY `index_userid_roleid`;
 alter table `bs_user_role` add UNIQUE KEY unique_index_userid_roleid(`user_id`,`role_id`);
+
+alter table `bs_intention` add UNIQUE KEY unique_index_orgid_intention(`organization_id`,`intention`);

@@ -1,0 +1,235 @@
+
+func (p *mzProductRepo) Get(id int) (*model.MzProduct, error) {
+   hashKey := "buy:product"
+   productKey := strconv.Itoa(id)
+   product := model.MzProduct{}
+
+   str, err := p.rds.HGet(hashKey, productKey).Result()
+
+   if err == redis.Nil {
+      // redis无该缓存
+      logrus.Debugf("product_%d cache not exist", id)
+      err = p.db.Where("id=? AND product_status=?", id, model.ProductStatusNormal).First(&product).Error
+      if err != nil {
+         logrus.Errorf("Get id=%d from MySQL error=%v", id, err.Error())
+         return nil, err
+      }
+      // set cache
+      val, err := json.Marshal(&product)
+      if err != nil {
+         logrus.Errorf("json.Marshal product=%+v error=%v", product, err.Error())
+         return &product, nil
+      }
+      err = p.rds.HSet(hashKey, productKey, val).Err()
+      if err != nil {
+         logrus.Errorf("set product=%+v cache error=%v", product, err.Error())
+         return &product, nil
+      }
+      logrus.Debugf("Get product_id=%d from MySQL", id)
+      return &product, nil
+   } else if err != nil {
+      // redis网络错误
+      logrus.Errorf("product_%d get cache error=%v", id, err.Error())
+      err = p.db.Where("id=? AND product_status=?", id, model.ProductStatusNormal).First(&product).Error
+      if err != nil {
+         logrus.Errorf("Get id=%d from MySQL error=%v", id, err.Error())
+         return nil, err
+      }
+      logrus.Debugf("Get product_id=%d from MySQL", id)
+      return &product, nil
+   }
+
+   // 无需判断json.Unmarshal是否错误
+   _ = json.Unmarshal([]byte(str), &product)
+   logrus.Debugf("Get product_id=%d from Redis", id)
+   return &product, nil
+}
+
+[第一次]
+2020/6/9 下午5:27:33{"level":"debug","msg":"ProductDetail 收到注册请求消息. buyservice.buyproductdetail _INBOX.WGMyMvrYSbOQX6TZZTRG1K.0JijJxc3 {1 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-09T17:27:33+08:00"}
+2020/6/9 下午5:27:33{"level":"debug","msg":"product_1 cache not exist","source":"online_mall.go:32:service.ProductDetail","time":"2020-06-09T17:27:33+08:00"}
+2020/6/9 下午5:27:33{"level":"info","msg":"sql/app/repository/product_repo.go:311.999934msSELECT * FROM `mz_product`  WHERE (id=? AND product_status=?) ORDER BY `mz_product`.`id` ASC LIMIT 1[1 1] 1","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-06-09T17:27:33+08:00"}
+2020/6/9 下午5:27:33{"level":"debug","msg":"Get product_id=1 from MySQL","source":"online_mall.go:32:service.ProductDetail","time":"2020-06-09T17:27:33+08:00"}
+2020/6/9 下午5:27:33{"level":"debug","msg":"ProductDetail 消息处理完成. buyservice.buyproductdetail _INBOX.WGMyMvrYSbOQX6TZZTRG1K.0JijJxc3 {0 SUCCESS ProductId:1 Name:\"\\345\\260\\217\\347\\261\\263 Redmi Note8 \\345\\260\\217\\351\\207\\221\\345\\210\\232\\345\\223\\201\\350\\264\\250\\344\\277\\235\\350\\257\\201 \\351\\253\\230\\351\\200\\232\\351\\252\\201\\351\\276\\231665 4800\\344\\270\\207\\345\\205\\250\\345\\234\\272\\346\\231\\257\\345\\233\\233\\346\\221\\204\" OriginalPrice:\"1299.00\" PresentPrice:\"999.00\" Freight:\"10.00\" ThumbImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png\" Type:1 ShipAddress:\"\\345\\214\\227\\344\\272\\254\" SaleSupport:\"\\345\\256\\230\\346\\226\\271\\346\\216\\210\\346\\235\\203 \\347\\247\\222\\350\\277\\275\\347\\233\\264\\345\\217\\221 \\345\\201\\207\\344\\270\\200\\350\\265\\224\\345\\233\\233 \\345\\223\\201\\350\\264\\250\\344\\277\\235\\350\\257\\201\" SoldCount:100 Sku:\"\\345\\260\\217\\351\\207\\221\\345\\210\\232, 4GB+64GB\" Reward:5  {} [] 485}","source":"online_mall.go:61:service.ProductDetail","time":"2020-06-09T17:27:33+08:00"}
+
+172.17.132.191:7001> hget lottery:buy:product 1
+(nil)
+172.17.132.191:7001>
+172.17.132.191:7001>
+172.17.132.191:7001> hget lottery:buy:product 1
+"{
+    \"id\":1,
+    \"name\":\"\xe5\xb0\x8f\xe7\xb1\xb3 Redmi Note8 \xe5\xb0\x8f\xe9\x87\x91\xe5\x88\x9a\xe5\x93\x81\xe8\xb4\xa8\xe4\xbf\x9d\xe8\xaf\x81 \xe9\xab\x98\xe9\x80\x9a\xe9\xaa\x81\xe9\xbe\x99665 4800\xe4\xb8\x87\xe5\x85\xa8\xe5\x9c\xba\xe6\x99\xaf\xe5\x9b\x9b\xe6\x91\x84\",
+    \"quantity\":100,
+    \"original_price\":129900,
+    \"present_price\":99900,
+    \"freight\":1000,
+    \"sort\":1,
+    \"thumb_image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png\",
+    \"image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png\",\"banner_urls\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png,https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png\",
+    \"sku\":\"\xe5\xb0\x8f\xe9\x87\x91\xe5\x88\x9a, 4GB+64GB\",
+    \"type\":1,
+    \"product_status\":1,
+    \"ship_address\":\"\xe5\x8c\x97\xe4\xba\xac\",
+    \"sale_support\":\"\xe5\xae\x98\xe6\x96\xb9\xe6\x8e\x88\xe6\x9d\x83 \xe7\xa7\x92\xe8\xbf\xbd\xe7\x9b\xb4\xe5\x8f\x91 \xe5\x81\x87\xe4\xb8\x80\xe8\xb5\x94\xe5\x9b\x9b \xe5\x93\x81\xe8\xb4\xa8\xe4\xbf\x9d\xe8\xaf\x81\",
+    \"description\":\"\",\"reward\":5,
+    \"created_at\":\"2020-06-04T15:11:12+08:00\",
+    \"updated_at\":\"2020-06-09T11:31:12+08:00\"
+}"
+172.17.132.191:7001>
+
+[第2次]
+2020/6/9 下午5:28:26{"level":"debug","msg":"ProductDetail 收到注册请求消息. buyservice.buyproductdetail _INBOX.WGMyMvrYSbOQX6TZZTRG1K.BURp8OlH {1 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-09T17:28:26+08:00"}
+2020/6/9 下午5:28:26{"level":"debug","msg":"Get product_id=1 from Redis","source":"online_mall.go:32:service.ProductDetail","time":"2020-06-09T17:28:26+08:00"}
+2020/6/9 下午5:28:26{"level":"debug","msg":"ProductDetail 消息处理完成. buyservice.buyproductdetail _INBOX.WGMyMvrYSbOQX6TZZTRG1K.BURp8OlH {0 SUCCESS ProductId:1 Name:\"\\345\\260\\217\\347\\261\\263 Redmi Note8 \\345\\260\\217\\351\\207\\221\\345\\210\\232\\345\\223\\201\\350\\264\\250\\344\\277\\235\\350\\257\\201 \\351\\253\\230\\351\\200\\232\\351\\252\\201\\351\\276\\231665 4800\\344\\270\\207\\345\\205\\250\\345\\234\\272\\346\\231\\257\\345\\233\\233\\346\\221\\204\" OriginalPrice:\"1299.00\" PresentPrice:\"999.00\" Freight:\"10.00\" ThumbImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png\" ImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png\" Type:1 ShipAddress:\"\\345\\214\\227\\344\\272\\254\" SaleSupport:\"\\345\\256\\230\\346\\226\\271\\346\\216\\210\\346\\235\\203 \\347\\247\\222\\350\\277\\275\\347\\233\\264\\345\\217\\221 \\345\\201\\207\\344\\270\\200\\350\\265\\224\\345\\233\\233 \\345\\223\\201\\350\\264\\250\\344\\277\\235\\350\\257\\201\" SoldCount:100 Sku:\"\\345\\260\\217\\351\\207\\221\\345\\210\\232, 4GB+64GB\" Reward:5  {} [] 485}","source":"online_mall.go:61:service.ProductDetail","time":"2020-06-09T17:28:26+08:00"}
+
+
+{
+    "Code": 0,
+    "Msg": "SUCCESS",
+    "Data": {
+        "ProductId": 1,
+        "Name": "小米 Redmi Note8 小金刚品质保证 高通骁龙665 4800万全场景四摄",
+        "OriginalPrice": "1299.00",
+        "PresentPrice": "999.00",
+        "Freight": "10.00",
+        "ThumbImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/model3.png",
+        "ImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/iphone.png",
+        "BannerUrls": [
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/xiaomi.png",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/lottery/lihe.png"
+        ],
+        "Type": 1,
+        "ShipAddress": "北京",
+        "SaleSupport": "官方授权 秒追直发 假一赔四 品质保证",
+        "Description": "",
+        "SoldCount": 100,
+        "Sku": "小金刚, 4GB+64GB",
+        "Reward": 5
+    }
+}
+
+172.17.132.191:7001> hdel lottery:buy:product 1
+(integer) 1
+172.17.132.191:7001>
+
+
+{
+    "Code": 0,
+    "Msg": "SUCCESS",
+    "Data": {
+        "ProductId": 1,
+        "Name": "小米小爱音箱 Pro",
+        "OriginalPrice": "299.00",
+        "PresentPrice": "1.00",
+        "ThumbImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg",
+        "ImageUrls": [
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/1.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/2.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/3.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/4.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/5.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/6.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/7.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/8.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/9.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/10.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/11.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/12.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/13.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/14.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/15.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/16.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/17.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/18.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/19.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/20.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/21.jpg"
+        ],
+        "BannerUrls": [
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/2.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/3.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/4.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/5.jpg"
+        ],
+        "Type": 1,
+        "ShipAddress": "北京",
+        "SaleSupport": "官方授权 秒追直发 假一赔四 正品保证",
+        "Description": "",
+        "SoldCount": 1029,
+        "Sku": "\"750mL超大音腔容积 / AUX IN 支持有线连接 / 组合立体声 / 专业级DTS音效 / Hi-Fi级音频芯片 / 支持红外遥控传统家电 / 蓝牙Mesh网关\"",
+        "Reward": 2,
+        "MzPid": "MZ0101",
+        "Category": "小米/音响"
+    }
+}
+
+2020/6/12 上午11:57:07{"level":"debug","msg":"ProductDetail 收到注册请求消息. buyservice.buyproductdetail _INBOX.r2vIHvD3Oz9EUD53NQU9YB.y0JI1llY {1 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-12T11:57:07+08:00"}
+2020/6/12 上午11:57:07{"level":"debug","msg":"product_1 cache not exist","source":"online_mall.go:32:service.ProductDetail","time":"2020-06-12T11:57:07+08:00"}
+2020/6/12 上午11:57:07{"level":"info","msg":"sql/app/repository/product_repo.go:311.577907msSELECT * FROM `mz_product`  WHERE (id=? AND product_status=?) ORDER BY `mz_product`.`id` ASC LIMIT 1[1 1] 1","source":"scope.go:1045:gorm.(*Scope).trace","time":"2020-06-12T11:57:07+08:00"}
+2020/6/12 上午11:57:07{"level":"debug","msg":"Get product_id=1 from MySQL","source":"online_mall.go:32:service.ProductDetail","time":"2020-06-12T11:57:07+08:00"}
+2020/6/12 上午11:57:07{"level":"debug","msg":"ProductDetail 消息处理完成. buyservice.buyproductdetail _INBOX.r2vIHvD3Oz9EUD53NQU9YB.y0JI1llY {0 SUCCESS ProductId:1 Name:\"\\345\\260\\217\\347\\261\\263\\345\\260\\217\\347\\210\\261\\351\\237\\263\\347\\256\\261 Pro\" OriginalPrice:\"299.00\" PresentPrice:\"1.00\" ThumbImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/1.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/2.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/3.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/4.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/5.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/6.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/7.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/8.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/9.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/10.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/11.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/12.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/13.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/14.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/15.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/16.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/17.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/18.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/19.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/20.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/21.jpg\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/2.jpg\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/3.jpg\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/4.jpg\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/5.jpg\" Type:1 ShipAddress:\"\\345\\214\\227\\344\\272\\254\" SaleSupport:\"\\345\\256\\230\\346\\226\\271\\346\\216\\210\\346\\235\\203 \\347\\247\\222\\350\\277\\275\\347\\233\\264\\345\\217\\221 \\345\\201\\207\\344\\270\\200\\350\\265\\224\\345\\233\\233 \\346\\255\\243\\345\\223\\201\\344\\277\\235\\350\\257\\201\" SoldCount:1029 Sku:\"\\\"750mL\\350\\266\\205\\345\\244\\247\\351\\237\\263\\350\\205\\224\\345\\256\\271\\347\\247\\257 / AUX IN \\346\\224\\257\\346\\214\\201\\346\\234\\211\\347\\272\\277\\350\\277\\236\\346\\216\\245 / \\347\\273\\204\\345\\220\\210\\347\\253\\213\\344\\275\\223\\345\\243\\260 / \\344\\270\\223\\344\\270\\232\\347\\272\\247DTS\\351\\237\\263\\346\\225\\210 / Hi-Fi\\347\\272\\247\\351\\237\\263\\351\\242\\221\\350\\212\\257\\347\\211\\207 / \\346\\224\\257\\346\\214\\201\\347\\272\\242\\345\\244\\226\\351\\201\\245\\346\\216\\247\\344\\274\\240\\347\\273\\237\\345\\256\\266\\347\\224\\265 / \\350\\223\\235\\347\\211\\231Mesh\\347\\275\\221\\345\\205\\263\\\"\" Reward:2 MzPid:\"MZ0101\" Category:\"\\345\\260\\217\\347\\261\\263/\\351\\237\\263\\345\\223\\215\"  {} [] 2393}","source":"online_mall.go:62:service.ProductDetail","time":"2020-06-12T11:57:07+08:00"}
+
+
+172.17.132.191:7001> hget lottery:buy:product 1
+"{\"id\":1,\"name\":\"\xe5\xb0\x8f\xe7\xb1\xb3\xe5\xb0\x8f\xe7\x88\xb1\xe9\x9f\xb3\xe7\xae\xb1 Pro\",\"original_price\":29900,\"present_price\":100,\"sort\":1,\"thumb_image_url\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg\",\"image_urls\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/2.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/3.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/4.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/5.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/6.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/7.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/8.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/9.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/10.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/11.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/12.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/13.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/14.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/15.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/16.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/17.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/18.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/19.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/20.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/21.jpg\",\"banner_urls\":\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/2.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/3.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/4.jpg,https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/5.jpg\",\"sku\":\"\\\"750mL\xe8\xb6\x85\xe5\xa4\xa7\xe9\x9f\xb3\xe8\x85\x94\xe5\xae\xb9\xe7\xa7\xaf / AUX IN \xe6\x94\xaf\xe6\x8c\x81\xe6\x9c\x89\xe7\xba\xbf\xe8\xbf\x9e\xe6\x8e\xa5 / \xe7\xbb\x84\xe5\x90\x88\xe7\xab\x8b\xe4\xbd\x93\xe5\xa3\xb0 / \xe4\xb8\x93\xe4\xb8\x9a\xe7\xba\xa7DTS\xe9\x9f\xb3\xe6\x95\x88 / Hi-Fi\xe7\xba\xa7\xe9\x9f\xb3\xe9\xa2\x91\xe8\x8a\xaf\xe7\x89\x87 / \xe6\x94\xaf\xe6\x8c\x81\xe7\xba\xa2\xe5\xa4\x96\xe9\x81\xa5\xe6\x8e\xa7\xe4\xbc\xa0\xe7\xbb\x9f\xe5\xae\xb6\xe7\x94\xb5 / \xe8\x93\x9d\xe7\x89\x99Mesh\xe7\xbd\x91\xe5\x85\xb3\\\"\",\"type\":1,\"product_status\":1,\"ship_address\":\"\xe5\x8c\x97\xe4\xba\xac\",\"sale_support\":\"\xe5\xae\x98\xe6\x96\xb9\xe6\x8e\x88\xe6\x9d\x83 \xe7\xa7\x92\xe8\xbf\xbd\xe7\x9b\xb4\xe5\x8f\x91 \xe5\x81\x87\xe4\xb8\x80\xe8\xb5\x94\xe5\x9b\x9b \xe6\xad\xa3\xe5\x93\x81\xe4\xbf\x9d\xe8\xaf\x81\",\"description\":\"\",\"reward\":2,\"sold_count\":1029,\"mz_pid\":\"MZ0101\",\"category\":\"\xe5\xb0\x8f\xe7\xb1\xb3/\xe9\x9f\xb3\xe5\x93\x8d\",\"created_at\":\"2020-06-04T15:11:12+08:00\",\"updated_at\":\"2020-06-12T11:22:03+08:00\"}"
+172.17.132.191:7001>
+
+
+2020/6/12 上午11:58:16{"level":"debug","msg":"ProductDetail 收到注册请求消息. buyservice.buyproductdetail _INBOX.r2vIHvD3Oz9EUD53NQU9YB.7lwEABfr {1 {} [] 0}","source":"value.go:460:reflect.Value.call","time":"2020-06-12T11:58:16+08:00"}
+2020/6/12 上午11:58:16{"level":"debug","msg":"Get product_id=1 from Redis","source":"online_mall.go:32:service.ProductDetail","time":"2020-06-12T11:58:16+08:00"}
+2020/6/12 上午11:58:16{"level":"debug","msg":"ProductDetail 消息处理完成. buyservice.buyproductdetail _INBOX.r2vIHvD3Oz9EUD53NQU9YB.7lwEABfr {0 SUCCESS ProductId:1 Name:\"\\345\\260\\217\\347\\261\\263\\345\\260\\217\\347\\210\\261\\351\\237\\263\\347\\256\\261 Pro\" OriginalPrice:\"299.00\" PresentPrice:\"1.00\" ThumbImageUrl:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/1.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/2.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/3.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/4.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/5.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/6.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/7.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/8.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/9.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/10.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/11.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/12.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/13.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/14.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/15.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/16.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/17.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/18.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/19.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/20.jpg\" ImageUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/21.jpg\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/2.jpg\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/3.jpg\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/4.jpg\" BannerUrls:\"https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/5.jpg\" Type:1 ShipAddress:\"\\345\\214\\227\\344\\272\\254\" SaleSupport:\"\\345\\256\\230\\346\\226\\271\\346\\216\\210\\346\\235\\203 \\347\\247\\222\\350\\277\\275\\347\\233\\264\\345\\217\\221 \\345\\201\\207\\344\\270\\200\\350\\265\\224\\345\\233\\233 \\346\\255\\243\\345\\223\\201\\344\\277\\235\\350\\257\\201\" SoldCount:1029 Sku:\"\\\"750mL\\350\\266\\205\\345\\244\\247\\351\\237\\263\\350\\205\\224\\345\\256\\271\\347\\247\\257 / AUX IN \\346\\224\\257\\346\\214\\201\\346\\234\\211\\347\\272\\277\\350\\277\\236\\346\\216\\245 / \\347\\273\\204\\345\\220\\210\\347\\253\\213\\344\\275\\223\\345\\243\\260 / \\344\\270\\223\\344\\270\\232\\347\\272\\247DTS\\351\\237\\263\\346\\225\\210 / Hi-Fi\\347\\272\\247\\351\\237\\263\\351\\242\\221\\350\\212\\257\\347\\211\\207 / \\346\\224\\257\\346\\214\\201\\347\\272\\242\\345\\244\\226\\351\\201\\245\\346\\216\\247\\344\\274\\240\\347\\273\\237\\345\\256\\266\\347\\224\\265 / \\350\\223\\235\\347\\211\\231Mesh\\347\\275\\221\\345\\205\\263\\\"\" Reward:2 MzPid:\"MZ0101\" Category:\"\\345\\260\\217\\347\\261\\263/\\351\\237\\263\\345\\223\\215\"  {} [] 2393}","source":"online_mall.go:62:service.ProductDetail","time":"2020-06-12T11:58:16+08:00"}
+
+
+{
+    "Code": 0,
+    "Msg": "SUCCESS",
+    "Data": {
+        "ProductId": 1,
+        "Name": "小米小爱音箱 Pro",
+        "OriginalPrice": "299.00",
+        "PresentPrice": "1.00",
+        "ThumbImageUrl": "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg",
+        "ImageUrls": [
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/1.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/2.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/3.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/4.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/5.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/6.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/7.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/8.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/9.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/10.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/11.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/12.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/13.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/14.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/15.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/16.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/17.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/18.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/19.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/20.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/detail/21.jpg"
+        ],
+        "BannerUrls": [
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/1.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/2.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/3.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/4.jpg",
+            "https://secondschased.oss-cn-beijing.aliyuncs.com/goods/mz0101/main/5.jpg"
+        ],
+        "Type": 1,
+        "ShipAddress": "北京",
+        "SaleSupport": "官方授权 秒追直发 假一赔四 正品保证",
+        "Description": "",
+        "SoldCount": 1029,
+        "Sku": "\"750mL超大音腔容积 / AUX IN 支持有线连接 / 组合立体声 / 专业级DTS音效 / Hi-Fi级音频芯片 / 支持红外遥控传统家电 / 蓝牙Mesh网关\"",
+        "Reward": 2,
+        "MzPid": "MZ0101",
+        "Category": "小米/音响"
+    }
+}
+

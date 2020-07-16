@@ -1,0 +1,44 @@
+
+{
+    "PageNo": 1,
+    "PageSize":5
+}
+{
+    "Code": 0,
+    "Msg": "SUCCESS",
+    "Data": {
+        "List": [
+            {
+                "PrizeLevel": 2,
+                "PrizeName": "iPhone 11 Pro",
+                "CreateAt": "2020.06.18",
+                "UserName": "MZ***HJ"
+            },
+            ...
+        ],
+        "HasMore": true
+    }
+}
+
+
+
+{
+    "PageNo": 1,
+    "PageSize":27
+}
+{
+    "Code": 0,
+    "Msg": "SUCCESS",
+    "Data": {
+        "List": [
+            {
+                "PrizeLevel": 2,
+                "PrizeName": "iPhone 11 Pro",
+                "CreateAt": "2020.06.18",
+                "UserName": "MZ***HJ"
+            },
+            ...
+        ]
+        "HasMore": false
+    }
+}
