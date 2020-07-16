@@ -133,3 +133,4 @@ alter table `bs_user_role` drop KEY `index_userid_roleid`;
 alter table `bs_user_role` add UNIQUE KEY unique_index_userid_roleid(`user_id`,`role_id`);
 
 alter table `bs_intention` add UNIQUE KEY unique_index_orgid_intention(`organization_id`,`intention`);
+ALTER TABLE `bs_intention` ADD `creator_id` int(11) NOT NULL DEFAULT '0' COMMENT '创建人id' AFTER `intention`;
