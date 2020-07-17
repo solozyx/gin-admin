@@ -18,6 +18,8 @@ mysql> show tables;
 mysql>
 
 
+[角色]
+
 mysql> select id,record_id,name,sequence,memo,status,creator from g_role;
 +----+--------------------------+-------+----------+-------+--------+---------+
 | id | record_id                | name  | sequence | memo  | status | creator |
@@ -28,6 +30,7 @@ mysql> select id,record_id,name,sequence,memo,status,creator from g_role;
 mysql>
 
 
+[角色列表]
 
 mysql> select id,record_id,role_id,menu_id,action_id from g_role_menu;
 +----+--------------------------+--------------------------+--------------------------+--------------------------+
@@ -45,6 +48,8 @@ mysql> select id,record_id,role_id,menu_id,action_id from g_role_menu;
 mysql>
 
 
+[用户]
+
 mysql> select id,record_id,user_name,real_name,password,email,phone,status,creator from g_user;
 +----+--------------------------+-----------+-----------+------------------------------------------+-------+-------+--------+---------+
 | id | record_id                | user_name | real_name | password                                 | email | phone | status | creator |
@@ -55,6 +60,8 @@ mysql> select id,record_id,user_name,real_name,password,email,phone,status,creat
 mysql>
 
 
+[用户角色]
+
 mysql> select id,record_id,user_id,role_id from g_user_role;
 +----+--------------------------+--------------------------+--------------------------+
 | id | record_id                | user_id                  | role_id                  |
@@ -64,6 +71,8 @@ mysql> select id,record_id,user_id,role_id from g_user_role;
 1 row in set (0.03 sec)
 mysql>
 
+
+[菜单]
 
 mysql> select id,record_id,name,sequence,icon,router,parent_id,parent_path,show_status,status,memo,creator from g_menu;
 +----+--------------------------+---------------+----------+-----------+---------------+--------------------------+--------------------------+-------------+--------+------+---------+
@@ -81,6 +90,7 @@ mysql>
 
 
 
+[菜单操作]
 
 mysql> select id,record_id,menu_id,code,name from g_menu_action;
 +----+--------------------------+--------------------------+---------+--------+
@@ -115,7 +125,7 @@ mysql> select id,record_id,menu_id,code,name from g_menu_action;
 mysql>
 
 
-
+[操作权限]
 
 mysql> select id,record_id,action_id,method,path from g_menu_action_resource;
 +----+--------------------------+--------------------------+--------+---------------------------+
@@ -160,7 +170,7 @@ mysql>
 
 
 
-
+[demo]
 
 mysql> select id,record_id,code,name,memo,status,creator from g_demo;
 +----+--------------------------+-------+-------+-------+--------+--------------------------+

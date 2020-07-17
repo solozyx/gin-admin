@@ -134,3 +134,14 @@ alter table `bs_user_role` add UNIQUE KEY unique_index_userid_roleid(`user_id`,`
 
 alter table `bs_intention` add UNIQUE KEY unique_index_orgid_intention(`organization_id`,`intention`);
 ALTER TABLE `bs_intention` ADD `creator_id` int(11) NOT NULL DEFAULT '0' COMMENT '创建人id' AFTER `intention`;
+
+alter table `bs_menu` add UNIQUE KEY unique_index_title(`title`);
+
+ALTER TABLE `bs_permission` ADD `menu_id` int(11) NOT NULL DEFAULT '0' COMMENT '菜单id' AFTER `name`;
+ALTER TABLE `bs_permission` ADD `button_id` int(11) NOT NULL DEFAULT '0' COMMENT '按钮id' AFTER `name`;
+
+RENAME TABLE `bs_button` TO `bs_element`;
+
+alter table bs_permission change `button_id` `element_id` int(11) NOT NULL DEFAULT '0' COMMENT 'UI元素id';
+
+ALTER TABLE `bs_element` ADD `ui_type` int(11) NOT NULL DEFAULT '0' COMMENT 'UI元素类型' AFTER `menu_id`;
