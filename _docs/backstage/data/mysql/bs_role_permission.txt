@@ -76,6 +76,7 @@ mysql>
 
 
 
+
 mysql> select * from bs_role_permission where role_id<>1 and role_id<>2 and role_id<>15;
 +----+---------+---------------+--------+------------+---------------------+---------------------+
 | id | role_id | permission_id | status | creator_id | created_at          | updated_at          |

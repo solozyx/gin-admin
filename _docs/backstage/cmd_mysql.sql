@@ -145,3 +145,5 @@ RENAME TABLE `bs_button` TO `bs_element`;
 alter table bs_permission change `button_id` `element_id` int(11) NOT NULL DEFAULT '0' COMMENT 'UI元素id';
 
 ALTER TABLE `bs_element` ADD `ui_type` int(11) NOT NULL DEFAULT '0' COMMENT 'UI元素类型' AFTER `menu_id`;
+
+ALTER TABLE `bs_menu` ADD `level` int(11) NOT NULL DEFAULT '0' COMMENT '菜单级别' AFTER `title`;
