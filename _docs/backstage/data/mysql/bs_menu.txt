@@ -1,102 +1,51 @@
 
-select * from bs_menu;
 
-insert bs_menu (title,parent_id) values ('账户中心',0);
-insert bs_menu (title,parent_id) values ('账户信息',1);
-insert bs_menu (title,parent_id) values ('修改邮箱',1);
-insert bs_menu (title,parent_id) values ('修改电话',1);
-insert bs_menu (title,parent_id) values ('修改密码',1);
 
-insert bs_menu (title,parent_id) values ('知识库',0);
-insert bs_menu (title,parent_id) values ('语料列表',6);
-insert bs_menu (title,parent_id) values ('新增语料',6);
+
+insert bs_menu (title,level,parent_id) values
+('成员管理',1,0),
+('成员权限',2,1),
+('成员编辑',2,1),
+('成员日志',2,1),
+('知识库',1,0),
+('创作中心',1,0),
+('审核中心',1,0),
+('语料文本审核',2,7),
+('3D数字人审核',2,7);
+
+insert bs_menu (title,level,parent_id,public) values ('个人日志',1,0,1);
+
+insert bs_menu (title,level,parent_id,public) values ('demo1',2,10,1);
 
 
 mysql> select * from bs_menu;
-+----+--------------+-------+-----------+
-| id | title        | level | parent_id |
-+----+--------------+-------+-----------+
-|  1 | 账户中心     |     1 |         0 |
-|  2 | 账户信息     |     2 |         1 |
-|  3 | 修改邮箱     |     2 |         1 |
-|  4 | 修改电话     |     2 |         1 |
-|  5 | 修改密码     |     2 |         1 |
-|  6 | 知识库       |     1 |         0 |
-|  8 | 语料列表     |     2 |         6 |
-|  9 | 新增语料     |     2 |         6 |
-+----+--------------+-------+-----------+
-8 rows in set (0.00 sec)
++----+--------------------+-------+-----------+--------+
+| id | title              | level | parent_id | public |
++----+--------------------+-------+-----------+--------+
+|  1 | 成员管理           |     1 |         0 |      0 |
+|  2 | 成员权限           |     2 |         1 |      0 |
+|  3 | 成员编辑           |     2 |         1 |      0 |
+|  4 | 成员日志           |     2 |         1 |      0 |
+|  5 | 知识库             |     1 |         0 |      0 |
+|  6 | 创作中心           |     1 |         0 |      0 |
+|  7 | 审核中心           |     1 |         0 |      0 |
+|  8 | 语料文本审核       |     2 |         7 |      0 |
+|  9 | 3D数字人审核       |     2 |         7 |      0 |
+| 10 | 个人日志           |     1 |         0 |      1 |
+| 11 | demo1              |     2 |        10 |      1 |
++----+--------------------+-------+-----------+--------+
+11 rows in set (0.00 sec)
 mysql>
-
-
-update bs_menu set level=1 where id=1 or id=6;
-update bs_menu set level=2 where id<>1 and id<>6;
-
-select * from bs_element;
-
-insert bs_element (title,menu_id) values ('新增',8);
 
 
 mysql> select * from bs_element;
 +----+--------------+---------+---------+
 | id | title        | menu_id | ui_type |
 +----+--------------+---------+---------+
-|  1 | 新增         |       8 |       0 |
-|  2 | 批量新增     |       8 |       0 |
-|  3 | 导出文件     |       8 |       0 |
-|  4 | 批量删除     |       8 |       0 |
-|  5 | 新增意图     |       9 |       0 |
-|  6 | 意图列表     |       9 |       0 |
+|  1 | 角色管理     |       2 |       0 |
 +----+--------------+---------+---------+
-6 rows in set (0.00 sec)
+1 row in set (0.00 sec)
 mysql>
 
-// 渲染菜单 1级菜单+2级菜单+3级UI元素 (菜单和元素均有权限操作)
-	//menu1s := make([]*model.Menu, 0)
-	//menu2s := make([]*model.Menu, 0)
-	//elements := make([]*model.Element, 0)
-	//
-	//logrus.Debugf("list=%+v",list)
-	//
-	//for _, perm := range list {
-	//	if perm.MenuId > 0 {
-	//		menu, err := BsMenuRepo.GetById(perm.MenuId)
-	//		if err != nil {
-	//			return "", err
-	//		}
-	//		if menu.Level == model.MenuLevelOne {
-	//			menu1s = append(menu1s, menu)
-	//		} else if menu.Level == model.MenuLevelTwo {
-	//			menu2s = append(menu2s,menu)
-	//		}
-	//	} else if perm.ElementId > 0 {
-	//		element, err := BsElementRepo.GetById(perm.ElementId)
-	//		if err != nil {
-	//			return "", err
-	//		}
-	//		elements = append(elements, element)
-	//		menu,err := BsMenuRepo.GetById(element.MenuId)
-	//		if err != nil {
-	//			return "", err
-	//		}
-	//		if menu.Level == model.MenuLevelOne {
-	//			menu1s = append(menu1s, menu)
-	//		} else if menu.Level == model.MenuLevelTwo {
-	//			menu2s = append(menu2s,menu)
-	//		}
-	//	}
-	//}
-	//
-	//logrus.Debugf("menu1s=%+v",menu1s)
-	//for _,menu1 := range menu1s {
-	//	logrus.Debugf("menu1=%+v",menu1)
-	//}
-	//logrus.Debugf("menu2s=%+v",menu2s)
-	//for _,menu2 := range menu2s {
-	//	logrus.Debugf("menu2=%+v",menu2)
-	//}
-	//logrus.Debugf("elements=%+v",elements)
-	//for _,element := range elements {
-	//	logrus.Debugf("element=%+v",element)
-	//}
+insert bs_element (title,menu_id,ui_type) values('角色管理',2,0);
 

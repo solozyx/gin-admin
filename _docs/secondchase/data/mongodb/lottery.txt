@@ -84,3 +84,6 @@ db.mgo_user_prize.find({prize_id:{$lt:6},status:1})
 
 中实物奖未领取
 db.mgo_user_prize.find({prize_id:{$lt:6},status:0})
+
+mongodb 导出语句
+mongoexport  -d MzDB -c mgo_receive_prize --type=csv  -f prize_id,user_id,receivepeoplename,contact,area,address -o list1.csv
