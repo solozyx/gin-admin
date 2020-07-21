@@ -78,3 +78,9 @@ db.mgo_user_prize.insert({
 })
 
 db.mgo_user_prize.find({prize_id:6}).count()
+
+中实物奖已领取
+db.mgo_user_prize.find({prize_id:{$lt:6},status:1})
+
+中实物奖未领取
+db.mgo_user_prize.find({prize_id:{$lt:6},status:0})
