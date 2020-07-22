@@ -337,3 +337,5 @@ CREATE TABLE `mz_prize` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='奖品表';
 
+
+select deviceCode from mz_user where deviceCode IN (select deviceCode from mz_user  group by deviceCode HAVING count(deviceCode)>1 );

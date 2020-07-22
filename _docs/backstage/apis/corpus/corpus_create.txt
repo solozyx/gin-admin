@@ -1,14 +1,27 @@
 
 上海分行成员1
 
-d1395ef5051f2989158007c7a4f4de8e
+9e202721032cfd13ea799d11db9119a2
+
 {
 	"corpus_list": [
             {
-                "corpus_text": "语料1"
+            	"intention_id":1,
+            	"intention":"意图1",
+                "corpus_text": "语料1",
+                "audio_url":"https://www.obencn.com/audio/1",
+                "action":"动作1",
+                "face":"表情1",
+                "published_at":"2020-09-30T23:59:59+08:00"
             },
             {
-                "corpus_text": "语料2"
+                "intention_id":2,
+            	"intention":"意图2",
+                "corpus_text": "语料2",
+                "audio_url":"https://www.obencn.com/audio/2",
+                "action":"动作2",
+                "face":"表情2",
+                "published_at":"2020-09-30T23:59:59+08:00"
             }
 		]
 }
@@ -24,114 +37,23 @@ d1395ef5051f2989158007c7a4f4de8e
 corpus
 operate_log
 verify_code
-> db.corpus.find().pretty()
+> db.corpus.find().sort({_id:-1}).limit(2).pretty()
 {
-	"_id" : ObjectId("5f1021e96adcd6d3a4129b3e"),
-	"column:organization_id" : 3,
-	"column:department_id" : 0,
-	"column:type" : 0,
-	"column:intention" : "",
-	"column:pre_intention" : "",
-	"column:corpus_text" : "语料1",
-	"column:pre_corpus_text" : "",
-	"column:audio_url" : "",
-	"column:pre_audio_url" : "",
-	"column:action" : "",
-	"column:pre_action" : "",
-	"column:face" : "",
-	"column:pre_face" : "",
-	"column:audit_status" : 0,
-	"column:file" : "",
-	"column:creator_id" : 5,
-	"column:operator_id" : 0,
-	"column:operate_type" : 0,
-	"column:auditor_id" : 0,
-	"column:created_at" : "2020-07-16T17:46:17+08:00",
-	"column:updated_at" : "",
-	"column:published_at" : ""
-}
-{
-	"_id" : ObjectId("5f1021e96adcd6d3a4129b3f"),
-	"column:organization_id" : 3,
-	"column:department_id" : 0,
-	"column:type" : 0,
-	"column:intention" : "",
-	"column:pre_intention" : "",
-	"column:corpus_text" : "语料2",
-	"column:pre_corpus_text" : "",
-	"column:audio_url" : "",
-	"column:pre_audio_url" : "",
-	"column:action" : "",
-	"column:pre_action" : "",
-	"column:face" : "",
-	"column:pre_face" : "",
-	"column:audit_status" : 0,
-	"column:file" : "",
-	"column:creator_id" : 5,
-	"column:operator_id" : 0,
-	"column:operate_type" : 0,
-	"column:auditor_id" : 0,
-	"column:created_at" : "2020-07-16T17:46:17+08:00",
-	"column:updated_at" : "",
-	"column:published_at" : ""
-}
->
-
-
-> db.corpus.drop()
-true
->
-> show tables
-operate_log
-verify_code
->
-
-
-> show tables
-corpus
-operate_log
-verify_code
->
-> db.corpus.find().pretty()
-{
-	"_id" : ObjectId("5f1022fc6adcd6cab882c355"),
+	"_id" : ObjectId("5f17db906adcd65410680ec2"),
 	"organization_id" : 3,
 	"department_id" : 0,
 	"type" : 0,
-	"intention" : "",
-	"pre_intention" : "",
-	"corpus_text" : "语料1",
-	"pre_corpus_text" : "",
-	"audio_url" : "",
-	"pre_audio_url" : "",
-	"action" : "",
-	"pre_action" : "",
-	"face" : "",
-	"pre_face" : "",
-	"audit_status" : 0,
-	"file" : "",
-	"creator_id" : 5,
-	"operator_id" : 0,
-	"operate_type" : 0,
-	"auditor_id" : 0,
-	"created_at" : "2020-07-16T17:50:52+08:00",
-	"updated_at" : "",
-	"published_at" : ""
-}
-{
-	"_id" : ObjectId("5f1022fc6adcd6cab882c356"),
-	"organization_id" : 3,
-	"department_id" : 0,
-	"type" : 0,
-	"intention" : "",
+	"intention_id" : 2,
+	"pre_intention_id" : 0,
+	"intention" : "意图2",
 	"pre_intention" : "",
 	"corpus_text" : "语料2",
 	"pre_corpus_text" : "",
-	"audio_url" : "",
+	"audio_url" : "https://www.obencn.com/audio/2",
 	"pre_audio_url" : "",
-	"action" : "",
+	"action" : "动作2",
 	"pre_action" : "",
-	"face" : "",
+	"face" : "表情2",
 	"pre_face" : "",
 	"audit_status" : 0,
 	"file" : "",
@@ -139,16 +61,44 @@ verify_code
 	"operator_id" : 0,
 	"operate_type" : 0,
 	"auditor_id" : 0,
-	"created_at" : "2020-07-16T17:50:52+08:00",
+	"created_at" : "2020-07-22T14:24:16+08:00",
 	"updated_at" : "",
-	"published_at" : ""
+	"published_at" : "2020-09-30T23:59:59+08:00"
+}
+{
+	"_id" : ObjectId("5f17db906adcd65410680ec1"),
+	"organization_id" : 3,
+	"department_id" : 0,
+	"type" : 0,
+	"intention_id" : 1,
+	"pre_intention_id" : 0,
+	"intention" : "意图1",
+	"pre_intention" : "",
+	"corpus_text" : "语料1",
+	"pre_corpus_text" : "",
+	"audio_url" : "https://www.obencn.com/audio/1",
+	"pre_audio_url" : "",
+	"action" : "动作1",
+	"pre_action" : "",
+	"face" : "表情1",
+	"pre_face" : "",
+	"audit_status" : 0,
+	"file" : "",
+	"creator_id" : 5,
+	"operator_id" : 0,
+	"operate_type" : 0,
+	"auditor_id" : 0,
+	"created_at" : "2020-07-22T14:24:16+08:00",
+	"updated_at" : "",
+	"published_at" : "2020-09-30T23:59:59+08:00"
 }
 >
+
 
 
 > db.operate_log.find().sort({_id:-1}).limit(1).pretty()
 {
-	"_id" : ObjectId("5f1022fc6adcd6cab882c357"),
+	"_id" : ObjectId("5f17d99e6adcd66e0cfeb9cb"),
 	"user_id" : 5,
 	"real_name" : "上海分行成员1",
 	"organization_id" : 3,
@@ -158,47 +108,11 @@ verify_code
 	"method" : "POST",
 	"ip" : "127.0.0.1",
 	"hazard_level" : 0,
-	"created_at" : "2020-07-16T17:50:52+08:00"
+	"created_at" : "2020-07-22T14:15:58+08:00"
 }
 >
 
+> db.operate_log.find().count()
+113
+>
 
-
-mysql> use backstage
-Reading table information for completion of table and column names
-You can turn off this feature to get a quicker startup with -A
-
-Database changed
-mysql> show tables;
-+---------------------+
-| Tables_in_backstage |
-+---------------------+
-| bs_corpus           |
-| bs_department       |
-| bs_organization     |
-| bs_permission       |
-| bs_role             |
-| bs_role_permission  |
-| bs_user             |
-| bs_user_role        |
-+---------------------+
-8 rows in set (0.00 sec)
-
-mysql>
-mysql> drop table bs_corpus;
-Query OK, 0 rows affected (0.01 sec)
-
-mysql> show tables;
-+---------------------+
-| Tables_in_backstage |
-+---------------------+
-| bs_department       |
-| bs_organization     |
-| bs_permission       |
-| bs_role             |
-| bs_role_permission  |
-| bs_user             |
-| bs_user_role        |
-+---------------------+
-7 rows in set (0.00 sec)
-mysql>
