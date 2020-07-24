@@ -1,0 +1,137 @@
+
+上海分行成员1
+
+43a7fa1584afe4fa3da0ef172ef31cef
+
+{
+	"page_no":1,
+	"page_size":3,
+	"pre_audit_status":1,
+	"operate_type":1,
+	"corpus_text":"语料"
+}
+
+
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "total": 10,
+        "page_no": 1,
+        "page_size": 3,
+        "total_page": 4,
+        "list": [
+            {
+                "id": "5f1a8b496adcd696ec87ec52",
+                "organization_id": 3,
+                "department_id": 0,
+                "type": 0,
+                "intention_id": 1,
+                "pre_intention_id": 0,
+                "intention": "意图1",
+                "pre_intention": "",
+                "corpus_text": "语料1",
+                "pre_corpus_text": "",
+                "audio_url": "https://www.obencn.com/audio/1",
+                "pre_audio_url": "",
+                "action": "动作1",
+                "pre_action": "",
+                "face": "表情1",
+                "pre_face": "",
+                "status": 0,
+                "audit_status": 1,
+                "pre_audit_status": 1,
+                "file": "",
+                "creator_id": 5,
+                "operator_id": 0,
+                "operate_type": 1,
+                "auditor_id": 0,
+                "created_at": "2020-07-24T15:18:33+08:00",
+                "updated_at": "",
+                "published_at": "2020-09-30T23:59:59+08:00",
+                "pre_published_at": ""
+            },
+            {
+                "id": "5f1a8b496adcd696ec87ec53",
+                "organization_id": 3,
+                "department_id": 0,
+                "type": 0,
+                "intention_id": 2,
+                "pre_intention_id": 0,
+                "intention": "意图2",
+                "pre_intention": "",
+                "corpus_text": "语料2",
+                "pre_corpus_text": "",
+                "audio_url": "https://www.obencn.com/audio/2",
+                "pre_audio_url": "",
+                "action": "动作2",
+                "pre_action": "",
+                "face": "表情2",
+                "pre_face": "",
+                "status": 0,
+                "audit_status": 1,
+                "pre_audit_status": 1,
+                "file": "",
+                "creator_id": 5,
+                "operator_id": 0,
+                "operate_type": 1,
+                "auditor_id": 0,
+                "created_at": "2020-07-24T15:18:33+08:00",
+                "updated_at": "",
+                "published_at": "2020-09-30T23:59:59+08:00",
+                "pre_published_at": ""
+            },
+            {
+                "id": "5f1a8b496adcd696ec87ec54",
+                "organization_id": 3,
+                "department_id": 0,
+                "type": 0,
+                "intention_id": 3,
+                "pre_intention_id": 0,
+                "intention": "意图3",
+                "pre_intention": "",
+                "corpus_text": "语料3",
+                "pre_corpus_text": "",
+                "audio_url": "https://www.obencn.com/audio/3",
+                "pre_audio_url": "",
+                "action": "动作3",
+                "pre_action": "",
+                "face": "表情3",
+                "pre_face": "",
+                "status": 0,
+                "audit_status": 1,
+                "pre_audit_status": 1,
+                "file": "",
+                "creator_id": 5,
+                "operator_id": 0,
+                "operate_type": 1,
+                "auditor_id": 0,
+                "created_at": "2020-07-24T15:18:33+08:00",
+                "updated_at": "",
+                "published_at": "2020-09-30T23:59:59+08:00",
+                "pre_published_at": ""
+            }
+        ]
+    }
+}
+
+
+afaaf0e8cb8e3fcf61e058f1b657eea0
+{
+	"page_no":1,
+	"page_size":3,
+	"pre_audit_status":1,
+	"operate_type":2,
+	"corpus_text":"语料"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS",
+    "data": {
+        "total": 0,
+        "page_no": 1,
+        "page_size": 3,
+        "total_page": 0,
+        "list": []
+    }
+}

@@ -1,0 +1,40 @@
+
+7858038d7393466caae22d9cf7b768bc
+{
+	"corpus_ids":["5f19507b6adcd68d2427f56b","5f19507b6adcd68d2427f56a"],
+	"audit":"pass"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS"
+}
+
+> db.corpus.find().sort({_id:-1}).limit(2)
+{ "_id" : ObjectId("5f19507b6adcd68d2427f56b"), "organization_id" : 3, "department_id" : 0, "type" : 0, "intention_id" : 10, "pre_intention_id" : 1, "intention" : "意图10", "pre_intention" : "意图1new", "corpus_text" : "语料10", "pre_corpus_text" : "语料1new", "audio_url" : "https://www.obencn.com/audio/10", "pre_audio_url" : "https://www.obencn.com/audio/1new", "action" : "动作10", "pre_action" : "动作1new", "face" : "表情10", "pre_face" : "表情1new", "status" : 0, "audit_status" : 1, "pre_audit_status" : 1, "file" : "", "creator_id" : 5, "operator_id" : 5, "operate_type" : 3, "auditor_id" : 0, "created_at" : "2020-07-23T16:55:23+08:00", "updated_at" : "2020-07-23T17:00:01+08:00", "published_at" : "2020-09-30T23:59:59+08:00", "pre_published_at" : "2020-10-30T23:59:59+08:00" }
+{ "_id" : ObjectId("5f19507b6adcd68d2427f56a"), "organization_id" : 3, "department_id" : 0, "type" : 0, "intention_id" : 9, "pre_intention_id" : 0, "intention" : "意图9", "pre_intention" : "", "corpus_text" : "语料9", "pre_corpus_text" : "", "audio_url" : "https://www.obencn.com/audio/9", "pre_audio_url" : "", "action" : "动作10", "pre_action" : "", "face" : "表情10", "pre_face" : "", "status" : 0, "audit_status" : 1, "pre_audit_status" : 0, "file" : "", "creator_id" : 5, "operator_id" : 0, "operate_type" : 1, "auditor_id" : 0, "created_at" : "2020-07-23T16:55:23+08:00", "updated_at" : "", "published_at" : "2020-09-30T23:59:59+08:00", "pre_published_at" : "" }
+>
+>
+>
+>
+> db.corpus.find().sort({_id:-1}).limit(2)
+{ "_id" : ObjectId("5f19507b6adcd68d2427f56b"), "organization_id" : 3, "department_id" : 0, "type" : 0, "intention_id" : 1, "pre_intention_id" : 1, "intention" : "意图1new", "pre_intention" : "意图1new", "corpus_text" : "语料1new", "pre_corpus_text" : "语料1new", "audio_url" : "https://www.obencn.com/audio/1new", "pre_audio_url" : "https://www.obencn.com/audio/1new", "action" : "动作1new", "pre_action" : "动作1new", "face" : "表情1new", "pre_face" : "表情1new", "status" : 0, "audit_status" : 2, "pre_audit_status" : 2, "file" : "", "creator_id" : 5, "operator_id" : 5, "operate_type" : 3, "auditor_id" : 5, "created_at" : "2020-07-23T16:55:23+08:00", "updated_at" : "2020-07-23T17:02:21+08:00", "published_at" : "2020-10-30T23:59:59+08:00", "pre_published_at" : "2020-10-30T23:59:59+08:00" }
+{ "_id" : ObjectId("5f19507b6adcd68d2427f56a"), "organization_id" : 3, "department_id" : 0, "type" : 0, "intention_id" : 9, "pre_intention_id" : 0, "intention" : "意图9", "pre_intention" : "", "corpus_text" : "语料9", "pre_corpus_text" : "", "audio_url" : "https://www.obencn.com/audio/9", "pre_audio_url" : "", "action" : "动作10", "pre_action" : "", "face" : "表情10", "pre_face" : "", "status" : 0, "audit_status" : 2, "pre_audit_status" : 0, "file" : "", "creator_id" : 5, "operator_id" : 0, "operate_type" : 1, "auditor_id" : 5, "created_at" : "2020-07-23T16:55:23+08:00", "updated_at" : "2020-07-23T17:02:21+08:00", "published_at" : "2020-09-30T23:59:59+08:00", "pre_published_at" : "" }
+>
+
+
+
+
+1602c1596396cc4059536ddea8a9aeac
+{
+	"corpus_ids":["5f19507b6adcd68d2427f56b","5f19507b6adcd68d2427f56a"],
+	"audit":"reject"
+}
+{
+    "code": 0,
+    "msg": "SUCCESS"
+}
+
+> db.corpus.find().sort({_id:-1}).limit(2)
+{ "_id" : ObjectId("5f19507b6adcd68d2427f56b"), "organization_id" : 3, "department_id" : 0, "type" : 0, "intention_id" : 1, "pre_intention_id" : 1, "intention" : "意图1new", "pre_intention" : "意图1new", "corpus_text" : "语料1new", "pre_corpus_text" : "语料1new", "audio_url" : "https://www.obencn.com/audio/1new", "pre_audio_url" : "https://www.obencn.com/audio/1new", "action" : "动作1new", "pre_action" : "动作1new", "face" : "表情1new", "pre_face" : "表情1new", "status" : 0, "audit_status" : 3, "pre_audit_status" : 3, "file" : "", "creator_id" : 5, "operator_id" : 5, "operate_type" : 3, "auditor_id" : 5, "created_at" : "2020-07-23T16:55:23+08:00", "updated_at" : "2020-07-23T17:09:13+08:00", "published_at" : "2020-10-30T23:59:59+08:00", "pre_published_at" : "2020-10-30T23:59:59+08:00" }
+{ "_id" : ObjectId("5f19507b6adcd68d2427f56a"), "organization_id" : 3, "department_id" : 0, "type" : 0, "intention_id" : 9, "pre_intention_id" : 0, "intention" : "意图9", "pre_intention" : "", "corpus_text" : "语料9", "pre_corpus_text" : "", "audio_url" : "https://www.obencn.com/audio/9", "pre_audio_url" : "", "action" : "动作10", "pre_action" : "", "face" : "表情10", "pre_face" : "", "status" : 0, "audit_status" : 3, "pre_audit_status" : 0, "file" : "", "creator_id" : 5, "operator_id" : 0, "operate_type" : 1, "auditor_id" : 5, "created_at" : "2020-07-23T16:55:23+08:00", "updated_at" : "2020-07-23T17:09:13+08:00", "published_at" : "2020-09-30T23:59:59+08:00", "pre_published_at" : "" }
+>
