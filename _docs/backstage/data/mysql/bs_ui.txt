@@ -14,6 +14,7 @@ INSERT INTO `bs_ui` (`title`,`level`,`parent_id`,`ui_type`,`public`) VALUES
 ('3D数字人审核',2,8,1,0),
 ('个人日志',1,0,1,1);
 
+INSERT INTO `bs_ui` (`title`,`level`,`parent_id`,`ui_type`,`public`) VALUES ('角色管理',3,3,2,0);
 
 mysql> select * from bs_ui;
 +----+--------------------+-------+-----------+---------+--------+
@@ -30,9 +31,12 @@ mysql> select * from bs_ui;
 |  9 | 语料文本审核       |     2 |         8 |       1 |      0 |
 | 10 | 3D数字人审核       |     2 |         8 |       1 |      0 |
 | 11 | 个人日志           |     1 |         0 |       1 |      1 |
+| 12 | 角色管理           |     3 |         3 |       2 |      0 |
 +----+--------------------+-------+-----------+---------+--------+
-11 rows in set (0.00 sec)
+12 rows in set (0.00 sec)
 mysql>
+
+
 
 
 
