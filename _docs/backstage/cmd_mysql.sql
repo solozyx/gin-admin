@@ -150,3 +150,6 @@ ALTER TABLE `bs_element` ADD `ui_type` int(11) NOT NULL DEFAULT '0' COMMENT 'UI�
 
 ALTER TABLE `bs_menu` ADD `level` int(11) NOT NULL DEFAULT '0' COMMENT '菜单级别' AFTER `title`;
 ALTER TABLE `bs_menu` ADD `public` int(11) NOT NULL DEFAULT '0' COMMENT '公共菜单 0非公共 1公共' AFTER `parent_id`;
+
+alter table bs_permission drop column menu_id;
+alter table bs_permission drop column element_id;

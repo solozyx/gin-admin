@@ -21,5 +21,6 @@ mysql> select id,real_name,email,phone,user_status,creator_id,organization_id,de
 mysql>
 
 
+
 update bs_user set real_name='上海分行成员1',user_status=1, creator_id=3,organization_id=3,department_id=0 where id=5;
 
