@@ -16,6 +16,7 @@ mysql> select * from bs_role;
 mysql>
 
 
+
 select * from bs_role where role_status=1 and organization_id=0 or organization_id=2;
 select * from bs_role where role_status=1 and (organization_id=0 or organization_id=2);
 
