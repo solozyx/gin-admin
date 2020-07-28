@@ -159,3 +159,5 @@ ALTER TABLE `bs_ui` ADD `sort` int(11) NOT NULL DEFAULT '0' COMMENT '菜单排�
 
 ALTER TABLE `bs_ui` ADD `html_class` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'html class' AFTER `public`;
 ALTER TABLE `bs_ui` ADD `html_path` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'html path' AFTER `html_class`;
+
+alter table bs_ui drop column ui_type;

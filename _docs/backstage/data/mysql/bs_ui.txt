@@ -7,7 +7,6 @@ CREATE TABLE `bs_ui` (
   `sort` int(11) NOT NULL DEFAULT '0' COMMENT '菜单排序',
   `level` int(11) NOT NULL DEFAULT '0' COMMENT '级别 1级 2级 3级',
   `parent_id` int(11) NOT NULL DEFAULT '0' COMMENT '父级id',
-  `ui_type` int(11) NOT NULL DEFAULT '0' COMMENT 'UI元素类型 1菜单 2按钮',
   `public` int(11) NOT NULL DEFAULT '0' COMMENT '公共元素 0非公共 1公共',
   `html_class` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'html class',
   `html_path` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'html path',
@@ -15,43 +14,54 @@ CREATE TABLE `bs_ui` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='UI元素表';
 
 
-INSERT INTO `bs_ui` (`title`,`sort`,`level`,`parent_id`,`ui_type`,`public`,`html_class`,`html_path`) VALUES
-('首页',0,1,0,1,1,'',''),
-('数据中心',0,1,0,1,0,'',''),
-('成员管理',0,1,0,1,0,'',''),
-('成员权限',0,2,3,1,0,'',''),
-('角色管理',0,3,4,2,0,'',''),
-('成员编辑',0,2,3,1,0,'',''),
-('成员日志',0,2,3,1,0,'',''),
-('知识库',0,1,0,1,0,'',''),
-('创作中心',0,1,0,1,0,'',''),
-('审核中心',0,1,0,1,0,'',''),
-('语料文本审核',0,2,10,1,0,'',''),
-('3D数字人审核',0,2,10,1,0,'',''),
-('个人日志',0,1,0,1,1,'','');
 
 
+INSERT INTO `bs_ui` (`title`,`sort`,`level`,`parent_id`,`public`,`html_class`,`html_path`) VALUES
+('首页',0,1,0,1,'el-icon-s-home','/home'),
+('数据中心',0,1,0,0,'el-icon-data-analysis','/analysis'),
+('成员管理',0,1,0,0,'el-icon-s-custom','/member'),
+('成员权限',0,2,3,0,'','/member/jurisdiction'),
+('角色管理',0,3,4,0,'',''),
+('成员编辑',0,2,3,0,'','/member/edit'),
+('成员日志',0,2,3,0,'','/member/log'),
+('知识库',0,1,0,0,'el-icon-reading','/library'),
+('创作中心',0,1,0,0,'el-icon-notebook-1','/create'),
+('审核中心',0,1,0,0,'el-icon-s-check','/examine'),
+('语料文本审核',0,2,10,0,'','/member/corpus'),
+('3D数字人审核',0,2,10,0,'','/member/3d'),
+('个人日志',0,1,0,1,'','');
 
+
+update bs_ui set html_class="el-icon-s-home",html_path="/home" where id=1;
+update bs_ui set html_class="el-icon-data-analysis",html_path="/analysis" where id=2;
+update bs_ui set html_class="el-icon-s-custom",html_path="/member" where id=3;
+update bs_ui set html_class="",html_path="/member/jurisdiction" where id=4;
+update bs_ui set html_class="",html_path="/member/edit" where id=6;
+update bs_ui set html_class="",html_path="/member/log" where id=7;
+update bs_ui set html_class="el-icon-reading",html_path="/library" where id=8;
+update bs_ui set html_class="el-icon-notebook-1",html_path="/create" where id=9;
+update bs_ui set html_class="el-icon-s-check",html_path="/examine" where id=10;
+update bs_ui set html_class="",html_path="/member/corpus" where id=11;
+update bs_ui set html_class="",html_path="/member/3d" where id=12;
 
 
 mysql> select * from bs_ui;
-+----+--------------------+------+-------+-----------+---------+--------+------------+-----------+
-| id | title              | sort | level | parent_id | ui_type | public | html_class | html_path |
-+----+--------------------+------+-------+-----------+---------+--------+------------+-----------+
-|  1 | 首页               |    0 |     1 |         0 |       1 |      1 |            |           |
-|  2 | 数据中心           |    0 |     1 |         0 |       1 |      0 |            |           |
-|  3 | 成员管理           |    0 |     1 |         0 |       1 |      0 |            |           |
-|  4 | 成员权限           |    0 |     2 |         3 |       1 |      0 |            |           |
-|  5 | 角色管理           |    0 |     3 |         4 |       2 |      0 |            |           |
-|  6 | 成员编辑           |    0 |     2 |         3 |       1 |      0 |            |           |
-|  7 | 成员日志           |    0 |     2 |         3 |       1 |      0 |            |           |
-|  8 | 知识库             |    0 |     1 |         0 |       1 |      0 |            |           |
-|  9 | 创作中心           |    0 |     1 |         0 |       1 |      0 |            |           |
-| 10 | 审核中心           |    0 |     1 |         0 |       1 |      0 |            |           |
-| 11 | 语料文本审核       |    0 |     2 |        10 |       1 |      0 |            |           |
-| 12 | 3D数字人审核       |    0 |     2 |        10 |       1 |      0 |            |           |
-| 13 | 个人日志           |    0 |     1 |         0 |       1 |      1 |            |           |
-+----+--------------------+------+-------+-----------+---------+--------+------------+-----------+
++----+--------------------+------+-------+-----------+--------+-----------------------+----------------------+
+| id | title              | sort | level | parent_id | public | html_class            | html_path            |
++----+--------------------+------+-------+-----------+--------+-----------------------+----------------------+
+|  1 | 首页               |    0 |     1 |         0 |      1 | el-icon-s-home        | /home                |
+|  2 | 数据中心           |    0 |     1 |         0 |      0 | el-icon-data-analysis | /analysis            |
+|  3 | 成员管理           |    0 |     1 |         0 |      0 | el-icon-s-custom      | /member              |
+|  4 | 成员权限           |    0 |     2 |         3 |      0 |                       | /member/jurisdiction |
+|  5 | 角色管理           |    0 |     3 |         4 |      0 |                       |                      |
+|  6 | 成员编辑           |    0 |     2 |         3 |      0 |                       | /member/edit         |
+|  7 | 成员日志           |    0 |     2 |         3 |      0 |                       | /member/log          |
+|  8 | 知识库             |    0 |     1 |         0 |      0 | el-icon-reading       | /library             |
+|  9 | 创作中心           |    0 |     1 |         0 |      0 | el-icon-notebook-1    | /create              |
+| 10 | 审核中心           |    0 |     1 |         0 |      0 | el-icon-s-check       | /examine             |
+| 11 | 语料文本审核       |    0 |     2 |        10 |      0 |                       | /member/corpus       |
+| 12 | 3D数字人审核       |    0 |     2 |        10 |      0 |                       | /member/3d           |
+| 13 | 个人日志           |    0 |     1 |         0 |      1 |                       |                      |
++----+--------------------+------+-------+-----------+--------+-----------------------+----------------------+
 13 rows in set (0.00 sec)
 mysql>
-
