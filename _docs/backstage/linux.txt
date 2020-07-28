@@ -1,0 +1,12 @@
+
+mysqldump -u root -p secondchase mz_prize > mz_prize.sql
+
+mysqldump -u root -p backstage bs_role > bs_role.sql
+
+[zyx@iZ2ze09hymnzdkgokgaru0Z ~]$ mysqldump -u root -p backstage bs_role > bs_role.sql
+Enter password:
+[zyx@iZ2ze09hymnzdkgokgaru0Z ~]$ ls
+bs_role.sql
+[zyx@iZ2ze09hymnzdkgokgaru0Z ~]$
+
+
