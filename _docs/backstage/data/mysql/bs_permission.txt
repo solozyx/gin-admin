@@ -83,7 +83,7 @@ mysql> select * from bs_permission;
 | 15 | 用户角色列表       |     0 |           1 | POST   | /api/v1/user/rolelist      |          0 |      | 2020-05-29 11:22:27 | 2020-07-10 16:25:48 |
 | 16 | 用户权限列表       |     0 |           1 | POST   | /api/v1/user/permlist      |          0 |      | 2020-05-29 11:23:39 | 2020-07-10 16:26:17 |
 | 17 | 角色权限列表       |     0 |           1 | POST   | /api/v1/role/permlist      |          0 |      | 2020-05-29 11:24:12 | 2020-07-10 18:02:34 |
-| 18 | 导出成员           |     0 |           1 | POST   | /api/v1/user/export        |          0 |      | 2020-05-29 11:25:06 | 2020-07-13 15:54:01 |
+| 18 | 成员日志列表       |     0 |           1 | POST   | /api/v1/user/loglist       |          0 |      | 2020-05-29 11:25:06 | 2020-07-27 16:57:49 |
 | 19 | 导出成员日志       |     5 |           1 | POST   | /api/v1/user/exportlog     |          0 |      | 2020-05-29 11:25:37 | 2020-07-27 15:47:59 |
 | 20 | 成员编辑           |     0 |           1 | POST   | /api/v1/user/edit          |          0 |      | 2020-05-29 11:26:12 | 2020-07-13 15:54:32 |
 | 21 | 解冻成员           |     0 |           1 | POST   | /api/v1/user/enable        |          0 |      | 2020-05-29 11:26:40 | 2020-07-13 15:56:00 |
@@ -98,6 +98,8 @@ mysql> select * from bs_permission;
 +----+--------------------+-------+-------------+--------+----------------------------+------------+------+---------------------+---------------------+
 29 rows in set (0.00 sec)
 mysql>
+
+
 
 
 
@@ -124,7 +126,7 @@ INSERT INTO `bs_permission` (`name`,`perm_status`,`method`,`path`,`creator_id`,`
 VALUES ('demo',1,'POST','/api',0,'','2020-05-29 11:26:40','2020-07-13 15:56:00');
 
 
-update bs_permission set name='语料删除', perm_status=1,path='/api/v1/corpus/delete' where id=29;
+update bs_permission set name='成员日志列表', perm_status=1,path='/api/v1/user/loglist' where id=18;
 
 
 一级管理员root

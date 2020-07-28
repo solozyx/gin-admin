@@ -91,3 +91,11 @@
 }
 >
 
+
+> db.operate_log.find({"created_at" :{$gte:"2020-07-27T17:21:37+08:00"}}).sort({_id:-1}).count()
+1
+>
+> db.operate_log.find({"created_at" :{$lte:"2020-07-27T17:21:37+08:00"}}).sort({_id:-1}).count()
+146
+>
+
