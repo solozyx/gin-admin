@@ -153,3 +153,9 @@ ALTER TABLE `bs_menu` ADD `public` int(11) NOT NULL DEFAULT '0' COMMENT '公共�
 
 alter table bs_permission drop column menu_id;
 alter table bs_permission drop column element_id;
+
+
+ALTER TABLE `bs_ui` ADD `sort` int(11) NOT NULL DEFAULT '0' COMMENT '菜单排序' AFTER `title`;
+
+ALTER TABLE `bs_ui` ADD `html_class` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'html class' AFTER `public`;
+ALTER TABLE `bs_ui` ADD `html_path` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'html path' AFTER `html_class`;
