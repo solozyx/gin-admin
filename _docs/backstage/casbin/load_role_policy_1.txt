@@ -1,7 +1,0 @@
-
-2020/05/18 17:05:28 Policy:
-2020/05/18 17:05:28 p: sub, obj, act: [[1 /api/v1/permission/list GET] [1 /api/v1/role/create POST] [1 /api/v1/role/bindperm POST] [1 /api/v1/user/bindrole POST] [1 /api/v1/content/create POST] [1 /api/v1/content/edit POST] [1 /api/v1/content/audit POST] [1 /api/v1/content/publish POST] [1 /api/v1/permission/create POST] [1 /api/v1/permission/demo1 POST] [2 /api/v1/permission/list GET] [2 /api/v1/role/create POST] [2 /api/v1/role/bindperm POST] [2 /api/v1/user/bindrole POST] [2 /api/v1/content/create POST] [2 /api/v1/content/edit POST] [2 /api/v1/content/audit POST] [2 /api/v1/content/publish POST] [8 /api/v1/content/create POST] [8 /api/v1/content/edit POST] [9 /api/v1/content/audit POST] [9 /api/v1/content/publish POST] [10 /api/v1/content/create POST] [10 /api/v1/content/edit POST] [11 /api/v1/content/audit POST] [11 /api/v1/content/publish POST]]
-2020/05/18 17:05:28 g: _, _: [[1 1] [2 2] [2 10] [2 11] [2 12] [3 10] [4 11]]
-2020/05/18 17:05:28 Role links for: g
-2020/05/18 17:05:28 3 < 10, 4 < 11, 1 < 1, 2 < (2, 10, 11, 12)
-

@@ -1,4 +1,0 @@
-
-轩脉刃
-如何让gorm的日志按照我的格式进行输出
-https://blog.csdn.net/qq_42015552/article/details/90255750
